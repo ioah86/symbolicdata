@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<INTPS createdAt="2010-08-10" createdBy="graebe">
+<!-- $Id: Gerdt-93a.xml,v 1.1 2010/08/10 09:37:32 graebe Exp $ -->
+  <vars>h,l,s,z,y,x</vars>
+  <basis>
+    <poly>h*l-l^2-4*l*s+h*y</poly>
+    <poly>h^2*s-6*l*s^3+h^2*z</poly>
+    <poly>x*h^2-l^2*s-h^3</poly>
+  </basis>  
+  <Comment>
+    Modification of original example Gerdt-93.xml by changing one exponent,
+    introducing a new variable h. The example was considered with another
+    integer generator 
+    2*3*5*13*17*181 
+    2*3*5*13*17*31*181
+    2*3*5*13*17*31*37*181
+
+    Contributed by Stefan Steidel (Uni KL)
+  </Comment>
+</INTPS>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Exported with the Erfurt API - http://aksw.org/Projects/Erfurt -->
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY sd "http://hgg.ontowiki.net/SymbolicData/">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&sd;Person/"
+  xmlns:foaf="&foaf;"
+  xmlns:owl="&owl;"
+  xmlns:rdf="&rdf;"
+  xmlns:rdfs="&rdfs;"
+  xmlns:sd="&sd;"
+  xmlns:xsd="&xsd;">
+
+
+<!-- Ontology specific informations -->
+  <owl:Ontology rdf:about="&sd;Person/"
+    rdfs:label="SD Person Data">
+    <rdfs:comment>Contributors to the Symbolic Data Collection</rdfs:comment>
+  </owl:Ontology>
+
+<!-- Classes -->
+  <owl:Class rdf:about="&foaf;Group"
+    rdfs:label="Affiliations" />
+
+  <owl:Class rdf:about="&foaf;Person"
+    rdfs:label="People" />
+
+<!-- Instances and untyped data -->
+  <foaf:Group rdf:about="aachen"
+    rdfs:label="RTWH Aachen, Germany">
+    <sd:hasAddress>Department of Mathematics, RWTH Aachen, Germany</sd:hasAddress>
+  </foaf:Group>
+
+  <foaf:Person rdf:about="cioffi"
+    sd:hasContributed="Data: INTPS/Curves"
+    sd:hasEmail="cioffifr@unina.it"
+    sd:hasURLLiteral="http://cds.unina.it/~cioffifr"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Francesca Cioffi">
+    <sd:hasAffiliation rdf:resource="napoli" />
+  </foaf:Person>
+
+  <foaf:Person rdf:about="graebe"
+    sd:hasEmail="graebe@informatik.uni-leipzig.de"
+    sd:hasStatus="joined: 3/1999, active"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Hans-Gert Graebe">
+    <sd:hasAffiliation rdf:resource="leipzig" />
+    <sd:hasContributed>Perl tools: basic modules, Meta, BIB, References, Syntax,, SQL, GEO, Data: BIB, INTPS, GEO</sd:hasContributed>
+    <sd:hasURLLiteral>http://www.informatik.uni-leipzig.de/~graebe</sd:hasURLLiteral>
+  </foaf:Person>
+
+  <foaf:Person rdf:about="hannes"
+    sd:hasEmail="hannes@mathematik.uni-kl.de"
+    sd:hasURLLiteral="http://www.mathematik.uni-kl.de/~hannes"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Hans Schoenemann">
+    <sd:hasAffiliation rdf:resource="kaiserslautern" />
+    <sd:hasContributed>Perl tools: Compute, Adaption of GNU time</sd:hasContributed>
+  </foaf:Person>
+
+  <foaf:Person rdf:about="jcf"
+    sd:hasContributed="Data: INTPS"
+    sd:hasEmail="jcf@posso.lip6.fr"
+    sd:hasURLLiteral="http://posso.lip6.fr/~jcf"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Jean-Charles Faugere">
+    <sd:hasAffiliation rdf:resource="paris_VI" />
+  </foaf:Person>
+
+  <foaf:Group rdf:about="kaiserslautern"
+    rdfs:label="Univ. Kaiserslautern, Germany">
+    <sd:hasAddress>Centre for Computer Algebra, Department of Mathematics, University of Kaiserslautern, Erwin-Schroedinger-Strasse, 67663 Kaiserslautern, Germany</sd:hasAddress>
+  </foaf:Group>
+
+  <foaf:Group rdf:about="leipzig"
+    rdfs:label="Univ. Leipzig, Germany">
+    <sd:hasAddress>Univ. Leipzig, Inst. Informatik, Augustusplatz 10-11, D - 04109 Leipzig</sd:hasAddress>
+  </foaf:Group>
+
+  <foaf:Person rdf:about="levandovsky"
+    sd:hasContributed="Data: GAlgebra"
+    sd:hasEmail="levandov@math.rwth-aachen.de"
+    sd:hasStatus="joined: 7/2003"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Viktor Levandovskyy">
+    <sd:hasAffiliation rdf:resource="aachen" />
+    <sd:hasURLLiteral>http://www.math.rwth-aachen.de/~Viktor.Levandovskyy</sd:hasURLLiteral>
+  </foaf:Person>
+
+  <foaf:Person rdf:about="mbrickenstein"
+    sd:hasContributed="INTPS satlib examples"
+    sd:lastModified="2008-02-27"
+    rdfs:label="Michael Brickenstein">
+    <sd:hasAffiliation rdf:resource="kaiserslautern" />
+  </foaf:Person>
+
+  <foaf:Person rdf:about="mdengel"
+    sd:hasEmail="mdengel@math.uni-sb.de"
+    sd:hasStatus="joined: 10/1999, left: 9/2000"
+    sd:hasURLLiteral="http://loge.math.uni-sb.de/~dengel"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Michael Dengel">
+    <sd:hasAffiliation rdf:resource="saarbruecken" />
+    <sd:hasContributed>Perl tools: Html presentation, frames and JavaScript</sd:hasContributed>
+  </foaf:Person>
+
+  <foaf:Group rdf:about="napoli"
+    rdfs:label="Univ. di Napoli, Italy">
+    <sd:hasAddress>Dip. di Matematica e Applicazioni, Univ. di Napoli "Federico II", Via Cintia, 80126 Napoli, Italy</sd:hasAddress>
+  </foaf:Group>
+
+  <foaf:Person rdf:about="obachman"
+    sd:hasStatus="joined: 3/1999, left: 12/2000"
+    sd:lastModified="2010-12-29"
+    rdfs:label="Olaf Bachmann">
+    <sd:hasContributed>Perl tools: basic modules, Data, Record, INTPS, Html, Compute environment, Data: BIB, INTPS, Benchmark runs</sd:hasContributed>
+    <sd:hasURLLiteral>http://www.mathematik.uni-kl.de/~obachmann</sd:hasURLLiteral>
+  </foaf:Person>
+
+  <foaf:Group rdf:about="paris_VI"
+    rdfs:label="Univ. Paris VI, France">
+    <sd:hasAddress>Equipe CALFOR, LIP6/CNRS Universite&apos; Paris VI, case 168, 4 pl, Jussieu, F-75252 Paris Cedex 05, France</sd:hasAddress>
+  </foaf:Group>
+
+  <foaf:Person rdf:about="ramon"
+    sd:hasContributed="Data: TESTSETS"
+    sd:hasEmail="raymond@hemmecke.de"
+    sd:hasStatus="joined: 2/2002, active"
+    sd:hasURLLiteral="http://www.hemmecke.de/raymond"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Raymond Hemmecke" />
+
+  <foaf:Group rdf:about="saarbruecken"
+    rdfs:label="Uinv. Saarbruecken, Germany">
+    <sd:hasAddress>Department of Mathematics, University of Saarbruecken, 66041 Saarbruecken, Germany</sd:hasAddress>
+  </foaf:Group>
+
+  <foaf:Person rdf:about="steidel"
+    sd:hasContributed="Some INTPS examples"
+    sd:hasEmail="steidel@mathematik.uni-kl.de"
+    sd:lastModified="2010-12-29"
+    rdfs:label="Stefan Steidel">
+    <sd:hasAffiliation rdf:resource="kaiserslautern" />
+    <sd:hasURLLiteral>http://www.mathematik.uni-kl.de/~steidel</sd:hasURLLiteral>
+  </foaf:Person>
+
+  <foaf:Person rdf:about="wenk"
+    sd:hasEmail="wenk@mathematik.uni-kl.de"
+    sd:hasURLLiteral="http://www.mathematik.uni-kl.de/~wenk"
+    sd:lastModified="2004-08-26"
+    rdfs:comment="Student of Prof. Greuel"
+    rdfs:label="Moritz Wenk">
+    <sd:hasAffiliation rdf:resource="kaiserslautern" />
+  </foaf:Person>
+
+  <foaf:Person rdf:about="witte"
+    sd:hasContributed="Data: GEO/Chou"
+    sd:hasStatus="joined: 3/2000, left: 3/2001"
+    sd:lastModified="2004-08-26"
+    rdfs:label="Malte Witte" />
+
+</rdf:RDF>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY sd "http://hgg.ontowiki.net/SymbolicData/">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&sd;System/"
+  xmlns:foaf="&foaf;"
+  xmlns:owl="&owl;"
+  xmlns:rdf="&rdf;"
+  xmlns:rdfs="&rdfs;"
+  xmlns:sd="&sd;"
+  xmlns:xsd="&xsd;">
+
+
+<!-- Ontology specific informations -->
+  <owl:Ontology rdf:about="&sd;System/"
+    rdfs:label="SD SystemData">
+    <rdfs:comment>CA System Data</rdfs:comment>
+  </owl:Ontology>
+
+<!-- Classes --> 
+
+<owl:Class rdf:about="&sd;CAS" rdfs:label="CA System" />
+
+<!-- Instances and untyped data -->
+
+<sd:CAS rdf:about="Axiom" sd:lastUpdate="2010-12-29"> 
+  <sd:hasURLLiteral>http://axiom-developer.org</sd:hasURLLiteral>
+  <sd:hasLicense>BSD like license</sd:hasLicense>
+  <rdfs:comment></rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="CoCoa" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Research Team in Computer Algebra, Univ. Genova</sd:hasAuthor>
+  <sd:hasURLLiteral>http://cocoa.dima.unige.it</sd:hasURLLiteral>  
+  <sd:hasLicense>free</sd:hasLicense>
+  <rdfs:comment>A system for doing "Computations in Commutative
+  Algebra"</rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="Felix" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Joachim Apel</sd:hasAuthor>
+  <sd:hasAuthor>Uwe Klaus</sd:hasAuthor>
+  <sd:hasURLLiteral>http://felix.hgb-leipzig.de/</sd:hasURLLiteral> 
+  <rdfs:comment>Special computer algebra system for the computation in
+    commutative and non-commutative rings and modules</rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="GB" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Jean-Charles Faugere</sd:hasAuthor>
+  <sd:hasURLLiteral>http://www-salsa.lip6.fr/~jcf/Software/index.html</sd:hasURLLiteral> 
+  <rdfs:comment>A package to compute Groebner basis of ideals and to solve
+    systems of algebraic equations</rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="Macaulay2" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Daniel R. Grayson</sd:hasAuthor>
+  <sd:hasAuthor>Michael E. Stillman</sd:hasAuthor>
+  <sd:hasURLLiteral>http://www.math.uiuc.edu/Macaulay2</sd:hasURLLiteral> 
+  <rdfs:comment>A software system devoted to supporting research in algebraic
+    geometry and commutative algebra</rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="Magma" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Computational Algebra Group at the University of Sydney</sd:hasAuthor>
+  <sd:hasURLLiteral>http://www.maths.usyd.edu.au:8000/u/magma</sd:hasURLLiteral> 
+  <rdfs:comment>Computational Algebra System for Algebra, Number Theory and
+    Geometry</rdfs:comment>  
+</sd:CAS> 
+
+<sd:CAS rdf:about="Maple" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Waterloo Maple, Inc.</sd:hasAuthor>
+  <sd:hasLicense>commercial</sd:hasLicense>
+  <sd:hasURLLiteral>http://www.maplesoft.com</sd:hasURLLiteral> 
+  <rdfs:comment>General Purpose Computer Algebra System</rdfs:comment>  
+</sd:CAS> 
+
+<sd:CAS rdf:about="Mathematica" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Wolfram Research, Inc.</sd:hasAuthor>
+  <sd:hasLicense>commercial</sd:hasLicense>
+  <sd:hasURLLiteral>http://www.wolfram.com</sd:hasURLLiteral> 
+  <rdfs:comment>General Purpose Computer Algebra System</rdfs:comment>  
+</sd:CAS> 
+
+<sd:CAS rdf:about="MuPAD" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>MuPAD Research Group</sd:hasAuthor>
+  <sd:hasLicense>commercial</sd:hasLicense>
+  <sd:hasURLLiteral>http://www.mathworks.com/products/symbolic</sd:hasURLLiteral> 
+  <rdfs:comment>General Purpose Computer Algebra System, Symbolic Toolbox
+  within Matlab, http://www.mathworks.com</rdfs:comment>  
+</sd:CAS> 
+
+<sd:CAS rdf:about="Points" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Francesca Cioffi</sd:hasAuthor>
+  <sd:hasAuthor>Ferruccio Orecchia</sd:hasAuthor>
+  <sd:hasAuthor>Isabella Ramella</sd:hasAuthor>
+  <sd:hasLicense>GPL</sd:hasLicense>
+  <sd:hasURLLiteral>http://wpage.unina.it/cioffifr/EPoints.html</sd:hasURLLiteral> 
+  <rdfs:comment>Points intends to construct algorithms and to implement
+  sofwares concerning problems in Algebraic Geometry which need the
+  computation of the Hilbert Function or of minimal generators or of the
+  resolution of the ideal of a finite set of points.</rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="QPoints" sd:lastUpdate="2001-03-28"> 
+  <sd:hasAuthor>Francesca Cioffi</sd:hasAuthor>
+  <sd:hasAuthor>Ferruccio Orecchia</sd:hasAuthor>
+  <sd:hasAuthor>Isabella Ramella</sd:hasAuthor>
+  <sd:hasURLLiteral>http://cds.unina.it/~cioffifr/EPoints.html</sd:hasURLLiteral> 
+  <rdfs:comment>A software for computations related to points in projective
+    spaces over the field Q of rational numbers.</rdfs:comment>
+</sd:CAS> 
+
+<sd:CAS rdf:about="Reduce" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Anthony C. Hearn</sd:hasAuthor>
+  <sd:hasLicense>open source</sd:hasLicense>
+  <sd:hasURLLiteral>http://www.reduce-algebra.com</sd:hasURLLiteral> 
+  <rdfs:comment>General Purpose Computer Algebra System</rdfs:comment>  
+</sd:CAS> 
+
+<sd:CAS rdf:about="Singular" sd:lastUpdate="2010-12-29"> 
+  <sd:hasAuthor>Wolfram Decker</sd:hasAuthor>
+  <sd:hasAuthor>Gert-Martin Greueln</sd:hasAuthor>
+  <sd:hasAuthor>Gerhard Pfister</sd:hasAuthor>
+  <sd:hasAuthor>Hans Schönemann</sd:hasAuthor>
+  <sd:hasLicense>GPL</sd:hasLicense>
+  <sd:hasURLLiteral>http://www.singular.uni-kl.de</sd:hasURLLiteral> 
+  <rdfs:comment>A Computer Algebra System for Polynomial Computations</rdfs:comment>  
+</sd:CAS> 
+
+</rdf:RDF>

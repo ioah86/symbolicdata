@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<GAlgebra createdAt="2003-07-03" createdBy="levandovsky">
+  <vars>x,y,z</vars>
+  <commutators>[ D[1:2]=-z, D[1:3]=2*x, D[2:3]=-2*y ]</commutators>
+  <basis>
+    <poly>x^11</poly>
+    <poly>y^11</poly>
+    <poly>z^11-220*z^9+16368*z^7-489280*z^5+5395456*z^3-14745600*z</poly>
+  </basis>
+</GAlgebra>
