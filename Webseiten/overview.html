@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>Motivation, Main Ideas, Current State of SymbolicData</title>
+</head>
+<body background="SymbolicData_tile.jpg">
+
+<h1 align="center">Motivation, Main Ideas, Current State</h1>
+<H2 align="center"><i>About the SymbolicData Project</i></H2>
+<HR>
+
+<ul>
+<li> <a href="#Motivation">Motivation</a>
+<li> <a href="#Goals">Main Goals</a>
+<li> <a href="#State"> Current state</a>
+</ul>
+
+<p><hr>
+
+<h2 align="center"><a name="Motivation"> Motivation for the
+SymbolicData Project</h2>
+
+<p>For different purposes algorithms and implementations are
+<b>tested</b> on certified and reliable data. The development of tools
+and data for such tests is usually "orthogonal" to the main
+implementational efforts, it requires different skills and
+technologies and is not loved by programmers. On the other hand, in
+many cases tools and data could easily be reused - with slight
+modifications - across similar projects. The SymbolicData Project is
+set out to coordinate such efforts within the Computer Algebra
+Community.
+
+<p>Commonly collected certified and reliable data can also be used to
+compare otherwise incomparable approaches, algorithms, and
+implementations. <b>Benchmark suites</b> and <b>Challenges</b> for
+symbolic computations are not as well established as in other areas of
+computer science.  This is probably due to the fact that there are not
+yet well agreed aims of such a benchmarking.  Nevertheless various
+(often high quality) <i>special</i> benchmarks are scattered through
+the literature.
+
+<p>During the last years efforts toward collection of test data for
+symbolic computations were intensified. They focused mainly on the
+<i>creation of general benchmarks</i> for different areas of symbolic
+computation and the <i>collection of such activities</i> on different
+Web site.
+
+<p>For further qualification of these efforts it would be of great
+benefit to create a <b>commonly available digital archive</b> of these
+<i>special</i> benchmark data scattered through the literature.  This
+would provide the community with an electronic repository of certified
+data that could be addressed and extended during further development.
+
+<p><hr><p>
+
+<h2 align="center"><a name="Goals"> Main Goals </h2>
+
+With this motivation in mind the SymbolicData project has the
+following <b>three main goals</b>:
+
+<p>It will provide a framework and general tools
+<ol>
+<li>to collect data of examples from various areas of Computer Algebra 
+<ul>
+<li>
+in a systematic and uniform way together with related background
+information; 
+<li>
+in a form that conveniently allows to extend, manipulate, and
+categorize the collected data;
+<li>
+such that they can be extracted in a form readable by different
+Computer Algebra Software;
+<li>
+such that interrelations of the collected data can be specified;
+</ul>
+<li>to share best practice experience how to run test computations on
+these data, i.e., 
+<ul>
+<li>
+to prepare data for input to different Computer Algebra Software;
+<li>
+to set up, start, time, interrupt, and monitor the computations; 
+<li>
+to collect, analyse, and evaluate output data from these computations;
+</ul>
+<li>to run a net of Web sites that present data from the collection
+and results of test computations.
+</ol>
+
+<p><hr><p>
+
+<h2 align="center"><a name="State">Current State</a> </h2>
+
+<p>In a first stage we concentrated on the development of main design
+principles that allow for the necessary flexibility and extensibility.
+A first Perl implementation (2000-2003) was tested on collections of
+data from two areas of Computer Algebra: <b>Polynomial System
+Solving</b> and <b>Geometry Theorem Proving</b>.
+
+<p>With the growing importance of Semantic Web concepts the data
+presentation was refactored twice; first toward a true XML-based
+standard (2003-2005) and now (since 2006) to a mixture of OWL (for
+relational information) and XML (to store and address data resources).
+The data from <b>Polynomial System Solving</b> and <b>Geometry Theorem
+Proving</b> are available in the new format.
+
+<p>Applications to data from other areas of symbolic computations are
+intended.  For this, we seek the cooperation of persons and groups
+that have related data collections at their proposal, are willing to
+share them with the community and to spend some effort to translate
+these data into the proposed format.
+
+<!-- Footer:Start -->
+</body></html>
