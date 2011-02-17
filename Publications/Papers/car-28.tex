@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{a4wide,german,url}
+\newcommand{\SD}{{\sc Symbolic\-Data}}
+
+\begin{document}
+
+\section*{\centering Neues vom \SD-Projekt}
+
+\begin{center} 
+Hans-Gert Gr"abe (Leipzig)\footnote{published in
+``Computeralgebra-Rundbrief'' 28, March 2001}
+\end{center}
+
+Im CAR 26 (M"arz 2000) wurde das \SD-Projekt ausf"uhrlich vorgestellt,
+wobei der Schwerpunkt auf der Darstellung der Konzepte lag, nach denen
+die Datensammlung sowie die zugeh"origen Werkzeuge organisiert sind.
+
+Inzwischen haben wir die vorgestellten Konzepte weiter praktisch
+umgesetzt und insbesondere die Dokumentation grundlegend verbessert.
+Dazu entwarf und implementierte O.~Bachmann (Kaiserslautern) ein
+Konzept dynamischer Links, das es gestattet, "uber eine erweiterte
+HTML-Syntax neue Webseiten leicht in das bestehende
+Dokumentationsgef"uge einzubauen.  O.~Bachmann hat mit Wechsel seiner
+Arbeitsstelle das \SD-Projekt zum Ende 2000 verlassen.
+
+Von mir wurde die bereits im Konzept angelegte Trennung von Daten- und
+Programmteil (vgl. CAR 26) nun auch auf technischer Ebene realisiert,
+wodurch es m"oglich ist, dieselben Werkzeuge f"ur verschiedene Projekte
+zur Verwaltung symbolischer Informationen einzusetzen. Die jeweils
+verwendete Datenbasis kann dazu "uber den Wert einer Option eingestellt
+werden.  
+
+Zur Verwaltung symbolischer Daten kann zwar auch eine herk"ommliche
+Datenbank eingesetzt werden, jedoch erlaubt unser objekt-relationaler
+Ansatz zusammen mit der Flexibilit"at von Perl einen deutlich
+einfacheren Umgang mit ASCII-Quellen (bis hin zur M"oglichkeit, diese
+'in situ' zu korrigieren), so dass sich die \SD-Werkzeuge auch
+``artfremd'' (ich verwende sie zum Aufbau einer Literatur-Datenbank
+sowie beim Management von Olympiade-Aufgaben) einsetzen lassen.
+\medskip
+
+Die Resonanz auf unsere Arbeit innerhalb der CA-Gemeinde ist jedoch
+immer noch gering.  Ich weise deshalb noch einmal auf die Anliegen
+hin, die wir mit unserem Projekt verfolgen: 
+\begin{enumerate}
+\item[1.] Wir wollen die Bem"uhungen verschiedener Gruppen zur
+Erstellung von Perl-Werkzeugen zum Management digitaler symbolischer
+Daten aus verschiedenen Bereichen der Computeralgebra vereinigen.
+\end{enumerate}
+
+Wir gehen davon aus, dass auch andere Gruppen sich eigene Werkzeuge
+f"ur Vergleichs- oder Testrechnungen erstellt haben oder erstellen und
+hier bereits mehrfach das Fahrrad neu erfunden wurde und auch weiter
+erfunden werden wird, so dass es an der Zeit ist, das ganze know how
+einmal zu sichten und zu b"undeln.
+
+Unsere Werkzeuge (provided 'as is') k"onnen von der \SD-Webseite
+\url{http://www.symbolicdata.org} herunter geladen und leicht f"ur
+spezielle Zwecke in einem lokalen Projekt angepasst und modifiziert
+werden.  Eine sinnvolle Weiterentwicklung ist erst auf der Basis eines
+so gewonnenen Erfahrungsschatzes m"oglich.
+
+\begin{enumerate}
+\item[2.] \SD\ stellt ein zentrales Repositorium zur Verf"ugung, in dem
+digitale Benchmark-Daten aus verschiedenen Bereichen der
+Computeralgebra gesammelt werden (k"onnen).
+\end{enumerate}
+
+Ein solcher {\em upload} ist derzeit nur "uber eine direkte Beteiligung
+am Projekt m"oglich, in dessen Rahmen Zugang zu unserem CVS-Repository
+am UMS MEDICIS in Paris
+(\url{http://www.medicis.polytechnique.fr/medicis}) besteht.
+\medskip
+
+Eine stabile Version 0.4 der zur Zeit verf"ugbaren Werkzeuge und Daten
+ist ab 1.~M"arz~2001 auf unserem Server verf"ugbar.  Teilbereiche des
+Projekts warten auf die weitere Ausgestaltung (z.B. ein
+Frontend/Backend-System, um die Ladezeiten zu verringern; ein auf
+"Ahnlichkeit basierendes System von Vergleichen von Records; dynamische
+Webseiten-Generierung aus der Datenbasis; ein vern"unftiger
+Select-Mechanismus), wozu weitere Mitstreiter willkommen sind.
+
+\end{document}

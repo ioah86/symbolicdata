@@ -1,0 +1,222 @@
+% contribution to the Computeralgebra-Rundbrief
+% $Id: car-26.tex,v 1.2 2002/06/17 09:33:02 graebe Exp $
+\documentclass{article}
+\usepackage{a4wide,german,url}
+\newcommand{\SD}{{\sc Symbolic\-Data}}
+
+\begin{document}
+
+\section*{\centering Das \SD-Projekt} 
+
+\begin{center}
+Olaf Bachmann (Kaiserslautern) und Hans-Gert Gr\"abe (Leipzig)
+\footnote{published in ``Computeralgebra-Rundbrief'' 26, March 2000}
+\end{center}
+
+Wir wollen mit diesem Bericht den Lesern des
+Computeralgebra-Rundbriefs das \SD-Projekt, an dem wir im Rahmen der
+Benchmarking-Aktivit"aten der Fachgruppe seit etwa einem Jahr
+arbeiten, kurz vorstellen.  Wir konzentrieren uns dabei auf die
+Darstellung der Motivation, die zu diesem Projekt gef"uhrt hat, und
+einige grunds"atzliche "Uberlegungen, aus denen der gew"ahlte Ansatz
+deutlich wird.  F"ur konkretere Fragen nach der Struktur der
+bisherigen Datensammlung und der erstellten Werkzeuge, der Art, wie
+man daraus Benchmark-Rechnungen erzeugen und starten sowie die
+Ergebnisse solcher Rechnungen auswerten kann, verweisen wir
+interessierte Leser auf die online-Repr"asentation des Projekts auf
+unserer Web-Seite \url{www.SymbolicData.org}.  Wie bei einem
+Open-Source-Projekt "ublich sind die Daten und Werkzeuge offen
+verf"ugbar und k"onnen problemlos heruntergeladen, installiert und
+ausprobiert werden.  Wir hoffen, auf diesem Wege neue Mitstreiter zu
+finden, die sich der Freiheiten, aber auch der Verantwortung bewusst
+sind, die die Mitarbeit an einem solchen Vorhaben mit sich bringt. 
+
+\subsection*{Motivation}
+
+Nach den Diskussionen auf der ISSAC'98 in Rostock "uber
+Benchmarking-Aktivit"aten im Bereich der Computeralgebra haben wir
+zun"achst begonnen, die bereits existierenden Materialien zu sichten
+und zu ordnen. Dabei stellte sich schnell heraus, dass es sinnvoll
+ist, diese Materialien in ein einheitliches elektronisches Format zu
+"uberf"uhren und geeignete Werkzeuge zur Manipulation dieser
+Materialen bereitzustellen.
+
+Entsprechend konzentrierten sich unsere bisherigen Aktivit"aten auf
+die Fragestellungen, die im Untertitel des Projekts ``An Electronic
+Repository of Tools and Data for Computer Algebra Benchmarks''
+deutlich werden.
+
+Die bisherigen Hauptrichtungen des \SD-Projekts lassen sich wie folgt
+umrei"sen:
+\begin{enumerate}
+\item Systematische Sammlung existierender Benchmark-Daten zu
+verschiedenen Fragestellungen des symbolischen Rechnens und Erstellung
+von Werkzeugen, mit denen diese Daten bequem gewartet und erweitert
+werden k"onnen.
+\item Entwurf von Konzepten und Implementierung von Werkzeugen, unter
+denen sich glaubw"urdige Benchmark-Rechnungen auf diesen Daten
+ausf"uhren lassen.
+\item Bereitstellung von Werkzeugen, mit denen man in den gesammelten
+Daten navigieren, diese nach verschiedenen Kriterien selektieren und
+in andere Formate transformieren kann.
+\end{enumerate}
+
+In der ersten Phase des Projekts konzentrierten wir uns darauf,
+allgemeine Designprinzipien zu fixieren, die einerseits eine hohe
+Flexibilit"at und Erweiterbarkeit garantieren, andererseits aber auch
+gen"ugend einfach und praktisch in ihrer Handhabung sind.
+
+Wir haben uns dabei bem"uht, stets die Umsetzung der Konzepte in
+Werkzeuge und die Anwendbarkeit der Werkzeuge auf gr"o"sere
+Datenmengen zu erproben, so dass zum gegenw"artigen Zeitpunkt neben
+hinreichend bew"ahrten Konzepten auch eine ganze Reihe von
+Werkzeugen und Datensammlungen zu zwei Benchmarkbereichen --
+polynomialen Systemen und mechanisiertem Theorembeweisen in der
+Geometrie -- zur Verf"ugung stehen. 
+
+\subsection*{Grunds"atzliche "Uberlegungen}
+
+Vom Ansatz her ist eine solche Datensammlung eine
+Datenbank-Applikation, wobei uns auf Grund der spezifischen Anwendung
+ein {\bf objekt-relationales Konzept} besonders geeignet erschien.
+Mit einem solchen Ansatz kann man einerseits Querverbindungen zwischen
+verschiedenen Daten, etwa zwischen Problembeschreibungen, Ergebnissen,
+Hintergrundinformationen und Literaturquellen, gut erfassen, zum
+anderen aber auch g"unstig modulare, objektorientierte Konzepte bei
+der Erstellung der Werkzeuge f"ur die Manipulation der verschiedenen
+Datenklassen verwirklichen.
+
+Vor allem aus Gr"unden der Flexibilit"at haben wir uns, wenigstens im
+Moment, entschieden, f"ur die Speicherung der prim"aren Quellen
+unserer Daten keine klassische Datenbank zu nutzen, sondern diese
+direkt in einem {\bf XML-artigen ASCII-Format} abzulegen. Wir gingen
+bei dieser Entscheidung davon aus, dass relevante Daten der
+Computeralgebra in Form von Strings vorliegen bzw.\ bequem als solche
+gespeichert werden k"onnen.  Im vorliegenden Format sind sie auch
+reinen ASCII-Editoren zug"anglich, aber zugleich in einer Weise
+gespeichert, die Anforderungen k"unftiger XML-Werkzeuge nahe kommt.
+
+Die Verarbeitung und Manipulation dieser Daten erfolgt mit {\bf
+Perl-Werkzeugen}. Perl ist eine Programmiersprache aus dem
+Open-Source-Bereich, die sich mit ihren leistungsstarken
+String\-manipulations- und Skriptingf"ahigkeiten f"ur diese Aufgaben
+als sehr geeignet erwiesen hat. Zur Strukturierung der Werkzeuge wird
+intensiv von den Modularisierungsm"oglichkeiten Gebrauch gemacht, die
+Perl 5 bereit stellt.
+
+Sowohl aus Gr"unden der Flexibilit"at als auch mit Blick auf
+potentielle Nutzer bleibt Perl aber im Hintergrund. Alle wichtigen
+Standard-Applikationen k"onnen "uber eine gut dokumentierte, flexible
+und intuitiv zu bedienende {\bf einheitliche Schnittstelle} im
+"ublichen Kommandozeilen-Format ausgef"uhrt werden. 
+
+Um die notwendige Flexibilit"at bei der Erweiterung und Modifikation
+bereits bestehender Datenklassen ({\em Tabellen} in der Sprache der
+Datenbanken) sowie der Erzeugung neuer solcher Tabellen, etwa f"ur
+weitere Benchmark-Bereiche, zu erreichen, ist die entsprechende
+Strukturinformation nicht in Perl festgeschrieben. Statt dessen lesen
+die Werkzeuge zur Laufzeit diese Informationen aus {\bf Meta-Tabellen}
+ein, deren Attribute im selben XML-ASCII-Format vorliegen wie die
+Datenrecords selbst.  Sogar das {\bf Typkonzept}, das die Erstellung
+solcher Attributbeschreibungen unterst"utzt, liegt in diesem Format
+vor und kann damit leicht, unabh"angig von den Werkzeugen und ohne
+Perlkenntnisse modifiziert und erweitert werden.
+
+\subsection*{Der aktuelle Stand}
+
+Die hier vorgestellten konzeptionellen "Uberlegungen standen so
+nat"urlich noch nicht von Anfang an fest, sondern sind im Laufe der
+Zeit und intensiver Arbeit an den bisher gesammelten Daten und bei der
+Implementierung der nun verf"ugbaren Werkzeuge entstanden.  Obwohl die
+Konzepte inzwischen eine gewisse innere Konsistenz aufweisen, sind
+zuk"unftige gut begr"undete "Anderungen und Modifikationen, wie bei
+jedem Software-Projekt, nicht auszuschlie"sen.  Wir gehen allerdings
+davon aus, dass die "uber 1100 Datenrecords, die wir aus zwei gro"sen
+Benchmark-Bereichen, dem Bereich der polynomialen Gleichungssysteme
+und dem Bereich des mechanisierten Geometrie-Theorembeweisens,
+gesammelt und mit unseren Werkzeugen erfolgreich gewartet und
+manipuliert haben, eine Gew"ahr daf"ur bieten, dass diese "Anderungen
+eher evolution"aren Charakter haben werden. 
+
+Das \SD-Team hat neben diesen 1100 Datenrecords mehr als 40
+Perl-Module mit "uber 15\,000 Zeilen Code geschrieben und "uber 20
+Aktionen in der einheitlichen Schnittstelle zusammengef"uhrt. Der
+folgende kurze alphabetische "Uberblick "uber die existierenden
+Tabellen mag den Lesern ein Gef"uhl f"ur die Gesamtstruktur der bisher
+gesammelten Daten geben:
+\begin{description}
+\item[Tabelle BIB] sammelt bibliographische Informationen im
+BibTeX-Format, kurze Abstracts und Querverweise zu den Tabellen {\tt
+GEO}, {\tt INTPS} und {\tt PROBLEMS}.
+
+\item[Tabelle CAS] enth"alt allgemeine Beschreibungen einzelner
+Computer-Algebra-Software.
+
+\item[Tabelle CASCONFIG] enth"alt Konfigurationen einzelner CAS, die
+f"ur verschiedene Bench\-mark-Rechnungen erforderlich sind und
+Querverweise zu den Tabellen {\tt CAS} und {\tt COMP}.
+
+\item[Tabelle COMP] enth"alt Informationen "uber die
+auszuf"uhrenden Benchmarkrechnungen selbst.
+
+\item[Tabelle COMPREPORT] enth"alt Reports von
+Benchmark-Rechnungen. 
+
+\item[Tabelle COMPRESULTS] enth"alt Resultate von
+Benchmark-Rechnungen.
+
+\item[Tabelle GEO:] Eine Sammlung von Problemen aus dem Bereich des
+mechanisierten Geo\-metrie-Theorembeweisens mit Querverweisen zu den
+Tabellen {\tt INTPS} und {\tt PROBLEMS}.
+
+\item[Tabelle INTPS:] Eine Sammlung von Problemen aus dem Bereich der
+polynomialen Gleichungssysteme mit Querverweisen zu den Tabellen {\tt
+BIB} und {\tt PROBLEMS}.
+
+\item[Tabelle MACHINE:] Zusammenstellung der Computer, auf denen
+Benchmark-Rechnungen ausgef"uhrt wurden. Querverweise zur Tabelle {\tt
+CASCONFIG}.
+
+\item[Tabelle PERSON:] Informationen "uber die am \SD-Projekt
+beteiligten Personen.
+
+\item[Tabelle PROBLEMS:] Detailliertere Hintergrund-Informationen
+und Kommentare zu einzelnen Problemen, etwa eine Beschreibung, ein
+Verweis auf Originalarbeiten, relevanter CAS-Code und/oder einige
+Schl"usselworte.
+\end{description}
+
+Wir haben mit ersten Benchmark-Rechnungen zu Gr"obnerbasen begonnen,
+die verschiedene Koeffizientenbereiche und Termordnungen verwenden.
+Diese Benchmark-Rechnungen laufen mit 10 Versionen verschiedener CAS
+auf den "uber 500 {\tt INTPS}-Records. Weitere Benchmark-Rechungen
+sind in Vorbereitung, wobei wir auf die exzellenten Bedingungen am UMS
+MEDICIS (\url{www.medicis.polytechnique.fr/medicis}) zur"uckgreifen
+k"onnen.  Auch unsere von der Fachgruppe CA gesponsorte Web-Site ist
+dort physisch beheimatet.
+
+\subsection*{Wie weiter?}
+
+Aus unserer Sicht sind die Konzepte und Werkzeuge inzwischen so weit
+gereift, dass sie einem gr"o"seren Personenkreis zur Begutachtung und
+Weiterentwicklung zur Verf"ugung gestellt werden k"onnen. Eine
+Weiterentwicklung wird vor allem dann notwendig werden, wenn sich aus
+Anwendungen in anderen als den bisher untersuchten Benchmark-Bereichen
+Stellen ergeben sollten, an denen die Konzepte noch nicht allgemein
+genug sind.  Wir suchen deshalb den Kontakt zu Gruppen, die solche
+Anwendungen studieren, "uber relevante Datenmengen verf"ugen und
+bereit sind, diese unter den Bedingungen der Gnu Public License mit
+anderen zu teilen.
+
+Obwohl wir dies auf ein Minimum zur"uckgeschraubt haben, wird man beim
+Erschlie"sen neuer Benchmark-Bereiche, besonders f"ur semantische
+Aspekte, nicht ohne ein gewisses Ma"s an Perl-Programmierung
+auskommen.  Das \SD-Team steht mit Rat und im Rahmen seiner
+M"oglichkeiten auch mit tatkr"aftiger Unterst"utzung bereit, diesen
+Programmieraufwand zu bew"altigen.  Allerdings wird das Projekt auf
+l"angere Sicht nur erfolgreich sein k"onnen, wenn es auch personelle
+Verst"arkung erf"ahrt, die wir gern unb"urokratisch und zu
+gleichberechtigten Bedingungen in unser Team integrieren.
+
+\end{document}
+

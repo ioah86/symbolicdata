@@ -1,0 +1,193 @@
+% H.-G. Graebe | Univ. Leipzig 
+% $Date: 2006/03/13 15:10:02 $
+
+\documentclass{slides}
+\usepackage{url,amsmath,amssymb,fancybox}
+\usepackage[a4paper,landscape]{geometry}
+\usepackage[latin1]{inputenc} 
+
+\parindent0cm
+\parskip2pt
+\newcommand{\section}[1]{\begin{center}\bf #1 \end{center}}
+
+\newcommand{\Rahmen}[2]{
+\setlength{\fboxsep}{12pt}\begin{center}
+\shadowbox{\parbox{#1\textwidth}{\em #2}}\end{center}}
+
+\title{\Huge The SymbolicData Project\\[4cm] \small Talk given at the Special
+  Semester\\ on Groebner Bases Linz 2006 }
+
+\author{Hans-Gert Gr\"abe,\\ Dept.\ Computer Science, Univ.~Leipzig,
+Germany\\ \url{http://www.informatik.uni-leipzig.de/~graebe}}
+
+\date{March 8, 2006}
+
+\begin{document}
+
+\begin{slide}
+  \maketitle
+\end{slide}
+
+\begin{slide}
+\section{Motivation}\small
+(1) For different purposes algorithms and implementations are tested on
+certified and reliable data.
+
+(2) The development of tools and data for such tests is usually
+``orthogonal'' to the main implementational efforts.
+
+(3) In many cases tools and data could easily be reused - with slight
+modifications - across similar projects.
+
+\Rahmen{.8}{The SymbolicData Project is set out to coordinate such efforts
+within the Computer Algebra Community.}
+
+(4) Commonly collected certified and reliable data can also be used to compare
+otherwise incomparable approaches, algorithms, and implementations. 
+
+(5) Benchmark suites and Challenges for symbolic computations are not as well
+established as in other areas of computer science. 
+\end{slide}
+
+\begin{slide}
+\section{Main Goals}
+
+\Rahmen{.9}{(1) Collect data of examples from various areas of Computer
+Algebra
+\begin{itemize}
+  \item in a systematic and uniform way together with related background
+  information;
+
+  \item in a form that conveniently allows to extend, manipulate, and
+  categorize the collected data;
+
+  \item such that they can be extracted in a form readable by different
+  Computer Algebra Software;
+  
+  \item such that interrelations of the collected data can be specified;
+\end{itemize}
+}
+\end{slide}
+
+\begin{slide}
+\Rahmen{.9}{(2) Share best practice experience how to run test computations on
+   these data, i.e.,
+\begin{itemize}
+  \item to prepare data for input to different Computer Algebra Software;
+
+  \item to set up, start, time, interrupt, and monitor the computations;
+
+  \item to collect, analyse, and evaluate output data from these computations; 
+\end{itemize}
+
+(3) Run a net of Web sites that present data from the collection and results
+of test computations.}
+
+\end{slide}
+\begin{slide}
+\section{Some History}\small
+
+The SymbolicData project started at the ISSAC-98 special session on
+Benchmarking organized by H. Kredel. Mainly driven by Olaf Bachmann (Singular
+group, Kaiserslautern) and Hans-Gert Gr\"abe (Univ. Leipzig).
+
+1999: joint forces with the symbolic computation groups of the University of
+Paris VI (J. C. Faugere, D. Lazard), of Ecole Polytechnique (J. Marchand,
+M. Giusti), and of the University of Saarbrücken (W. Decker).  
+
+1999: Incooperated into the benchmarking activities of the "Fachgruppe
+Computeralgebra" (Chair at those times: G.-M. Greuel).
+
+\end{slide}
+\begin{slide}
+\section{Some History (2)}\small
+1999--2000: Main design decisions and implementations of the first prototype
+(O. Bachmann, H.-G. Gr\"abe) during two visits in Leipzig and Kaiserslautern.
+\begin{quote}
+  Flat XML-like syntax for data, Meta information stored in the same format,
+  managed with elaborated Perl tools, set up a CVS repository.
+
+  Data from Polynomial System Solving and Geometry Theorem Proving, Test
+  computations at UMS Medicis, with main focus on Polynomial System Solving.
+
+  Prototype was presented at the Meeting of the Fachgruppe Computeralgebra,
+  Kaiserslautern, February 2000.
+\end{quote}
+
+End 2000: O. Bachmann left the project (and science, and Kaisers\-lautern) for
+a new job.
+
+\end{slide}
+\begin{slide}
+\section{Some History (3)}\small
+
+Main focus moved to Geometry Theorem Proving. 
+\begin{quote}
+  M. Witte (Leipzig) digitized a great part of the 512 geometry theorems [Chou
+  88]
+
+  Benchmark computations with the GeoProver package of H.-G. Gr\"abe.
+
+  Talks at RWCA-02, ADG-02 and also in the CA-Rundbrief 
+\end{quote}
+Declining interest to really push the project during 2002-2005.
+\begin{quote}
+  Main focus 1 (2004/05): Move the format of data storage to a truly XML-based
+  design and have the META information encoded as XSchema.
+
+  Main focus 2 (2005/06): Incorporate new concepts of OWL ontology design. 
+\end{quote}
+Relaunch within the Special Semester on Gr\"obner Bases (Linz 2006).
+\end{slide}
+\begin{slide}
+\section{Current State}
+
+{\bf Data:} 350 Polynomial Systems, 297 Proof Schemes, 43 BIB items, 16
+Testsets, 8 GAlgebra examples
+
+{\bf Tools:} Shift to collecting scripts as best practice examples
+
+{\bf Community Tools:} Mailing list with archive, CVS repository, domain
+www.SymbolicData.org, running on behalf of the CA-Fachgruppe on a server at
+the GI Bonn, release bundle of data for download from the Web site
+
+{\bf Design:} All data translated to true XML, first experiments with OWL (to
+be explained now in more detail)
+
+\end{slide}
+\begin{slide}
+\section{Design of the SymbolicData Data Collection}
+
+Organized as a {\bf Knowledge base} using the spirit of Web Ontology concepts
+as proposed in the W3C Recommendation for the {\bf OWL Web Ontology Language}.
+
+The data is divided into two parts, the XMLResources and the OWLResources.
+
+{\bf XMLResources}: Smallest indivisible units of information; XMLType
+described by a XSchema; stored locally to the SymbolicData distribution or
+(huge items) globally in locations all over the world
+
+\begin{verbatim}
+  <XML XMLType="IntegerPolynomialSystem"
+  url="sdxml:INTPS/ZeroDim.example_61.xml"/>
+\end{verbatim}
+\end{slide}
+\begin{slide}
+{\bf OWLResources}: Store information describing the XMLResources and also
+relational information about them according to OWL design principles.
+
+We use {\bf Protege} (a Java based OWL tool with a big community) to develop
+and maintain a common ontology {\bf Ontology.owl}.
+
+For the moment, OWL classes are translated to XSchema and OWL individuals are
+stored as valid XML-files. 
+
+Individuals are identified according to their class and id. 
+
+\begin{verbatim}
+<OWL xref="ZeroDim.example_7" class="INTPSAnnotation"/> 
+\end{verbatim}
+
+\end{slide}
+
+\end{document}
