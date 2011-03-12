@@ -1,0 +1,10 @@
+Process pairs INTPS/Geometry/ and GEO/. Processing of GEO will be
+delayed until the GEO Syntax is fixed.
+===================================
+Process BIB links. 
+===================================
+Sort theDegreeList and theLengthsList and recompute them if necessary.  
+===================================
+Scan Annotation BIB.* for multiple occurence of OWL references in the
+relatesTo part. And also for references to Flat.* or Homogeneous.*
+records. 

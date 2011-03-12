@@ -1,0 +1,17 @@
+The new focus of SymbolicData is not to supply elaborated but unused tools to
+work on the Data, but to collect scripts from various authors written in
+various languages for their own purposes as best practice examples.
+
+This directory and its subdirectories contain such scripts. A first
+distinction is made along languages (for the moment perl and python) and a
+second distinction is between Service scripts (i.e., manipulating the Data
+within SymbolicData) and Production scripts (i.e., Data output for CAS
+computations).
+
+Common modules useful for both goals are stored directly in the language
+directory.
+
+Scripts that do not fit into that scheme are stored in the 'others' directory.
+
+The perl scripts use the XML::DOM module. Install it from the CPAN archive if
+it not yet present on your system.
