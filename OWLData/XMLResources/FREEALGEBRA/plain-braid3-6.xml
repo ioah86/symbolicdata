@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/plain-braid3-6">
+  <vars>x_1 y_1 z_1 x_2 y_2 z_2 x_3 y_3 z_3 x_4 y_4 z_4 x_5 y_5 z_5 x_6 y_6 z_6</vars>
+  <basis>
+    <poly>y_1*x_2*y_3-z_1*y_2*z_3</poly>
+    <poly>x_1*y_2*x_3-z_1*x_2*y_3</poly>
+    <poly>-y_1*z_2*x_3+z_1*x_2*z_3</poly>
+    <poly>x_1*x_2*x_3+x_1*y_2*z_3+y_1*y_2*y_3+z_1*z_2*z_3</poly>
+    <poly>y_2*x_3*y_4-z_2*y_3*z_4</poly>
+    <poly>y_3*x_4*y_5-z_3*y_4*z_5</poly>
+    <poly>y_4*x_5*y_6-z_4*y_5*z_6</poly>
+    <poly>x_2*y_3*x_4-z_2*x_3*y_4</poly>
+    <poly>x_3*y_4*x_5-z_3*x_4*y_5</poly>
+    <poly>x_4*y_5*x_6-z_4*x_5*y_6</poly>
+    <poly>-y_2*z_3*x_4+z_2*x_3*z_4</poly>
+    <poly>-y_3*z_4*x_5+z_3*x_4*z_5</poly>
+    <poly>-y_4*z_5*x_6+z_4*x_5*z_6</poly>
+    <poly>x_2*x_3*x_4+x_2*y_3*z_4+y_2*y_3*y_4+z_2*z_3*z_4</poly>
+    <poly>x_3*x_4*x_5+x_3*y_4*z_5+y_3*y_4*y_5+z_3*z_4*z_5</poly>
+    <poly>x_4*x_5*x_6+x_4*y_5*z_6+y_4*y_5*y_6+z_4*z_5*z_6</poly>    
+  </basis>
+  <uptoDeg>6</uptoDeg>
+  <Comment>First Text</Comment>
+  <Version>$Id: plain-braid3-6.xml,v 1.3 2010/12/10 13:04:58 heinle Exp $</Version>
+</FREEALGEBRA>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/lv2d10">
+  <vars>x y z</vars>
+  <basis>
+    <poly>x*y + y*z</poly>
+    <poly>x*x + x*y - y*x - y*y</poly>  
+  </basis>
+  <uptoDeg>10</uptoDeg>
+  <Comment>First Text</Comment>
+  <Version>$Id: lv2d10.xml,v 1.3 2010/12/10 13:04:58 heinle Exp $</Version>
+</FREEALGEBRA>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/braid3-11">
+  <vars>x y z</vars>
+  <basis>
+    <poly>y*x*y - z*y*z</poly>
+    <poly>x*y*x - z*x*y</poly>  
+    <poly>z*x*z - y*z*x</poly>  
+    <poly>x*x*x + y*y*y +z*z*z +x*y*z</poly>
+  </basis>
+  <uptoDeg>11</uptoDeg>
+  <Comment>First Text</Comment>
+  <Version>$Id: braid3-11.xml,v 1.3 2010/12/10 13:04:58 heinle Exp $</Version>
+</FREEALGEBRA>

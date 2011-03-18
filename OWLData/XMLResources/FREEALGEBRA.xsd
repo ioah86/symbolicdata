@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--  XSchema $Id: FREEALGEBRA.xsd,v 1.6 2004/08/26 18:45:47 graebe Exp $  -->
+
+  <xs:include schemaLocation="Types.xsd"/>
+  <xs:include schemaLocation="Root.xsd"/>
+
+  <!-- subelement definition -->
+
+  <xs:element name="basis">
+    <xs:complexType>
+      <xs:sequence>
+	<xs:element maxOccurs="unbounded" name="poly" type="Polynomial"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="isoPrimes">
+    <xs:complexType>
+      <xs:choice>
+	<xs:sequence>
+	  <xs:element maxOccurs="unbounded" ref="basis"/>
+	</xs:sequence>
+	<xs:element ref="file"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Root element definition -->
+
+  <xs:element name="FREEALGEBRA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="basedomain" type="xs:string"/>
+        <xs:element minOccurs="0" name="parameters" type="VarList"/>
+        <xs:element minOccurs="0" name="vars" type="VarList"/>
+        <xs:choice>
+	  <xs:element ref="basis"/>
+	  <xs:element ref="file"/>
+        </xs:choice>
+        <xs:element minOccurs="0" name="uptoDeg" type="xs:unsignedInt"/>
+        <xs:element minOccurs="0" name="dlist" type="UnsignedIntList"/>
+        <xs:element minOccurs="0" name="isHomog" type="xs:boolean"/>
+        <xs:element minOccurs="0" name="llist" type="UnsignedIntList"/>
+        <xs:element minOccurs="0" name="attributes" type="xs:string"/>
+        <xs:element minOccurs="0" name="degree" type="xs:unsignedInt"/>
+        <xs:element minOccurs="0" name="dim" type="xs:unsignedInt"/>
+        <xs:element minOccurs="0" name="isoPrimeDegrees" type="UnsignedIntList"/>
+        <xs:element minOccurs="0" name="isoPrimeDims" type="UnsignedIntList"/>
+        <xs:element minOccurs="0" ref="isoPrimes"/>
+        <xs:group ref="RootTableEntries"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="recordAttributes"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
