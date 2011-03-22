@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<COMP createdAt="1999-04-28" createdBy="obachman" id="COMP/GB_Z_lp">
+  <kind>GB</kind>
+  <coeff>Z</coeff>
+  <ordering>lp</ordering>
+  <Check>CAS::CheckGB</Check>
+  <InitEx>CAS::InitExGB</InitEx>
+  <require>CAS/CAS.pm</require>
+  <what>Groebner basis computation over Z w.r.t. degree reverse
+  lexicographical ordering.  Parameters are considered as variables which came
+  _after_ normal variables.</what>
+  <Version>$Id: GB_Z_lp.xml,v 1.1 2004/10/21 13:30:26 graebe Exp $</Version>
+</COMP>

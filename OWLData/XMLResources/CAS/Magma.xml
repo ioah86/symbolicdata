@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-08-21" createdBy="obachman" id="CAS/Magma">
+  <name>Magma</name>
+  <what>Computational Algebra System for Algebra, Number Theory and Geometry</what>
+  <author>Computational Algebra Group at the University of Sydney.</author>
+  <email>magma@maths.usyd.edu.au</email>
+  <url>http://www.maths.usyd.edu.au:8000/u/magma/</url>
+  <Version>$Id: Magma.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>

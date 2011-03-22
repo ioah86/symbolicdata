@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<COMP createdAt="2010-12-11" createdBy="heinle" id="COMP/FA_Q_dp">
+  <kind>FA</kind>
+  <coeff>Q</coeff>
+  <ordering>dp</ordering>
+<!--  <Check>CAS::CheckGB</Check>
+  <InitEx>CAS::InitExGB</InitEx>
+  <require>CAS/CAS.pm</require>-->
+  <what>Letterplace Computation ....</what>
+  <Version>$Id: FA_Z_dp.xml,v 0.1 2010/12/11 13:30:26 heinle Exp $</Version>
+</COMP>

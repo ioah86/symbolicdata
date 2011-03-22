@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-07-01" createdBy="graebe" id="CAS/Mupad">
+  <name>MuPAD</name>
+  <what>General Purpose Computer Algebra System</what>
+  <address>MuPAD Distribution
+FB 17 / Department of Mathematics
+University of Paderborn
+Warburger Str. 100 
+33095 Paderborn 
+Germany</address>
+  <author>MuPAD Research Group under direction of Prof.  B. Fuchssteiner at the
+University of Paderborn (Germany)</author>
+  <email>distribution@mupad.de</email>
+  <phone>+49-5251-60-4209</phone>
+  <url>http://www.mupad.de</url>
+  <Version>$Id: Mupad.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>

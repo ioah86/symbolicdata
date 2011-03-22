@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-07-01" createdBy="graebe" id="CAS/Mathematica">
+  <name>Mathematica</name>
+  <what>General Purpose Computer Algebra System</what>
+  <address>Wolfram Research, Inc.
+100 Trade Center Drive
+Champaign, IL 61820-7237
+USA</address>
+  <email>support@wolfram.com</email>
+  <fax>217-398-0747</fax>
+  <phone>217-398-0700</phone>
+  <url>http://www.wri.com</url>
+  <Version>$Id: Mathematica.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>

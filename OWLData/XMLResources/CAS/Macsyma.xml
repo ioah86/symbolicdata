@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-07-01" createdBy="graebe" id="CAS/Macsyma">
+  <name>Macsyma</name>
+  <what>General Purpose Computer Algebra System</what>
+  <address>Macsyma Inc. 
+20 Academy Street
+Arlington, MA 02476-6436
+U.S.A.</address>
+  <email>info@macsyma.com</email>
+  <fax>1-781-646-3161</fax>
+  <phone>1-781-646-4550</phone>
+  <url>http://www.macsyma.com</url>
+  <Version>$Id: Macsyma.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>

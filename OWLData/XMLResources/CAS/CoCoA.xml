@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-08-24" createdBy="obachman" id="CAS/CoCoA">
+  <name>CoCoA</name>
+  <what>CoCoA is a system for doing "Computations in Commutative Algebra."</what>
+  <address>Department of Mathematics, University of Genova</address>
+  <author>Research Team in Computer Algebra</author>
+  <email>cocoa@dima.unige.it</email>
+  <url>http://cocoa.dima.unige.it</url>
+  <Version>$Id: CoCoA.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>

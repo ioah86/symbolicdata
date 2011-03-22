@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-08-24" createdBy="obachman" id="CAS/GB">
+  <name>GB</name>
+  <what>A package to compute Groebner basis of ideals and to solve systems of
+algebraic equations</what>
+  <address>Equipe CALFOR
+LIP6/CNRS Universite' Paris VI
+case 168, 4 pl
+Jussieu, F-75252 Paris Cedex 05
+France</address>
+  <author>Jean-Charles Faugere</author>
+  <email>jcf@posso.lip6.fr</email>
+  <url>http://posso.lip6.fr/~jcf/GB.html</url>
+  <Version>$Id: GB.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>

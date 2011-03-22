@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<CAS createdAt="1999-07-01" createdBy="graebe" id="CAS/Maple">
+  <name>Maple</name>
+  <what>General Purpose Computer Algebra System</what>
+  <address>Waterloo Maple Inc.
+57 Erb Street W.
+Waterloo, Ontario
+N2L 6C2
+Canada</address>
+  <email>support@maplesoft.com</email>
+  <fax>(519) 747 2373</fax>
+  <phone>(519) 747 5284</phone>
+  <url>http://www.maplesoft.com</url>
+  <Version>$Id: Maple.xml,v 1.1 2004/09/16 12:52:12 graebe Exp $</Version>
+</CAS>
