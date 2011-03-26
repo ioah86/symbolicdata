@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/lv2d10">
-  <vars>x y z</vars>
+  <vars>x,y,z</vars>
   <basis>
     <poly>x*y + y*z</poly>
     <poly>x*x + x*y - y*x - y*y</poly>  

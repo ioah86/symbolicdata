@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/ls3nilp-d6">
-  <vars>x y z t</vars>
+  <vars>x,y,z,t</vars>
   <basis>
    <poly>3*x*y*x*x - y*x*x*x - 3*x*x*y*x + x*x*x*y</poly>
 <poly>2*x*y*x*y - x*x*y*y- 2*y*x*y*x + y*y*x*x</poly>

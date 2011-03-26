@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # @author: Albert Heinle
-# Last modified: 13.03.2011, 22:04
-# Purpose: Classes to deal with different table entries of the Symbolic Data
-#          Project.
 """
 This module contains different classes for accessing the data in the symbolic data tables.
 The usage is specified by the documentation text at the top of every class definition.
@@ -86,7 +83,7 @@ class INTPS(object):
         result = []
         variablesNode = self.__xmlTree.getElementsByTagName("vars")[0]
         variables = variablesNode.firstChild.data
-        result = variables.rsplit(" ")
+        result = variables.rsplit(",")
         for i in xrange(0,len(result)):
             #conversion from unicode to ascii
             result[i] = str(result[i])
@@ -98,7 +95,7 @@ class INTPS(object):
         result = []
         variablesNode = self.__xmlTree.getElementsByTagName("parameters")[0]
         variables = variablesNode.firstChild.data
-        result = variables.rsplit(" ")
+        result = variables.rsplit(",")
         for i in xrange(0,len(result)):
             #conversion from unicode to ascii
             result[i] = str(result[i])
@@ -250,7 +247,7 @@ class FREEALGEBRA(object):
         result = []
         variablesNode = self.__xmlTree.getElementsByTagName("vars")[0]
         variables = variablesNode.firstChild.data
-        result = variables.rsplit(" ")
+        result = variables.rsplit(",")
         for i in xrange(0,len(result)):
             #conversion from unicode to ascii
             result[i] = str(result[i])
@@ -262,7 +259,7 @@ class FREEALGEBRA(object):
         result = []
         variablesNode = self.__xmlTree.getElementsByTagName("parameters")[0]
         variables = variablesNode.firstChild.data
-        result = variables.rsplit(" ")
+        result = variables.rsplit(",")
         for i in xrange(0,len(result)):
             #conversion from unicode to ascii
             result[i] = str(result[i])
@@ -541,7 +538,7 @@ class CAS(object):
     
     @staticmethod
     def extractCharacteristicFromString(basedomain):
-        if (basedomain == "Z"):
+        if (basedomain == "Z" or basedomain == "Q"):
             return 0
         else:
             l = basedomain.split("(")
@@ -653,7 +650,29 @@ class CAS_Singular(CAS):
         fa = FREEALGEBRA(xmlFileName)
         comp = COMP(xmlCOMP)
         result = "LIB \"freegb.lib\";\n"
-        result += "ring r = 0,("+",".join(v for v in fa.getVars())+"),dp;\n" #TODO Other domains? other ordering?
+        if comp.getCoeff() == None:
+            bd = fa.getBaseDomain()
+        else:
+            bd = comp.getCoeff()
+        par = fa.getParameters()
+        result += "ring r = "
+        if (bd == None):
+            result +="0,"
+        else:
+            if (par == None):
+                result += str(CAS.extractCharacteristicFromString(bd))+","
+            else:
+                result += "("+str(CAS.extractCharacteristicFromString(bd))+","
+                result += ",".join(v for v in par)
+                result += "),"
+        tmp = intps.getVars()
+        result += "("
+        result += ",".join(str(v) for v in tmp)
+        result += "),"
+        if comp.getOrdering() == None:
+            result += "dp;\n" # TODO: One can catch this case
+        else:
+            result += comp.getOrdering() +";\n"
         result += "int d = "+str(fa.getUpToDegree())+";\n"
         result += "def R = makeLetterplaceRing(d);\n"
         result += "setring(R);\n"
@@ -817,15 +836,23 @@ class CAS_Magma(CAS):
 	#Definition of the underlying field	
 	result += "K := "
 	if (bd == None):
-	    result += "RationalField();\n" #TODO: Parameters?
+	    result += "RationalField();\n"
 	else:
-	    result += "FiniteField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
+            if CAS.extractCharacteristicFromString(bd)==0:
+                result += "RationalField();\n"
+            else:
+                result += "FiniteField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
+        #Are there parameters given?
+        if intps.getParameters()==None:
+            result += "F:=K;\n"
+        else:
+            result += "F<"+",".join(str(v) for v in intps.getParameters())+"> := RationalFunctionField(K,"+len(intps.getParameters())+");\n";
 	#Definition of the polynomial ring
 	tmp = intps.getVars();
 	result += "P<"
 	result +=",".join(str(v) for v in tmp)
-	result +="> := PolynomialRing(K,"+ str(len(tmp)) +");\n";
-        result +="I := ideal<K | "+ ",".join(v for v in intps.getBasis()) +">;\n"
+	result +="> := PolynomialRing(F,"+ str(len(tmp)) +");\n";
+        result +="I := ideal<P | "+ ",".join(v for v in intps.getBasis()) +">;\n"
         return result;
     
     def initFREEALGEBRA(self,xmlCOMP,xmlFileName):
@@ -837,9 +864,21 @@ class CAS_Magma(CAS):
             bd = fa.getBaseDomain()
         else:
             bd = comp.getCoeff()
+        result += "K := "
+	if (bd == None):
+	    result += "RationalField();\n"
+	else:
+            if CAS.extractCharacteristicFromString(bd)==0:
+                result += "RationalField();\n"
+            else:
+                result += "FiniteField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
+        #Are there parameters given?
+        if fa.getParameters()==None:
+            result += "F:=K;\n"
+        else:
+            result += "F<"+",".join(str(v) for v in fa.getParameters())+"> := RationalFunctionField(K,"+len(fa.getParameters())+");\n";
         result += "A<"+",".join(v for v in fa.getVars())+">" #EXAMPLE: A<x,y,z>
-        result +=" := FreeAlgebra(Rationals(),"+str(len(fa.getVars()))+");\n" #TODO: Other basedomains?
-                                                                    #EXAMPLE :=(Rationals(), 3);
+        result +=" := FreeAlgebra(F,"+str(len(fa.getVars()))+");\n" #EXAMPLE :=(Rationals(), 3);
         result += "B := [ "+",\n".join(v for v in fa.getBasis())+"];\n" #EXAMPLE B:=[x,y,z]
         return result;
     
@@ -847,7 +886,7 @@ class CAS_Magma(CAS):
         """
         Executes Maple with fileName as Input. Time will also be returned
         """
-        return commands.getoutput(MS.timeCommand+ " "+  MS.CASpaths["Magma"] + " < "+fileName)#TODO:Dictionary Eintrag hier
+        return commands.getoutput(MS.timeCommand+ " "+  MS.CASpaths["Magma"] + " < "+fileName)
                                                            #TODO: Quiet fuer Magma?
     
     def createExecutableCode(self,xmlComp,xmlProblemFile):
@@ -861,8 +900,7 @@ class CAS_Magma(CAS):
         pr = str(problemTree.firstChild.tagName.strip())
         if (pr == "INTPS"):
             result += self.initINTPS(xmlComp,xmlProblemFile)
-            result += self._dictCOMPToMamga[comp.getKind()]
-            result +="B := "+self._dictCOMPToMagma["GB"]+"(I);\nB;\n quit;";
+            result +="B := "+self._dictCOMPToMagma[comp.getKind()]+"(I);\nB;\n quit;";
         elif (pr == "FREEALGEBRA"):
             fa = FREEALGEBRA(xmlProblemFile)
             result += self.initFREEALGEBRA(xmlComp,xmlProblemFile)
@@ -915,16 +953,26 @@ class CAS_GAP(CAS):
 	#Definition of the underlying field	
 	result += "K := "
 	if (bd == None):
-	    result += "RationalField();\n" #TODO: Parameters?
+	    result += "Rationals;\n"
 	else:
-	    result += "GaloisField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
+            if CAS.extractCharacteristicFromString(bd) == 0:
+                result += "Rationals;\n"
+            else:
+                result += "GaloisField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
+        #Parameters?
+        if intps.getParameters() == None:
+            result += "F:=K;\n"
+        else:
+            result += "F := FunctionField(K,["+",".join("\""+str(v)+"\"" for v in intps.getParameters())+"] );\n"
+            for i in xrange(0,len(intps.getParameters())):
+                result += str(intps.getParameters()[i])+":=IndeterminatesOfFunctionField(F)["+str((i+1))+"];\n"
 	#Definition of the polynomial ring
 	tmp = intps.getVars();
-        result += "PR := PolynomialRing(K,["+",".join(str("\""+v+"\"") for v in tmp)+"]);\n"
+        result += "PR := PolynomialRing(F,["+",".join(str("\""+v+"\"") for v in tmp)+"]);\n"
         for i in xrange(0,len(tmp)):
-            result+= str(tmp[i])+":= IndeterminatesOfPolynomialRing(PR)["+i+"];\n"
-        result += "I:= Ideal(PR,["+",".join(v for v in intps.getBasis())+"];\n"
-        result += "ord :="+self._dictCOMPToGAP[comp.getOrdering]+"("+",".join(v for v in tmp)+");\n"
+            result+= str(tmp[i])+":= IndeterminatesOfPolynomialRing(PR)["+str((i+1))+"];\n"
+        result += "I:= Ideal(PR,["+",".join(v for v in intps.getBasis())+"]);\n"
+        result += "ord :="+self._dictCOMPToGAP[comp.getOrdering()]+"("+",".join(v for v in tmp)+");\n"
 	return result;
     
     def initFREEALGEBRA(self,xmlCOMP,xmlFileName):
@@ -943,11 +991,21 @@ class CAS_GAP(CAS):
         #######End Initialization stuff for GAP##########
         tmp = fa.getVars();
         result += "K:="
-        #if (bd == None):
-	result += "Rationals;\n" #TODO: Parameters?
-	#TODO: else:
-	#    result += "GaloisField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
-        result += "A := FreeAssociativeAlgebraWithOne(K,"+",".join(str("\""+v+"\"") for v in tmp)+");\n"
+        if (bd == None):
+	    result += "Rationals;\n"
+	else:
+            if CAS.extractCharacteristicFromString(bd) == 0:
+                result += "Rationals;\n"
+            else:
+                result += "GaloisField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
+        #Parameters?
+        if intps.getParameters() == None:
+            result += "F:=K;"
+        else:
+            result += "F := FunctionField(K,["+",".join("\""+str(v)+"\"" for v in intps.getParameters())+"] );\n"
+            for i in xrange(0,len(intps.getParameters())):
+                result += str(intps.getParameters()[i])+":=IndeterminatesOfFunctionField(F)["+str((i+1))+"];\n"
+        result += "A := FreeAssociativeAlgebraWithOne(F,"+",".join(str("\""+v+"\"") for v in tmp)+");\n"
         result += "g:=GeneratorsOfAlgebraWithOne(A);\n"
         for i in xrange(0,len(tmp)):
             result += tmp[i]+":=g["+str((i+1))+"];\n"
@@ -959,7 +1017,7 @@ class CAS_GAP(CAS):
     
     def executeFile(self,fileName):
         """
-        Executes Maple with fileName as Input. Time will also be returned
+        Executes GAP with fileName as Input. Time will also be returned
         """
         return commands.getoutput(MS.timeCommand+ " "+  MS.CASpaths["GAP"] + " -b < "+fileName)#TODO:Dictionary Eintrag hier
                                                            #TODO: Quiet fuer Magma?
@@ -975,8 +1033,7 @@ class CAS_GAP(CAS):
         pr = str(problemTree.firstChild.tagName.strip())
         if (pr == "INTPS"):
             result += self.initINTPS(xmlComp,xmlProblemFile)
-            result += self._dictCOMPToGAP[comp.getKind()]
-            result +="B := "+self._dictCOMPToGAP["GB"]+"(I,ord);\nB;\n quit;";
+            result +="B := "+self._dictCOMPToGAP[comp.getKind]+"(I,ord);\nB;\n quit;";
         elif (pr == "FREEALGEBRA"):
             fa = FREEALGEBRA(xmlProblemFile)
             result += self.initFREEALGEBRA(xmlComp,xmlProblemFile)

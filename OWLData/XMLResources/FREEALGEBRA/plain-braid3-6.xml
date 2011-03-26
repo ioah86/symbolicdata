@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/plain-braid3-6">
-  <vars>x_1 y_1 z_1 x_2 y_2 z_2 x_3 y_3 z_3 x_4 y_4 z_4 x_5 y_5 z_5 x_6 y_6 z_6</vars>
+  <vars>x_1,y_1,z_1,x_2,y_2,z_2,x_3,y_3,z_3,x_4,y_4,z_4,x_5,y_5,z_5,x_6,y_6,z_6</vars>
   <basis>
     <poly>y_1*x_2*y_3-z_1*y_2*z_3</poly>
     <poly>x_1*y_2*x_3-z_1*x_2*y_3</poly>

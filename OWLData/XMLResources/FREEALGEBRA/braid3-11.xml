@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/braid3-11">
-  <vars>x y z</vars>
+  <vars>x,y,z</vars>
   <basis>
     <poly>y*x*y - z*y*z</poly>
     <poly>x*y*x - z*x*y</poly>  

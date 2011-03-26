@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FREEALGEBRA createdAt="2010" createdBy="" id="FREEALGEBRA/4nilp5s-d8">
-  <vars>x1 x2 x3 x4 x5</vars>
+  <vars>x1,x2,x3,x4,x5</vars>
   <basis>
     <poly>x1*x1*x1*x1*x2-4*x1*x1*x1*x2*x1+6*x1*x1*x2*x1*x1-4*x1*x2*x1*x1*x1+x2*x1*x1*x1*x1</poly>
     <poly>x1*x1*x1*x2*x2-3*x1*x1*x2*x1*x2+3*x1*x2*x1*x1*x2-2*x2*x1*x1*x1*x2+3*x2*x1*x1*x2*x1-3*x2*x1*x2*x1*x1+x2*x2*x1*x1*x1</poly>

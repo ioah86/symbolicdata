@@ -1,8 +1,5 @@
 #!/usr/bin/env python
-# Author: Albert Heinle
-# Last modified: 29.12.2010,17:13
-# Purpose: Get a "Task" (means a list of problems and computer algebra systems
-#          for a benchmark) and translate it to xml
+#@author: Albert Heinle
 
 """
 This module contains routines for creating tasks which will then be run on another machine.
@@ -89,10 +86,10 @@ def interactiveUserMode():
     fileName = raw_input("Choose a file name where this task should be saved: ")
     if (not fileName.endswith(".xml")):
         fileName = fileName+".xml"
-    file = open(fileName,"w")
+    #file = open(fileName,"w")
     fillTaskTree(fileName, operation, problemClass, problems,CASs)
-    taskTree.writexml(file, "", "", "\n")
-    file.close()
+    #taskTree.writexml(file, "", "", "\n")
+    #file.close()
     
 def fillTaskTree(fileName, operation, problemClass, problems, compalgsystems):
     """
