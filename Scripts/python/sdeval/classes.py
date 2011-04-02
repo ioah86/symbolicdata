@@ -999,12 +999,12 @@ class CAS_GAP(CAS):
             else:
                 result += "GaloisField("+ str(CAS.extractCharacteristicFromString(bd)) + ");\n"
         #Parameters?
-        if intps.getParameters() == None:
+        if fa.getParameters() == None:
             result += "F:=K;"
         else:
-            result += "F := FunctionField(K,["+",".join("\""+str(v)+"\"" for v in intps.getParameters())+"] );\n"
-            for i in xrange(0,len(intps.getParameters())):
-                result += str(intps.getParameters()[i])+":=IndeterminatesOfFunctionField(F)["+str((i+1))+"];\n"
+            result += "F := FunctionField(K,["+",".join("\""+str(v)+"\"" for v in fa.getParameters())+"] );\n"
+            for i in xrange(0,len(fa.getParameters())):
+                result += str(fa.getParameters()[i])+":=IndeterminatesOfFunctionField(F)["+str((i+1))+"];\n"
         result += "A := FreeAssociativeAlgebraWithOne(F,"+",".join(str("\""+v+"\"") for v in tmp)+");\n"
         result += "g:=GeneratorsOfAlgebraWithOne(A);\n"
         for i in xrange(0,len(tmp)):

@@ -3,7 +3,9 @@
 #Purpose: A database for local settings concerning e.g. paths to the computer
 #         algebra systems a computation should be run through, etc.
 
-CASpaths={"Maple":"/Applications/Maple\ 11/Maple\ 11.app/Contents/MacOS/Maple\ 11",
-          "Singular":"/sw/bin/Singular"}
+CASpaths={"Maple":"maple",
+          "Singular":"Singular",
+          "Magma":"magma",
+          "GAP":"gap"}
 
-timeCommand = "time"
+timeCommand = "/usr/bin/time -f \"real\\t%E\\nuser\\t%U\\nsystem\\t%S\""
