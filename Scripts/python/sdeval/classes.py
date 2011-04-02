@@ -665,7 +665,7 @@ class CAS_Singular(CAS):
                 result += "("+str(CAS.extractCharacteristicFromString(bd))+","
                 result += ",".join(v for v in par)
                 result += "),"
-        tmp = intps.getVars()
+        tmp = fa.getVars()
         result += "("
         result += ",".join(str(v) for v in tmp)
         result += "),"
