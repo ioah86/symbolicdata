@@ -558,7 +558,7 @@ class CAS_Singular(CAS):
     
     dictCOMPToSingular ={
         "GB":"std",
-        "FA":"system"
+        "FA":"letplaceGBasis"
     }
     
     def __init__(self):
@@ -697,15 +697,15 @@ class CAS_Singular(CAS):
         if (pr == "INTPS"):
             result += self.initINTPS(xmlComp,xmlProblemFile)
             result += self.dictCOMPToSingular[comp.getKind()]
-            result +="(I);print(I,\"%s\");quit();" # TODO: print in Liste
+            result +="(I);print(I,\"%s\");$" # TODO: print in Liste
         if (pr == "FREEALGEBRA"):
             fa = FREEALGEBRA(xmlProblemFile)
             result += self.initFREEALGEBRA(xmlComp,xmlProblemFile)
             result += "option(prot);\noption(redTail);\noption(redSB);\n"
             result += "ideal J = "
             result += self.dictCOMPToSingular[comp.getKind()]
-            result += "(\"freegb\",I,"+str(fa.getUpToDegree())+","+str(len(fa.getVars()))+");\n"
-            result += "print (J, \"%s\");quit();"
+            result += "(I,"+str(fa.getUpToDegree())+");\n"
+            result += "print (J, \"%s\");$"
         #TODO:Add further Possible Problem files.
         return result
     
