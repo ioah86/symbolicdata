@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2011" createdBy="" id="FREEALGEBRA/">
+  <vars>f1,f2,f3</vars>
+  <basis>
+ <poly> f1*f2*f2-2*f2*f1*f2+f2*f2*f1 </poly>
+ <poly> f1*f3-f3*f1 </poly>
+ <poly> f1*f1*f2-2*f1*f2*f1+f2*f1*f1 </poly>
+ <poly> f2*f3*f3*f3-3*f3*f2*f3*f3+3*f3*f3*f2*f3-f3*f3*f3*f2 </poly>
+ <poly> f2*f2*f2*f3-3*f2*f2*f3*f2+3*f2*f3*f2*f2-f3*f2*f2*f2 </poly>
+  </basis>
+  <uptoDeg>10</uptoDeg>
+  <Comment>First Text</Comment>
+  <Version>$Id: serre-ha11-d10.xml,v 1.3 2011/03/31 17:06:58 studzins Exp $</Version>
+</FREEALGEBRA>
