@@ -564,7 +564,7 @@ class CAS_Singular(CAS):
     def __init__(self):
         #first of all: is singular installed?
         self.__name = "Singular.xml"
-        self.__isInstalled = commands.getoutput(MS.CASpaths["Singular"]+" -vq -c quit")
+        #self.__isInstalled = commands.getoutput(MS.CASpaths["Singular"]+" -vq -c quit")
         #TODO: Version check?
         
     def __del__(self):
