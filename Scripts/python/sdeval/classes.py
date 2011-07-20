@@ -876,7 +876,7 @@ class CAS_Magma(CAS):
         if fa.getParameters()==None:
             result += "F:=K;\n"
         else:
-            result += "F<"+",".join(str(v) for v in fa.getParameters())+"> := RationalFunctionField(K,"+len(fa.getParameters())+");\n";
+            result += "F<"+",".join(str(v) for v in fa.getParameters())+"> := RationalFunctionField(K,"+str(len(fa.getParameters()))+");\n";
         result += "A<"+",".join(v for v in fa.getVars())+">" #EXAMPLE: A<x,y,z>
         result +=" := FreeAlgebra(F,"+str(len(fa.getVars()))+");\n" #EXAMPLE :=(Rationals(), 3);
         result += "B := [ "+",\n".join(v for v in fa.getBasis())+"];\n" #EXAMPLE B:=[x,y,z]
