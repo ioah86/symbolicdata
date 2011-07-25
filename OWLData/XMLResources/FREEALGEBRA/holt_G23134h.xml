@@ -15,7 +15,7 @@
   <poly> x*h-h*x </poly>
   <poly> y*h-h*y </poly>
   </basis>
-  <uptoDeg>20</uptoDeg>
+  <uptoDeg>26</uptoDeg>
   <Comment>x,y are inverses to a,b</Comment>
   <Version>$Id: holt_G23134h.xml,v 1.0 2011/07/06 18:30:58 studzins Exp $</Version>
 </FREEALGEBRA>
