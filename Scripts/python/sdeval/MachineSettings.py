@@ -4,7 +4,7 @@
 #         algebra systems a computation should be run through, etc.
 
 CASpaths={"Maple":"maple",
-          "Singular":"Singular",
+          "Singular":"~/Singular_3-1-3/Singular-3-1-3/Singular/Singular",
           "Magma":"magma",
           "GAP":"gap"}
 

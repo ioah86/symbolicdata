@@ -704,7 +704,7 @@ class CAS_Singular(CAS):
             result += "option(prot);\noption(redTail);\noption(redSB);\n"
             result += "ideal J = "
             result += self.dictCOMPToSingular[comp.getKind()]
-            result += "(I,"+str(fa.getUpToDegree())+");\n"
+            result += "(I);\n"
             result += "print (J, \"%s\");$"
         #TODO:Add further Possible Problem files.
         return result
