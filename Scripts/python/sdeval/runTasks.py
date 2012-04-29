@@ -22,7 +22,9 @@ in the specifix ".res" files.
 #INPUT: The User can specify the maximum cpu-time and the maximum memory usage:
 from optparse import OptionParser
 import sys
-import classes
+#import classes
+from classes.taskmanagement.Task import Task
+from classes.cas import getCASInstanceByXMLName
 import commands
 import os
 import time
@@ -65,7 +67,7 @@ if len(xmlFilesInDirectory) !=1:
     print "There is no unique Task XML-File in the current directory"
     sys.exit(-1)
 taskFile = xmlFilesInDirectory[0]
-task = classes.Task(taskFile)
+task = Task(taskFile)
 
 def updateProceedings():
     #####
@@ -96,7 +98,7 @@ def runTasks(task):
                 resource.setrlimit(resource.RLIMIT_CPU,(maxCPU,maxCPU))
             if (maxMem != None):
                 resource.setrlimit(resource.RLIMIT_DATA,(maxMem,maxMem))
-            curCAS = classes.getCASInstanceByXMLName(w[0].strip())
+            curCAS = getCASInstanceByXMLName(w[0].strip())
             result = curCAS.executeFile(fileName + ".sdc")
             #TODO: Maybe write in new Directory?
             file = open(fileName+timeStamp+".res","w")

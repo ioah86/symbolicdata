@@ -14,7 +14,8 @@ import xml.dom.minidom as dom
 from optparse import OptionParser
 from os import listdir as ls
 import os
-from classes import Task, CAS_Singular, getCASInstanceByXMLName
+from classes.taskmanagement.Task import Task
+from classes.cas import getCASInstanceByXMLName
 import sys
 import shutil
 
@@ -149,7 +150,7 @@ def createExportTaskFolder(dest = None):
             file.write(tmpCode);
             file.close();
     shutil.copy(os.path.join(sdevaldir,"runTasks.py"),os.getcwd())
-    shutil.copy(os.path.join(sdevaldir,"classes.py"),os.getcwd())
+    shutil.copytree(os.path.join(sdevaldir,"classes"),os.path.join(os.getcwd(),"classes"))
     shutil.copy(os.path.join(sdevaldir,"MachineSettings.py"),os.getcwd())    
     
 
