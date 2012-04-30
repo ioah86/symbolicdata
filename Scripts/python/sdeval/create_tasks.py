@@ -26,10 +26,13 @@ parser.add_option("-s", "--source", dest="xmldatapath", help="The complete path 
 (opts, args) = parser.parse_args()
 
 if (len(args) == 0): # We need at least one argument
-    print "This program needs at least one argument"
-    sys.exit(-2)
-
-xmlDataPath = os.path.realpath(args[0])
+    if not os.path.isdir(os.path.join("..","..","..","OWLData","XMLResources")):
+        print "This program needs at least one argument"
+        sys.exit(-2)
+    else:
+        xmlDataPath = os.path.realpath(os.path.join("..","..","..","OWLData","XMLResources"))
+else:
+    xmlDataPath = os.path.realpath(args[0])
 
 #For now, the following list contains different calculation options.
 #TODO for the future: Extend symbolic data with them
