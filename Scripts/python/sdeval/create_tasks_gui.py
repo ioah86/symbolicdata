@@ -30,10 +30,16 @@ and there will be a folder created in the end that contains code for the differe
 computer algebra systems.
 """
 import os # This is for the check if the path does exist in the next step
+import shutil
+#### Our Machine Settings
+import MachineSettings as MS
+from classes.taskmanagement.Task import Task
+from classes.cas import getCASInstanceByXMLName
 #### GUI Stuff
 import Tkinter
 import tkMessageBox
 import tkFileDialog
+import xml.dom.minidom as dom
 
 
 ################################################################################
@@ -50,17 +56,67 @@ if (isXMLRessourcesDirectory):
   xmlDataPath = os.path.realpath(os.path.join("..","..","..","OWLData","XMLResources"))
 
 ################################################################################
-### Little functions needed later:
+### some Global stuff
+taskTree = dom.Document()
 
-def isPrime(p):
-  if (p<2):
-    return False
-  if (p==2):
-    return True
-  for i in range(2,int(p**0.5)+1):
-    if p%i==0:
-      return False
-  return True
+def fillTaskTree(fileName, operation, problemClass, problems, compalgsystems):
+    """
+    This function gets a file name, an operation and a list of problems and
+    computer algebra systems where these problems have to be solved. At the end,
+    the global variable Tasktree is filled with the input data
+    """
+    taskTree.appendChild(taskTree.createElement(fileName))
+    tmpNode = taskTree.firstChild
+    #Add the operation Node
+    tmpNode.appendChild(taskTree.createElement("COMP"))
+    tmpNode.firstChild.appendChild(taskTree.createTextNode(operation))
+    #Add the problems to solve
+    tmpNode.appendChild(taskTree.createElement("problems"))
+    tmpNode = tmpNode.getElementsByTagName("problems")[0]
+    for p in problems:
+        tmpChild = tmpNode.appendChild(taskTree.createElement(problemClass))
+        tmpChild.appendChild(taskTree.createTextNode(p))
+    #Add the computer algebra systems of choice
+    tmpNode = taskTree.firstChild
+    tmpNode.appendChild(taskTree.createElement("CASs"))
+    tmpNode = tmpNode.getElementsByTagName("CASs")[0]
+    for cas in compalgsystems:
+        tmpChild = tmpNode.appendChild(taskTree.createElement("CAS"))
+        tmpChild.appendChild(taskTree.createTextNode(cas))
+        
+def createExportTaskFolder(dest = None):
+    """
+    Output: Creates folder containing
+            -   runnable code for the different CAS for the specific problems
+            -   the xml-File with the problems itself
+            -   An executable python file that starts the computations.
+    """
+    sdevaldir = os.getcwd()
+    if dest != None:
+        os.chdir(dest)
+    #Make the directory that will be copied to another machine
+    #taskTree = dom.parse("taskSingularMaple.xml") # TODO: ERASE THAT
+    fileName = str(taskTree.firstChild.tagName)
+    if not os.path.isdir(fileName+"EXPORTFOLDER"):
+        os.mkdir(fileName+"EXPORTFOLDER")
+    os.chdir(fileName+"EXPORTFOLDER")
+    #copy the XML-Tree to this directory
+    file = open(fileName,"w")
+    taskTree.writexml(file, "", "", "\n")
+    file.close()
+    #runnable CAS-Code
+    task = Task(fileName)
+    for cas in task.getCasList():
+        tmpCAS = getCASInstanceByXMLName(cas)
+        for prob in task.getProblemList():
+            tmpCode = tmpCAS.createExecutableCode(os.path.join(xmlDataPath,"COMP",task.getCOMP()),os.path.join(xmlDataPath,prob.tagName,prob.firstChild.data.strip()))
+            #fileName CAS+PROBLEM+COMP+.txt
+            file = open(cas+task.getCOMP()+prob.firstChild.data.strip()+".sdc","w") # .sd stands for symbolic Data Code
+            file.write(tmpCode);
+            file.close();
+    shutil.copy(os.path.join(sdevaldir,"runTasks.py"),os.getcwd())
+    shutil.copytree(os.path.join(sdevaldir,"classes"),os.path.join(os.getcwd(),"classes"))
+    shutil.copy(os.path.join(sdevaldir,"MachineSettings.py"),os.getcwd())
 
 ################################################################################
 #Lets start with the gui itself.
@@ -73,6 +129,10 @@ class CreateTasksGui:
     self.createWindowProblemSelect()
     self.currentWindow = "ProblemSelect"# Other possibilities are TableSelect and CASSelect
     self.checkXMLRessourcesDir()
+    self.input_operation = None
+    self.input_problemClass = None
+    self.input_problems = []
+    self.input_compAlgSystems = []
     #self.createTableSelect()
     #self.createCASSelect()
     Tkinter.mainloop()
@@ -122,6 +182,29 @@ who funded the project at the project Schwerpunkt 1489")
         validDir = False
         xmlDataPath = None
     
+  def fillListOfProblems(self):
+    """
+    In the second window, where the user chooses concrete problems he wants to
+    deal with, this method fills the list of entries in the listbox.
+    """
+    global xmlDataPath
+    problemList = filter(lambda a: a.endswith(".xml"),os.listdir(os.path.join(xmlDataPath,self.input_problemClass)))
+    for entry in problemList:
+      self.lstbx_allProblems.insert(Tkinter.END,entry)
+    if len(problemList) != 0:
+      self.lstbx_allProblems.select_set(0)
+  
+  def initCASselect(self):
+    #Fill the machine settings
+    self.entry_GAP.insert(Tkinter.END, MS.CASpaths["GAP"])
+    self.entry_Magma.insert(Tkinter.END,MS.CASpaths["Magma"])
+    self.entry_Maple.insert(Tkinter.END,MS.CASpaths["Maple"])
+    self.entry_Singular.insert(Tkinter.END,MS.CASpaths["Singular"])
+    self.entry_Time.insert(Tkinter.END,MS.timeCommand)
+    #check whether the Computer Algebra systems can handle the current problem:
+    if self.input_operation=="FA_Q_dp.xml":
+      self.cb_Maple.config(state = Tkinter.DISABLED)
+    
   ##################################################
   #### Button Behaviours
   ##################################################
@@ -132,31 +215,127 @@ who funded the project at the project Schwerpunkt 1489")
       User was in the first window, selected a problem and wants now to the tables
       to choose concrete instances.
       """
+      #########
+      #Read the entries and fill the variables with it
+      if self.v.get() == "FA":
+        self.input_operation = "FA_Q_dp.xml"
+        self.input_problemClass = "FREEALGEBRA"
+      elif self.v.get() == "GB":
+        self.input_problemClass = "INTPS"
+        if self.v2.get() == "Yes":
+          self.input_operation = "GB_Fp_dp.xml"
+        else:
+          self.input_operation = "GB_Z_lp.xml"
+        
+      #########
+      #Creating the new window
       self.currentWindow = "TableSelect"
       self.mainFrame.destroy()
       self.createMainFrame()
       self.createTableSelect()
+      self.fillListOfProblems()
     else:
       """
       The only other possibility is that the user is at the second window, and wants
       to move on to the third.
       """
-      self.currentWindow = "CASSelect"
-      self.mainFrame.destroy()
-      self.createMainFrame()
-      self.createCASSelect()
+      if self.lstbx_chosenProblems.size()<1:
+        #Error message if the user has not selected a problem at all!
+        tkMessageBox.showerror(title = "No Problem selected", message = "You have to choose at least one problem instance!")
+      else:
+        #######
+        #Read entries and fill variables
+        self.input_problems = self.lstbx_chosenProblems.get(0,Tkinter.END)
+        ######
+        #Create the new window
+        self.currentWindow = "CASSelect"
+        self.mainFrame.destroy()
+        self.createMainFrame()
+        self.createCASSelect()
+        self.initCASselect()
       
-  def btnBackBehaviour(self):
+  #def btnBackBehaviour(self):
+  #  """
+  #  There is only one window that offers to go back, namely the last one where the user
+  #  specifies his machine settings and the computer algebra Systems he wants to use. Therefore
+  #  just the window with the TableSelect should be opened.
+  #  """
+  #  self.currentWindow = "TableSelect"
+  #  self.mainFrame.destroy()
+  #  self.createMainFrame()
+  #  self.createTableSelect()
+  #  #TODO: Voreingestellte Werte hier einfügen.
+  
+  def makeCASList(self):
     """
-    There is only one window that offers to go back, namely the last one where the user
-    specifies his machine settings and the computer algebra Systems he wants to use. Therefore
-    just the window with the TableSelect should be opened.
+    In the last window, we have some computer algebra systems to select. This method
+    returns a list of the selected Computer Algebra Systems.
     """
-    self.currentWindow = "TableSelect"
-    self.mainFrame.destroy()
-    self.createMainFrame()
-    self.createTableSelect()
-    #TODO: Voreingestellte Werte hier einfügen.
+    result = []
+    if self.var_GAP.get() == "Yes":
+      result.append("GAP.xml")
+    if self.var_Magma.get() == "Yes":
+      result.append("Magma.xml")
+    if self.var_Maple.get() == "Yes":
+      result.append("Maple.xml")
+    if self.var_Singular.get() == "Yes":
+      result.append("Singular.xml")
+    return result
+  
+  def btnCreateClick(self):
+    #First, some checks if the Entries given by the user are valid
+    ourCASs = self.makeCASList()
+    if self.entry_taskName.get().strip() == "":
+      tkMessageBox.showerror(title = "No Taskname given", message="Your task must have a name.")
+    elif len(ourCASs)==0:
+      tkMessageBox.showerror(title = "No Computer Algebra System selected", message="You have to select at least one computer algebra system")
+    else:
+      #Everything is fine. Start creating the Export Task folder
+      exportFolder = tkFileDialog.askdirectory(mustexist = True, title = "Choose a directory where the Export Folder should be placed at.")
+      fillTaskTree(self.entry_taskName.get().strip()+".xml",self.input_operation,self.input_problemClass,self.input_problems,ourCASs)
+      createExportTaskFolder(exportFolder)
+      tkMessageBox.showinfo(title="Successful", message = "The task was successfully created.")
+      self.mainWindow.destroy()
+    
+  def btnAddClick(self):
+    """
+    This method deals with the event, that the user adds a problem to his list
+    of chosen problems.
+    """
+    if self.lstbx_allProblems.size()>0:
+      #Add just makes sense if the size of the problem list is greater than 0
+      self.lstbx_chosenProblems.insert(Tkinter.END,self.lstbx_allProblems.get(self.lstbx_allProblems.curselection()[0]))
+      self.lstbx_allProblems.delete(self.lstbx_allProblems.curselection()[0])
+      if self.lstbx_allProblems.size()>0:
+        self.lstbx_allProblems.select_set(0)
+  
+  def btnRemoveClick(self):
+    """
+    If a problem in the current problem list is not that interesting how it seemed before
+    the usere presses the button "remove" and this method will delete it from the list
+    """
+    if self.lstbx_chosenProblems.size()>0:
+      if len(self.lstbx_chosenProblems.curselection())>0:
+        self.lstbx_allProblems.insert(Tkinter.END,self.lstbx_chosenProblems.get(self.lstbx_chosenProblems.curselection()[0]))
+        self.lstbx_chosenProblems.delete(self.lstbx_chosenProblems.curselection()[0])
+  
+  ##################################################
+  #### Events
+  ##################################################
+  def listBoxAllProblemsClicked(self,event):
+    """
+    Here, if you click on a problem on a listbox, you will get a preview on the screen to see whether it is interesting
+    for you or not.
+    """
+    global xmlDataPath
+    if self.lstbx_allProblems.size()>0:
+      if len(self.lstbx_allProblems.curselection())>0:
+        self.txt_preview.delete(1.0, Tkinter.END)
+        filePath = os.path.join(xmlDataPath, self.input_problemClass, self.lstbx_allProblems.get(self.lstbx_allProblems.curselection()[0]))
+        problemFile = open(filePath)
+        problemFileContent = problemFile.read()
+        self.txt_preview.insert(Tkinter.END,problemFileContent)
+  
   
   ##################################################
   #### Input Cheking in the Windows
@@ -196,14 +375,14 @@ who funded the project at the project Schwerpunkt 1489")
     self.lbl_FiniteField.grid(row=4, columnspan = 2, sticky = Tkinter.W)
     self.v2 = Tkinter.StringVar()
     self.v2.set("No")
-    self.rb_notFiniteField = Tkinter.Radiobutton(self.mainFrame,text = "No.", variable = self.v2, value = "No", command = lambda:self.entry_characteristic.config(state=Tkinter.DISABLED))
+    self.rb_notFiniteField = Tkinter.Radiobutton(self.mainFrame,text = "No.", variable = self.v2, value = "No")
     self.rb_notFiniteField.select()
     self.rb_notFiniteField.grid(row=5, columnspan = 2, sticky=Tkinter.W)
-    self.rb_finiteField = Tkinter.Radiobutton(self.mainFrame,text = "Yes. Characteristic:", variable = self.v2, value = "Yes", command=lambda:self.entry_characteristic.config(state=Tkinter.NORMAL))
+    self.rb_finiteField = Tkinter.Radiobutton(self.mainFrame,text = "Yes", variable = self.v2, value = "Yes")
     self.rb_finiteField.grid(row = 6, column=0, sticky = Tkinter.W)
-    self.entry_characteristic = Tkinter.Entry(self.mainFrame, state = Tkinter.DISABLED)
-    self.entry_characteristic.config(width=6)
-    self.entry_characteristic.grid(row = 6, column = 1, sticky=Tkinter.E)
+    #self.entry_characteristic = Tkinter.Entry(self.mainFrame, state = Tkinter.DISABLED)
+    #self.entry_characteristic.config(width=6)
+    #self.entry_characteristic.grid(row = 6, column = 1, sticky=Tkinter.E)
     #Next Button
     self.btn_next = Tkinter.Button(self.mainFrame,text="Next",command = self.btnNextBehaviour)
     self.btn_next.grid(row = 7, column = 1, sticky=Tkinter.E)
@@ -215,12 +394,13 @@ who funded the project at the project Schwerpunkt 1489")
     self.lbl_concreteProblems.grid(row = 0, columnspan = 3)
     #listbox containing all problems
     self.lstbx_allProblems = Tkinter.Listbox(self.mainFrame)
+    self.lstbx_allProblems.bind("<Double-Button-1>", self.listBoxAllProblemsClicked)
     self.lstbx_allProblems.grid(row = 1, column = 0, rowspan = 2 ,sticky = Tkinter.W)
     #The button with whome the user can add the problems to the list.
-    self.btn_add = Tkinter.Button(self.mainFrame,text = "Add->")
+    self.btn_add = Tkinter.Button(self.mainFrame,text = "Add->",command=self.btnAddClick)
     self.btn_add.grid(row = 1, column = 1)
     #The button with whome the user can remove things from the right hand side list.
-    self.btn_remove = Tkinter.Button(self.mainFrame,text = "<-Remove")
+    self.btn_remove = Tkinter.Button(self.mainFrame,text = "<-Remove",command = self.btnRemoveClick)
     self.btn_remove.grid(row = 2, column = 1)
     #The list with chosen problems
     self.lstbx_chosenProblems = Tkinter.Listbox(self.mainFrame)
@@ -249,19 +429,27 @@ on which your calculations should be performed")
     #Checkbox select of the computer algebra systems.
     #GAP
     self.var_GAP = Tkinter.StringVar()
+    self.var_GAP.set("No")
     self.cb_GAP = Tkinter.Checkbutton(self.mainFrame,text = "GAP", variable = self.var_GAP,onvalue="Yes", offvalue = "No")
+    self.cb_GAP.deselect()
     self.cb_GAP.grid(row = 1, columnspan = 2, sticky = Tkinter.W)
     #Magma
     self.var_Magma = Tkinter.StringVar()
+    self.var_Magma.set("No")
     self.cb_Magma = Tkinter.Checkbutton(self.mainFrame,text = "Magma", variable = self.var_Magma,onvalue="Yes", offvalue = "No")
+    self.cb_Magma.deselect()
     self.cb_Magma.grid(row = 2, columnspan = 2, sticky = Tkinter.W)
     #Maple
     self.var_Maple = Tkinter.StringVar()
+    self.var_Maple.set("No")
     self.cb_Maple = Tkinter.Checkbutton(self.mainFrame,text = "Maple", variable = self.var_Maple,onvalue="Yes", offvalue = "No")
+    self.cb_Maple.deselect()
     self.cb_Maple.grid(row = 3, columnspan = 2, sticky = Tkinter.W)
     #Singular
     self.var_Singular = Tkinter.StringVar()
+    self.var_Singular.set("No")
     self.cb_Singular = Tkinter.Checkbutton(self.mainFrame,text = "Singular", variable = self.var_Singular,onvalue="Yes", offvalue = "No")
+    self.cb_Singular.deselect()
     self.cb_Singular.grid(row = 4, columnspan = 2, sticky = Tkinter.W)
     ############
     #Now the Machine Settings.
@@ -305,9 +493,9 @@ the local machine to call the following programs:")
     self.entry_taskName.grid(row = 11, column = 1, sticky = Tkinter.W)
     ############  
     #Back and Finish Button
-    self.btn_Back = Tkinter.Button(self.mainFrame, text = "Back", command = self.btnBackBehaviour)
-    self.btn_Back.grid(row = 12, column = 0, sticky = Tkinter.W)
-    self.btn_CreateExportFolder = Tkinter.Button(self.mainFrame, text = "Create Export Folder")
+    #self.btn_Back = Tkinter.Button(self.mainFrame, text = "Back", command = self.btnBackBehaviour)
+    #self.btn_Back.grid(row = 12, column = 0, sticky = Tkinter.W)
+    self.btn_CreateExportFolder = Tkinter.Button(self.mainFrame, text = "Create Export Folder", command = self.btnCreateClick)
     self.btn_CreateExportFolder.grid(row = 12, column = 1, sticky = Tkinter.E)
     
 CreateTasksGui()
