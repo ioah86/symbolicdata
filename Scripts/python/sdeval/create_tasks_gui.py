@@ -344,6 +344,7 @@ who funded the project at the project Schwerpunkt 1489")
       #Everything is fine. Start creating the Export Task folder
       exportFolder = tkFileDialog.askdirectory(mustexist = True, title = "Choose a directory where the Export Folder should be placed at.")
       fillTaskTree(self.entry_taskName.get().strip()+".xml",self.input_operation,self.input_problemClass,self.input_problems,ourCASs)
+      createMachineSettingsXML(self.entry_Singular.get(),self.entry_Magma.get(),self.entry_GAP.get(),self.entry_Maple.get(),self.entry_Time.get())
       createExportTaskFolder(exportFolder)
       tkMessageBox.showinfo(title="Successful", message = "The task was successfully created.")
       self.mainWindow.destroy()
