@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MachineSettings>
+  <CASdictionary>
+    <entry>
+      <key>Singular</key>
+      <value>Singular</value>
+    </entry>
+    <entry>
+      <key>Maple</key>
+      <value>maple</value>
+    </entry>
+    <entry>
+      <key>Magma</key>
+      <value>magma</value>
+    </entry>
+    <entry>
+      <key>GAP</key>
+      <value>gap</value>
+    </entry>
+  </CASdictionary>
+  <OtherVars>
+    <TimeCommand>/usr/bin/time -f "real\t%E\nuser\t%U\nsystem\t%S"</TimeCommand>
+  </OtherVars>
+</MachineSettings>
