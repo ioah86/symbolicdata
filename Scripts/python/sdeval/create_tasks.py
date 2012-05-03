@@ -154,7 +154,8 @@ def createExportTaskFolder(dest = None):
             file.close();
     shutil.copy(os.path.join(sdevaldir,"runTasks.py"),os.getcwd())
     shutil.copytree(os.path.join(sdevaldir,"classes"),os.path.join(os.getcwd(),"classes"))
-    shutil.copy(os.path.join(sdevaldir,"MachineSettings.py"),os.getcwd())    
+    shutil.copy(os.path.join(sdevaldir,"MachineSettings.py"),os.getcwd())
+    shutil.copy(os.path.join(sdevaldir,"MachineSettings.xml"),os.getcwd())
     
 
 interactiveUserMode()

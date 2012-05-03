@@ -117,6 +117,68 @@ def createExportTaskFolder(dest = None):
     shutil.copy(os.path.join(sdevaldir,"runTasks.py"),os.getcwd())
     shutil.copytree(os.path.join(sdevaldir,"classes"),os.path.join(os.getcwd(),"classes"))
     shutil.copy(os.path.join(sdevaldir,"MachineSettings.py"),os.getcwd())
+    shutil.copy(os.path.join(sdevaldir,"MachineSettings.xml"),os.getcwd())
+    
+    
+################################################################################
+###Create Machine Settings XML
+def createMachineSettingsXML(singular = "Singular", magma = "magma", gap = "gap", maple = "maple", time="/usr/bin/time -f \"real\\t%E\\nuser\\t%U\\nsystem\\t%S\"" ):
+  """
+  Creates a Machine-Settings XML-File that can be exported later to the Exporttaskfolder.
+  It contains information about the local commands to call the different computer algebra systems and the time command used in the calculation
+  """
+  MSTree = dom.Document()
+  tag_MS = dom.Element("MachineSettings")
+  tag_CASdict = dom.Element("CASdictionary")
+  #Fill the Computer Algebra Systems in
+  #Singular
+  tag_Singular = dom.Element("entry")
+  temp = dom.Element("key")
+  temp.appendChild(MSTree.createTextNode("Singular"))
+  tag_Singular.appendChild(temp)
+  temp = dom.Element("value")
+  temp.appendChild(MSTree.createTextNode(singular))
+  tag_Singular.appendChild(temp)
+  tag_CASdict.appendChild(tag_Singular)
+  #Maple
+  tag_Maple = dom.Element("entry")
+  temp = dom.Element("key")
+  temp.appendChild(MSTree.createTextNode("Maple"))
+  tag_Maple.appendChild(temp)
+  temp = dom.Element("value")
+  temp.appendChild(MSTree.createTextNode(maple))
+  tag_Maple.appendChild(temp)
+  tag_CASdict.appendChild(tag_Maple)
+  #Magma
+  tag_Magma = dom.Element("entry")
+  temp = dom.Element("key")
+  temp.appendChild(MSTree.createTextNode("Magma"))
+  tag_Magma.appendChild(temp)
+  temp = dom.Element("value")
+  temp.appendChild(MSTree.createTextNode(magma))
+  tag_Magma.appendChild(temp)
+  tag_CASdict.appendChild(tag_Magma)
+  #GAP
+  tag_GAP = dom.Element("entry")
+  temp = dom.Element("key")
+  temp.appendChild(MSTree.createTextNode("GAP"))
+  tag_GAP.appendChild(temp)
+  temp = dom.Element("value")
+  temp.appendChild(MSTree.createTextNode(gap))
+  tag_GAP.appendChild(temp)
+  tag_CASdict.appendChild(tag_GAP)
+  ## Put everything together
+  tag_MS.appendChild(tag_CASdict)
+  temp = dom.Element("OtherVars")
+  temp2 = dom.Element("TimeCommand")
+  temp2.appendChild(MSTree.createTextNode(time))
+  temp.appendChild(temp2)
+  #temp.appendChild(dom.Element("TimeCommand"))
+  tag_MS.appendChild(temp)
+  MSTree.appendChild(tag_MS)
+  file = open(MS.machineSettingsXmlFileName,"w")
+  MSTree.writexml(file,"","","\n")
+  file.close()
 
 ################################################################################
 #Lets start with the gui itself.
@@ -253,18 +315,7 @@ who funded the project at the project Schwerpunkt 1489")
         self.createMainFrame()
         self.createCASSelect()
         self.initCASselect()
-      
-  #def btnBackBehaviour(self):
-  #  """
-  #  There is only one window that offers to go back, namely the last one where the user
-  #  specifies his machine settings and the computer algebra Systems he wants to use. Therefore
-  #  just the window with the TableSelect should be opened.
-  #  """
-  #  self.currentWindow = "TableSelect"
-  #  self.mainFrame.destroy()
-  #  self.createMainFrame()
-  #  self.createTableSelect()
-  #  #TODO: Voreingestellte Werte hier einfügen.
+
   
   def makeCASList(self):
     """
