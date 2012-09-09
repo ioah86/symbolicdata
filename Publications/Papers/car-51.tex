@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage{a4wide,german,url}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\SD}{{\sc Symbolic\-Data}}
+\parindent0pt
+\parskip4pt
+
+\begin{document}
+
+\section*{\centering Neues vom \SD-Projekt}
+
+\begin{center} 
+Hans-Gert Gr"abe (Leipzig)\footnote{published in ``Computeralgebra-Rundbrief''
+  51, October 2012}
+\end{center}
+
+\subsection*{Zur Geschichte des Projekts}
+
+Die Idee zum \SD-Projekt entstand 1998 am Rande der ISSAC in Rostock, als
+zunehmend sichtbar wurde, dass die Datensammlungen, welche im Rahmen der mit
+europäischen Mitteln geförderten Projekte
+PoSSo\footnote{\url{http://posso.dm.unipi.it}} und
+FRISCO\footnote{\url{http://www.nag.co.uk/projects/frisco.html}} entstanden
+waren, ohne aktives Zutun der Community nicht dauerhaft digital verfügbar sein
+würden.
+
+In den folgenden Jahren wurde dieses Projekt vor allem von Olaf Bachmann und
+dem Autor dieses Beitrags mit weiterer Unterstützung aus der Gruppe der
+Singular-Entwickler vorangetrieben. Im CAR 26 (M"arz 2000) und CAR 28 (M"arz
+2001) wurde das \SD-Projekt im damaligen Zuschnitt ausf"uhrlich vorgestellt.
+Der Schwerpunkt der Datensammlung lag im Bereich polynomialer
+Gleichungssysteme mit ganzzahligen Koeffizienten, die zu jener Zeit
+insbesondere im Zusammenhang mit verschiedenen Varianten des
+Gröbner-Algorithmus intensiv studiert wurden, wobei vor allem die
+verschiedenen Benchmark-Beispiele aus der Literatur und den genannten
+EU-Projekten systematisiert und digital aufbereitet sowie entsprechende
+Werkzeuge zur Verwaltung und zum Aufsetzen von Benchmarks entwickelt wurden.
+ 
+Nach dem Weggang von O.~Bachmann aus Kaiserslautern zum Ende 2000 wurde mit
+dem geometrischen Theorembeweisen ein zweites größeres Sammelgebiet
+erschlossen, das über die Koordinatenmethode eng mit polynomialen
+Gleichungssystemen verbunden ist. Einfache Beispiele lassen sich auf
+geometrische Sätze \emph{vom konstruktiven Typ} zurückführen, deren Beweis auf
+eine {\glqq}einfache{\grqq} Normalformberechnung rationaler Ausdrücke
+zurückgeführt werden kann. Obwohl solche Normalformberechnungen im Prinzip
+verstanden sind, lassen sie sich aber praktisch oft nicht ausführen, während
+alternative Koordinatisierungen \emph{vom Gleichungstyp} und geschickte
+Ansätze des Lösens der entsprechenden polynomialen Gleichungssysteme zum Ziel
+führten. M.~Witte, damals Student in Leipzig, untersuchte und digitalisierte
+insbesondere eine größere Anzahl von Beispielen aus der Beispielsammlung von
+S.-C.~Chou\footnote{S.-C. Chou. Mechanical Geometry Theorem Proving. Reidel,
+  Dortrecht, 1988.}. 
+
+Weiteres Beispielmaterial wurde von der CoCoA-Gruppe (F.~Cioffi), der
+Singular-Gruppe (M.~Brickenstein, M.~Dengel, S.~Steidel, M.~Wenk),
+J.-C.~Faugère (weitere Polynomsysteme), V.~Levandovskyy (nichtkommutative
+Polynomsysteme, G-Algebren) sowie von Raymond Hemmecke (Testmengen aus der
+ganzzahligen Programmierung) beigesteuert.  Die Projektdaten wurden gemeinsam
+zunächst über ein CVS-Repository verwaltet.  Die CA-Fachgruppe finanziert für
+das Projekt die Domäne \texttt{symbolicdata.org}, die seit 2005 von der
+GI-Geschäftsstelle gehostet wird.
+
+Leider standen ab 2003 keine personellen Ressourcen zur systematischen
+weiteren Arbeit am \SD-Projekt zur Verfügung, so dass das Datenmaterial
+seither nur auf einer {\glqq}as is{\grqq} Basis verwendet werden konnte und
+auch nur gelegentliche Erweiterung erfahren hat. Insbesondere stellte sich
+heraus, dass die ambitionierten Vorstellungen, eine \emph{einheitliche
+  Werkbank für Benchmarking im symbolischen Rechnen} mit entsprechenden
+Werkzeugen und Konzepten zu entwickeln, mit den verfügbaren Ressourcen nicht
+zu stemmen war und -- mit Blick auf die Vielfalt der Rechnerarchitekturen,
+Problemstellungen und verwendeten Programmiersprachen -- wohl auch am realen
+Bedarf vorbei geht. Statt dessen konzentriert sich dieser Teil des Projekts
+nunmehr darauf, den Code von Best Practise Beispielen zu sammeln und zur
+Nachnutzung zur Verfügung zu stellen.  
+
+Ein weiterer Versuch, die Arbeiten am \SD-Projekt mit vereinten Anstrengungen
+zu intensivieren und mit angrenzenden Bemühungen in dieser Richtung, etwa der
+Datenbank \emph{Gröbner Bases Implementations. Functionality Check and
+  Comparison}\footnote{\url{http://www.risc.jku.at/Groebner-Bases-Implementations}}
+oder dem \emph{Gröbner Bases Bibliography
+  Project}\footnote{\url{http://www.risc.jku.at/Groebner-Bases-Bibliography}}
+zu koordinieren, wurde im März 2006 während des \emph{Special Semester on
+  Groebner Bases} am RISC Linz gestartet.  Jedoch fand auch dieses Projekt im
+Nachgang keine nachhaltige Resonanz in der Community. 
+
+\subsection*{Entwicklungen nach 2003}
+
+In den letzten 10 Jahren nahm das (semantische) Web der Daten eine besonders
+stürmische Entwicklung, was die konzeptionellen Entwicklungen zur Datenhaltung
+aus den Anfangszeiten des \SD-Projekts entwertet hat, über die seinerzeit in
+den entsprechenden Aufsätzen im CAR berichtet wurde.  Mit dem \emph{Semantic
+  Stack} haben sich inzwischen Standards durchgesetzt und stehen Werkzeuge zur
+Verfügung, mit denen sich Verwaltungsaufgaben auf verschiedenen Ebenen nach
+einheitlichen Prinzipien organisieren lassen. Dies sind 
+\begin{itemize}
+\item XML und XSchema als Standards zur Darstellung strukturierter Daten auf
+  Ressourcen-Ebene sowie 
+\item RDF und OWL als Standards zur Beschreibung semantischer Aspekte der
+  Daten.
+\end{itemize}
+Während ersteres prinzipiell geeignet ist, dezentral betreute Datenbestände in
+einem \SD-Netz zusammenzuführen und durch geeignete URI's zu adressieren (die
+Frage der nachhaltigen Verfügbarkeit derartiger dezentral betreuter
+Datenbestände sei hier ausgeklammert), ist die Aggregierung der Beschreibungen
+semantischer Aspekte unbedingt erforderlich, um sinnvolle Suchprozesse nach
+Informationen auf diesen vernetzten Beschreibungen zu ermöglichen.  Während
+wir in der Anfangszeit davon ausgingen, dass dazu wesentliche Teile der
+Informationen an einem Ort zusammengetragen sein muss -- etwa als Datenbestand
+in unserem CVS-Repository -- zeigen modernere Entwicklungen der Linked Open
+Data Cloud, in welchem Umfang auch diese Informationen dezentral verwaltet
+werden können, wenn entsprechende Protokolle des Datenaustauschs vereinbart
+werden. Genauer geht es nicht um die Protokolle selbst, sondern um die
+gemeinsam zu vereinbarenden Ontologien, mit denen RDF-Tripel der Wissensbasis
+auf einheitliche Weise {\glqq}verstanden{\grqq} werden.
+
+Die wenigen verfügbaren Ressourcen der letzten Jahre wurden darauf verwendet,
+einen Migrationsprozess der Datenbasis hin zu diesen Standards in die Wege zu
+leiten, also 
+\begin{itemize}
+\item die Benchmark-Daten aus den verschiedenen Bereichen auf je
+  standardisierte Weise in XSchema-beschriebene XML-Ressourcen zu
+  transformieren, 
+\item die im ursprünglichen \SD-Konzept eng mit den Ressourcen gekoppelten
+  Beschreibungsdaten zu separieren und über RDF-Standards (insbesondere einen
+  SPARQL-Endpunkt) für Suchanfragen verfügbar zu machen sowie 
+\item eine \SD-Ontologie für diese Beschreibungsdaten zu entwickeln.
+\end{itemize}
+Die Erfahrungen aus vergleichbaren Projekten an unserem Lehrstuhl legten nahe,
+dass dieser Migrationsprozess am besten als agiler Prozess anzulegen ist, also
+das {\glqq}a little bit thinking, a little bit coding{\grqq} aus der
+Anfangszeit des \SD-Projekts auch hierbei anwendbar ist, um mit kleinen
+Schritten die sehr begrenzten Ressourcen einzusetzen.  Insbesondere lehren
+diese Beispiele, dass es -- im deutlichen Gegensatz zu den Erfahrungen der
+ER-Modellierung -- nicht sinnvoll ist, bereits am Anfang zu viel Mühe
+auf die genaue Fassung der \SD-Ontologie
+
+Im Repository sind größere Teile der Daten (insbesondere ein wesentlicher Teil
+der Polynomsysteme) inzwischen in XSchema-beschriebene XML-Ressourcen
+transformiert
+
+
+http://hgg.ontowiki.net/
+
+
+
+Seit Anfang 2011 wird Mercurial zur Projektverwaltung\footnote{Siehe
+  \url{https://bitbucket.org/hgg/symbolicdata}} eingesetzt.
+
+\subsection*{Das Benchmarking-Projekt im Rahmen der Sächsischen
+  E-Science-Initiative} 
+
+Projekt, symbolicdata Mailingliste
+
+Aufbau eines \SD-Wiki 
+
+Dort Fixierung der \SD-Ontologie als Kommunikationsprozess 
+
+Weiter untersuchen, welches Potenzial die SemanticMediawiki-Erweiterung und
+SemanticForms für das \SD-Projekt bieten.
+
+Einbeziehung weiterer Datenbestände, wenigstens auf der Beschreibungsebene. 
+
+
+
+\end{document}
+
+
+
+Von mir wurde die bereits im Konzept angelegte Trennung von Daten- und
+Programmteil (vgl. CAR 26) nun auch auf technischer Ebene realisiert,
+wodurch es m"oglich ist, dieselben Werkzeuge f"ur verschiedene Projekte
+zur Verwaltung symbolischer Informationen einzusetzen. Die jeweils
+verwendete Datenbasis kann dazu "uber den Wert einer Option eingestellt
+werden.  
+
+Zur Verwaltung symbolischer Daten kann zwar auch eine herk"ommliche
+Datenbank eingesetzt werden, jedoch erlaubt unser objekt-relationaler
+Ansatz zusammen mit der Flexibilit"at von Perl einen deutlich
+einfacheren Umgang mit ASCII-Quellen (bis hin zur M"oglichkeit, diese
+'in situ' zu korrigieren), so dass sich die \SD-Werkzeuge auch
+``artfremd'' (ich verwende sie zum Aufbau einer Literatur-Datenbank
+sowie beim Management von Olympiade-Aufgaben) einsetzen lassen.
+\medskip
+
+Die Resonanz auf unsere Arbeit innerhalb der CA-Gemeinde ist jedoch
+immer noch gering.  Ich weise deshalb noch einmal auf die Anliegen
+hin, die wir mit unserem Projekt verfolgen: 
+\begin{enumerate}
+\item[1.] Wir wollen die Bem"uhungen verschiedener Gruppen zur
+Erstellung von Perl-Werkzeugen zum Management digitaler symbolischer
+Daten aus verschiedenen Bereichen der Computeralgebra vereinigen.
+\end{enumerate}
+
+Wir gehen davon aus, dass auch andere Gruppen sich eigene Werkzeuge f"ur
+Vergleichs- oder Testrechnungen erstellt haben oder erstellen und hier bereits
+mehrfach das Fahrrad neu erfunden wurde und auch weiter erfunden werden wird,
+so dass es an der Zeit ist, das ganze know how einmal zu sichten und zu
+b"undeln.
+
+Unsere Werkzeuge (provided 'as is') k"onnen von der \SD-Webseite
+\url{http://www.symbolicdata.org} herunter geladen und leicht f"ur spezielle
+Zwecke in einem lokalen Projekt angepasst und modifiziert werden.  Eine
+sinnvolle Weiterentwicklung ist erst auf der Basis eines so gewonnenen
+Erfahrungsschatzes m"oglich.
+
+\begin{enumerate}
+\item[2.] \SD\ stellt ein zentrales Repositorium zur Verf"ugung, in dem
+digitale Benchmark-Daten aus verschiedenen Bereichen der
+Computeralgebra gesammelt werden (k"onnen).
+\end{enumerate}
+
+Ein solcher {\em upload} ist derzeit nur "uber eine direkte Beteiligung am
+Projekt m"oglich, in dessen Rahmen Zugang zu unserem CVS-Repository am UMS
+MEDICIS in Paris (\url{http://www.medicis.polytechnique.fr/medicis}) besteht.
+\medskip
+
+Eine stabile Version 0.4 der zur Zeit verf"ugbaren Werkzeuge und Daten
+ist ab 1.~M"arz~2001 auf unserem Server verf"ugbar.  Teilbereiche des
+Projekts warten auf die weitere Ausgestaltung (z.B. ein
+Frontend/Backend-System, um die Ladezeiten zu verringern; ein auf
+"Ahnlichkeit basierendes System von Vergleichen von Records; dynamische
+Webseiten-Generierung aus der Datenbasis; ein vern"unftiger
+Select-Mechanismus), wozu weitere Mitstreiter willkommen sind.
+
+\end{document}
