@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2011" createdBy="" id="FREEALGEBRA/">
+  <vars>x(1),x(2),x(3),x(4),x(5)</vars>
+  <basis>
+ <poly> x(4)*x(5)*x(5)-x(5)*x(5)*x(4)</poly>
+ <poly> x(3)*x(5)*x(5)-x(5)*x(5)*x(3)</poly>
+ <poly> x(2)*x(5)*x(5)-x(5)*x(5)*x(2)</poly>
+ <poly> x(1)*x(5)*x(5)-x(5)*x(5)*x(1)</poly>
+ <poly> x(5)*x(4)*x(4)-x(4)*x(4)*x(5)</poly>
+ <poly> x(3)*x(5)*x(4)+x(5)*x(3)*x(4)-x(4)*x(3)*x(5)-x(4)*x(5)*x(3)</poly>
+ <poly> x(2)*x(5)*x(4)+x(5)*x(2)*x(4)-x(4)*x(2)*x(5)-x(4)*x(5)*x(2)</poly>
+ <poly> x(1)*x(5)*x(4)+x(5)*x(1)*x(4)-x(4)*x(1)*x(5)-x(4)*x(5)*x(1)</poly>
+ <poly> x(4)*x(5)*x(3)+x(5)*x(4)*x(3)-x(3)*x(4)*x(5)-x(3)*x(5)*x(4)</poly>
+ <poly> x(5)*x(3)*x(3)-x(3)*x(3)*x(5)</poly>
+ <poly> x(2)*x(5)*x(3)+x(5)*x(2)*x(3)-x(3)*x(2)*x(5)-x(3)*x(5)*x(2)</poly>
+ <poly> x(1)*x(5)*x(3)+x(5)*x(1)*x(3)-x(3)*x(1)*x(5)-x(3)*x(5)*x(1)</poly>
+ <poly> x(4)*x(5)*x(2)+x(5)*x(4)*x(2)-x(2)*x(4)*x(5)-x(2)*x(5)*x(4)</poly>
+ <poly> x(3)*x(5)*x(2)+x(5)*x(3)*x(2)-x(2)*x(3)*x(5)-x(2)*x(5)*x(3)</poly>
+ <poly> x(5)*x(2)*x(2)-x(2)*x(2)*x(5)</poly>
+ <poly> x(1)*x(5)*x(2)+x(5)*x(1)*x(2)-x(2)*x(1)*x(5)-x(2)*x(5)*x(1)</poly>
+ <poly> x(4)*x(5)*x(1)+x(5)*x(4)*x(1)-x(1)*x(4)*x(5)-x(1)*x(5)*x(4)</poly>
+ <poly> x(3)*x(5)*x(1)+x(5)*x(3)*x(1)-x(1)*x(3)*x(5)-x(1)*x(5)*x(3)</poly>
+ <poly> x(2)*x(5)*x(1)+x(5)*x(2)*x(1)-x(1)*x(2)*x(5)-x(1)*x(5)*x(2)</poly>
+ <poly> x(5)*x(1)*x(1)-x(1)*x(1)*x(5)</poly> <poly> x(3)*x(4)*x(4)-x(4)*x(4)*x(3)</poly>
+ <poly> x(2)*x(4)*x(4)-x(4)*x(4)*x(2)</poly>
+ <poly> x(1)*x(4)*x(4)-x(4)*x(4)*x(1)</poly>
+ <poly> x(4)*x(3)*x(3)-x(3)*x(3)*x(4)</poly>
+ <poly> x(2)*x(4)*x(3)+x(4)*x(2)*x(3)-x(3)*x(2)*x(4)-x(3)*x(4)*x(2)</poly>
+ <poly> x(1)*x(4)*x(3)+x(4)*x(1)*x(3)-x(3)*x(1)*x(4)-x(3)*x(4)*x(1)</poly>
+ <poly> x(3)*x(4)*x(2)+x(4)*x(3)*x(2)-x(2)*x(3)*x(4)-x(2)*x(4)*x(3)</poly>
+ <poly> x(4)*x(2)*x(2)-x(2)*x(2)*x(4)</poly>
+ <poly> x(1)*x(4)*x(2)+x(4)*x(1)*x(2)-x(2)*x(1)*x(4)-x(2)*x(4)*x(1)</poly>
+ <poly> x(3)*x(4)*x(1)+x(4)*x(3)*x(1)-x(1)*x(3)*x(4)-x(1)*x(4)*x(3)</poly>
+ <poly> x(2)*x(4)*x(1)+x(4)*x(2)*x(1)-x(1)*x(2)*x(4)-x(1)*x(4)*x(2)</poly>
+ <poly> x(4)*x(1)*x(1)-x(1)*x(1)*x(4)</poly>
+ <poly> x(2)*x(3)*x(3)-x(3)*x(3)*x(2)</poly>
+ <poly> x(1)*x(3)*x(3)-x(3)*x(3)*x(1)</poly>
+ <poly> x(3)*x(2)*x(2)-x(2)*x(2)*x(3)</poly>
+ <poly> x(1)*x(3)*x(2)+x(3)*x(1)*x(2)-x(2)*x(1)*x(3)-x(2)*x(3)*x(1)</poly>
+ <poly> x(2)*x(3)*x(1)+x(3)*x(2)*x(1)-x(1)*x(2)*x(3)-x(1)*x(3)*x(2)</poly>
+ <poly> x(3)*x(1)*x(1)-x(1)*x(1)*x(3)</poly>
+ <poly> x(1)*x(2)*x(2)-x(2)*x(2)*x(1)</poly>
+ <poly> x(2)*x(1)*x(1)-x(1)*x(1)*x(2)</poly>
+ <poly> -x(1)*x(3)*x(2)*x(4)*x(5)+x(2)*x(3)*x(1)*x(4)*x(5)+x(1)*x(2)*x(4)*x(3)*x(5)-x(2)*x(1)*x(4)*x(3)*x(5)-x(1)*x(3)*x(4)*x(2)*x(5)+x(2)*x(3)*x(4)*x(1)*x(5)+x(3)*x(1)*x(4)*x(2)*x(5)-x(3)*x(2)*x(4)*x(1)*x(5)+x(1)*x(3)*x(2)*x(4)*x(5)-x(2)*x(3)*x(1)*x(4)*x(5)-x(1)*x(4)*x(2)*x(3)*x(5)+x(2)*x(4)*x(1)*x(3)*x(5)+x(1)*x(4)*x(3)*x(2)*x(5)-x(2)*x(4)*x(3)*x(1)*x(5)-x(3)*x(4)*x(1)*x(2)*x(5)+x(3)*x(4)*x(2)*x(1)*x(5)</poly>
+  </basis>
+  <uptoDeg>10</uptoDeg>
+  <Version>$Id: lascala_bsph_d9.xml,v 1.0 2011/07/25 15:21:58 studzins Exp $</Version>
+</FREEALGEBRA>
+
+
+

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2011" createdBy="" id="FREEALGEBRA/">
+<vars>x1,x2,x3,x4,x5,x6</vars>
+<basis>
+<poly>x6*x5*x6-x6*x6*x5</poly> 
+<poly> x6*x4*x6-x6*x6*x4</poly> 
+<poly> x6*x3*x6-x6*x6*x3</poly> 
+<poly> x6*x2*x6-x6*x6*x2</poly> 
+<poly> x6*x1*x6-x6*x6*x1</poly> 
+<poly> x5*x6*x5-x5*x5*x6</poly> 
+<poly> x6*x4*x5+x4*x6*x5-x4*x5*x6-x5*x6*x4</poly> 
+<poly> x6*x3*x5+x3*x6*x5-x3*x5*x6-x5*x6*x3</poly> 
+<poly> x6*x2*x5+x2*x6*x5-x2*x5*x6-x5*x6*x2</poly> 
+<poly> x6*x1*x5+x1*x6*x5-x1*x5*x6-x5*x6*x1</poly> 
+<poly> x5*x6*x4+x6*x5*x4-x5*x4*x6-x6*x4*x5</poly> 
+<poly> x4*x6*x4-x4*x4*x6</poly> 
+<poly> x6*x3*x4+x3*x6*x4-x3*x4*x6-x4*x6*x3</poly> 
+<poly> x6*x2*x4+x2*x6*x4-x2*x4*x6-x4*x6*x2</poly> 
+<poly> x6*x1*x4+x1*x6*x4-x1*x4*x6-x4*x6*x1</poly> 
+<poly> x5*x6*x3+x6*x5*x3-x5*x3*x6-x6*x3*x5</poly> 
+<poly> x4*x6*x3+x6*x4*x3-x4*x3*x6-x6*x3*x4</poly> 
+<poly> x3*x6*x3-x3*x3*x6</poly> 
+<poly> x6*x2*x3+x2*x6*x3-x2*x3*x6-x3*x6*x2</poly> 
+<poly> x6*x1*x3+x1*x6*x3-x1*x3*x6-x3*x6*x1</poly> 
+<poly> x5*x6*x2+x6*x5*x2-x5*x2*x6-x6*x2*x5</poly> 
+<poly> x4*x6*x2+x6*x4*x2-x4*x2*x6-x6*x2*x4</poly> 
+<poly> x3*x6*x2+x6*x3*x2-x3*x2*x6-x6*x2*x3</poly> 
+<poly> x2*x6*x2-x2*x2*x6</poly> 
+<poly> x6*x1*x2+x1*x6*x2-x1*x2*x6-x2*x6*x1</poly> 
+<poly> x5*x6*x1+x6*x5*x1-x5*x1*x6-x6*x1*x5</poly> 
+<poly> x4*x6*x1+x6*x4*x1-x4*x1*x6-x6*x1*x4</poly> 
+<poly> x3*x6*x1+x6*x3*x1-x3*x1*x6-x6*x1*x3</poly> 
+<poly> x2*x6*x1+x6*x2*x1-x2*x1*x6-x6*x1*x2</poly> 
+<poly> x1*x6*x1-x1*x1*x6</poly> 
+<poly> x5*x4*x5-x5*x5*x4</poly>
+<poly> x5*x3*x5-x5*x5*x3</poly> 
+<poly> x5*x2*x5-x5*x5*x2</poly> 
+<poly> x5*x1*x5-x5*x5*x1</poly> 
+<poly> x4*x5*x4-x4*x4*x5</poly> 
+<poly> x5*x3*x4+x3*x5*x4-x3*x4*x5-x4*x5*x3</poly> 
+<poly> x5*x2*x4+x2*x5*x4-x2*x4*x5-x4*x5*x2</poly> 
+<poly> x5*x1*x4+x1*x5*x4-x1*x4*x5-x4*x5*x1</poly> 
+<poly> x4*x5*x3+x5*x4*x3-x4*x3*x5-x5*x3*x4</poly> 
+<poly> x3*x5*x3-x3*x3*x5</poly> 
+<poly> x5*x2*x3+x2*x5*x3-x2*x3*x5-x3*x5*x2</poly> 
+<poly> x5*x1*x3+x1*x5*x3-x1*x3*x5-x3*x5*x1</poly> 
+<poly> x4*x5*x2+x5*x4*x2-x4*x2*x5-x5*x2*x4</poly> 
+<poly> x3*x5*x2+x5*x3*x2-x3*x2*x5-x5*x2*x3</poly> 
+<poly> x2*x5*x2-x2*x2*x5</poly> 
+<poly> x5*x1*x2+x1*x5*x2-x1*x2*x5-x2*x5*x1</poly> 
+<poly> x4*x5*x1+x5*x4*x1-x4*x1*x5-x5*x1*x4</poly> 
+<poly> x3*x5*x1+x5*x3*x1-x3*x1*x5-x5*x1*x3</poly> 
+<poly> x2*x5*x1+x5*x2*x1-x2*x1*x5-x5*x1*x2</poly> 
+<poly> x1*x5*x1-x1*x1*x5</poly> 
+<poly> x4*x3*x4-x4*x4*x3</poly> 
+<poly> x4*x2*x4-x4*x4*x2</poly> 
+<poly> x4*x1*x4-x4*x4*x1</poly> 
+<poly> x3*x4*x3-x3*x3*x4</poly> 
+<poly> x4*x2*x3+x2*x4*x3-x2*x3*x4-x3*x4*x2</poly> 
+<poly> x4*x1*x3+x1*x4*x3-x1*x3*x4-x3*x4*x1</poly> 
+<poly> x3*x4*x2+x4*x3*x2-x3*x2*x4-x4*x2*x3</poly> 
+<poly> x2*x4*x2-x2*x2*x4</poly> 
+<poly> x4*x1*x2+x1*x4*x2-x1*x2*x4-x2*x4*x1</poly> 
+<poly> x3*x4*x1+x4*x3*x1-x3*x1*x4-x4*x1*x3</poly> 
+<poly> x2*x4*x1+x4*x2*x1-x2*x1*x4-x4*x1*x2</poly> 
+<poly> x1*x4*x1-x1*x1*x4</poly> 
+<poly> x3*x2*x3-x3*x3*x2</poly> 
+<poly> x3*x1*x3-x3*x3*x1</poly>
+<poly> x2*x3*x2-x2*x2*x3</poly> 
+<poly> x3*x1*x2+x1*x3*x2-x1*x2*x3-x2*x3*x1</poly> 
+<poly> x2*x3*x1+x3*x2*x1-x2*x1*x3-x3*x1*x2</poly> 
+<poly> x1*x3*x1-x1*x1*x3</poly> 
+<poly> x2*x1*x2-x2*x2*x1</poly> 
+<poly> x1*x2*x1-x1*x1*x2</poly> 
+<poly> -x1*x4*x5*x2*x3*x6+x1*x4*x5*x3*x2*x6-x2*x5*x3*x1*x4*x6-x2*x5*x1*x3*x4*x6+x2*x5*x4*x1*x3*x6+x2*x4*x1*x3*x5*x6+x2*x1*x5*x3*x4*x6-x2*x1*x5*x4*x3*x6+3*x2*x1*x4*x3*x5*x6-x2*x1*x4*x3*x5*x6-3*x2*x4*x1*x3*x5*x6+x2*x5*x1*x4*x3*x6-3*x1*x2*x4*x3*x5*x6+x1*x2*x4*x3*x5*x6+x3*x1*x2*x4*x5*x6+3*x3*x1*x2*x5*x4*x6-x3*x1*x2*x5*x4*x6-x1*x2*x5*x3*x4*x6+x1*x2*x5*x4*x3*x6-3*x3*x1*x2*x4*x5*x6+3*x3*x1*x2*x4*x5*x6-x3*x1*x2*x4*x5*x6-3*x3*x1*x2*x5*x4*x6+x3*x1*x2*x5*x4*x6-3*x3*x1*x4*x2*x5*x6+x3*x1*x4*x2*x5*x6+3*x3*x4*x1*x2*x5*x6-x3*x4*x1*x2*x5*x6-x3*x1*x5*x2*x4*x6+x3*x1*x5*x4*x2*x6+x3*x5*x2*x1*x4*x6+x3*x5*x1*x2*x4*x6-x1*x3*x4*x2*x5*x6+x1*x3*x5*x2*x4*x6-x1*x3*x5*x4*x2*x6-x3*x5*x4*x1*x2*x6-x3*x5*x1*x4*x2*x6+3*x1*x3*x4*x2*x5*x6-3*x4*x1*x2*x5*x3*x6+x4*x1*x2*x5*x3*x6+3*x4*x2*x5*x1*x3*x6-x4*x2*x5*x1*x3*x6+3*x4*x1*x2*x5*x3*x6-x4*x1*x2*x5*x3*x6+3*x4*x1*x3*x5*x2*x6-x4*x1*x3*x5*x2*x6-3*x4*x3*x5*x1*x2*x6+x4*x3*x5*x1*x2*x6-3*x4*x1*x3*x5*x2*x6+x4*x1*x3*x5*x2*x6+x4*x1*x5*x2*x3*x6-x4*x1*x5*x3*x2*x6-x4*x5*x2*x1*x3*x6-x4*x5*x1*x2*x3*x6+x4*x5*x3*x1*x2*x6+x4*x5*x1*x3*x2*x6</poly>
+  </basis>
+  <uptoDeg>10</uptoDeg>
+  <Version>$Id: lascala_neuh_d10.xml,v 1.0 2011/07/25 15:21:58 studzins Exp $</Version>
+</FREEALGEBRA>
+
+
+
