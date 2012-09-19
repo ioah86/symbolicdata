@@ -28,18 +28,18 @@ else:
   ######
   #At first, fill the dictionary with the computer algebra systems.
   for element in MSTree.firstChild.childNodes:
-    if element.nodeName=="CASdictionary":
+    if element.nodeName.strip()=="CASdictionary":
       for entry in element.childNodes:
-        if entry.nodeName == "entry":
+        if entry.nodeName.strip() == "entry":
           key = value = None
           for node in entry.childNodes:
-            if node.nodeName =="key":
-              key = node.firstChild.data
-            elif node.nodeName == "value":
-              value = node.firstChild.data
+            if node.nodeName.strip() =="key":
+              key = node.firstChild.data.strip()
+            elif node.nodeName.strip() == "value":
+              value = node.firstChild.data.strip()
           CASpaths[key] = value
   ##### And now the Time command
-    if element.nodeName == "OtherVars":
+    if element.nodeName.strip() == "OtherVars":
       for entry in element.childNodes:
-        if entry.nodeName == "TimeCommand":
-          timeCommand = entry.firstChild.data
+        if entry.nodeName.strip() == "TimeCommand":
+          timeCommand = entry.firstChild.data.strip()

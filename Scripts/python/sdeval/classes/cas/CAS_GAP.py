@@ -87,7 +87,8 @@ class CAS_GAP(CAS):
         result += "SetInfoLevel(InfoGBNP,1);\n"
         result += "SetInfoLevel(InfoGBNPTime,1);\n"
         #######End Initialization stuff for GAP##########
-        tmp = fa.getVars();
+        tmp = fa.getVars()
+        tmp.reverse() #Needs to be done for GAP in order to get the ordering right
         result += "K:="
         if (bd == None):
 	    result += "Rationals;\n"
