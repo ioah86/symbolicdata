@@ -2,7 +2,9 @@
 % version $Id: karlsruhe-02.tex,v 1.2 2002/06/17 09:33:03 graebe Exp $
 
 \documentclass[11pt]{article}
-\usepackage{url}
+\usepackage{a4wide,url}
+\parindent0pt
+\parskip4pt
 \pagestyle{empty}
 % or, use this:
 % \newcommand{\url}[1]{\tt #1}
@@ -11,8 +13,7 @@
 
 \date{}
 
-
-\title{The \SD\ Benchmark Problems\\ Collection of Polynomial
+\title{The {\SD} Benchmark Problems\\ Collection of Polynomial
 Systems\\[12pt] {\large\url{http://www.symbolicdata.org}} }
 
 \author{
@@ -25,12 +26,12 @@ University of Leipzig, Germany\\
 \begin{document}
 
 \maketitle
+\begin{quote}\small 
+  In: {\em Proceedings ``Workshop on Under- and Overdetermined Systems of
+    Algebraic or Differential Equations''}, March 2002 in Karlsruhe,
+  pp. 57--76, Publ.\ by IAS, Univ.\ Karlsruhe
+\end{quote}
 
-{\small In: {\em Proceedings ``Workshop on Under- and Overdetermined
-Systems of Algebraic or Differential Equations''}, March 2002 in
-Karlsruhe, pp. 57 - 76, Publ.\ by IAS, Univ.\ Karlsruhe}
-
-\thispagestyle{empty}
 \section{Introduction}
 
 \subsection{Motivation}
@@ -55,7 +56,7 @@ the examples) and, often enough, developed anew for each project.
 To avoid this overhead it would be interesting to unify such efforts
 into a common project that collects experience with test beds and
 allows for easy reuse and modification of already existing code.  The
-\SD\ Project was set out to meet these demands.
+{\SD} Project was set out to meet these demands.
 
 Since easy reusability is best achieved by code under Free Software
 conditions and test beds are usually not written from scratch but
@@ -85,15 +86,15 @@ Such problems could be avoided if there was a central electronic
 repository storing benchmark examples in reliable formats that
 could easily be accessed by interested parties. Of course, this
 requires to give away own test material under Free Software
-conditions to the community.  The \SD\ Project started (with
+conditions to the community.  The {\SD} Project started (with
 kindly acknowledged support by the French 'UMS Medicis' and the
 German 'Fachgruppe Computeralgebra') such data collections in the
 areas of polynomial system solving (to be reported below) and
 geometry theorem proving. 
 
-\subsection{The \SD\ Project -- Aims and Current State}
+\subsection{The {\SD} Project -- Aims and Current State}
 
-The main track followed so far with the \SD\ project was to {\em
+The main track followed so far with the {\SD} project was to {\em
 develop a test bed} for symbolic software, to {\em systematically
 collect} existing special and general benchmark data and to make them
 {\em electronically available} in a more or less uniform way.
@@ -102,9 +103,8 @@ Note that symbolic computations often lead to voluminous data as
 input, output or intermediate results. Therefore, to collect benchmark
 data requires also to develop concepts and tools to generate, store,
 manipulate, present and maintain it.
-\pagebreak
 
-Hence the \SD\ project started with two main goals: 
+Hence the {\SD} project started with two main goals: 
 \begin{itemize}
 \item[1.] To unify efforts of several people to develop Perl
 tools for the management of digital symbolic data from different
@@ -124,7 +124,7 @@ documentation.
 \end{itemize}
 
 The project is organized as a free software project. The CVS
-repository is equally open to people joining the \SD\ Project Group,
+repository is equally open to people joining the {\SD} Project Group,
 and we enjoy your cooperation. Tools and data are freely available
 also as tar-files (via HTML download from our Web site) under the
 terms of the GNU Public License.  The alpha release 0.4, available
@@ -137,28 +137,28 @@ system solving and geometry theorem proving,
 \item a well elaborated HTML documentation,
 \item and a small number of publications and presentations.
 \end{itemize}
-Due to the fact that the \SD\ tools were used so far mainly for
+Due to the fact that the {\SD} tools were used so far mainly for
 the management of symbolic non computational information, the
 release 0.5, available since January 2002, offers separately 
 \begin{itemize}\itemsep-2pt
-\item the \SD\ tools with a minimal data collection (required to build
+\item the {\SD} tools with a minimal data collection (required to build
 the documentation)
-\item and the full \SD\ data collection. 
+\item and the full {\SD} data collection. 
 \end{itemize}
 This new offer should be considered also by people who are interested
 to use our tools for local test or benchmark computations on their own
 data only.
 
-\subsection{The \SD\ Tools}
+\subsection{The {\SD} Tools}
 
-The \SD\ tools developed so far are designed to meet three
+The {\SD} tools developed so far are designed to meet three
 different goals:
 \begin{itemize}
 \item[1.] To systematically collect and maintain digital
 benchmark data arising in various areas of Computer Algebra.
 
 The data is stored in a data base complying a XML-like syntax
-that easily may be extended and adapted. The \SD\ Tools together
+that easily may be extended and adapted. The {\SD} Tools together
 with the flexibility of the Perl language allow to store,
 extract, combine, select, modify, present etc.\ data with various
 objectives in a unified way.
@@ -172,7 +172,7 @@ examples are given below.
 \item[2.] To facilitate test or even trusted benchmark
 computations on the collected data.
 
-The \SD\ project provides concepts and tools to extract data from
+The {\SD} project provides concepts and tools to extract data from
 the data base in a form readable by different Computer Algebra
 Software, to set up, start, time, interrupt, and monitor
 computations on these input data, and to collect, analyze, and
@@ -186,19 +186,19 @@ under development.
 \item[3.] To provide tools to access, select, translate and
 present data in different formats.
 
-This part of the project is rudimentary. \SD\ temporary provides a
+This part of the project is rudimentary. {\SD} temporary provides a
 small HTML interface for test purposes and an interface to
 SQL-compliant databases.
 \end{itemize}
 
-To contribute data to the repository or to join the \SD\ group
+To contribute data to the repository or to join the {\SD} group
 please consult our web site for more information.
 
-\section{The \SD\ {\tt INTPS} Collection}
+\section{The {\SD} {\tt INTPS} Collection}
 
 \subsection{How Data are Organized}
 
-The \SD\ data collection is designed using a relational data base
+The {\SD} data collection is designed using a relational data base
 model and stored in a XML-like ASCII format. This allows for easy
 manipulation and translation of this data in different formats. 
 
@@ -323,7 +323,7 @@ base engine for both the primary and the foreign keys.
 \subsection{The Structure of {\tt INTPS} Records}
 
 Following the XML philosophy the attributes of records (i.e., the XML
-tag names) and their descriptions are not fixed within the \SD\ tools
+tag names) and their descriptions are not fixed within the {\SD} tools
 but are part of the data.  Due to lacking experience we did not use
 DTD and XSL style sheets at the moment to describe tag syntax and
 semantics but collected this information in special META records and
@@ -350,7 +350,7 @@ For uniformity reasons and to ease comparison, we require of a valid
 standard form using the \verb?+?, \verb?*?, and \verb?^?  operators,
 and that the monomials of a polynomial and the polynomials of the
 basis are ordered w.r.t. the degree reverse lexicographical ordering.
-The \SD\ {\tt Validate} action can fix these properties of an {\tt
+The {\SD} {\tt Validate} action can fix these properties of an {\tt
 INTPS} record if you have {\sc Singular} \cite{Singular} installed on
 your computer\footnote{There is a stub to use also other CAS for this
 purpose, but no implementation yet for other systems.}.
@@ -405,7 +405,7 @@ available.\\
 \multicolumn{2}{l}{{\tt ChangeLog}, {\tt Version}, {\tt PERSON}, {\tt
 Date}}\\ & Information about the history of the record and the person
 who supplied the information. There is a special table {\tt PERSON}
-that collects more information about the people involved with \SD\ and
+that collects more information about the people involved with {\SD} and
 keeps historical track of their activities. \\
 
 \multicolumn{2}{l}{{\tt CRef}}\\ & A list of cross references to
@@ -416,9 +416,9 @@ related records in other tables.
 \_\hrulefill\_
 \end{table}
 
-\section{The \SD\ Perl Tools}
+\section{The {\SD} Perl Tools}
 
-\SD\ provides a great variety of tools to perform operations on the
+{\SD} provides a great variety of tools to perform operations on the
 collected data. These tools are of very different nature and
 requirements: they range from the insertion and validation of single
 records, over the initiation, control and evaluation of test or
@@ -436,7 +436,7 @@ command line.
 It is easy to add new functionality to the program since actions are
 stored as a global hash {\tt \$ACTIONS} that may be extended by new
 entries.  Below we give some examples of user defined actions.
-Consult the \SD\ documentation and the source of the module {\tt
+Consult the {\SD} documentation and the source of the module {\tt
 ActionsSpec.pm} for more details.
 
 The overall syntax of a {\tt symbolicdata} call is
@@ -461,7 +461,7 @@ Different operations on the data require different degrees of
 flexibility. For example, starting test or benchmark computations
 on a special CAS requires translation of the data into the
 special input format of the tested system and hence some Perl
-programming.  The \SD\ actions concept is best suited to write
+programming.  The {\SD} actions concept is best suited to write
 such extensions almost from scratch into a file and get them
 running with 
 \begin{quote}
@@ -585,10 +585,10 @@ In our example this Perl function creates an input file {\tt
 /tmp/{\it Key}.in} that contains the MuPAD code of the example
 and starts a system call
 \begin{quote}\tt mupad <\$infile >\$outfile 2>\&1\end{quote}
-via {\tt TimedSystem}. {\tt TimedSystem} is a special \SD\ Perl
+via {\tt TimedSystem}. {\tt TimedSystem} is a special {\SD} Perl
 function defined in the module {\tt TimedSystem.pm} that allows to
 time and trap a computation. It is based on the GNU {time} function.
-We refer to the \SD\ online documentation for more details.
+We refer to the {\SD} online documentation for more details.
 
 Such an approach possibly does not meet your needs since it includes
 for each example the come up time of the CA software. An alternative
@@ -666,7 +666,7 @@ programmers and will not be discussed here.
 \medskip
 
 For a solution using MuPAD's {\tt traperror} function instead of GNU
-time use the \SD\ tools to generate an appropriate input file, run it
+time use the {\SD} tools to generate an appropriate input file, run it
 separately with MuPAD and inspect the results.  Here is the relevant
 Perl code for a new action {\tt TrapTest}:
 {\small\begin{verbatim}
@@ -746,7 +746,7 @@ integer-valued vectors, one per line. The integer values are
 separated by white spaces. A first line gives the dimensions of
 the matrix.
 
-To insert records of the new application into the \SD\ data base we
+To insert records of the new application into the {\SD} data base we
 define a new table {\tt TESTSETS}, i.e., create such subdirectories of
 {\tt Data} and {\tt Data/META}.  Beside standard attributes ({\tt Key,
 Type, PERSON, Date}, \ldots) already defined in the {\tt Data/META}
@@ -817,7 +817,7 @@ also these values). {\tt createNewRecord} is a user defined Perl
 function that creates sd-files with the desired content in a temporary
 directory. 
 
-In a second step these files are inserted into the \SD\ data base with
+In a second step these files are inserted into the {\SD} data base with
 the command
 \begin{quote}\tt
 symbolicdata Insert -fix /tmp/*.sd
@@ -860,29 +860,29 @@ Id}, {\tt Date} and {\tt PERSON}) are generated during insertion.
 
 \section{How to Locally Install the Tools and Data}
 
-You may download the tools, data and documentation of \SD\ as zipped
+You may download the tools, data and documentation of {\SD} as zipped
 Tar-files {\tt SD-tools.tgz} and {\tt SD-data.tgz} from our central
 repository at \url{http://www.symbolicdata.org}.
 
-To work with the tools of \SD\ you must have Perl version 5 (or
+To work with the tools of {\SD} you must have Perl version 5 (or
 higher) installed on your system.
 
-To install the \SD\ software and data, run GNU tar 
+To install the {\SD} software and data, run GNU tar 
 \begin{quote}\tt tar -xzf SD-tools.tgz \\ tar -xzf SD-data.tgz 
 \end{quote}
 
 This will create a directory {\tt SymbolicData} with several
 subdirectories containing the Perl tools, data, and documentation
-sources of the \SD\ project.
+sources of the {\SD} project.
 
 Set the environment variable \verb?SD_HOME? to that directory,
 change to it and run GNU make
 \begin{quote}\tt  make all \end{quote}
 to create a new directory {\tt SD\_HTML} and generate the HTML
 documentation from their sources at this location. This is also a
-first test for the \SD\ tools to be properly installed.
+first test for the {\SD} tools to be properly installed.
 
-We refer to the {\tt SymbolicData/README} file and the \SD\ HTML
+We refer to the {\tt SymbolicData/README} file and the {\SD} HTML
 documentation for further details.
 
 \bibliographystyle{plain}
