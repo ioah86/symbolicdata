@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2011" createdBy="" id="h20">
+	<vars>u,v,U,V</vars>
+	<basis>
+		<poly>u*U-1</poly>
+		<poly>U*u-1</poly>
+		<poly>v*V-1</poly>
+		<poly>V*v-1</poly>
+		<poly>v*U*v*v*U*v-1</poly>
+		<poly>U*v*U*v*U*v-1</poly>
+		<poly>u*u*u*u*u*v*u*v*u*v*v*v*v*v*u*v*u*v-1</poly>
+	</basis>
+        <uptoDeg>18</uptoDeg>
+	<Comment>havas20</Comment>
+	<Version>$Id: h20.xml$</Version>
+</FREEALGEBRA>

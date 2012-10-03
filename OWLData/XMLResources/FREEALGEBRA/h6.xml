@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2011" createdBy="" id="h6">
+	<vars>u,v,U,V</vars>
+	<basis>
+		<poly>u*U-1</poly>
+		<poly>U*u-1</poly>
+		<poly>v*V-1</poly>
+		<poly>V*v-1</poly>
+		<poly>v*U*v*v*U*v-1</poly>
+		<poly>U*v*U*v*U*v-1</poly>
+		<poly>u*u*u*v*u*u*u*v*u*u*u*v*v*u*v*v-1</poly>
+	</basis>
+        <uptoDeg>16</uptoDeg>
+	<Comment>havas6</Comment>
+	<Version>$Id: h6.xml$</Version>
+</FREEALGEBRA>

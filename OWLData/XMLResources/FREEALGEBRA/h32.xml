@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="2011" createdBy="" id="h32">
+	<vars>u,v,U,V</vars>
+	<basis>
+		<poly>u*U-1</poly>
+		<poly>U*u-1</poly>
+		<poly>v*V-1</poly>
+		<poly>V*v-1</poly>
+		<poly>v*U*v*v*U*v-1</poly>
+		<poly>U*v*U*v*U*v-1</poly>
+		<poly>u*u*u*u*v*u*v*v*v*v*u*v*u*u*u*u*v*v-1</poly>
+	</basis>
+        <uptoDeg>18</uptoDeg>
+	<Comment>havas32</Comment>
+	<Version>$Id: h32.xml$</Version>
+</FREEALGEBRA>

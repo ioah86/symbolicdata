@@ -14,6 +14,9 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdeval-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th bgcolor="#70b0f0" class="navbar-select"
@@ -31,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >SYMBOLIC_DATA_EVALUATION</th>
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
           </tr></table></th>
   </tr>
 </table>
@@ -57,17 +60,54 @@
 </b></center><br />
 <h1 class="epydoc">Module Hierarchy</h1>
 <ul class="nomargin-top">
-    <li> <strong class="uidlink"><a href="classes-module.html">classes</a></strong>: <em class="summary">This module contains different classes for accessing the data in 
-        the symbolic data tables.</em>    </li>
-    <li> <strong class="uidlink"><a href="create_tasks-module.html">create_tasks</a></strong>: <em class="summary">This module contains routines for creating tasks which will then be
+    <li> <strong class="uidlink"><a href="sdeval-module.html">sdeval</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdeval.MachineSettings-module.html">sdeval.MachineSettings</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes-module.html">sdeval.classes</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdeval.classes.cas-module.html">sdeval.classes.cas</a></strong>
+    <ul>
+    <li> <strong class="uidlink">sdeval.classes.cas.CAS</strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.cas.CAS%27-module.html">sdeval.classes.cas.CAS'</a></strong>    </li>
+    <li> <strong class="uidlink">sdeval.classes.cas.CAS_GAP</strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.cas.CAS_GAP%27-module.html">sdeval.classes.cas.CAS_GAP'</a></strong>    </li>
+    <li> <strong class="uidlink">sdeval.classes.cas.CAS_Magma</strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.cas.CAS_Magma%27-module.html">sdeval.classes.cas.CAS_Magma'</a></strong>    </li>
+    <li> <strong class="uidlink">sdeval.classes.cas.CAS_Maple</strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.cas.CAS_Maple%27-module.html">sdeval.classes.cas.CAS_Maple'</a></strong>    </li>
+    <li> <strong class="uidlink">sdeval.classes.cas.CAS_Singular</strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.cas.CAS_Singular%27-module.html">sdeval.classes.cas.CAS_Singular'</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.datamanagement-module.html">sdeval.classes.datamanagement</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdeval.classes.datamanagement.COMP-module.html">sdeval.classes.datamanagement.COMP</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.datamanagement.FREEALGEBRA-module.html">sdeval.classes.datamanagement.FREEALGEBRA</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.datamanagement.INTPS-module.html">sdeval.classes.datamanagement.INTPS</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="sdeval.classes.taskmanagement-module.html">sdeval.classes.taskmanagement</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdeval.classes.taskmanagement.Task-module.html">sdeval.classes.taskmanagement.Task</a></strong>    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="sdeval.create_tasks-module.html">sdeval.create_tasks</a></strong>: <em class="summary">This module contains routines for creating tasks which will then be
         run on another machine.</em>    </li>
-    <li> <strong class="uidlink"><a href="runTasks-module.html">runTasks</a></strong>: <em class="summary">In an export task folder, this function runs the tasks selected by 
+    <li> <strong class="uidlink"><a href="sdeval.create_tasks_gui-module.html">sdeval.create_tasks_gui</a></strong>: <em class="summary">The GUI for SDEVAL</em>    </li>
+    <li> <strong class="uidlink"><a href="sdeval.runTasks-module.html">sdeval.runTasks</a></strong>: <em class="summary">In an export task folder, this function runs the tasks selected by 
         the user step by step.</em>    </li>
+    </ul>
+    </li>
 </ul>
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdeval-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th bgcolor="#70b0f0" class="navbar-select"
@@ -85,14 +125,14 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            >SYMBOLIC_DATA_EVALUATION</th>
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Feb  1 19:39:25 2011
+    Generated by Epydoc 3.0.1 on Wed Oct  3 18:28:34 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
