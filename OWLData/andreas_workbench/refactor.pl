@@ -18,6 +18,11 @@ open MYFILE, ">refactor-$ARGV[0]";
 # get preamble and append new namespace definitions
 
 while(<ARG>) {    
+    while(my($namespace, $uri) = each(%pairs)) {
+        if(/@prefix $namespace:/) {
+            die "The namespace $namespace is already present. Aborting."
+        }
+    }
     if(not(substr($_, 0, 1) eq "@")) {
         while(my($namespace, $uri) = each(%pairs)) {
             print MYFILE "\@prefix $namespace: <$uri> . \n"
