@@ -1,0 +1,5 @@
+Look for "spd:name" strings. Check, if the name is in Persons.ttl and if it's not there, try (in a rather simple way) to find a substitute. Changes will only be made if there is a unique substitute.
+
+The output is saved in a separate file. After reviewing, this can be copied over the original file.
+
+The script is aimed to be generalized to other name spaces and ttls. In fact, there is a hash at the beginning where you can add more namespaces/files with which to perform the cross checkings.
