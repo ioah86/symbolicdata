@@ -44,9 +44,9 @@ foreach $line (<ARG>) {
                 # print "Testing with $test\n";
                 @matches = grep(/$test/i, @{$ttl_data{$key}});
                 # matches == 0  iff.  exactly one match found
-                if($#matches == 0) {
-                    print "line $count : $key:$test => $key:$matches[0]\n";
-                    $newline =~ s/$key:$test[^\s;,.]*/$key:$matches[0]/;
+                if($#matches == 0) {                    
+                    $newline =~ s/($key:$test[^\s;,.]*)/$key:$matches[0]/;
+                    print "line $count : $1 => $key:$matches[0]\n";
                     $replaces++;
                 }
                 elsif($#matches == -1) {
