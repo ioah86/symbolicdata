@@ -29,21 +29,21 @@ sd:CAS
     rdfs:comment "A system for doing \"Computations in Commutative Algebra\"" .
 
 <http://hgg.ontowiki.net/SymbolicData/System/Felix>
-    sd:hasAuthor sdp:Apel_J_Joachim, sdp:Klaus_U_Uwe  ;
+    sd:hasAuthor sdp:Apel_J, sdp:Klaus_U  ;
     sd:hasURLLiteral "http://felix.hgb-leipzig.de/" ;
     sd:lastUpdate "2010-12-29" ;
     a sd:CAS ;
     rdfs:comment "Special computer algebra system for the computation in commutative and non-commutative rings and modules", "no more developed" .
 
 <http://hgg.ontowiki.net/SymbolicData/System/GB>
-    sd:hasAuthor sdp:Faugere_JC_JeanCharles ;
+    sd:hasAuthor sdp:Faugere_JC ;
     sd:hasURLLiteral "http://www-salsa.lip6.fr/~jcf/Software/index.html" ;
     sd:lastUpdate "2010-12-29" ;
     a sd:CAS ;
     rdfs:comment "A package to compute Groebner basis of ideals and to solve systems of algebraic equations" .
 
 <http://hgg.ontowiki.net/SymbolicData/System/Macaulay2>
-    sd:hasAuthor sdp:Grayson_DR_Daniel, sdp:Stillman_ME_Michael ;
+    sd:hasAuthor sdp:Grayson_DR, sdp:Stillman_ME ;
     sd:hasURLLiteral "http://www.math.uiuc.edu/Macaulay2" ;
     sd:lastUpdate "2010-12-29" ;
     a sd:CAS ;
@@ -81,7 +81,7 @@ sd:CAS
     rdfs:comment "General Purpose Computer Algebra System, Symbolic Toolbox within Matlab, http://www.mathworks.com" .
 
 <http://hgg.ontowiki.net/SymbolicData/System/Points>
-    sd:hasAuthor sdp:Orecchia_F_Ferruccio, sdp:Cioffi_F_Francesca, sdp:Ramella_I_Isabella ;
+    sd:hasAuthor sdp:Orecchia_F, sdp:Cioffi_F, sdp:Ramella_I ;
     sd:hasLicense "GPL" ;
     sd:hasURLLiteral "http://wpage.unina.it/cioffifr/EPoints.html" ;
     sd:lastUpdate "2010-12-29" ;
@@ -89,14 +89,14 @@ sd:CAS
     rdfs:comment "Points intends to construct algorithms and to implement sofwares concerning problems in Algebraic Geometry which need the computation of the Hilbert Function or of minimal generators or of the resolution of the ideal of a finite set of points." .
 
 <http://hgg.ontowiki.net/SymbolicData/System/QPoints>
-    sd:hasAuthor sdp:Orecchia_F_Ferruccio, sdp:Cioffi_F_Francesca, sdp:Ramella_I_Isabella ;
+    sd:hasAuthor sdp:Orecchia_F, sdp:Cioffi_F, sdp:Ramella_I ;
     sd:hasURLLiteral "http://cds.unina.it/~cioffifr/EPoints.html" ;
     sd:lastUpdate "2001-03-28" ;
     a sd:CAS ;
     rdfs:comment "A software for computations related to points in projective spaces over the field Q of rational numbers." .
 
 <http://hgg.ontowiki.net/SymbolicData/System/Reduce>
-    sd:hasAuthor sdp:Hearn_AC_Anthony ;
+    sd:hasAuthor sdp:Hearn_AC ;
     sd:hasLicense "open source" ;
     sd:hasURLLiteral "http://www.reduce-algebra.com" ;
     sd:lastUpdate "2010-12-29" ;
@@ -104,7 +104,7 @@ sd:CAS
     rdfs:comment "General Purpose Computer Algebra System" .
 
 <http://hgg.ontowiki.net/SymbolicData/System/Singular>
-    sd:hasAuthor sdp:Pfister_G_Gerhard, sdp:Greuel_GM_GerdMartin, sdp:Decker_W_Wolfram, sdp:Schoenemann_H_Hans ;
+    sd:hasAuthor sdp:Pfister_G, sdp:Greuel_GM, sdp:Decker_W, sdp:Schoenemann_H ;
     sd:hasLicense "GPL" ;
     sd:hasURLLiteral "http://www.singular.uni-kl.de" ;
     sd:lastUpdate "2010-12-29" ;

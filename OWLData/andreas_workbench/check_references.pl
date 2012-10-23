@@ -46,7 +46,7 @@ foreach $line (<ARG>) {
                 # matches == 0  iff.  exactly one match found
                 if($#matches == 0) {
                     print "line $count : $key:$test => $key:$matches[0]\n";
-                    $newline =~ s/$key:$test/$key:$matches[0]/;
+                    $newline =~ s/$key:$test[^\s;,.]*/$key:$matches[0]/;
                     $replaces++;
                 }
                 elsif($#matches == -1) {
