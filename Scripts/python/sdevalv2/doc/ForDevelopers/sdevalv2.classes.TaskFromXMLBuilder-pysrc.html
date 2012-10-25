@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sdevalv2.classes.TaskFromXMLBuilder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;sdevalv2 ::
+        <a href="sdevalv2.classes-module.html">Package&nbsp;classes</a> ::
+        Module&nbsp;TaskFromXMLBuilder
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="sdevalv2.classes.TaskFromXMLBuilder-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="sdevalv2.classes.TaskFromXMLBuilder-module.html">Module sdevalv2.classes.TaskFromXMLBuilder</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module sdevalv2.classes.Task=sdevalv2.classes.Task-module.html,Class sdevalv2.classes.Task.Task=sdevalv2.classes.Task.Task-class.html"><a title="sdevalv2.classes.Task
+sdevalv2.classes.Task.Task" class="py-name" href="#" onclick="return doclink('link-0', 'Task', 'link-0');">Task</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="sdevalv2.classes.Task
+sdevalv2.classes.Task.Task" class="py-name" href="#" onclick="return doclink('link-1', 'Task', 'link-0');">Task</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">dom</tt><tt class="py-op">.</tt><tt class="py-name">minidom</tt> <tt class="py-keyword">as</tt> <tt class="py-name">dom</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="TaskFromXMLBuilder"></a><div id="TaskFromXMLBuilder-def"><a name="L4"></a><tt class="py-lineno"> 4</tt> <a class="py-toggle" href="#" id="TaskFromXMLBuilder-toggle" onclick="return toggle('TaskFromXMLBuilder');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder-class.html">TaskFromXMLBuilder</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskFromXMLBuilder-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TaskFromXMLBuilder-expanded"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">    Creates in instance of the class Task from an xmlstring</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    @author:  Albert Heinle</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    @contact: albert.heinle@rwth-aachen.de</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="TaskFromXMLBuilder.build"></a><div id="TaskFromXMLBuilder.build-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="TaskFromXMLBuilder.build-toggle" onclick="return toggle('TaskFromXMLBuilder.build');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder-class.html#build">build</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">xmlRaw</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskFromXMLBuilder.build-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskFromXMLBuilder.build-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">        The main command in this class. Given an raw xml-String containing an Task-instance.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">        It creates an instance of type Task associated to the xml-string and returns it.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        @param   xmlRaw: The xml-Representation of the Task.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        @type    xmlRaw: string</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">        @raises IOError: If something is wrong with the XMLstring this exception is raised.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">            <tt class="py-name">xmlTree</tt> <tt class="py-op">=</tt> <tt class="py-name">dom</tt><tt class="py-op">.</tt><tt class="py-name">parseString</tt><tt class="py-op">(</tt><tt class="py-name">xmlRaw</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">IOError</tt><tt class="py-op">(</tt><tt class="py-string">"Could not parse the given string as XML-Instance"</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">xmlTree</tt><tt class="py-op">.</tt><tt class="py-name">getElementsByTagName</tt><tt class="py-op">(</tt><tt class="py-string">"name"</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">firstChild</tt><tt class="py-op">.</tt><tt class="py-name">data</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">compProblem</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">xmlTree</tt><tt class="py-op">.</tt><tt class="py-name">getElementsByTagName</tt><tt class="py-op">(</tt><tt class="py-string">"computationproblem"</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">firstChild</tt><tt class="py-op">.</tt><tt class="py-name">data</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">casSystems</tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">firstChild</tt><tt class="py-op">.</tt><tt class="py-name">data</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">xmlTree</tt><tt class="py-op">.</tt><tt class="py-name">getElementsByTagName</tt><tt class="py-op">(</tt><tt class="py-string">"computeralgebrasystem"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">sdTables</tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">firstChild</tt><tt class="py-op">.</tt><tt class="py-name">data</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">xmlTree</tt><tt class="py-op">.</tt><tt class="py-name">getElementsByTagName</tt><tt class="py-op">(</tt><tt class="py-string">"tablename"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt id="link-2" class="py-name" targets="Package sdevalv2.classes.probleminstances=sdevalv2.classes.probleminstances-module.html"><a title="sdevalv2.classes.probleminstances" class="py-name" href="#" onclick="return doclink('link-2', 'probleminstances', 'link-2');">probleminstances</a></tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">firstChild</tt><tt class="py-op">.</tt><tt class="py-name">data</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">xmlTree</tt><tt class="py-op">.</tt><tt class="py-name">getElementsByTagName</tt><tt class="py-op">(</tt><tt class="py-string">"probleminstance"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-3" class="py-name"><a title="sdevalv2.classes.Task
+sdevalv2.classes.Task.Task" class="py-name" href="#" onclick="return doclink('link-3', 'Task', 'link-0');">Task</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt><tt class="py-op">,</tt><tt class="py-name">compProblem</tt><tt class="py-op">,</tt><tt class="py-name">sdTables</tt><tt class="py-op">,</tt><tt id="link-4" class="py-name"><a title="sdevalv2.classes.probleminstances" class="py-name" href="#" onclick="return doclink('link-4', 'probleminstances', 'link-2');">probleminstances</a></tt><tt class="py-op">,</tt><tt class="py-name">casSystems</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct 25 15:45:18 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

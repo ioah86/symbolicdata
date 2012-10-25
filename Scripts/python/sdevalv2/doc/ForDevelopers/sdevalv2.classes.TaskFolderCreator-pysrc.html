@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sdevalv2.classes.TaskFolderCreator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;sdevalv2 ::
+        <a href="sdevalv2.classes-module.html">Package&nbsp;classes</a> ::
+        Module&nbsp;TaskFolderCreator
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="sdevalv2.classes.TaskFolderCreator-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="sdevalv2.classes.TaskFolderCreator-module.html">Module sdevalv2.classes.TaskFolderCreator</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module sdevalv2.classes.TaskFolderTree=sdevalv2.classes.TaskFolderTree-module.html,Class sdevalv2.classes.TaskFolderTree.TaskFolderTree=sdevalv2.classes.TaskFolderTree.TaskFolderTree-class.html"><a title="sdevalv2.classes.TaskFolderTree
+sdevalv2.classes.TaskFolderTree.TaskFolderTree" class="py-name" href="#" onclick="return doclink('link-0', 'TaskFolderTree', 'link-0');">TaskFolderTree</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="sdevalv2.classes.TaskFolderTree
+sdevalv2.classes.TaskFolderTree.TaskFolderTree" class="py-name" href="#" onclick="return doclink('link-1', 'TaskFolderTree', 'link-0');">TaskFolderTree</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module sdevalv2.classes.TaskFolder=sdevalv2.classes.TaskFolder-module.html,Class sdevalv2.classes.TaskFolder.TaskFolder=sdevalv2.classes.TaskFolder.TaskFolder-class.html"><a title="sdevalv2.classes.TaskFolder
+sdevalv2.classes.TaskFolder.TaskFolder" class="py-name" href="#" onclick="return doclink('link-2', 'TaskFolder', 'link-2');">TaskFolder</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name"><a title="sdevalv2.classes.TaskFolder
+sdevalv2.classes.TaskFolder.TaskFolder" class="py-name" href="#" onclick="return doclink('link-3', 'TaskFolder', 'link-2');">TaskFolder</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package sdevalv2.classes.templates=sdevalv2.classes.templates-module.html"><a title="sdevalv2.classes.templates" class="py-name" href="#" onclick="return doclink('link-4', 'templates', 'link-4');">templates</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Package sdevalv2.classes.templates.comp=sdevalv2.classes.templates.comp-module.html"><a title="sdevalv2.classes.templates.comp" class="py-name" href="#" onclick="return doclink('link-5', 'comp', 'link-5');">comp</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="TaskFolderCreator"></a><div id="TaskFolderCreator-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="TaskFolderCreator-toggle" onclick="return toggle('TaskFolderCreator');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="sdevalv2.classes.TaskFolderCreator.TaskFolderCreator-class.html">TaskFolderCreator</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskFolderCreator-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TaskFolderCreator-expanded"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    This is a builder class to generate instances of taskfolders, if the task, the machine settings, and the xmlRessources are given.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    @see:     TaskFolder, Task</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    @author:  Albert Heinle</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    @contact: albert.heinle@rwth-aachen.de</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="TaskFolderCreator.create"></a><div id="TaskFolderCreator.create-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="TaskFolderCreator.create-toggle" onclick="return toggle('TaskFolderCreator.create');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.TaskFolderCreator.TaskFolderCreator-class.html#create">create</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">task</tt><tt class="py-op">,</tt> <tt class="py-param">xmlRessources</tt><tt class="py-op">,</tt> <tt class="py-param">machineSettings</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskFolderCreator.create-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskFolderCreator.create-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        The function that creates the taskfolder using the information given in task, the xmlRessources, and the machineSettings.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">        @param                 task: The task associated to the taskfolder</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">        @type                  task: Task</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">        @param        xmlRessources: The interface to the XMLRessources folder in Symbolic Data</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">        @type         xmlRessources: XMLRessources</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">        @param      machineSettings: The machine settings of the target machine</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">        @type       machineSettings: MachineSettings</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">        @raises NotImplementedError: If there is a template not existing.</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">        @returns:                    An instance of taskfolder fitting to the given task.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype                       TaskFolder</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">pathOfSDEval</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">realpath</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-comment">#The only thing we need to create is The taskfolderTree</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">tft</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="sdevalv2.classes.TaskFolderTree
+sdevalv2.classes.TaskFolderTree.TaskFolderTree" class="py-name" href="#" onclick="return doclink('link-6', 'TaskFolderTree', 'link-0');">TaskFolderTree</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">s</tt> <tt class="py-keyword">in</tt> <tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method sdevalv2.classes.Task.Task.getAssociatedSDTables()=sdevalv2.classes.Task.Task-class.html#getAssociatedSDTables"><a title="sdevalv2.classes.Task.Task.getAssociatedSDTables" class="py-name" href="#" onclick="return doclink('link-7', 'getAssociatedSDTables', 'link-7');">getAssociatedSDTables</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt class="py-name">sdt</tt> <tt class="py-op">=</tt> <tt class="py-name">xmlRessources</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method sdevalv2.classes.XMLRessources.XMLRessources.loadSDTable()=sdevalv2.classes.XMLRessources.XMLRessources-class.html#loadSDTable"><a title="sdevalv2.classes.XMLRessources.XMLRessources.loadSDTable" class="py-name" href="#" onclick="return doclink('link-8', 'loadSDTable', 'link-8');">loadSDTable</a></tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method sdevalv2.classes.SDTable.SDTable.listEntries()=sdevalv2.classes.SDTable.SDTable-class.html#listEntries"><a title="sdevalv2.classes.SDTable.SDTable.listEntries" class="py-name" href="#" onclick="return doclink('link-9', 'listEntries', 'link-9');">listEntries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method sdevalv2.classes.Task.Task.getProblemInstances()=sdevalv2.classes.Task.Task-class.html#getProblemInstances"><a title="sdevalv2.classes.Task.Task.getProblemInstances" class="py-name" href="#" onclick="return doclink('link-10', 'getProblemInstances', 'link-10');">getProblemInstances</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method sdevalv2.classes.Task.Task.getComputerAlgebraSystems()=sdevalv2.classes.Task.Task-class.html#getComputerAlgebraSystems"><a title="sdevalv2.classes.Task.Task.getComputerAlgebraSystems" class="py-name" href="#" onclick="return doclink('link-11', 'getComputerAlgebraSystems', 'link-11');">getComputerAlgebraSystems</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                    <tt class="py-comment">#-------------------- complicated python stuff --------------------</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">                    <tt class="py-comment"># What happens here in the next lines:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                    <tt class="py-comment"># We load dynamically the builder for the problem instance given by p. Then we create the instance with the</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                    <tt class="py-comment"># information we know. Those builder and problem instances are found in the module "probleminstances".</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                    <tt class="py-comment"># After that, we search for the computation problem template for the computer algebra system c.</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                    <tt class="py-comment"># We will use that function to generate code later for our TaskFolderTree.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                    <tt class="py-name">fromXMLBuilderModule</tt> <tt class="py-op">=</tt> <tt class="py-name">__import__</tt><tt class="py-op">(</tt><tt class="py-string">"probleminstances.%sFromXMLBuilder"</tt><tt class="py-op">%</tt><tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method sdevalv2.classes.SDTable.SDTable.getName()=sdevalv2.classes.SDTable.SDTable-class.html#getName,Method sdevalv2.classes.Task.Task.getName()=sdevalv2.classes.Task.Task-class.html#getName,Method sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName()=sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem-class.html#getName,Method sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName()=sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp-class.html#getName,Method sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName()=sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp-class.html#getName,Method sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName()=sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp-class.html#getName,Method sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName()=sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance-class.html#getName"><a title="sdevalv2.classes.SDTable.SDTable.getName
+sdevalv2.classes.Task.Task.getName
+sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName
+sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName
+sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName
+sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName
+sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName" class="py-name" href="#" onclick="return doclink('link-12', 'getName', 'link-12');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-string">"%sFromXMLBuilder"</tt><tt class="py-op">%</tt><tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="sdevalv2.classes.SDTable.SDTable.getName
+sdevalv2.classes.Task.Task.getName
+sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName
+sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName
+sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName
+sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName
+sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName" class="py-name" href="#" onclick="return doclink('link-13', 'getName', 'link-12');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                    <tt class="py-name">builderfunc</tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">fromXMLBuilderModule</tt><tt class="py-op">,</tt><tt class="py-string">"%sFromXMLBuilder"</tt><tt class="py-op">%</tt><tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="sdevalv2.classes.SDTable.SDTable.getName
+sdevalv2.classes.Task.Task.getName
+sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName
+sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName
+sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName
+sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName
+sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName" class="py-name" href="#" onclick="return doclink('link-14', 'getName', 'link-12');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                    <tt class="py-name">creator</tt> <tt class="py-op">=</tt> <tt class="py-name">builderfunc</tt><tt class="py-op">(</tt><tt class="py-name">sdt</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                    <tt class="py-name">pi</tt> <tt class="py-op">=</tt> <tt class="py-name">creator</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method sdevalv2.classes.MachineSettingsFromXMLBuilder.MachineSettingsFromXMLBuilder.build()=sdevalv2.classes.MachineSettingsFromXMLBuilder.MachineSettingsFromXMLBuilder-class.html#build,Method sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder.build()=sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder-class.html#build,Method sdevalv2.classes.probleminstances.FREEALGEBRAFromXMLBuilder.FREEALGEBRAFromXMLBuilder.build()=sdevalv2.classes.probleminstances.FREEALGEBRAFromXMLBuilder.FREEALGEBRAFromXMLBuilder-class.html#build,Method sdevalv2.classes.probleminstances.INTPSFromXMLBuilder.INTPSFromXMLBuilder.build()=sdevalv2.classes.probleminstances.INTPSFromXMLBuilder.INTPSFromXMLBuilder-class.html#build,Method sdevalv2.classes.probleminstances.ModPSFromXMLBuilder.ModPSFromXMLBuilder.build()=sdevalv2.classes.probleminstances.ModPSFromXMLBuilder.ModPSFromXMLBuilder-class.html#build,Method sdevalv2.classes.results.ResultingFileFromOutputBuilder.ResultingFileFromOutputBuilder.build()=sdevalv2.classes.results.ResultingFileFromOutputBuilder.ResultingFileFromOutputBuilder-class.html#build"><a title="sdevalv2.classes.MachineSettingsFromXMLBuilder.MachineSettingsFromXMLBuilder.build
+sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder.build
+sdevalv2.classes.probleminstances.FREEALGEBRAFromXMLBuilder.FREEALGEBRAFromXMLBuilder.build
+sdevalv2.classes.probleminstances.INTPSFromXMLBuilder.INTPSFromXMLBuilder.build
+sdevalv2.classes.probleminstances.ModPSFromXMLBuilder.ModPSFromXMLBuilder.build
+sdevalv2.classes.results.ResultingFileFromOutputBuilder.ResultingFileFromOutputBuilder.build" class="py-name" href="#" onclick="return doclink('link-15', 'build', 'link-15');">build</a></tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                    <tt class="py-name">codegeneratingModule</tt> <tt class="py-op">=</tt> <tt class="py-name">__import__</tt><tt class="py-op">(</tt><tt class="py-string">"templates.comp.%s.%s.template"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method sdevalv2.classes.Task.Task.getComputationProblem()=sdevalv2.classes.Task.Task-class.html#getComputationProblem"><a title="sdevalv2.classes.Task.Task.getComputationProblem" class="py-name" href="#" onclick="return doclink('link-16', 'getComputationProblem', 'link-16');">getComputationProblem</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">c</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-string">"generateCode"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">                    <tt class="py-name">codeGenerator</tt> <tt class="py-op">=</tt> <tt class="py-name">codegeneratingModule</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Function sdevalv2.classes.templates.comp.FA_Q_dp.GAP.template.generateCode()=sdevalv2.classes.templates.comp.FA_Q_dp.GAP.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.FA_Q_dp.Magma.template.generateCode()=sdevalv2.classes.templates.comp.FA_Q_dp.Magma.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.FA_Q_dp.Singular.template.generateCode()=sdevalv2.classes.templates.comp.FA_Q_dp.Singular.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Fp_dp.GAP.template.generateCode()=sdevalv2.classes.templates.comp.GB_Fp_dp.GAP.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Fp_dp.Magma.template.generateCode()=sdevalv2.classes.templates.comp.GB_Fp_dp.Magma.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Fp_dp.Maple.template.generateCode()=sdevalv2.classes.templates.comp.GB_Fp_dp.Maple.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Fp_dp.Singular.template.generateCode()=sdevalv2.classes.templates.comp.GB_Fp_dp.Singular.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Z_lp.GAP.template.generateCode()=sdevalv2.classes.templates.comp.GB_Z_lp.GAP.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Z_lp.Magma.template.generateCode()=sdevalv2.classes.templates.comp.GB_Z_lp.Magma.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Z_lp.Maple.template.generateCode()=sdevalv2.classes.templates.comp.GB_Z_lp.Maple.template-module.html#generateCode,Function sdevalv2.classes.templates.comp.GB_Z_lp.Singular.template.generateCode()=sdevalv2.classes.templates.comp.GB_Z_lp.Singular.template-module.html#generateCode"><a title="sdevalv2.classes.templates.comp.FA_Q_dp.GAP.template.generateCode
+sdevalv2.classes.templates.comp.FA_Q_dp.Magma.template.generateCode
+sdevalv2.classes.templates.comp.FA_Q_dp.Singular.template.generateCode
+sdevalv2.classes.templates.comp.GB_Fp_dp.GAP.template.generateCode
+sdevalv2.classes.templates.comp.GB_Fp_dp.Magma.template.generateCode
+sdevalv2.classes.templates.comp.GB_Fp_dp.Maple.template.generateCode
+sdevalv2.classes.templates.comp.GB_Fp_dp.Singular.template.generateCode
+sdevalv2.classes.templates.comp.GB_Z_lp.GAP.template.generateCode
+sdevalv2.classes.templates.comp.GB_Z_lp.Magma.template.generateCode
+sdevalv2.classes.templates.comp.GB_Z_lp.Maple.template.generateCode
+sdevalv2.classes.templates.comp.GB_Z_lp.Singular.template.generateCode" class="py-name" href="#" onclick="return doclink('link-17', 'generateCode', 'link-17');">generateCode</a></tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                    <tt class="py-comment">#-------------------- end of complicated python stuff -------------</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="sdevalv2.classes.Task.Task.getComputationProblem" class="py-name" href="#" onclick="return doclink('link-18', 'getComputationProblem', 'link-16');">getComputationProblem</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">"GB_Z_lp"</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                        <tt class="py-name">tft</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method sdevalv2.classes.TaskFolderTree.TaskFolderTree.addCode()=sdevalv2.classes.TaskFolderTree.TaskFolderTree-class.html#addCode"><a title="sdevalv2.classes.TaskFolderTree.TaskFolderTree.addCode" class="py-name" href="#" onclick="return doclink('link-19', 'addCode', 'link-19');">addCode</a></tt><tt class="py-op">(</tt><tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="sdevalv2.classes.SDTable.SDTable.getName
+sdevalv2.classes.Task.Task.getName
+sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName
+sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName
+sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName
+sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName
+sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName" class="py-name" href="#" onclick="return doclink('link-20', 'getName', 'link-12');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-name">c</tt><tt class="py-op">,</tt><tt class="py-name">codeGenerator</tt><tt class="py-op">(</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getVars()=sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA-class.html#getVars,Method sdevalv2.classes.probleminstances.INTPS.INTPS.getVars()=sdevalv2.classes.probleminstances.INTPS.INTPS-class.html#getVars,Method sdevalv2.classes.probleminstances.ModPS.ModPS.getVars()=sdevalv2.classes.probleminstances.ModPS.ModPS-class.html#getVars"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getVars
+sdevalv2.classes.probleminstances.INTPS.INTPS.getVars
+sdevalv2.classes.probleminstances.ModPS.ModPS.getVars" class="py-name" href="#" onclick="return doclink('link-21', 'getVars', 'link-21');">getVars</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getBasis()=sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA-class.html#getBasis,Method sdevalv2.classes.probleminstances.INTPS.INTPS.getBasis()=sdevalv2.classes.probleminstances.INTPS.INTPS-class.html#getBasis,Method sdevalv2.classes.probleminstances.ModPS.ModPS.getBasis()=sdevalv2.classes.probleminstances.ModPS.ModPS-class.html#getBasis"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getBasis
+sdevalv2.classes.probleminstances.INTPS.INTPS.getBasis
+sdevalv2.classes.probleminstances.ModPS.ModPS.getBasis" class="py-name" href="#" onclick="return doclink('link-22', 'getBasis', 'link-22');">getBasis</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                    <tt class="py-keyword">elif</tt> <tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="sdevalv2.classes.Task.Task.getComputationProblem" class="py-name" href="#" onclick="return doclink('link-23', 'getComputationProblem', 'link-16');">getComputationProblem</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">"GB_Fp_dp"</tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                        <tt class="py-name">tft</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="sdevalv2.classes.TaskFolderTree.TaskFolderTree.addCode" class="py-name" href="#" onclick="return doclink('link-24', 'addCode', 'link-19');">addCode</a></tt><tt class="py-op">(</tt><tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="sdevalv2.classes.SDTable.SDTable.getName
+sdevalv2.classes.Task.Task.getName
+sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName
+sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName
+sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName
+sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName
+sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName" class="py-name" href="#" onclick="return doclink('link-25', 'getName', 'link-12');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-name">c</tt><tt class="py-op">,</tt><tt class="py-name">codeGenerator</tt><tt class="py-op">(</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getVars
+sdevalv2.classes.probleminstances.INTPS.INTPS.getVars
+sdevalv2.classes.probleminstances.ModPS.ModPS.getVars" class="py-name" href="#" onclick="return doclink('link-26', 'getVars', 'link-21');">getVars</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getBasis
+sdevalv2.classes.probleminstances.INTPS.INTPS.getBasis
+sdevalv2.classes.probleminstances.ModPS.ModPS.getBasis" class="py-name" href="#" onclick="return doclink('link-27', 'getBasis', 'link-22');">getBasis</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method sdevalv2.classes.probleminstances.ModPS.ModPS.getCharacteristic()=sdevalv2.classes.probleminstances.ModPS.ModPS-class.html#getCharacteristic"><a title="sdevalv2.classes.probleminstances.ModPS.ModPS.getCharacteristic" class="py-name" href="#" onclick="return doclink('link-28', 'getCharacteristic', 'link-28');">getCharacteristic</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                    <tt class="py-keyword">elif</tt> <tt class="py-name">task</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="sdevalv2.classes.Task.Task.getComputationProblem" class="py-name" href="#" onclick="return doclink('link-29', 'getComputationProblem', 'link-16');">getComputationProblem</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">"FA_Q_dp"</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                        <tt class="py-name">tft</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="sdevalv2.classes.TaskFolderTree.TaskFolderTree.addCode" class="py-name" href="#" onclick="return doclink('link-30', 'addCode', 'link-19');">addCode</a></tt><tt class="py-op">(</tt><tt class="py-name">sdt</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="sdevalv2.classes.SDTable.SDTable.getName
+sdevalv2.classes.Task.Task.getName
+sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem.getName
+sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp.getName
+sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp.getName
+sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp.getName
+sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance.getName" class="py-name" href="#" onclick="return doclink('link-31', 'getName', 'link-12');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-name">c</tt><tt class="py-op">,</tt><tt class="py-name">codeGenerator</tt><tt class="py-op">(</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getVars
+sdevalv2.classes.probleminstances.INTPS.INTPS.getVars
+sdevalv2.classes.probleminstances.ModPS.ModPS.getVars" class="py-name" href="#" onclick="return doclink('link-32', 'getVars', 'link-21');">getVars</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getBasis
+sdevalv2.classes.probleminstances.INTPS.INTPS.getBasis
+sdevalv2.classes.probleminstances.ModPS.ModPS.getBasis" class="py-name" href="#" onclick="return doclink('link-33', 'getBasis', 'link-22');">getBasis</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">pi</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Method sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getUpToDeg()=sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA-class.html#getUpToDeg"><a title="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA.getUpToDeg" class="py-name" href="#" onclick="return doclink('link-34', 'getUpToDeg', 'link-34');">getUpToDeg</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-35" class="py-name"><a title="sdevalv2.classes.TaskFolder
+sdevalv2.classes.TaskFolder.TaskFolder" class="py-name" href="#" onclick="return doclink('link-35', 'TaskFolder', 'link-2');">TaskFolder</a></tt><tt class="py-op">(</tt><tt class="py-name">task</tt><tt class="py-op">,</tt><tt class="py-name">tft</tt><tt class="py-op">,</tt><tt class="py-name">machineSettings</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct 25 15:45:18 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

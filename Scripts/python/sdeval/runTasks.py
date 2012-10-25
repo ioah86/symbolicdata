@@ -47,6 +47,9 @@ else:
 
 
 def getCPUAndMemoryUsage(pid):
+    """
+    DEPRECATED
+    """
     outp = commands.getoutput("ps -p "+str(pid)+" -o \"cputime rss\"")
     data = outp.split("\n")[1].strip()
     data = filter (lambda a: a != "", data.split())
@@ -62,7 +65,7 @@ def getCPUAndMemoryUsage(pid):
         time += int(tmp[0]) * 86400
     return (time, int(data[1]))
 
-xmlFilesInDirectory = filter(lambda a: a.endswith(".xml"),os.listdir(os.getcwd())) # Takes all Files ending with .xml from the current directory
+xmlFilesInDirectory = filter(lambda a: a.endswith(".xml") and a!="MachineSettings.xml",os.listdir(os.getcwd())) # Takes all Files ending with .xml from the current directory
 if len(xmlFilesInDirectory) !=1:
     print "There is no unique Task XML-File in the current directory"
     sys.exit(-1)

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class Hierarchy</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">&nbsp;</td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="class-tree.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<center><b>
+ [ <a href="module-tree.html">Module Hierarchy</a>
+ | <a href="class-tree.html">Class Hierarchy</a> ]
+</b></center><br />
+<h1 class="epydoc">Class Hierarchy</h1>
+<ul class="nomargin-top">
+    <li> <strong class="uidlink">object</strong>:
+      <em class="summary">The most base type</em>
+    <ul>
+    <li> <strong class="uidlink">exceptions.BaseException</strong>:
+      <em class="summary">Common base class for all exceptions</em>
+    <ul>
+    <li> <strong class="uidlink">exceptions.Exception</strong>:
+      <em class="summary">Common base class for all non-exit exceptions.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.exceptions.NoSuchEntry.NoSuchEntry-class.html">sdevalv2.classes.exceptions.NoSuchEntry.NoSuchEntry</a></strong>:
+      <em class="summary">If a requested entry in an SDTable by the user is not there, this 
+        exception is raised.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable-class.html">sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable</a></strong>:
+      <em class="summary">If a requested SDTable by the user is not there, this exception is 
+        raised.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath-class.html">sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath</a></strong>:
+      <em class="summary">If the given path for the XMLRessources is not valid, this 
+        exception is raised.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem-class.html">sdevalv2.classes.computationproblems.ComputationProblem.ComputationProblem</a></strong>:
+      <em class="summary">An abstract representation of a computation problem.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp-class.html">sdevalv2.classes.computationproblems.FA_Q_dp.FA_Q_dp</a></strong>:
+      <em class="summary">This computation problem represents the computation of a Groebner 
+        basis in a free algebra with basedomain as the rational numbers and
+        the degree reverse lexicographical ordering as ordering.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp-class.html">sdevalv2.classes.computationproblems.GB_Fp_dp.GB_Fp_dp</a></strong>:
+      <em class="summary">This computation problem represents the computation of a Groebner 
+        basis of a given polynomial system (commutative) with coefficients 
+        in a finite field and the degree reverse lexicographical ordering.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp-class.html">sdevalv2.classes.computationproblems.GB_Z_lp.GB_Z_lp</a></strong>:
+      <em class="summary">This computation problem represents the computation of a Groebner 
+        basis of a given polynomial system (commutative) with integer 
+        coefficients and the lexicographical ordering.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.FREEALGEBRAFromXMLBuilder.FREEALGEBRAFromXMLBuilder-class.html">sdevalv2.classes.probleminstances.FREEALGEBRAFromXMLBuilder.FREEALGEBRAFromXMLBuilder</a></strong>:
+      <em class="summary">This class serves the purpose to create an FREEALGEBRA instances 
+        from  given XML-Files.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.INTPSFromXMLBuilder.INTPSFromXMLBuilder-class.html">sdevalv2.classes.probleminstances.INTPSFromXMLBuilder.INTPSFromXMLBuilder</a></strong>:
+      <em class="summary">This class serves the purpose to create an INTPS instances from  
+        given XML-Files.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html">sdevalv2.classes.MachineSettings.MachineSettings</a></strong>:
+      <em class="summary">This class represents the machine settings for the taskfolder.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.MachineSettingsFromXMLBuilder.MachineSettingsFromXMLBuilder-class.html">sdevalv2.classes.MachineSettingsFromXMLBuilder.MachineSettingsFromXMLBuilder</a></strong>:
+      <em class="summary">Creates in instance of the class MachineSettings from an xmlstring</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.ModPSFromXMLBuilder.ModPSFromXMLBuilder-class.html">sdevalv2.classes.probleminstances.ModPSFromXMLBuilder.ModPSFromXMLBuilder</a></strong>:
+      <em class="summary">This class serves the purpose to create an ModPS instances from  
+        given XML-Files.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance-class.html">sdevalv2.classes.probleminstances.ProblemInstance.ProblemInstance</a></strong>:
+      <em class="summary">A problem instance in our context is a representation -- specified 
+        by SymbolicData -- of a concrete input for suitable algorithms.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA-class.html">sdevalv2.classes.probleminstances.FREEALGEBRA.FREEALGEBRA</a></strong>:
+      <em class="summary">The concrete problem instance FREEALGEBRA from SymbolicData.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.INTPS.INTPS-class.html">sdevalv2.classes.probleminstances.INTPS.INTPS</a></strong>:
+      <em class="summary">The concrete problem instance INTPS from SymbolicData.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.probleminstances.ModPS.ModPS-class.html">sdevalv2.classes.probleminstances.ModPS.ModPS</a></strong>:
+      <em class="summary">The concrete problem instance ModPS from SymbolicData.</em>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.Proceedings.Proceedings-class.html">sdevalv2.classes.results.Proceedings.Proceedings</a></strong>:
+      <em class="summary">This is a class representation of the proceedings.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ProceedingsToHTMLWriter.ProceedingsToHTMLWriter-class.html">sdevalv2.classes.results.ProceedingsToHTMLWriter.ProceedingsToHTMLWriter</a></strong>:
+      <em class="summary">This is a builder class that creates an html representing a given 
+        proceedings of a task.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ProceedingsToXMLWriter.ProceedingsToXMLWriter-class.html">sdevalv2.classes.results.ProceedingsToXMLWriter.ProceedingsToXMLWriter</a></strong>:
+      <em class="summary">This is a builder class that creates an xml string representing a 
+        given proceedings of a task.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ResultedTimings.ResultedTimings-class.html">sdevalv2.classes.results.ResultedTimings.ResultedTimings</a></strong>:
+      <em class="summary">This is a decorator class of the Proceedings class.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ResultedTimingsToHTMLWriter.ResultedTimingsToHTMLWriter-class.html">sdevalv2.classes.results.ResultedTimingsToHTMLWriter.ResultedTimingsToHTMLWriter</a></strong>:
+      <em class="summary">This is a builder class that creates an html representing a given 
+        ResultedTimings instance of a task.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ResultedTimingsToXMLWriter.ResultedTimingsToXMLWriter-class.html">sdevalv2.classes.results.ResultedTimingsToXMLWriter.ResultedTimingsToXMLWriter</a></strong>:
+      <em class="summary">This is a builder class that creates an xml string representing a 
+        given resulted timings of a task.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ResultingFile.ResultingFile-class.html">sdevalv2.classes.results.ResultingFile.ResultingFile</a></strong>:
+      <em class="summary">This is a representation of an result file given as an output of 
+        the computer algebra systems on the problem instances.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.results.ResultingFileFromOutputBuilder.ResultingFileFromOutputBuilder-class.html">sdevalv2.classes.results.ResultingFileFromOutputBuilder.ResultingFileFromOutputBuilder</a></strong>:
+      <em class="summary">A builder of ResultingFile intances given output files of the 
+        computer algebra systems with time outputs.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.SDTable.SDTable-class.html">sdevalv2.classes.SDTable.SDTable</a></strong>:
+      <em class="summary">This class forms an interface to an arbitrary, but fixed 
+        SymbolicData table.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.Task.Task-class.html">sdevalv2.classes.Task.Task</a></strong>:
+      <em class="summary">This class represents a task in the sense of SDEval.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.TaskFolder.TaskFolder-class.html">sdevalv2.classes.TaskFolder.TaskFolder</a></strong>:
+      <em class="summary">Represents a taskfolder in the sense of SDEval.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.TaskFolderCreator.TaskFolderCreator-class.html">sdevalv2.classes.TaskFolderCreator.TaskFolderCreator</a></strong>:
+      <em class="summary">This is a builder class to generate instances of taskfolders, if 
+        the task, the machine settings, and the xmlRessources are given.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.TaskFolderTree.TaskFolderTree-class.html">sdevalv2.classes.TaskFolderTree.TaskFolderTree</a></strong>:
+      <em class="summary">An instance of this tree represents the folder hierarchy on a 
+        taskfolder, where the executable files are stored for the different
+        computer algebra systems on specific problem instances.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder-class.html">sdevalv2.classes.TaskFromXMLBuilder.TaskFromXMLBuilder</a></strong>:
+      <em class="summary">Creates in instance of the class Task from an xmlstring</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.TaskToXMLWriter.TaskToXMLWriter-class.html">sdevalv2.classes.TaskToXMLWriter.TaskToXMLWriter</a></strong>:
+      <em class="summary">This is a builder class that creates an xml string representing a 
+        given task.</em>
+    </li>
+    <li> <strong class="uidlink"><a href="sdevalv2.classes.XMLRessources.XMLRessources-class.html">sdevalv2.classes.XMLRessources.XMLRessources</a></strong>:
+      <em class="summary">This class is the interface to the Folder XMLRessources in the 
+        SymbolicData folder tree.</em>
+    </li>
+    </ul>
+    </li>
+</ul>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Trees&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct 25 15:45:16 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<!--  XSchema $Id: FREEALGEBRA.xsd,v 1.6 2004/08/26 18:45:47 graebe Exp $  -->
+<!--  XSchema $Id: FREEALGEBRA.xsd,v 1.0 2012/10/16 12:17:47 heinle Exp $  -->
 
   <xs:include schemaLocation="Types.xsd"/>
   <xs:include schemaLocation="Root.xsd"/>
@@ -12,17 +12,6 @@
       <xs:sequence>
 	<xs:element maxOccurs="unbounded" name="poly" type="Polynomial"/>
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-
-  <xs:element name="isoPrimes">
-    <xs:complexType>
-      <xs:choice>
-	<xs:sequence>
-	  <xs:element maxOccurs="unbounded" ref="basis"/>
-	</xs:sequence>
-	<xs:element ref="file"/>
-      </xs:choice>
     </xs:complexType>
   </xs:element>
 
@@ -39,15 +28,6 @@
 	  <xs:element ref="file"/>
         </xs:choice>
         <xs:element minOccurs="0" name="uptoDeg" type="xs:unsignedInt"/>
-        <xs:element minOccurs="0" name="dlist" type="UnsignedIntList"/>
-        <xs:element minOccurs="0" name="isHomog" type="xs:boolean"/>
-        <xs:element minOccurs="0" name="llist" type="UnsignedIntList"/>
-        <xs:element minOccurs="0" name="attributes" type="xs:string"/>
-        <xs:element minOccurs="0" name="degree" type="xs:unsignedInt"/>
-        <xs:element minOccurs="0" name="dim" type="xs:unsignedInt"/>
-        <xs:element minOccurs="0" name="isoPrimeDegrees" type="UnsignedIntList"/>
-        <xs:element minOccurs="0" name="isoPrimeDims" type="UnsignedIntList"/>
-        <xs:element minOccurs="0" ref="isoPrimes"/>
         <xs:group ref="RootTableEntries"/>
       </xs:sequence>
       <xs:attributeGroup ref="recordAttributes"/>

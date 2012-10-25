@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sdevalv2.classes.MachineSettings.MachineSettings</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;sdevalv2 ::
+        <a href="sdevalv2.classes-module.html">Package&nbsp;classes</a> ::
+        <a href="sdevalv2.classes.MachineSettings-module.html">Module&nbsp;MachineSettings</a> ::
+        Class&nbsp;MachineSettings
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MachineSettings</h1><p class="nomargin-top"><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings">source&nbsp;code</a></span></p>
+<center>
+
+</center>
+<hr />
+<p>This class represents the machine settings for the taskfolder. Machine
+  settings are defined in the following way:</p>
+  <p>Machine settings contain a collection of machine-specific constants; 
+  Those are:</p>
+  <ul>
+    <li>
+      For every used computer algebra system the command for executing it
+    </li>
+    <li>
+      The command on the target-machine for calculating the time an 
+      execution needs (time-command) with the needed options for that time 
+      command
+    </li>
+  </ul>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Albert Heinle
+      </p>
+      <p><strong>Contact:</strong>
+        albert.heinle@rwth-aachen.de
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">casDict</span>,
+        <span class="summary-sig-arg">timeCommand</span>)</span><br />
+      The initialisation of the MachineSettings.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">dictionary</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html#getCASDict" class="summary-sig-name">getCASDict</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the dictionary containing the computer algebra systems and 
+      their corresponding execution commands on the target-machine.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.getCASDict">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html#getTimeCommand" class="summary-sig-name">getTimeCommand</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the time command for the target machine</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.getTimeCommand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string or None</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html#getCASCommand" class="summary-sig-name">getCASCommand</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cas</span>)</span><br />
+      Returns the execution command of the computer algebra system given by
+      cas.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.getCASCommand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">xml.dom.minidom.Document</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html#toXML" class="summary-sig-name">toXML</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns an XML representation of the machine settings.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.toXML">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="sdevalv2.classes.MachineSettings.MachineSettings-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      The string representation of the machine settings.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.__str__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">casDict</span>,
+        <span class="sig-arg">timeCommand</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The initialisation of the MachineSettings. It gets a dictionary with 
+  the different computer algebra systems and their corresponding execution 
+  commands on the target-machine and the time command.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>casDict</code></strong> (dictionary) - The dictionary with the computer algebra systems and their 
+          execution commands.</li>
+        <li><strong class="pname"><code>timeCommand</code></strong> (string) - The time command on the target machine with the suitable options.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getCASDict"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCASDict</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.getCASDict">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the dictionary containing the computer algebra systems and 
+  their corresponding execution commands on the target-machine.</p>
+  <dl class="fields">
+    <dt>Returns: dictionary</dt>
+        <dd>The dictionary with computer algebra systems and their execution 
+          commands</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getTimeCommand"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getTimeCommand</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.getTimeCommand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the time command for the target machine</p>
+  <dl class="fields">
+    <dt>Returns: string</dt>
+        <dd>The command to get timings on the target machine</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getCASCommand"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCASCommand</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cas</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.getCASCommand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the execution command of the computer algebra system given by 
+  cas. If cas does not exist in the internal dictionary, None will be 
+  returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>cas</code></strong> (string) - The requested computer algebra system</li>
+    </ul></dd>
+    <dt>Returns: string or None</dt>
+        <dd>The execution command for cas on the target-machine</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="toXML"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toXML</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.toXML">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns an XML representation of the machine settings. It has the 
+  following form:</p>
+<pre class="literalblock">
+ &lt;machinesettings&gt;
+   &lt;casdictionary&gt;
+     &lt;entry&gt;
+       &lt;key&gt;
+         &quot;Name of computer algebra system&quot;
+       &lt;/key&gt;
+       &lt;value&gt;
+         &quot;Execution command on target machine&quot;
+       &lt;/value&gt;
+     &lt;/entry&gt;
+     ...
+   &lt;/casdictionary&gt;
+   &lt;othervars&gt;
+     &lt;timecommand&gt;
+       &quot;The time command&quot;
+     &lt;/timecommand&gt;
+   &lt;/othervars&gt;
+ &lt;/machinesettings&gt;
+</pre>
+  <dl class="fields">
+    <dt>Returns: xml.dom.minidom.Document</dt>
+        <dd>An xml representation of the machine settings.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="sdevalv2.classes.MachineSettings-pysrc.html#MachineSettings.__str__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The string representation of the machine settings. It has the 
+  following form:</p>
+<pre class="literalblock">
+   Computer algebra systems and commands:
+        &lt;Computer algebra system 1&gt; : &lt;Execution Code 1&gt;
+        &lt;Computer algebra system 2&gt; : &lt;Execution Code 2&gt;
+        ...
+   Time Command: &lt;Time Command&gt;
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__str__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct 25 15:45:17 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

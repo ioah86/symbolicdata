@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{amsart}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{url}
+
+%\usepackage{makeidx}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+
+
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\KK}{{\mathbb{K}}}
+
+%\input{definitions}
+\makeindex
+\begin{document}
+\title{Questions and Answers to the SDEval Project}
+\author{Albert Heinle}
+\maketitle
+\begin{abstract}
+This document deals with some common questions that may arise when using SDEval.
+If you have other questions, please contact us.
+
+For the terminology used in this document you might consider the file \texttt{definitions.pdf} in the same directory.
+\end{abstract}
+\section{Questions concerning how to add things to \textsc{SDEval}}
+
+\paragraph{\textbf{Q:} My favourite computer algebra system can solve some of those computation problems you are already dealing with. Why is it not there as an option? And how can I help you put it in there?}
+
+\textbf{A:} We are sorry and happy in the same moment. Sorry, because your favourite computer algebra system is not yet in the list of \textsc{SDEval}, and happy because you are a
+person who has knowledge about another computer algebra system that we might add
+to our list of computer algebra systems.
+
+The reason why it is not there yet is either that we did not know about this system, or we do not know how to perform certain computations using this computer algebra system. Clearly, the first option implies the second.
+
+So how you can help us. There are two ways.
+\begin{enumerate}
+  \item You have a general knowledge about Python. That is the best case. Then go to the folder \texttt{classes/templates/comp}. There, you can see folders representing the different computation problems that are currently available within \textsc{SDEval}. Those names come from entries in the Symbolic Data Table \texttt{COMP}. Find the one that your favourite computer algebra system can solve, and enter the folder. There you see a bunch of folders named by computer algebra systems. Add a folder there named by your favourite computer algebra system. In this folder, you create a file called \texttt{template.py} and a file \texttt{\_\_init\_\_.py}. The content of the file \texttt{template.py} can be copied from the template of another computer algebra system. There, you can find a method called \texttt{generateCode}. Do not change the arguments. Using those arguments, let this method create a string with executable code and return it in the end. After that, nothing more needs to be done. Test this function, and then send it to us. Thank you in advance.
+\item You have no idea of Python. Then just send us an example code how to solve an already stated computation problem in your computer algebra system and we will do the work for you.
+\end{enumerate}
+
+\paragraph{\textbf{Q:} I often have a computation problem that is not listed in your choice of computation problems. How can I add this, so that I can do automated testing and benchmarking in the future on that?}
+\textbf{A:} That is a good thing. We always want to expand our software as much as we can. The best thing to do is to talk about it with the Symbolic Data team in order to add this problem in the \texttt{COMP}-table of the project and in order to have a clear description of it. 
+
+Meanwhile, we can test-wise add it to our system. Just provide us with a good description of the problem, what kind of inputs might be needed and what computer algebra systems you know are available out there. Furthermore, you need to send us some test code.
+
+If you are familiar with python, you can even make it test-wise yourself. Afterwards, we would only love to have the code you produced in order to may add it to the project.
+
+\textbf{Precondition}: You know an SD-Table with problem instances where the inputs for your computation problems can be derived from. If that is not given, see next question.
+
+How you do it: in the folder \texttt{classes/comp/}, add a folder (with an \texttt{\_\_init\_\_.py}). The name shall represent in some way your computation problem. Then, like in the other computation problems, make subfolders with possible computer algebra systems, and add the templates for them as done for the other computation problems. See the previous question.
+
+Once you have done that, we need a representation of your computation problem as a class. For that, go into the folder \texttt{classes/computationproblems}, and as for the other computation problems there, you create a file containing a class representing your computation problem. Most of it can be copy and pasted from the other computation problems. The important thing is only to add at least one associated SD-Table, where instances can be taken from for this computation.
+
+The last step is to ``register'' this computation problem. For that, open the file \texttt{classes/TaskFolderCreator.py}. In the end of the method create, you find a case differentiation on different existing computation problems. Choose one that is using the same SD-Table as your computation problem, and copy the line to the case of your computation problem, that you add. That is it. But of course, it takes a bit to read through it. The fastest way is just to contact us.
+
+\paragraph{\textbf{Q:} I have created/need a new table with problem instances. How do I add it?}
+\textbf{A:} In general, this is quite complicated to add. Please contact the Symbolic-Data team, try to explain to them why this table might be relevant, and how you can help them to add it to the project. Once it is in and we can derive inputs from it for our computation problems, we will add it to our project eventually. Feel welcome to always give us hints how we can use recently added SD-Tables.
+
+\section{Questions on using SDEval}
+
+\paragraph{\textbf{Q:} I have created an task folder. Now I want to change some parameters, add some lines of code, etc.. To what extend is that possible without making the task folder not working any more when running \texttt{runTasks.py}?}
+
+\textbf{A:} There are different things you can do. If you just change lines in the executable files for the computer algebra systems, nothing major can happen. Feel free to do so.
+
+If you want to add new files, for example for other computer algebra systems: Be careful, but it is possible. Just create in the same way as for the other computer algebra systems a folder containing a file called \texttt{executablefile.sdc} and named by your computer algebra system (for EVERY problem instance. This file may be empty, but it must be there). Then, in the \texttt{machinesettings.xml}, add your computer algebra system to the list and the command to execute it on your target machine. Last, but not least, also add it in the \texttt{taskInfo.xml} file.
+
+In the same way, you can also add by hand another problem instance. But again, make sure that you also have executable files for EVERY computer algebra system. They may be empty, but they must be there.
+
+\paragraph{\textbf{Q:} I have already created an export task folder. Now, on my target machine, the commands to call a certain computer algebra system have changed. How can I adjust that without creating the same task again?}
+
+\textbf{A:} That is no problem. Just go into the \texttt{machinesettings.xml} in the task folder and change it there. It is easy to find.
+
+\paragraph{\textbf{Q:} I start the \texttt{create\_tasks\_gui.py}, and somehow he is constantly asking me to open a folder. What is going on there?}
+
+\textbf{A:} You might have moved \textsc{SDEval} out of the Symbolic-Data folders. Fact is, that the files of Symbolic Data must be on your machine. Just search for the folder \texttt{XMLRessources} in the Symbolic-Data folders, and select it in the popping up window.
+\end{document}

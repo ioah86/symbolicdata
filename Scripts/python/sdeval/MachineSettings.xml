@@ -36,7 +36,7 @@ gap
 </CASdictionary>
 <OtherVars>
 <TimeCommand>
-/usr/bin/time -f &quot;real\t%E\nuser\t%U\nsystem\t%S&quot;
+time -p
 </TimeCommand>
 </OtherVars>
 </MachineSettings>

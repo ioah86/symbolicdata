@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>sdevalv2.classes.XMLRessources</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;sdevalv2 ::
+        <a href="sdevalv2.classes-module.html">Package&nbsp;classes</a> ::
+        Module&nbsp;XMLRessources
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="sdevalv2.classes.XMLRessources-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="sdevalv2.classes.XMLRessources-module.html">Module sdevalv2.classes.XMLRessources</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package sdevalv2.classes.exceptions=sdevalv2.classes.exceptions-module.html"><a title="sdevalv2.classes.exceptions" class="py-name" href="#" onclick="return doclink('link-0', 'exceptions', 'link-0');">exceptions</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module sdevalv2.classes.exceptions.XMLRessourcesInvalidPath=sdevalv2.classes.exceptions.XMLRessourcesInvalidPath-module.html,Class sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath=sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath-class.html"><a title="sdevalv2.classes.exceptions.XMLRessourcesInvalidPath
+sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath" class="py-name" href="#" onclick="return doclink('link-1', 'XMLRessourcesInvalidPath', 'link-1');">XMLRessourcesInvalidPath</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name"><a title="sdevalv2.classes.exceptions.XMLRessourcesInvalidPath
+sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath" class="py-name" href="#" onclick="return doclink('link-2', 'XMLRessourcesInvalidPath', 'link-1');">XMLRessourcesInvalidPath</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="sdevalv2.classes.exceptions" class="py-name" href="#" onclick="return doclink('link-3', 'exceptions', 'link-0');">exceptions</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module sdevalv2.classes.exceptions.NoSuchSDTable=sdevalv2.classes.exceptions.NoSuchSDTable-module.html,Class sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable=sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable-class.html"><a title="sdevalv2.classes.exceptions.NoSuchSDTable
+sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable" class="py-name" href="#" onclick="return doclink('link-4', 'NoSuchSDTable', 'link-4');">NoSuchSDTable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name"><a title="sdevalv2.classes.exceptions.NoSuchSDTable
+sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable" class="py-name" href="#" onclick="return doclink('link-5', 'NoSuchSDTable', 'link-4');">NoSuchSDTable</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name" targets="Module sdevalv2.classes.SDTable=sdevalv2.classes.SDTable-module.html,Class sdevalv2.classes.SDTable.SDTable=sdevalv2.classes.SDTable.SDTable-class.html"><a title="sdevalv2.classes.SDTable
+sdevalv2.classes.SDTable.SDTable" class="py-name" href="#" onclick="return doclink('link-6', 'SDTable', 'link-6');">SDTable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name"><a title="sdevalv2.classes.SDTable
+sdevalv2.classes.SDTable.SDTable" class="py-name" href="#" onclick="return doclink('link-7', 'SDTable', 'link-6');">SDTable</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="XMLRessources"></a><div id="XMLRessources-def"><a name="L6"></a><tt class="py-lineno">  6</tt> <a class="py-toggle" href="#" id="XMLRessources-toggle" onclick="return toggle('XMLRessources');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html">XMLRessources</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="XMLRessources-expanded"><a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">    This class is the interface to the Folder XMLRessources in the SymbolicData folder tree.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">    Its purpose is, that one can access the different SD-Tables inside this folder.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">    @author: Albert Heinle</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">    @contact: albert.heinle@rwth-aachen.de</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable sdevalv2.classes.XMLRessources.XMLRessources.__requiredTables=sdevalv2.classes.XMLRessources.XMLRessources-class.html#__requiredTables"><a title="sdevalv2.classes.XMLRessources.XMLRessources.__requiredTables" class="py-name" href="#" onclick="return doclink('link-8', '__requiredTables', 'link-8');">__requiredTables</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">"INTPS"</tt><tt class="py-op">,</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">                      <tt class="py-string">"FREEALGEBRA"</tt><tt class="py-op">,</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">                      <tt class="py-string">"ModPS"</tt><tt class="py-op">,</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">                      <tt class="py-string">"GAlgebra"</tt><tt class="py-op">]</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-string">"""</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-string">    At least one of those tables should be contained in XMLRessources for being able to work with this table.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-string">    This will be checked when creating this instance</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-string">    """</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">     </tt>
+<a name="XMLRessources.__init__"></a><div id="XMLRessources.__init__-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="XMLRessources.__init__-toggle" onclick="return toggle('XMLRessources.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">folder</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-string">".."</tt><tt class="py-op">,</tt><tt class="py-string">".."</tt><tt class="py-op">,</tt><tt class="py-string">".."</tt><tt class="py-op">,</tt><tt class="py-string">"OWLData"</tt><tt class="py-op">,</tt><tt class="py-string">"XMLResources"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.__init__-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        This function is the constructor of the class XMLRessources. It sets the internal</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        variable folder to the given path. If the given folder is not valid, the constructor raises</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        an exception.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        @requires:                       Existence of the folder that was given as input</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        @param folder:                   The path to the XMLRessources Folder</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">        @type  folder:                   A string representing a valid path</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        @raise XMLRessourcesInvalidPath: If given folder is not valid, this exception is raised</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isdir</tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-9" class="py-name"><a title="sdevalv2.classes.exceptions.XMLRessourcesInvalidPath
+sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath" class="py-name" href="#" onclick="return doclink('link-9', 'XMLRessourcesInvalidPath', 'link-1');">XMLRessourcesInvalidPath</a></tt><tt class="py-op">(</tt><tt class="py-string">"The given folder "</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">" is not a valid path!"</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method sdevalv2.classes.XMLRessources.XMLRessources.__isValidXMLRessourcesFolder()=sdevalv2.classes.XMLRessources.XMLRessources-class.html#__isValidXMLRessourcesFolder"><a title="sdevalv2.classes.XMLRessources.XMLRessources.__isValidXMLRessourcesFolder" class="py-name" href="#" onclick="return doclink('link-10', '__isValidXMLRessourcesFolder', 'link-10');">__isValidXMLRessourcesFolder</a></tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-11" class="py-name"><a title="sdevalv2.classes.exceptions.XMLRessourcesInvalidPath
+sdevalv2.classes.exceptions.XMLRessourcesInvalidPath.XMLRessourcesInvalidPath" class="py-name" href="#" onclick="return doclink('link-11', 'XMLRessourcesInvalidPath', 'link-1');">XMLRessourcesInvalidPath</a></tt><tt class="py-op">(</tt><tt class="py-string">"The given folder "</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">"is not a valid XMLRessources folder.\</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-string"> Some of the required tables are missing"</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">abspath</tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="XMLRessources.__isValidXMLRessourcesFolder"></a><div id="XMLRessources.__isValidXMLRessourcesFolder-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="XMLRessources.__isValidXMLRessourcesFolder-toggle" onclick="return toggle('XMLRessources.__isValidXMLRessourcesFolder');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#__isValidXMLRessourcesFolder">__isValidXMLRessourcesFolder</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">folder</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.__isValidXMLRessourcesFolder-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.__isValidXMLRessourcesFolder-expanded"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        Checks the validity of the given folder. It is valid, if at least one of the tables of the variable</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        __requiredTables is contained in this folder.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">tablesInFolder</tt> <tt class="py-op">=</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isdir</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">folder</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">containedInRequiredTables</tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="sdevalv2.classes.XMLRessources.XMLRessources.__requiredTables" class="py-name" href="#" onclick="return doclink('link-12', '__requiredTables', 'link-8');">__requiredTables</a></tt><tt class="py-op">,</tt><tt class="py-name">tablesInFolder</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">True</tt> <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">containedInRequiredTables</tt><tt class="py-op">)</tt><tt class="py-op">&gt;</tt><tt class="py-number">0</tt> <tt class="py-keyword">else</tt> <tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="XMLRessources.loadSDTable"></a><div id="XMLRessources.loadSDTable-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="XMLRessources.loadSDTable-toggle" onclick="return toggle('XMLRessources.loadSDTable');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#loadSDTable">loadSDTable</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tableName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.loadSDTable-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.loadSDTable-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">        Returns an instance of SD-Table specified by the given parameter "tableName"</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">        @param     tableName: The name of the table the user wants to have access to</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">        @type      tableName: string</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">        @return:              An instance of SDTable representing the SDTable given by tableName</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype:               SDTable</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">        @raise NoSuchSDTable: If the requested SD-Table does not exist, this exception is raised</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isdir</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt><tt class="py-op">,</tt><tt class="py-name">tableName</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-13" class="py-name"><a title="sdevalv2.classes.exceptions.NoSuchSDTable
+sdevalv2.classes.exceptions.NoSuchSDTable.NoSuchSDTable" class="py-name" href="#" onclick="return doclink('link-13', 'NoSuchSDTable', 'link-4');">NoSuchSDTable</a></tt><tt class="py-op">(</tt><tt class="py-string">"The table "</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">tableName</tt><tt class="py-op">)</tt><tt class="py-op">+</tt> <tt class="py-string">" does not exist in the XMLRessources folder!"</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-14" class="py-name"><a title="sdevalv2.classes.SDTable
+sdevalv2.classes.SDTable.SDTable" class="py-name" href="#" onclick="return doclink('link-14', 'SDTable', 'link-6');">SDTable</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt><tt class="py-op">,</tt> <tt class="py-name">tableName</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="XMLRessources.listSDTables"></a><div id="XMLRessources.listSDTables-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="XMLRessources.listSDTables-toggle" onclick="return toggle('XMLRessources.listSDTables');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#listSDTables">listSDTables</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.listSDTables-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.listSDTables-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">        Returns a list with all available SD-Tables in the XMLRessources folder.</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype:    list</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        @returns:  A list with all SD-Tables available</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">filter</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">f</tt><tt class="py-op">:</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isdir</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                      <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="XMLRessources.getPath"></a><div id="XMLRessources.getPath-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="XMLRessources.getPath-toggle" onclick="return toggle('XMLRessources.getPath');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#getPath">getPath</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.getPath-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.getPath-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">        Returns the Path to the XMLRessources folder.</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        @returns: Path of the XMLRessources folder.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype:   string</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt> </tt>
+</div><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="XMLRessources.__str__"></a><div id="XMLRessources.__str__-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="XMLRessources.__str__-toggle" onclick="return toggle('XMLRessources.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.__str__-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        Returns a String representation of the instance of XMLRessources. It has the following format::</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">            Folder: &lt;PathToXMLRessources&gt;</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">            Folder contains the following SDTables:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;SDTable1&gt;</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;SDTable2&gt;</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">            ...</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-string">"Folder: {0}\n\</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-string">Folder contains the following SDTables:\n{1}"</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__folder</tt><tt class="py-op">,</tt> <tt class="py-string">"\n"</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method sdevalv2.classes.XMLRessources.XMLRessources.listSDTables()=sdevalv2.classes.XMLRessources.XMLRessources-class.html#listSDTables"><a title="sdevalv2.classes.XMLRessources.XMLRessources.listSDTables" class="py-name" href="#" onclick="return doclink('link-15', 'listSDTables', 'link-15');">listSDTables</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">result</tt> </tt>
+</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">         </tt>
+<a name="XMLRessources.__del__"></a><div id="XMLRessources.__del__-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="XMLRessources.__del__-toggle" onclick="return toggle('XMLRessources.__del__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="sdevalv2.classes.XMLRessources.XMLRessources-class.html#__del__">__del__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XMLRessources.__del__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XMLRessources.__del__-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">        The deletion of all internal variables.</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">        TODO</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="sdevalv2.classes-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://bitbucket.org/levandov/symbolicdata_freealgebra/">sdeval</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Oct 25 15:45:18 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
