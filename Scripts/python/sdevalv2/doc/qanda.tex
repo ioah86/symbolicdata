@@ -94,4 +94,19 @@ In the same way, you can also add by hand another problem instance. But again, m
 \paragraph{\textbf{Q:} I start the \texttt{create\_tasks\_gui.py}, and somehow he is constantly asking me to open a folder. What is going on there?}
 
 \textbf{A:} You might have moved \textsc{SDEval} out of the Symbolic-Data folders. Fact is, that the files of Symbolic Data must be on your machine. Just search for the folder \texttt{XMLRessources} in the Symbolic-Data folders, and select it in the popping up window.
+
+\paragraph{\textbf{Q:} I just want to run some experimental calculations without adding it as a computation problem on its own to symbolic-data, so the task generation is not that interesting for me. But I like your \texttt{runTasks} routine. Can I also make an folder on my own and run the calculations with the profiling provided by this method?}
+
+\textbf{A:} It is not meant to be used like that, but well, of course you can do it. Just do the following steps:
+\begin{enumerate}
+  \item Create a folder and copy the file \texttt{runTasks.py} and the folder \texttt{classes} to it.
+  \item Within the created folder in the previous step, create another folder called \texttt{casSources}. In this folder, make subfolders representing the different calculations you want to do. Within those folders, create subfolders named by the programs you want to use to do that. Every calculation shall contain the same programs. Finally, in those folders that are named after programs, write a file \texttt{executablefile.sdc} containing the executable code for the programs.
+  \item Within the folder created in the first step, add files named
+
+\texttt{machinesettings.xml} 
+and
+
+\texttt{taskInfo.xml}. You need to fill them with data. How these XML-files should look like is described in the ``For Developers'' section of the documentation (in the \texttt{MachineSettings} module resp. the \texttt{TaskToXMLWriter} module). Alternatively you can just build a random taskfolder with the \texttt{create\_tasks[\_gui].py} and derive the format of those files from the produced folder.
+\end{enumerate}
+
 \end{document}
