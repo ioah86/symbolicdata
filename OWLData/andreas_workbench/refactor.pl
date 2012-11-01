@@ -4,6 +4,10 @@
 # the ttl-file to work with is specified by command line
 # the output is saved in the file with "refactor-" attached to the front
 
+my %preregex = qw{
+    /Singular/ /singular.
+};
+
 my %pairs = qw{
     sdps http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/
 };
@@ -36,6 +40,9 @@ while(<ARG>) {
 # do a regex replace for each line
 
 foreach $line (<ARG>) {
+    while(my($find, $replace) = each(%preregex)) {
+        $line =~ s!$find!$replace!g;
+    }
     while(my($namespace, $uri) = each(%pairs)) {
         $line =~ s/\<$uri([^\>\/]*)\>/$namespace:$1/g;
     }
