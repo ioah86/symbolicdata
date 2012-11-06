@@ -11,6 +11,10 @@
     rdfs:label "SD BIB Data" ;
     owl:imports <http://symbolicdata.org/Data/People/> .
 
+sd:Reference
+    a owl:Class ;
+    rdfs:label "References to Publications" .
+
 sdb:Albano_00a
     sd:createdAt "2001-03-16" ;
     sd:createdBy sdp:Cioffi_F ;
