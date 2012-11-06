@@ -2,7 +2,8 @@
 
 use warnings;
 
-%local_ttl = ('sdp' => 'Person.ttl');
+%local_ttl = ('sdp' => 'People.ttl',
+              'sdps' => 'PolynomialSystems.ttl');
 %ttl_data = ();
 
 if($#ARGV == -1) {

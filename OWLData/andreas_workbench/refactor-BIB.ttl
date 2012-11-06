@@ -1,18 +1,18 @@
-@base <http://hgg.ontowiki.net/SymbolicData/BIB/> .
+@base <http://symbolicdata.org/Data/BIB/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sd: <http://hgg.ontowiki.net/SymbolicData/> .
-@prefix sdp: <http://hgg.ontowiki.net/SymbolicData/Person/> .
-@prefix sdb: <http://hgg.ontowiki.net/SymbolicData/BIB/> .
-@prefix sdps: <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/> . 
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix sdb: <http://symbolicdata.org/Data/BIB/> .
+@prefix sdps: <http://symbolicdata.org/Data/INTPS/> . 
 
 <> a owl:Ontology ;
    rdfs:comment "Bibliography of the Symbolic Data Collection" ;
    rdfs:label "SD BIB Data"; 
    owl:imports <http://hgg.ontowiki.net/SymbolicData/Person/> .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Albano_00a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Albano_00a> a sd:Reference; 
 sd:hasAuthor sdp:Albano_G, sdp:Cioffi_F, sdp:Orecchia_F, sdp:Ramella_I;
 sd:hasTitle "Minimally generating ideals of rational parametric curves in polynomial time";
 sd:hasYear "2000";
@@ -21,7 +21,7 @@ sd:hasAbstract "We present an algorithm for computing a minimal set of generator
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Cioffi_F>;
   sd:lastModified "2004-09-16" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Bachmann_00a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Bachmann_00a> a sd:Reference; 
 sd:hasAuthor sdp:Bachmann_O, sdp:Graebe_HG;
 sd:hasTitle "The SymbolicData Project: Towards an Electronic Repository of Tools and Data for Benchmarks of Computer Algebra Software";
 sd:hasYear "2000";
@@ -29,7 +29,7 @@ sd:hasYear "2000";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Bachmann_98a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Bachmann_98a> a sd:Reference; 
 sd:hasAuthor sdp:Bachmann_O, sdp:Schoenemann_H;
 sd:hasTitle "Monomial operations for computations of Gröbner bases; Proc. ISSAC-98, Rostock, Germany";
 sd:hasYear "1998";
@@ -39,7 +39,7 @@ sd:referencedIn sdps:singular.alex_1, sdps:singular.alex_2, sdps:singular.alex_3
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
   sd:lastModified "2004-09-16" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Bjoerck_91a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Bjoerck_91a> a sd:Reference; 
 sd:hasAuthor sdp:Bjoerk_G, sdp:Froeberg_G;
 sd:hasTitle "A Faster Way to Count the Solution of Inhomogeneous Systems of Algebraic Equations, with Applications to Cyclic $n$-Roots";
 sd:hasYear "1991";
@@ -49,7 +49,7 @@ sd:referencedIn sdps:Bjoerk_8, sdps:Cyclic_6, sdps:Cyclic_7, sdps:Cyclic_8;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Boege_86a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Boege_86a> a sd:Reference; 
 sd:hasAuthor sdp:Boege_W, sdp:Gebauer_R, sdp:Kredel_H;
 sd:hasTitle "Some examples for solving systems of algebraic equations by calculating Gröbner bases";
 sd:hasYear "1986";
@@ -59,7 +59,7 @@ sd:referencedIn sdps:Hairer_1, sdps:Hairer_2, sdps:Hairer_2_1, sdps:Katsura_3, s
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Buchberger_87a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Buchberger_87a> a sd:Reference; 
 sd:hasAuthor sdp:Buchberger_B;
 sd:hasTitle "Applications of Gröbner bases in non-linear computational geometry; Mathematical aspects in scientific software";
 sd:hasYear "1987";
@@ -69,7 +69,7 @@ sd:referencedIn sdps:Robot-RR, sdps:Ellipsoid_2, sdps:Ellipsoid_4, sdps:Buchberg
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Canny_93a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Canny_93a> a sd:Reference; 
 sd:hasAuthor sdp:Canny_JF, sdp:Manocha_D;
 sd:hasTitle "MultiPolynomial Resultant Algorithms";
 sd:hasYear "1993";
@@ -77,7 +77,7 @@ sd:hasYear "1993";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Chou_84a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Chou_84a> a sd:Reference; 
 sd:hasAuthor sdp:Chou_SC;
 sd:hasTitle "Proving elementary geometry theorems using Wu's algorithm; ";
 sd:hasYear "1984";
@@ -87,7 +87,7 @@ sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Parallelogram_1>,
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-09-16" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Chou_88a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Chou_88a> a sd:Reference; 
 sd:hasAuthor sdp:Chou_SC;
 sd:hasTitle "Mechanical geometry theorem proving";
 sd:hasYear "1988";
@@ -97,7 +97,7 @@ sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Chou/28_1>, <http
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Cioffi_00a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Cioffi_00a> a sd:Reference; 
 sd:hasAuthor sdp:Cioffi_F;
 sd:hasTitle "Remarks on the Computation of Minimal Finite Free Resolutions";
 sd:hasYear "2000";
@@ -106,7 +106,7 @@ sd:hasAbstract "Several improvements to the computation of the minimal free reso
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Cioffi_F>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Cohn_82a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Cohn_82a> a sd:Reference; 
 sd:hasAuthor sdp:Cohn_H;
 sd:hasTitle "An explicit modular equation in two variables and Hilbert's Twelfth problem";
 sd:hasYear "1982";
@@ -115,7 +115,7 @@ sd:referencedIn sdps:Cohn_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Po
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Faugere_JC>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Cohn_88a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Cohn_88a> a sd:Reference; 
 sd:hasAuthor sdp:Cohn_H;
 sd:hasTitle "An explit modular equation in two variables for Q[sqrt(3)]";
 sd:hasYear "1988";
@@ -124,7 +124,7 @@ sd:referencedIn sdps:Cohn_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Po
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Faugere_JC>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Cox_97a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Cox_97a> a sd:Reference; 
 sd:hasAuthor sdp:Cox_D, sdp:Little_J, sdp:OShea_D;
 sd:hasTitle "Using Algebraic Geometry";
 sd:hasYear "1997";
@@ -132,7 +132,7 @@ sd:hasYear "1997";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_86a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Czapor_86a> a sd:Reference; 
 sd:hasAuthor sdp:Czapor_SR, sdp:Geddes_KO;
 sd:hasTitle "On implementing Buchberger's algorithm for Gröbner bases; Proc. SYMSAC'86";
 sd:hasYear "1986";
@@ -142,7 +142,7 @@ sd:referencedIn sdps:Trinks, sdps:Czapor-86a, sdps:Katsura_5, <http://hgg.ontowi
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_87a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Czapor_87a> a sd:Reference; 
 sd:hasAuthor sdp:Czapor_SR;
 sd:hasTitle "Solving algebraic equations via Buchberger's algorithm; Proc. EUROCAL'87";
 sd:hasYear "1987";
@@ -152,7 +152,7 @@ sd:referencedIn sdps:Butcher, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/F
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_89a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Czapor_89a> a sd:Reference; 
 sd:hasAuthor sdp:Czapor_SR;
 sd:hasTitle "Solving algebraic equations: Combining Buchberger's algorithm with multivariate factorization";
 sd:hasYear "1989";
@@ -162,7 +162,7 @@ sd:referencedIn sdps:Trinks, sdps:Katsura_5, sdps:Rose;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_91a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Czapor_91a> a sd:Reference; 
 sd:hasAuthor sdp:Czapor_SR;
 sd:hasTitle "A heuristic selection strategy for lexicographic Gröbner bases; Proc. ISSAC'91";
 sd:hasYear "1991";
@@ -172,7 +172,7 @@ sd:referencedIn sdps:Trinks, sdps:Katsura_5, sdps:Czapor-87_2, sdps:Butcher, sdp
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Emiris_98a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Emiris_98a> a sd:Reference; 
 sd:hasAuthor sdp:Emiris_IZ, sdp:Manocha_D, sdp:Wallack_A;
 sd:hasTitle "MARS: A Maple/Matlab/C Resultant-Based Solver";
 sd:hasYear "1998";
@@ -180,7 +180,7 @@ sd:hasYear "1998";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Galligo_89a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Galligo_89a> a sd:Reference; 
 sd:hasAuthor sdp:Galligo_A, sdp:Traverso_C;
 sd:hasTitle "Practical Determination of the dimension of an algebraic variety";
 sd:hasYear "1989";
@@ -189,7 +189,7 @@ sd:referencedIn sdps:Cohn_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Po
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Faugere_JC>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_90a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Gerdt_90a> a sd:Reference; 
 sd:hasAuthor sdp:Gerdt_VP, sdp:Zharkov_AYu;
 sd:hasTitle "Computer classification of integrable coupled KdV-like systems";
 sd:hasYear "1990";
@@ -199,7 +199,7 @@ sd:referencedIn sdps:Gerdt-90;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_91a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Gerdt_91a> a sd:Reference; 
 sd:hasAuthor sdp:Gerdt_VP, sdp:Khutornoy_NV, sdp:Zharkov_AYu;
 sd:hasTitle "Solving algebraic systems which arize as necessary integrability conditions for polynomial nonlinear evolution equations; Computer algebra in physical research";
 sd:hasYear "1991";
@@ -209,7 +209,7 @@ sd:referencedIn sdps:Gerdt-85, sdps:Gerdt-91a, sdps:Gerdt-91b;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_92a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Gerdt_92a> a sd:Reference; 
 sd:hasAuthor sdp:Gerdt_VP, sdp:Khutornoy_NV, sdp:Zharkov_AYu;
 sd:hasTitle "Gröbner basis technique, homogeneity, and solving polynomial equations";
 sd:hasYear "1992";
@@ -219,7 +219,7 @@ sd:referencedIn sdps:Gerdt-85, sdps:Gerdt-91b, sdps:Gerdt-90, sdps:Cyclic_5, sdp
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_93a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Gerdt_93a> a sd:Reference; 
 sd:hasAuthor sdp:Gerdt_VP, sdp:Khutornoy_NV, sdp:Zharkov_AYu;
 sd:hasTitle "ASYS 2: A new version of the computer algebra package ASYS";
 sd:hasYear "1993";
@@ -229,7 +229,7 @@ sd:referencedIn sdps:Gerdt-85, sdps:Gerdt-91a, sdps:Gerdt-91b, sdps:Gerdt-90, sd
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Giovini_91a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Giovini_91a> a sd:Reference; 
 sd:hasAuthor sdp:Giovini_A, sdp:Mora_T, sdp:Niesi_G, sdp:Robbiano_L, sdp:Traverso_C;
 sd:hasTitle "&quot;One sugar cube, please&quot; or Selection strategies in the Buchberger algorithm; Proc. ISSAC'91";
 sd:hasYear "1991";
@@ -239,7 +239,7 @@ sd:referencedIn sdps:Gerdt-85, sdps:Cyclic_5, sdps:Cyclic_7_1, sdps:Katsura_5;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Graebe_99a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Graebe_99a> a sd:Reference; 
 sd:hasAuthor sdp:Graebe_HG;
 sd:hasTitle "About the Polynomial System Solve Facility of Axiom, Macsyma, Maple, Mathematica, MuPAD, and Reduce; Computer Algebra Systems: A Practical Guide";
 sd:hasYear "1999";
@@ -249,7 +249,7 @@ sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/INTPS/Sym1_211>, <http://h
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2005-02-17" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Kahn_93a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Kahn_93a> a sd:Reference; 
 sd:hasAuthor sdp:Kahn_K;
 sd:hasTitle "private communications";
 sd:hasYear "1993";
@@ -259,7 +259,7 @@ sd:referencedIn sdps:Symmetric_5, sdps:Symmetric_6;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Kalkbrener_93a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Kalkbrener_93a> a sd:Reference; 
 sd:hasAuthor sdp:Kalkbrener_M;
 sd:hasTitle "A generalized Euclidean algorithm for computing triangular representations of algebraic varieties";
 sd:hasYear "1993";
@@ -269,7 +269,7 @@ sd:referencedIn sdps:Cyclic_4, sdps:Trinks, sdps:Katsura_5, sdps:Rose, sdps:Czap
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Katsura_87a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Katsura_87a> a sd:Reference; 
 sd:hasAuthor sdp:Katsura_W, sdp:Fukuda_S, sdp:Inawashiro_N, sdp:Fujiki_NM, sdp:Gebauer_R;
 sd:hasTitle "Cell Biophysics";
 sd:hasYear "1987";
@@ -279,7 +279,7 @@ sd:referencedIn sdps:Katsura_;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Murao_93a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Murao_93a> a sd:Reference; 
 sd:hasAuthor sdp:Murao_H, sdp:Kobayashi_H, sdp:Fujise_T ;
 sd:hasTitle "On Factorizing the Symbolic U-resultant - Application of the ddet operator";
 sd:hasYear "1993";
@@ -287,7 +287,7 @@ sd:hasYear "1993";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/PoSSo> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/PoSSo> a sd:Reference; 
 sd:hasAuthor sdp:posso ;
 sd:hasTitle "Polynomial System Solving";
 sd:hasYear "1995";
@@ -295,7 +295,7 @@ sd:hasYear "1995";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Sturmfels_98a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Sturmfels_98a> a sd:Reference; 
 sd:hasAuthor sdp:Sturmfels_B;
 sd:hasTitle "Introduction to Resultants";
 sd:hasYear "1998";
@@ -303,7 +303,7 @@ sd:hasYear "1998";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_92a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_92a> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "Irreducible decomposition of algebraic varieties via characteristic sets and Gröbner bases";
 sd:hasYear "1992";
@@ -313,7 +313,7 @@ sd:referencedIn sdps:Neff-89, sdps:Wang-89, sdps:Wang-92a, sdps:FourCircles, sdp
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_92b> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_92b> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "On the parallelization of characteristic-set-based algorithms; Parallel Computation";
 sd:hasYear "1992";
@@ -323,7 +323,7 @@ sd:referencedIn sdps:Hairer_2, sdps:Gerdt-85, sdps:Katsura_5, sdps:Wu-90, sdps:B
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_92c> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_92c> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "A strategy for speeding-up the computation of characteristic sets; Math. foundation of computer science";
 sd:hasYear "1992";
@@ -333,7 +333,7 @@ sd:referencedIn sdps:Wu-90, sdps:Fee_2, sdps:TD-89, sdps:Vermeer, sdps:Discrimin
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_93a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_93a> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "An elimination method for polynomial systems";
 sd:hasYear "1993";
@@ -343,7 +343,7 @@ sd:referencedIn sdps:Wu-90, sdps:Fee_2, sdps:TD-89, sdps:Vermeer;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_95a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_95a> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "Reasoning about geometric problems using an elimination method; Automated practical reasoning";
 sd:hasYear "1995";
@@ -353,7 +353,7 @@ sd:referencedIn sdps:Buchberger-87, sdps:Vermeer, sdps:Wang-91_1, sdps:Discrimin
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_95b> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_95b> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "An implementation of the characteristic set method in Maple; Automated practical reasoning";
 sd:hasYear "1995";
@@ -363,7 +363,7 @@ sd:referencedIn sdps:Wang-89, sdps:Butcher, sdps:Wang-92e, sdps:Bronstein-86;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-27" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_95c> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_95c> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "Elimination procedures for mechanical theorem proving in geometry";
 sd:hasYear "1995";
@@ -373,7 +373,7 @@ sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Fer
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_96a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_96a> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "Solving polynomial equations: characteristic sets and triangular systems";
 sd:hasYear "1996";
@@ -383,7 +383,7 @@ sd:referencedIn sdps:Wu-90, sdps:Robot-RR, sdps:Ellipsoid_2, sdps:Ellipsoid_4, s
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wang_98a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wang_98a> a sd:Reference; 
 sd:hasAuthor sdp:Wang_D;
 sd:hasTitle "Decomposing polynomial systems into simple systems";
 sd:hasYear "1998";
@@ -393,7 +393,7 @@ sd:referencedIn sdps:Bronstein-86, sdps:Noonburg-89, sdps:Vermeer_1;
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-08-28" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wichmann_97a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wichmann_97a> a sd:Reference; 
 sd:hasAuthor sdp:Wichmann_T ;
 sd:hasTitle "Der FGLM-Algorithmus: verallgemeinert und implementiert in Singular";
 sd:hasYear "1997";
@@ -401,7 +401,7 @@ sd:hasYear "1997";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
   sd:lastModified "2004-09-16" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wu_84a> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wu_84a> a sd:Reference; 
 sd:hasAuthor sdp:Wu_WT;
 sd:hasTitle "Some recent advances in mechanical theorem proving of geometry";
 sd:hasYear "1984";
@@ -409,7 +409,7 @@ sd:hasYear "1984";
   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
   sd:lastModified "2004-09-16" .
 
-<http://hgg.ontowiki.net/SymbolicData/BIB/Wu_84b> a sd:Reference; 
+<http://symbolicdata.org/Data/BIB/Wu_84b> a sd:Reference; 
 sd:hasAuthor sdp:Wu_WT;
 sd:hasTitle "On the decision problem and the mechanization of theorem-proving in elementary geometry";
 sd:hasYear "1984";

@@ -4,13 +4,18 @@
 # the ttl-file to work with is specified by command line
 # the output is saved in the file with "refactor-" attached to the front
 
-my %preregex = qw{
-    /Singular/ /singular.
-};
+#my %preregex = qw{
+#    /Singular/ /singular.
+#};
+
+#my %pairs = qw{
+#    sdps http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/
+#};
 
 my %pairs = qw{
-    sdps http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/
+    sdp http://hgg.ontowiki.net/SymbolicData/Person/
 };
+
 
 if($#ARGV == -1) {
     print "Please specify file to work with."
@@ -24,7 +29,7 @@ open MYFILE, ">refactor-$ARGV[0]";
 while(<ARG>) {    
     while(my($namespace, $uri) = each(%pairs)) {
         if(/@prefix $namespace:/) {
-            die "The namespace $namespace is already present. Aborting."
+            #die "The namespace $namespace is already present. Aborting."
         }
     }
     if(not(substr($_, 0, 1) eq "@")) {
