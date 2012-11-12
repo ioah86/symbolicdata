@@ -78,7 +78,7 @@ while (<ARG>) {
                 foreach my $i (0 .. $#result) {
                     print "      (", $i+1, ") " ,  encode('UTF-8', $result[$i][0]), "\n";
                 }
-                print "\nEnter the number(2) if the book is found, else just hit enter: ";
+                print "\nEnter the number(s) if the book is found, else just hit enter: ";
                 chomp(my $manual = <STDIN>);
                 print "\n";
 
