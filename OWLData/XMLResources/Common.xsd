@@ -34,7 +34,8 @@
   <xs:group name="RootTableEntries">
     <xs:sequence>
       <xs:element name="Comment" type="xs:string" minOccurs="0"/>
-      <!-- Arbitrary comment about record -->
+      <!-- Arbitrary comment about record. Deprecated, use the corresponding
+           RDF entry. -->
       <xs:element ref="ChangeLog" minOccurs="0"/>
       <!-- ChangeLog Anchor to collect changelog entries of the given
 	   record in reverse chronological order -->

@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage{a4wide,german,url}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\SD}{{\sc Symbolic\-Data}}
+\parindent0pt
+\parskip4pt
+
+\begin{document}
+
+\section*{\centering Neues vom \SD-Projekt}
+
+\begin{center} 
+Hans-Gert Gr"abe (Leipzig)\footnote{erscheint im ``Computeralgebra-Rundbrief''
+  51, Oktober 2012}
+\end{center}
+
+\subsection*{Zur Geschichte des Projekts}
+
+Die Idee zum \SD-Projekt entstand 1998 am Rande der ISSAC in Rostock, als
+zunehmend sichtbar wurde, dass die Datensammlungen, welche im Rahmen der
+Projekte PoSSo\footnote{\url{http://posso.dm.unipi.it}} und
+FRISCO\footnote{\url{http://www.nag.co.uk/projects/frisco.html}} entstanden
+waren, ohne aktives Zutun der Community nicht dauerhaft digital verfügbar sein
+würden.
+
+In den folgenden Jahren wurde dieses Projekt vor allem von Olaf Bachmann und
+dem Autor dieses Beitrags mit weiterer Unterstützung aus dem Umfeld der
+Singular-Gruppe vorangetrieben. Im CAR 26 (M"arz 2000) und CAR 28 (M"arz 2001)
+wurde das \SD-Projekt im damaligen Zuschnitt ausf"uhrlich vorgestellt.  Der
+Schwerpunkt der Datensammlung lag im Bereich polynomialer Gleichungssysteme
+mit ganzzahligen Koeffizienten, die zu jener Zeit insbesondere im Zusammenhang
+mit Varianten des Gröbner-Algorithmus intensiv studiert wurden, wobei die
+verschiedenen Benchmark-Beispiele aus der Literatur und den genannten
+EU-Projekten systematisiert und digital aufbereitet sowie entsprechende
+Werkzeuge zur Verwaltung und zum Aufsetzen von Benchmarks entwickelt wurden.
+ 
+Nach dem Weggang von O.~Bachmann aus Kaiserslautern Ende 2000 wurde mit dem
+geometrischen Theorembeweisen ein zweites größeres Sammelgebiet erschlossen,
+das über die Koordinatenmethode eng mit polynomialen Gleichungssystemen
+verbunden ist. Einfache Beispiele lassen sich auf geometrische Sätze \emph{vom
+  konstruktiven Typ} zurückführen, deren Beweis auf eine
+{\glqq}einfache{\grqq} Normalformberechnung rationaler Ausdrücke zurückgeführt
+werden kann. Obwohl solche Normalformberechnungen im Prinzip verstanden sind,
+laufen sie sich aber oft praktisch nicht durch, während alternative
+Koordinatisierungen \emph{vom Gleichungstyp} und geschickte Ansätze des Lösens
+der entsprechenden polynomialen Gleichungssysteme zum Ziel führen. M.~Witte,
+damals Student in Leipzig, untersuchte und digitalisierte insbesondere eine
+größere Anzahl von Beispielen aus dem Buch von S.-C.~Chou\footnote{S.-C.~Chou.
+  Mechanical Geometry Theorem Proving. Reidel, Dortrecht, 1988.}.
+
+Weiteres Beispielmaterial wurde von der CoCoA-Gruppe (F.~Cioffi), der
+Singular-Gruppe (M.~Dengel, M.~Brickenstein, S.~Steidel, M.~Wenk),
+J.-C.~Faugère (weitere Polynomsysteme), V.~Levandovskyy (nichtkommutative
+Polynomsysteme, G-Algebren) sowie von Raymond Hemmecke (Testmengen aus der
+ganzzahligen Programmierung) beigesteuert.  Die Projektdaten wurden über ein
+CVS-Repository verwaltet.  Die Domäne \texttt{symbolicdata.org} wude und wird
+durch die CA-Fachgruppe finanziert und seit 2005 von der GI-Geschäftsstelle
+gehostet.
+
+Leider standen ab 2003 keine personellen Ressourcen zur systematischen
+weiteren Arbeit am \SD-Projekt zur Verfügung, so dass das Datenmaterial
+seither allein auf einer {\glqq}as is{\grqq} Basis zur Verfügung stand und
+auch nur gelegentliche Erweiterung erfahren hat. Insbesondere stellte sich
+heraus, dass die ambitionierten Vorstellungen, eine \emph{einheitliche
+  Werkbank für Benchmarking im symbolischen Rechnen} mit entsprechenden
+Werkzeugen und Konzepten zu entwickeln, mit den verfügbaren Ressourcen nicht
+zu stemmen war und -- mit Blick auf die Vielfalt der Rechner\-architekturen,
+Problemstellungen und verwendeten Programmiersprachen -- wohl auch am realen
+Bedarf vorbei ging. Statt dessen konzentriert sich dieser Teil des Projekts
+nunmehr darauf, den Code von Best Practise Beispielen zu sammeln und zur
+Nachnutzung zur Verfügung zu stellen.
+
+Ein weiterer Versuch, die Arbeiten am \SD-Projekt mit vereinten Anstrengungen
+zu intensivieren und mit angrenzenden Bemühungen in dieser Richtung, etwa der
+Datenbank \emph{Gröbner Bases Implementations. Functionality Check and
+  Comparison}\footnote{\url{http://www.risc.jku.at/Groebner-Bases-Implementations}}
+oder dem \emph{Gröbner Bases Bibliography
+  Project}\footnote{\url{http://www.risc.jku.at/Groebner-Bases-Bibliography}}
+zu koordinieren, wurde im März 2006 während des \emph{Special Semester on
+  Groebner Bases} am RISC Linz gestartet.  Jedoch fand auch dieses Projekt im
+Nachgang keine nachhaltige Resonanz in der Community. 
+
+\subsection*{Entwicklungen nach 2003 -- {\SD} meets RDF}
+
+In den letzten 10 Jahren nahm das (semantische) Web der Daten eine besonders
+stürmische Entwicklung, was die konzeptionellen Entwicklungen zur Datenhaltung
+aus den Anfangszeiten des \SD-Projekts entwertet hat, über die seinerzeit in
+den entsprechenden Aufsätzen im CAR berichtet wurde.  Mit dem \emph{Semantic
+  Stack} haben sich inzwischen Standards durchgesetzt und stehen Werkzeuge zur
+Verfügung, mit denen sich Verwaltungsaufgaben auf verschiedenen Ebenen nach
+einheitlichen Prinzipien organisieren lassen. Dies sind 
+\begin{itemize}\raggedright
+\item XML und XSchema als Standards zur Darstellung strukturierter Daten auf
+  Ressourcen-Ebene sowie 
+\item RDF und OWL als Standards zur Beschreibung semantischer Aspekte der
+  Daten.
+\end{itemize}
+Während ersteres prinzipiell geeignet ist, dezentral betreute Datenbestände in
+einem \SD-Netz zusammenzuführen und durch geeignete URI's zu adressieren (die
+Frage der \emph{nachhaltigen} Verfügbarkeit derartiger dezentral betreuter
+Datenbestände sei hier ausgeklammert), ist die Aggregierung der Beschreibungen
+semantischer Aspekte unbedingt erforderlich, um sinnvolle Suchprozesse nach
+Informationen auf diesen vernetzten Beschreibungen zu ermöglichen.  Während
+wir in der Anfangszeit davon ausgingen, dass dazu ein wesentlicher Teil der
+Informationen auch an einem Ort zusammengetragen sein muss -- etwa als
+Datenbestand in unserem CVS-Repository -- zeigen modernere Entwicklungen der
+Linked Open Data Cloud, in welchem Umfang auch diese Informationen dezentral
+verwaltet werden können, wenn entsprechende Protokolle des Datenaustauschs
+vereinbart werden. Genauer geht es nicht um die Protokolle selbst, die als
+\emph{Metasprache} mit dem RDF-Framework und dessen Erweiterungen weitgehend
+standardisiert sind, sondern um die gemeinsam zu vereinbarende Ontologie als
+\emph{domänenspezifische Sprache}, mit der RDF-Tripel der Wissensbasis auf
+einheitliche Weise {\glqq}verstanden{\grqq} werden.
+
+Die wenigen verfügbaren Ressourcen der letzten Jahre wurden darauf verwendet,
+einen Migrationsprozess der Datenbasis hin zu diesen Standards in die Wege zu
+leiten, also 
+\begin{itemize}\raggedright
+\item die Benchmark-Daten aus den verschiedenen Bereichen auf je
+  standardisierte Weise in XSchema-beschriebene XML-Ressourcen zu
+  transformieren, 
+\item die im ursprünglichen \SD-Konzept eng mit den Ressourcen gekoppelten
+  Beschreibungsdaten zu separieren und über RDF-Standards (insbesondere einen
+  SPARQL-Endpunkt\footnote{Provisorisch unter \url{http://hgg.ontowiki.net}
+    verfügbar.}) für Suchanfragen verfügbar zu machen sowie
+\item eine \SD-Ontologie als domänenspezifische vom Computer lesbare Sprache
+  für diese Beschreibungsdaten zu entwickeln.
+\end{itemize}
+Die Erfahrungen aus vergleichbaren Projekten der
+AKSW-Gruppe\footnote{\url{http://wiki.aksw.org/About}} an unserem Lehrstuhl
+legten nahe, dass dieser Migrationsprozess am besten als agiler Prozess
+anzulegen ist, also das Prinzip des {\glqq}a little bit thinking, a little bit
+coding{\grqq} aus der Anfangszeit des \SD-Projekts auch hierbei anwendbar ist,
+um mit kleinen Schritten die sehr begrenzten Ressourcen einzusetzen.
+Insbesondere lehren diese Beispiele, dass es -- im deutlichen Gegensatz zu den
+Erfahrungen der ER-Modellierung -- nicht sinnvoll ist, bereits am Anfang zu
+viel Mühe auf die genaue Fassung der \SD-Ontologie zu verwenden. Hierbei wird
+der Vorteil von RDF gegenüber herkömmlichen Datenbankansätzen deutlich, denn
+Prädikate lassen sich auf einfache Weise in der Wissensbasis selbst hinzufügen
+oder redefinieren, was bei Datenbanken ein aufwändiges Redesign der
+Tabellenstruktur erfordert. Die Konsolidierung der Ontologie selbst kann so
+auf einen späteren Zeitpunkt verschoben werden, wenn eine ausreichende Zahl
+von {\glqq}Sätzen{\grqq} der zu definierenden Sprache bereits vorliegen.
+
+Im Repository sind größere Teile der Daten (insbesondere ein wesentlicher Teil
+der Polynomsysteme) inzwischen in XSchema-beschriebene XML-Ressourcen
+transformiert. Etwas schwieriger gestaltet sich der Transformationsprozess bei
+den Geometrie-Beispielen, da dort zusätzlich die Ähnlichkeiten zu den
+Beschreibungssprachen verschiedener DGS, also neue semantische Aspekte,
+berücksichtigt werden sollen.
+
+Anfang 2011 wurde die Projektverwaltung\footnote{Siehe
+  \url{https://bitbucket.org/hgg/symbolicdata}} auf Mercurial umgestellt, da
+so Entwicklungszweige deutlich flexibler angelegt und wieder mit dem
+Hauptstamm vereinigt werden können.  In einem solchen Zweig\footnote{Siehe
+  \url{https://bitbucket.org/levandov/symbolicdata_freealgebra}} wurden
+weitere Beispiele zu freien Algebren zusammengetragen.
+
+\subsection*{Das Benchmarking-Projekt im Rahmen der\\ Sächsischen
+  E-Science-Initiative} 
+
+Im Rahmen der Sächsischen
+E-Science-Initiative\footnote{\url{http://www.escience-sachsen.de}} wurde ein
+Projekt {\glqq}Benchmarking im symbolischen Rechnen{\grqq} bewilligt, über das
+ab September 2012 für 12 Monate eine halbe Mitarbeiterstelle finanziert und
+mit Andreas Nareike besetzt ist.  Damit besteht die Möglichkeit, die
+bisherigen Migrationen zu konsolidieren und dem \SD-Projekt, wenigstens für
+eine gewisse Zeit, neuen Schwung zu verleihen.
+
+Wir möchten dabei weitere interessierte Partner und Datenbestände einbeziehen
+und insbesondere die Beschreibungstechniken auf RDF-Ebene weiter
+qualifizieren.  Zur Intensivierung der Kommunikation haben wir dazu neben der
+schon länger existierenden Mailingliste \texttt{symbolicdata} bei Google
+Groups ein Mediawiki\footnote{\url{http://symbolicdata.uni-leipzig.de}} an der
+Uni Leipzig aufgesetzt, in das die bisherigen Inhalte der Webseiten sowie
+weitere Informationen migriert werden sollen.
+
+Während eines
+\begin{center}\bf
+  Arbeitstreffens und Workshop am 13.--15. Dezember 2012 in Leipzig
+\end{center}
+sollen die bis dahin erreichten Ergebnisse vorgestellt und das weitere
+Vorgehen abgestimmt werden. Dazu laden wir interessierte Mitstreiter ein.  Der
+Workshop ist als {\glqq}Zero Budget Workshop{\grqq} geplant und wird
+voraussichtlich an der HTWK Leipzig stattfinden.  Mehr dazu im \SD-Wiki.
+\end{document}

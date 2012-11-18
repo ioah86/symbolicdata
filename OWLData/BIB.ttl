@@ -1,0 +1,435 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix sdb: <http://symbolicdata.org/Data/BIB/> .
+
+<http://symbolicdata.org/Data/BIB/>
+    a owl:Ontology ;
+    rdfs:comment "Bibliography of the Symbolic Data Collection" ;
+    rdfs:label "SD BIB Data" ;
+    owl:imports <http://symbolicdata.org/Data/People/> .
+
+sd:Reference
+    a owl:Class ;
+    rdfs:label "References to Publications" .
+
+sdb:Albano_00a
+    sd:createdAt "2001-03-16" ;
+    sd:createdBy sdp:Cioffi_F ;
+    sd:hasAbstract "We present an algorithm for computing a minimal set of generators for the ideal of a rational parametric projective curve in polynomial time. The method exploits the availability of polynomial algorithms for the computation of minimal generators of an ideal of points and is alternative to the existing Gröbner bases techniques for the implicitization of curves. The termination criterion is based on the Castelnuovo-Mumford regularity of a curve. The described computation yields also the Hilbert function and, hence, the Hilbert polynomial and the Poincaré series of the curves. Moreover, it can be applied to unions of rational curves. We have compared the implementation of our algorithm with the Hilbert driven elimination algorithm included in CoCoA 3.6 and Singular 1.2, obtaining, in general, significant improvements in timings. " ;
+    sd:hasAuthor sdp:Albano_G, sdp:Cioffi_F, sdp:Orecchia_F, sdp:Ramella_I ;
+    sd:hasTitle "Minimally generating ideals of rational parametric curves in polynomial time" ;
+    sd:hasYear "2000" ;
+    sd:lastModified "2004-09-16" ;
+    a sd:Reference .
+
+sdb:Bachmann_00a
+    sd:createdAt "2000-01-27" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAuthor sdp:Bachmann_O, sdp:Graebe_HG ;
+    sd:hasTitle "The SymbolicData Project: Towards an Electronic Repository of Tools and Data for Benchmarks of Computer Algebra Software" ;
+    sd:hasYear "2000" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Bachmann_98a
+    sd:createdAt "1999-04-20" ;
+    sd:createdBy sdp:Bachmann_O ;
+    sd:hasAbstract "Monomial representations and operations for Gröbner bases computations are investigated from an implementation point of view. The technique of vectorized monomial operations is introduced and it is shown how it expedites computations of Gröbner bases. Furthermore, a rank-based monomial representation and comparison technique is examined and it is concluded that this technique does not yield an additional speedup over vectorized comparisons. Extensive benchmark tests with the Computer Algebra System Singular are used to evaluate these concepts." ;
+    sd:hasAuthor sdp:Bachmann_O, sdp:Schoenemann_H ;
+    sd:hasTitle "Monomial operations for computations of Gröbner bases; Proc. ISSAC-98, Rostock, Germany" ;
+    sd:hasYear "1998" ;
+    sd:lastModified "2004-09-16" ;
+    a sd:Reference .
+
+sdb:Bjoerck_91a
+    sd:createdAt "1999-04-20" ;
+    sd:createdBy sdp:Bachmann_O ;
+    sd:hasAbstract "Cyclic n roots were considered for the first time " ;
+    sd:hasAuthor sdp:Bjoerk_G, sdp:Froeberg_G ;
+    sd:hasTitle "A Faster Way to Count the Solution of Inhomogeneous Systems of Algebraic Equations, with Applications to Cyclic $n$-Roots" ;
+    sd:hasYear "1991" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Boege_86a
+    sd:createdAt "1999-04-08" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Discussion of heuristics for Groebner basis computations and variable orderings on several examples. " ;
+    sd:hasAuthor sdp:Boege_W, sdp:Gebauer_R, sdp:Kredel_H ;
+    sd:hasTitle "Some examples for solving systems of algebraic equations by calculating Gröbner bases" ;
+    sd:hasYear "1986" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Buchberger_87a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Survey paper on Bucherger's algorithm and several applications, e.g., Robot kinematics, Solving polynomial systems of equations or finding implicit equations for a surface " ;
+    sd:hasAuthor sdp:Buchberger_B ;
+    sd:hasTitle "Applications of Gröbner bases in non-linear computational geometry; Mathematical aspects in scientific software" ;
+    sd:hasYear "1987" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Canny_93a
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:Canny_JF, sdp:Manocha_D ;
+    sd:hasTitle "MultiPolynomial Resultant Algorithms" ;
+    sd:hasYear "1993" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Chou_84a
+    sd:createdAt "1999-04-08" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "A paper on mechanized geometry theorem proving. " ;
+    sd:hasAuthor sdp:Chou_SC ;
+    sd:hasTitle "Proving elementary geometry theorems using Wu's algorithm; " ;
+    sd:hasYear "1984" ;
+    sd:lastModified "2004-09-16" ;
+    a sd:Reference .
+
+sdb:Chou_88a
+    sd:createdAt "1999-11-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Contains 512 examples of geometry theorems that were automatically proved by the author with his geometry theorem prover. " ;
+    sd:hasAuthor sdp:Chou_SC ;
+    sd:hasTitle "Mechanical geometry theorem proving" ;
+    sd:hasYear "1988" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Cioffi_00a
+    sd:createdAt "2001-03-16" ;
+    sd:createdBy sdp:Cioffi_F ;
+    sd:hasAbstract "Several improvements to the computation of the minimal free resolution of finite modules have been made also recently, and some of them concerning ideals of polynomials are Hilbert driven or depend on the knowledge of the regularity of the ideal. Here I show that some of the calculations usually made to determine the minimal free resolution of a homogeneous polynomial ideal $I$ are still redundant, provided that we know a set of minimal homogeneous generators, the regularity, and the Hilbert function of $I$. More precisely, I show that the construction of some syzygies can be avoided. As result, the known methods for the computation of a minimal free resolution are improved. The underlying idea of this work can be also used to predict if certain points in generic position on general rational curves satisfy the minimal resolution conjecture. " ;
+    sd:hasAuthor sdp:Cioffi_F ;
+    sd:hasTitle "Remarks on the Computation of Minimal Finite Free Resolutions" ;
+    sd:hasYear "2000" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Cohn_82a
+    sd:createdAt "1999-04-23" ;
+    sd:createdBy sdp:Faugere_JC ;
+    sd:hasAuthor sdp:Cohn_H ;
+    sd:hasTitle "An explicit modular equation in two variables and Hilbert's Twelfth problem" ;
+    sd:hasYear "1982" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Cohn_88a
+    sd:createdAt "1999-04-23" ;
+    sd:createdBy sdp:Faugere_JC ;
+    sd:hasAuthor sdp:Cohn_H ;
+    sd:hasTitle "An explit modular equation in two variables for Q[sqrt(3)]" ;
+    sd:hasYear "1988" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Cox_97a
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:Cox_D, sdp:Little_J, sdp:OShea_D ;
+    sd:hasTitle "Using Algebraic Geometry" ;
+    sd:hasYear "1997" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Czapor_86a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Discussion of Groebner heuristics on several examples " ;
+    sd:hasAuthor sdp:Czapor_SR, sdp:Geddes_KO ;
+    sd:hasTitle "On implementing Buchberger's algorithm for Gröbner bases; Proc. SYMSAC'86" ;
+    sd:hasYear "1986" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Czapor_87a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Groebner basis computations under different heuristics. Remark that tail reduction for lex Groebner bases may be prohibitive. Some remarks on the Groebner factorizer. " ;
+    sd:hasAuthor sdp:Czapor_SR ;
+    sd:hasTitle "Solving algebraic equations via Buchberger's algorithm; Proc. EUROCAL'87" ;
+    sd:hasYear "1987" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Czapor_89a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Description of the Groebner factorizer with constraints and the author's implementation in Maple. " ;
+    sd:hasAuthor sdp:Czapor_SR ;
+    sd:hasTitle "Solving algebraic equations: Combining Buchberger's algorithm with multivariate factorization" ;
+    sd:hasYear "1989" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Czapor_91a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Discussion of several lex. Groebner heuristics. Normal selection is usually bad. Better pair selection strategies order S-polynomials either by their degree or by their expected degree. " ;
+    sd:hasAuthor sdp:Czapor_SR ;
+    sd:hasTitle "A heuristic selection strategy for lexicographic Gröbner bases; Proc. ISSAC'91" ;
+    sd:hasYear "1991" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Emiris_98a
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:Emiris_IZ, sdp:Manocha_D, sdp:Wallack_A ;
+    sd:hasTitle "MARS: A Maple/Matlab/C Resultant-Based Solver" ;
+    sd:hasYear "1998" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Galligo_89a
+    sd:createdAt "1999-04-23" ;
+    sd:createdBy sdp:Faugere_JC ;
+    sd:hasAuthor sdp:Galligo_A, sdp:Traverso_C ;
+    sd:hasTitle "Practical Determination of the dimension of an algebraic variety" ;
+    sd:hasYear "1989" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Gerdt_90a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Solves polynomial systems coming from integrability conditions of evolutionary diff. equations of KdV type. " ;
+    sd:hasAuthor sdp:Gerdt_VP, sdp:Zharkov_AYu ;
+    sd:hasTitle "Computer classification of integrable coupled KdV-like systems" ;
+    sd:hasYear "1990" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Gerdt_91a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Solve polynomial systems coming from symmetry analysis of diff. eq. " ;
+    sd:hasAuthor sdp:Gerdt_VP, sdp:Khutornoy_NV, sdp:Zharkov_AYu ;
+    sd:hasTitle "Solving algebraic systems which arize as necessary integrability conditions for polynomial nonlinear evolution equations; Computer algebra in physical research" ;
+    sd:hasYear "1991" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Gerdt_92a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Description of the authors' Reduce package ASYS, that solves polynomial systems via Groebner methods and homogeneity analysis. Homogeneity analysis detects torus actions on the system to reduce the number of variables. Applies these techniques to solve polynomial equations coming from diff. equations. Comparison with AlPi and Felix. " ;
+    sd:hasAuthor sdp:Gerdt_VP, sdp:Khutornoy_NV, sdp:Zharkov_AYu ;
+    sd:hasTitle "Gröbner basis technique, homogeneity, and solving polynomial equations" ;
+    sd:hasYear "1992" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Gerdt_93a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Description of the ASYS package, version 2, and 18 more or less simple examples from the literature for test and comparison purposes. Contains only run time comparisons. " ;
+    sd:hasAuthor sdp:Gerdt_VP, sdp:Khutornoy_NV, sdp:Zharkov_AYu ;
+    sd:hasTitle "ASYS 2: A new version of the computer algebra package ASYS" ;
+    sd:hasYear "1993" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Giovini_91a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Discussion of different Groebner strategies by means of examples. Original description of the famous sugar strategy. " ;
+    sd:hasAuthor sdp:Giovini_A, sdp:Mora_T, sdp:Niesi_G, sdp:Robbiano_L, sdp:Traverso_C ;
+    sd:hasTitle "&quot;One sugar cube, please&quot; or Selection strategies in the Buchberger algorithm; Proc. ISSAC'91" ;
+    sd:hasYear "1991" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Graebe_99a
+    sd:createdAt "2005-02-17" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "A report on some experiences with the general purpose Computer Algebra Systems (CAS) Axiom, Macsyma, Maple, Mathematica, MuPAD, and Reduce solving systems of polynomial equations and the way they present their solutions. This snapshot (taken in the spring 1996) of the current power of the different systems in a special area concentrates both on CPU-times and the quality of the output. " ;
+    sd:hasAuthor sdp:Graebe_HG ;
+    sd:hasTitle "About the Polynomial System Solve Facility of Axiom, Macsyma, Maple, Mathematica, MuPAD, and Reduce; Computer Algebra Systems: A Practical Guide" ;
+    sd:hasYear "1999" ;
+    sd:lastModified "2005-02-17" ;
+    a sd:Reference .
+
+sdb:Kahn_93a
+    sd:createdAt "1999-04-20" ;
+    sd:createdBy sdp:Bachmann_O ;
+    sd:hasAbstract "Out of work of Gerhard Pfister and KK " ;
+    sd:hasAuthor sdp:Kahn_K ;
+    sd:hasTitle "private communications" ;
+    sd:hasYear "1993" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Kalkbrener_93a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract """Solves polynomial systems computing regular chains, i.e.. such triangular systems $(f_1,...,f_k)$ where $lc(f_i)(a_1,...,a_j)
+eq 0$ on all zeroes $(a_1,...,a_j)\\in Z(f_1,...f_{i-1})$.  Employs a mixture between pseudo division and the D5 technique. """ ;
+    sd:hasAuthor sdp:Kalkbrener_M ;
+    sd:hasTitle "A generalized Euclidean algorithm for computing triangular representations of algebraic varieties" ;
+    sd:hasYear "1993" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Katsura_87a
+    sd:createdAt "1999-04-20" ;
+    sd:createdBy sdp:Bachmann_O ;
+    sd:hasAbstract "Origin of Katsura examples" ;
+    sd:hasAuthor sdp:Fujiki_NM, sdp:Fukuda_S, sdp:Gebauer_R, sdp:Inawashiro_N, sdp:Katsura_W ;
+    sd:hasTitle "Cell Biophysics" ;
+    sd:hasYear "1987" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Murao_93a
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:Fujise_T, sdp:Kobayashi_H, sdp:Murao_H ;
+    sd:hasTitle "On Factorizing the Symbolic U-resultant - Application of the ddet operator" ;
+    sd:hasYear "1993" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:PoSSo
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:posso ;
+    sd:hasTitle "Polynomial System Solving" ;
+    sd:hasYear "1995" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Sturmfels_98a
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:Sturmfels_B ;
+    sd:hasTitle "Introduction to Resultants" ;
+    sd:hasYear "1998" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Wang_92a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Comparison of different methods for polynomial systems decomposition. The focus is on characteristic sets with (algebraic) factorization, that yields an irreducible decomposition.  Ideal bases of these components may be reconstructed via ideal quotient computations.  Run time comparisons on 20 examples. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "Irreducible decomposition of algebraic varieties via characteristic sets and Gröbner bases" ;
+    sd:hasYear "1992" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Wang_92b
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Description of a parallel version of procedures implemented in the author's Maple package charseries based on disk remote connected Maple sessions on a workstation cluster.  Reports a speedup of 5..10 for 12 processors. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "On the parallelization of characteristic-set-based algorithms; Parallel Computation" ;
+    sd:hasYear "1992" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Wang_92c
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Discusses several strategies to speed up the computation of characteristic series using weakened versions of basic sets: top reduced, full reduced, quasi-basic sets. Best results are reproted with weak basic sets. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "A strategy for speeding-up the computation of characteristic sets; Math. foundation of computer science" ;
+    sd:hasYear "1992" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Wang_93a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Fundamental paper on solving polynomial systems via triangular sets based on Wu's method and its generalizations.  The basic version uses pseudo division and leading coefficients as constraints. The second version factors polynomials also over the base domain. Both versions may produce empty components that are hard to detect. The projection method decomposes constraints to avoid such emtpy components.  The last version uses factorization over algebraic extension fields to produce the irreducible components of the system. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "An elimination method for polynomial systems" ;
+    sd:hasYear "1993" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Wang_95a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Overview on Wang's decomposition methods based on pseudo division. Considers examples from geometry theorem proving, finding implicit equations for curves and surface, computing singular loci, computing prime decompositions, robot kinematics. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "Reasoning about geometric problems using an elimination method; Automated practical reasoning" ;
+    sd:hasYear "1995" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Wang_95b
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Introduction to characteristic series and a detailed description of the implementation of the author's Maple package charseries: weak basic sets, modified pseudo remainder, dividing out constraint factors, variable order heuristics, examples and benchmarks. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "An implementation of the characteristic set method in Maple; Automated practical reasoning" ;
+    sd:hasYear "1995" ;
+    sd:lastModified "2004-08-27" ;
+    a sd:Reference .
+
+sdb:Wang_95c
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Application of triangular series to geometry theorem proving: Steiner's point, Morley's theorem, Thebault's theorem. Description of the projection method that avoids empty branches in the decomposition, and decomposition into irreducible components by algebraic factorization.  Overview on experimental heuristics. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "Elimination procedures for mechanical theorem proving in geometry" ;
+    sd:hasYear "1995" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Wang_96a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Short description of the procedures charser and triser as they are implemented in Wang's Maple package charseries, and their modified versions.  Run time comparisons with 50 examples. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "Solving polynomial equations: characteristic sets and triangular systems" ;
+    sd:hasYear "1996" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Wang_98a
+    sd:createdAt "1999-04-01" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAbstract "Considers characteristic series computations that use subresultant PRS. " ;
+    sd:hasAuthor sdp:Wang_D ;
+    sd:hasTitle "Decomposing polynomial systems into simple systems" ;
+    sd:hasYear "1998" ;
+    sd:lastModified "2004-08-28" ;
+    a sd:Reference .
+
+sdb:Wichmann_97a
+    sd:createdAt "1999-09-21" ;
+    sd:createdBy sdp:Wenk_M ;
+    sd:hasAuthor sdp:Wichmann_T ;
+    sd:hasTitle "Der FGLM-Algorithmus: verallgemeinert und implementiert in Singular" ;
+    sd:hasYear "1997" ;
+    sd:lastModified "2004-09-16" ;
+    a sd:Reference .
+
+sdb:Wu_84a
+    sd:createdAt "1999-08-21" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAuthor sdp:Wu_WT ;
+    sd:hasTitle "Some recent advances in mechanical theorem proving of geometry" ;
+    sd:hasYear "1984" ;
+    sd:lastModified "2004-09-16" ;
+    a sd:Reference .
+
+sdb:Wu_84b
+    sd:createdAt "1999-08-21" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasAuthor sdp:Wu_WT ;
+    sd:hasTitle "On the decision problem and the mechanization of theorem-proving in elementary geometry" ;
+    sd:hasYear "1984" ;
+    sd:lastModified "2004-09-16" ;
+    a sd:Reference .
+

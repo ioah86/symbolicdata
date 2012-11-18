@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<Person createdAt="2010-08-10" id="steidel">
-<!-- $Id: steidel.xml,v 1.1 2010/08/10 09:37:32 graebe Exp $ -->
-  <hasAffiliation>Univ. Kaiserslautern, Germany</hasAffiliation>
-  <theName>Stefan Steidel</theName>
-</Person>

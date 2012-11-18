@@ -1,0 +1,469 @@
+1c1
+< @base <http://symbolicdata.org/Data/BIB/> .
+---
+> @base <http://hgg.ontowiki.net/SymbolicData/BIB/> .
+5,8c5,7
+< @prefix sd: <http://symbolicdata.org/Data/Model/> .
+< @prefix sdp: <http://symbolicdata.org/Data/People/> .
+< @prefix sdb: <http://symbolicdata.org/Data/BIB/> .
+< @prefix sdps: <http://symbolicdata.org/Data/INTPS/> . 
+---
+> @prefix sd: <http://hgg.ontowiki.net/SymbolicData/> .
+> @prefix sdp: <http://hgg.ontowiki.net/SymbolicData/Person/> .
+> @prefix sdb: <http://hgg.ontowiki.net/SymbolicData/BIB/> .
+13c12
+<    owl:imports sdp: .
+---
+>    owl:imports <http://hgg.ontowiki.net/SymbolicData/Person/> .
+15c14
+< <http://symbolicdata.org/Data/BIB/Albano_00a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Albano_00a> a sd:Reference; 
+21c20
+<   sd:createdBy sdp:Cioffi_F;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Cioffi_F>;
+24c23
+< <http://symbolicdata.org/Data/BIB/Bachmann_00a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Bachmann_00a> a sd:Reference; 
+29c28
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+32c31
+< <http://symbolicdata.org/Data/BIB/Bachmann_98a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Bachmann_98a> a sd:Reference; 
+37c36
+< sd:referencedIn sdps:singular.alex_1, sdps:singular.alex_2, sdps:singular.alex_3, sdps:singular.ecyclic_5, sdps:singular.ecyclic_6, sdps:singular.ecyclic_7, sdps:singular.gerhard_1, sdps:singular.gerhard_2, sdps:singular.gerhard_3, sdps:singular.rcyclic_10, sdps:singular.rcyclic_11, sdps:singular.rcyclic_12, sdps:singular.rcyclic_13, sdps:singular.rcyclic_14, sdps:singular.rcyclic_15, sdps:singular.rcyclic_16, sdps:singular.rcyclic_16, sdps:singular.rcyclic_17, sdps:singular.rcyclic_18, sdps:singular.rcyclic_19, sdps:singular.rcyclic_8, sdps:singular.rcyclic_9, sdps:singular.schwarz_10, sdps:singular.schwarz_11, sdps:singular.schwarz_6, sdps:singular.schwarz_7, sdps:singular.schwarz_8, sdps:singular.schwarz_9;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/alex_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/alex_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/alex_3>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/ecyclic_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/ecyclic_6>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/ecyclic_7>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/gerhard_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/gerhard_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/gerhard_3>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_10>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_11>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_12>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_13>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_14>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_15>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_16>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_16>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_17>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_18>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_19>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_8>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/rcyclic_9>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/schwarz_10>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/schwarz_11>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/schwarz_6>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/schwarz_7>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/schwarz_8>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Singular/schwarz_9>;
+39c38
+<   sd:createdBy sdp:Bachmann_O;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
+42c41
+< <http://symbolicdata.org/Data/BIB/Bjoerck_91a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Bjoerck_91a> a sd:Reference; 
+47c46
+< sd:referencedIn sdps:Bjoerk_8, sdps:Cyclic_6, sdps:Cyclic_7, sdps:Cyclic_8;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Bjoerk_8>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_6>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_7>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_8>;
+49c48
+<   sd:createdBy sdp:Bachmann_O;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
+52c51
+< <http://symbolicdata.org/Data/BIB/Boege_86a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Boege_86a> a sd:Reference; 
+57c56
+< sd:referencedIn sdps:Hairer_1, sdps:Hairer_2, sdps:Hairer_2_1, sdps:Katsura_3, sdps:Katsura_4, sdps:Katsura_5, sdps:Gerdt-85, sdps:Gonnet-83, sdps:Butcher, sdps:Raksanyi, sdps:Rose, sdps:Trinks, sdps:Trinks_1;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_3>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gonnet-83>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Raksanyi>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Rose>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks_1>;
+59c58
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+62c61
+< <http://symbolicdata.org/Data/BIB/Buchberger_87a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Buchberger_87a> a sd:Reference; 
+67c66
+< sd:referencedIn sdps:Robot-RR, sdps:Ellipsoid_2, sdps:Ellipsoid_4, sdps:Buchberger-87, sdps:FourCircles, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Ellipsoid>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/FourCircles>;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Robot-RR>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Ellipsoid_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Ellipsoid_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Buchberger-87>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/FourCircles>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Ellipsoid>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/FourCircles>;
+69c68
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+72c71
+< <http://symbolicdata.org/Data/BIB/Canny_93a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Canny_93a> a sd:Reference; 
+77c76
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+80c79
+< <http://symbolicdata.org/Data/BIB/Chou_84a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Chou_84a> a sd:Reference; 
+87c86
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+90c89
+< <http://symbolicdata.org/Data/BIB/Chou_88a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Chou_88a> a sd:Reference; 
+97c96
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+100c99
+< <http://symbolicdata.org/Data/BIB/Cioffi_00a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Cioffi_00a> a sd:Reference; 
+106c105
+<   sd:createdBy sdp:Cioffi_F;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Cioffi_F>;
+109c108
+< <http://symbolicdata.org/Data/BIB/Cohn_82a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Cohn_82a> a sd:Reference; 
+113c112
+< sd:referencedIn sdps:Cohn_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/PoSSo/cohn3>;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cohn_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/PoSSo/cohn3>;
+115c114
+<   sd:createdBy sdp:Faugere_JC;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Faugere_JC>;
+118c117
+< <http://symbolicdata.org/Data/BIB/Cohn_88a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Cohn_88a> a sd:Reference; 
+122c121
+< sd:referencedIn sdps:Cohn_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/PoSSo/cohn3>;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cohn_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/PoSSo/cohn3>;
+124c123
+<   sd:createdBy sdp:Faugere_JC;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Faugere_JC>;
+127c126
+< <http://symbolicdata.org/Data/BIB/Cox_97a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Cox_97a> a sd:Reference; 
+132c131
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+135c134
+< <http://symbolicdata.org/Data/BIB/Czapor_86a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_86a> a sd:Reference; 
+140c139
+< sd:referencedIn sdps:Trinks, sdps:Czapor-86a, sdps:Katsura_5, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, sdps:Fee_1, sdps:Fee_2, sdps:Czapor-86b, sdps:Czapor-86c;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86b>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86c>;
+142c141
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+145c144
+< <http://symbolicdata.org/Data/BIB/Czapor_87a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_87a> a sd:Reference; 
+150c149
+< sd:referencedIn sdps:Butcher, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, sdps:Czapor-87, sdps:Czapor-87_1, sdps:Czapor-87_2, sdps:Trinks, sdps:Katsura_5, sdps:Rose;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-87>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-87_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-87_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Rose>;
+152c151
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+155c154
+< <http://symbolicdata.org/Data/BIB/Czapor_89a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_89a> a sd:Reference; 
+160c159
+< sd:referencedIn sdps:Trinks, sdps:Katsura_5, sdps:Rose;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Rose>;
+162c161
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+165c164
+< <http://symbolicdata.org/Data/BIB/Czapor_91a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Czapor_91a> a sd:Reference; 
+170c169
+< sd:referencedIn sdps:Trinks, sdps:Katsura_5, sdps:Czapor-87_2, sdps:Butcher, sdps:Hairer_2, sdps:Hairer_2_1, sdps:Cyclic_5, sdps:Cyclic_7_1, sdps:Caprasse, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, sdps:Katsura_6, sdps:Cyclic_5_1, sdps:Cyclic_6;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-87_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_7_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Caprasse>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_6>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_6>;
+172c171
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+175c174
+< <http://symbolicdata.org/Data/BIB/Emiris_98a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Emiris_98a> a sd:Reference; 
+180c179
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+183c182
+< <http://symbolicdata.org/Data/BIB/Galligo_89a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Galligo_89a> a sd:Reference; 
+187c186
+< sd:referencedIn sdps:Cohn_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/PoSSo/cohn3>;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cohn_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/PoSSo/cohn3>;
+189c188
+<   sd:createdBy sdp:Faugere_JC;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Faugere_JC>;
+192c191
+< <http://symbolicdata.org/Data/BIB/Gerdt_90a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_90a> a sd:Reference; 
+197c196
+< sd:referencedIn sdps:Gerdt-90;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-90>;
+199c198
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+202c201
+< <http://symbolicdata.org/Data/BIB/Gerdt_91a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_91a> a sd:Reference; 
+207c206
+< sd:referencedIn sdps:Gerdt-85, sdps:Gerdt-91a, sdps:Gerdt-91b;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-91a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-91b>;
+209c208
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+212c211
+< <http://symbolicdata.org/Data/BIB/Gerdt_92a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_92a> a sd:Reference; 
+217c216
+< sd:referencedIn sdps:Gerdt-85, sdps:Gerdt-91b, sdps:Gerdt-90, sdps:Cyclic_5, sdps:Cyclic_5_1;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-91b>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-90>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5_1>;
+219c218
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+222c221
+< <http://symbolicdata.org/Data/BIB/Gerdt_93a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Gerdt_93a> a sd:Reference; 
+227c226
+< sd:referencedIn sdps:Gerdt-85, sdps:Gerdt-91a, sdps:Gerdt-91b, sdps:Gerdt-90, sdps:Cyclic_5, sdps:Cyclic_5_1, sdps:Cyclic_7_1, sdps:Katsura_4, sdps:Katsura_5, sdps:Katsura_6, sdps:Trinks, sdps:Sym1_321, sdps:Gerdt-93, sdps:Caprasse, sdps:Hairer_1, sdps:Czapor-91;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-91a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-91b>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-90>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_7_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_6>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Sym1_321>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-93>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Caprasse>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-91>;
+229c228
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+232c231
+< <http://symbolicdata.org/Data/BIB/Giovini_91a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Giovini_91a> a sd:Reference; 
+237c236
+< sd:referencedIn sdps:Gerdt-85, sdps:Cyclic_5, sdps:Cyclic_7_1, sdps:Katsura_5;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_7_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>;
+239c238
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+242c241
+< <http://symbolicdata.org/Data/BIB/Graebe_99a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Graebe_99a> a sd:Reference; 
+249c248
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+252c251
+< <http://symbolicdata.org/Data/BIB/Kahn_93a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Kahn_93a> a sd:Reference; 
+257c256
+< sd:referencedIn sdps:Symmetric_5, sdps:Symmetric_6;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Symmetric_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Symmetric_6>;
+259c258
+<   sd:createdBy sdp:Bachmann_O;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
+262c261
+< <http://symbolicdata.org/Data/BIB/Kalkbrener_93a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Kalkbrener_93a> a sd:Reference; 
+267c266
+< sd:referencedIn sdps:Cyclic_4, sdps:Trinks, sdps:Katsura_5, sdps:Rose, sdps:Czapor-86a, sdps:Fee_1, sdps:Fee_2, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, sdps:Czapor-86b, sdps:Czapor-86c_1, sdps:Czapor-86c_2, sdps:Czapor-86c;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Cyclic_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Rose>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Flat/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86b>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86c_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86c_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86c>;
+269c268
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+272c271
+< <http://symbolicdata.org/Data/BIB/Katsura_87a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Katsura_87a> a sd:Reference; 
+277c276
+< sd:referencedIn sdps:Katsura_;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_>;
+279c278
+<   sd:createdBy sdp:Bachmann_O;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Bachmann_O>;
+282c281
+< <http://symbolicdata.org/Data/BIB/Murao_93a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Murao_93a> a sd:Reference; 
+287c286
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+290c289
+< <http://symbolicdata.org/Data/BIB/PoSSo> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/PoSSo> a sd:Reference; 
+295c294
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+298c297
+< <http://symbolicdata.org/Data/BIB/Sturmfels_98a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Sturmfels_98a> a sd:Reference; 
+303c302
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+306c305
+< <http://symbolicdata.org/Data/BIB/Wang_92a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_92a> a sd:Reference; 
+311c310
+< sd:referencedIn sdps:Neff-89, sdps:Wang-89, sdps:Wang-92a, sdps:FourCircles, sdps:Discriminant_4, sdps:Bronstein-86, sdps:Robot-RR, sdps:Wang-92c, sdps:Discriminant_5, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Geometry/Brahmagupta>, sdps:Butcher, sdps:Wang-92e, sdps:Wang-92f, sdps:Hairer_2, sdps:Wu-90;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Neff-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-92a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/FourCircles>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Discriminant_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Bronstein-86>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Robot-RR>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-92c>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Discriminant_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Geometry/Brahmagupta>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-92e>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-92f>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wu-90>;
+313c312
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+316c315
+< <http://symbolicdata.org/Data/BIB/Wang_92b> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_92b> a sd:Reference; 
+321c320
+< sd:referencedIn sdps:Hairer_2, sdps:Gerdt-85, sdps:Katsura_5, sdps:Wu-90, sdps:Butcher, sdps:Hairer_2;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wu-90>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2>;
+323c322
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+326c325
+< <http://symbolicdata.org/Data/BIB/Wang_92c> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_92c> a sd:Reference; 
+331c330
+< sd:referencedIn sdps:Wu-90, sdps:Fee_2, sdps:TD-89, sdps:Vermeer, sdps:Discriminant_5;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wu-90>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/TD-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Vermeer>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Discriminant_5>;
+333c332
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+336c335
+< <http://symbolicdata.org/Data/BIB/Wang_93a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_93a> a sd:Reference; 
+341c340
+< sd:referencedIn sdps:Wu-90, sdps:Fee_2, sdps:TD-89, sdps:Vermeer;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wu-90>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/TD-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Vermeer>;
+343c342
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+346c345
+< <http://symbolicdata.org/Data/BIB/Wang_95a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_95a> a sd:Reference; 
+351c350
+< sd:referencedIn sdps:Buchberger-87, sdps:Vermeer, sdps:Wang-91_1, sdps:Discriminant_4, sdps:Neff-89, sdps:Butcher, sdps:Robot-RR, sdps:FourCircles, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Arnon>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Morley_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Heron_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Brahmagupta>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Biarc>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Arnon>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Morley>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/PedoeInequality>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Heron>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Brahmagupta>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Biarc>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Ellipsoid>;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Buchberger-87>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Vermeer>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-91_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Discriminant_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Neff-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Robot-RR>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/FourCircles>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Arnon>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Morley_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Heron_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Brahmagupta>, <http://hgg.ontowiki.net/SymbolicData/CRef/GEO/Biarc>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Arnon>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Morley>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/PedoeInequality>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Heron>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Brahmagupta>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Geometry/Biarc>, <http://hgg.ontowiki.net/SymbolicData/CRef/PROBLEMS/Ellipsoid>;
+353c352
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+356c355
+< <http://symbolicdata.org/Data/BIB/Wang_95b> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_95b> a sd:Reference; 
+361c360
+< sd:referencedIn sdps:Wang-89, sdps:Butcher, sdps:Wang-92e, sdps:Bronstein-86;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-92e>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Bronstein-86>;
+363c362
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+366c365
+< <http://symbolicdata.org/Data/BIB/Wang_95c> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_95c> a sd:Reference; 
+373c372
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+376c375
+< <http://symbolicdata.org/Data/BIB/Wang_96a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_96a> a sd:Reference; 
+381c380
+< sd:referencedIn sdps:Wu-90, sdps:Robot-RR, sdps:Ellipsoid_2, sdps:Ellipsoid_4, sdps:Buchberger-87, sdps:FourCircles, sdps:Czapor-86a, sdps:Fee_1, sdps:Fee_2, sdps:Czapor-86b, sdps:Czapor-86c, sdps:TD-89, sdps:Hairer_1, sdps:Hairer_2, sdps:Butcher, sdps:Katsura_3, sdps:Katsura_4, sdps:Katsura_5, sdps:Katsura_6, sdps:Gerdt-85, sdps:Raksanyi, sdps:Rose, sdps:Gonnet-83, sdps:Trinks, sdps:Trinks_1, sdps:Vermeer, sdps:Wang-92a, sdps:Discriminant_4, sdps:Discriminant_5;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wu-90>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Robot-RR>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Ellipsoid_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Ellipsoid_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Buchberger-87>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/FourCircles>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Fee_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86b>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Czapor-86c>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/TD-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Hairer_2>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Butcher>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_3>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_5>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Katsura_6>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gerdt-85>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Raksanyi>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Rose>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Gonnet-83>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Trinks_1>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Vermeer>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Wang-92a>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Discriminant_4>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Discriminant_5>;
+383c382
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+386c385
+< <http://symbolicdata.org/Data/BIB/Wang_98a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wang_98a> a sd:Reference; 
+391c390
+< sd:referencedIn sdps:Bronstein-86, sdps:Noonburg-89, sdps:Vermeer_1;
+---
+> sd:referencedIn <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Bronstein-86>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Noonburg-89>, <http://hgg.ontowiki.net/SymbolicData/CRef/INTPS/Vermeer_1>;
+393c392
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+396c395
+< <http://symbolicdata.org/Data/BIB/Wichmann_97a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wichmann_97a> a sd:Reference; 
+401c400
+<   sd:createdBy sdp:Wenk_M;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Wenk_M>;
+404c403
+< <http://symbolicdata.org/Data/BIB/Wu_84a> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wu_84a> a sd:Reference; 
+409c408
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;
+412c411
+< <http://symbolicdata.org/Data/BIB/Wu_84b> a sd:Reference; 
+---
+> <http://hgg.ontowiki.net/SymbolicData/BIB/Wu_84b> a sd:Reference; 
+418c417
+<   sd:createdBy sdp:Graebe_HG;
+---
+>   sd:createdBy <http://hgg.ontowiki.net/SymbolicData/Person/Graebe_HG>;

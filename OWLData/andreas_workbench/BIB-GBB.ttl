@@ -1,0 +1,56 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix sdb: <http://symbolicdata.org/Data/BIB/> .
+
+<http://symbolicdata.org/Data/BIB/>
+    a owl:Ontology ;
+    rdfs:comment "Bibliography of the Symbolic Data Collection" ;
+    rdfs:label "SD BIB Data" ;
+    owl:imports <http://symbolicdata.org/Data/People/> .
+
+sd:Reference
+    a owl:Class ;
+    rdfs:label "References to Publications" .
+
+sdb:Boege_86a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=252> .
+
+sdb:Canny_93a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=465> .
+
+sdb:Czapor_86a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=272> .
+
+sdb:Czapor_87a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=972> .
+
+sdb:Czapor_89a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=621> .
+
+sdb:Czapor_91a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=276> .
+
+sdb:Gerdt_92a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=1018> .
+
+sdb:Giovini_91a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=1157> .
+
+sdb:Kalkbrener_93a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=816> .
+
+sdb:Murao_93a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=815> .
+
+sdb:Wang_92a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=513> .
+
+sdb:Wang_93a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=820> .
+
+sdb:Wang_98a
+    sd:hasGBBentry <http://www.risc.jku.at/Groebner-Bases-Bibliography/details.php?details_id=896> .
+

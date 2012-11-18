@@ -1,0 +1,33 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix sdb: <http://symbolicdata.org/Data/BIB/> .
+
+<http://symbolicdata.org/Data/BIB/>
+    a owl:Ontology ;
+    rdfs:comment "Bibliography of the Symbolic Data Collection" ;
+    rdfs:label "SD BIB Data" ;
+    owl:imports <http://symbolicdata.org/Data/People/> .
+
+sd:Reference
+    a owl:Class ;
+    rdfs:label "References to Publications" .
+
+sdb:Albano_00a
+    sd:hasCSentry <http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.4199> .
+
+sdb:Bachmann_00a
+    sd:hasCSentry <http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.204.7144> .
+
+sdb:Canny_93a
+    sd:hasCSentry <http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.38.1735> .
+
+sdb:Emiris_98a
+    sd:hasCSentry <http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.42.2684> .
+
+sdb:Giovini_91a
+    sd:hasCSentry <http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.7.1065> .
+
+
