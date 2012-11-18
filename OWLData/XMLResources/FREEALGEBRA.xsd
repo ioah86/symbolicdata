@@ -3,7 +3,7 @@
 <!--  XSchema $Id: FREEALGEBRA.xsd,v 1.0 2012/10/16 12:17:47 heinle Exp $  -->
 
   <xs:include schemaLocation="Types.xsd"/>
-  <xs:include schemaLocation="Root.xsd"/>
+  <xs:include schemaLocation="Common.xsd"/>
 
   <!-- subelement definition -->
 
@@ -23,10 +23,7 @@
         <xs:element minOccurs="0" name="basedomain" type="xs:string"/>
         <xs:element minOccurs="0" name="parameters" type="VarList"/>
         <xs:element minOccurs="0" name="vars" type="VarList"/>
-        <xs:choice>
-	  <xs:element ref="basis"/>
-	  <xs:element ref="file"/>
-        </xs:choice>
+	<xs:element ref="basis"/>
         <xs:element minOccurs="0" name="uptoDeg" type="xs:unsignedInt"/>
         <xs:group ref="RootTableEntries"/>
       </xs:sequence>

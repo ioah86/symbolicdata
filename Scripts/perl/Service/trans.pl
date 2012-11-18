@@ -1,67 +1,60 @@
 ##################################################
 #
-# Authox: graebe
+# Author: graebe
 # createdAt: 2010-12-22
 
-# purpose: transform XMLData descriptions to RDF Data
+# purpose: generate RDF-Data descriptions from XMLData 
 # see notes at the end of this file
 
-my $SD_HOME = $ENV{'SD_HOME'};
-die "Environment variable SD_HOME not set" unless $SD_HOME;
-
 use XML::DOM;
+use File::Basename;
 use strict;
 
-#my $parser=new XML::DOM::Parser;
+my $parser=new XML::DOM::Parser;
 my $out;
-my $hash=getCASData();
-map { $out.=getCASData($_); }
-(["Axiom"]);
-print prefix().$out."\n</rdf:RDF>\n";
+map $out.=action($_), @ARGV;
+print TurtleEnvelope($out);
 
-sub prefix {
+sub TurtleEnvelope {
+  my $out=shift;
   return <<EOT;
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE rdf:RDF [  
-  <!ENTITY sd "http://hgg.ontowiki.net/SymbolicData/">
-  <!ENTITY sdxml "http://www.symbolicdata.org/XMLResources/">
-  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
-  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
-]>
+\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+\@prefix owl: <http://www.w3.org/2002/07/owl#> .
+\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+\@prefix sd: <http://symbolicdata.org/Data/Model/> .
+\@prefix sdp: <http://symbolicdata.org/Data/People/> .
+\@prefix sdpol: <http://symbolicdata.org/Data/PolynomialSystems/> .
+\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<rdf:RDF xml:base="&sd;PolynomialSystems/" 
-  xmlns:sd="&sd;"
-  xmlns:owl="&owl;"
-  xmlns:rdf="&rdf;"
-  xmlns:rdfs="&rdfs;"
-  xmlns:xsd="&xsd;">
+sd:FreeAlgebra a owl:Class ; rdfs:label "Free Algebra" .
 
-<!-- Ontology specific informations -->
-  <owl:Ontology rdf:about="&sd;PolynomialSystems/"
-    rdfs:label="SD CAS Data">
+<http://symbolicdata.org/Data/FreeAlgebra/>
+    a owl:Ontology ;
+    rdfs:label "SD Free Algebra Systems Data" ;
+    owl:imports <http://symbolicdata.org/Data/People/> .
 
-    <rdfs:comment>CAS Data in the Symbolic Data Collection.</rdfs:comment>
-
-    <owl:imports rdf:resource="&sd;Person/" />
-  </owl:Ontology>
-
-<!-- Classes -->
-
-  <owl:Class rdf:about="&sd;CAS" rdfs:label="Computer Algebra System" />
-
-<!-- Instances and untyped data -->
-
+$out
 EOT
-
 }
 
-sub getCASData {
-  my $u=shift;
+sub action {
+  my $fn=shift;
+  my $id = File::Basename::basename($fn,'.xml');
+  my $doc=$parser->parsefile($fn) or die;
+  $doc=$doc->getDocumentElement;
+  my $date=$doc->getAttribute("createdAt");
+  my $comment=getTagValue($doc,"Comment");
+  my $vars=getTagValue($doc,"vars");
+  my $deg=getTagValue($doc,"uptoDeg");
   return <<EOT;
-  <sd:CAS rdf:about="$u"     
-   sd:hasURLLiteral="to be fixed"/>
+<http://symbolicdata.org/Data/FreeAlgebra/$id> a sd:FreeAlgebra ;
+    sd:createdAt "$date" ;
+    sd:createdBy sdp:Heinle_A;
+    sd:hasVariables "$vars" ;
+    sd:uptoDegree "$deg" ;
+    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/$id.xml> ;
+    rdfs:comment "$comment" .
+
 EOT
 }
 
