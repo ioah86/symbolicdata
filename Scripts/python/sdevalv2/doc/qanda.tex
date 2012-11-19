@@ -109,4 +109,8 @@ and
 \texttt{taskInfo.xml}. You need to fill them with data. How these XML-files should look like is described in the ``For Developers'' section of the documentation (in the \texttt{MachineSettings} module resp. the \texttt{TaskToXMLWriter} module). Alternatively you can just build a random taskfolder with the \texttt{create\_tasks[\_gui].py} and derive the format of those files from the produced folder.
 \end{enumerate}
 
+\paragraph{\textbf{Q:} In the Taskfolder, you have the folder \texttt{casSources} and a file called \texttt{taskInfo.xml}. Why do you need the additional \texttt{taskInfo.xml} file, when you also could just read the files in \texttt{casSources} and derive the corresponding computer algebra systems from the folder names?}
+
+\textbf{A:} Some computation problems take longer than others. If you only wish to make a quick check if e.g. after a change in your code everything is still working properly, you first consider the tasks that are known to be done very fast. Therefore, you can comment the problem instances in the \texttt{taskInfo.xml} file that are known to take a while, and for the next run, they will be ignored. As you see, the additional file serves the purpose to make the use of the taskfolder more flexible to the user.
+
 \end{document}
