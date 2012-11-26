@@ -2,9 +2,10 @@
 #
 # author: graebe
 # createdAt: 2006-03-03
+# lastUpdate: 2012-11-26
 
-# purpose: Demonstration how a benchmark could be set up. Works for
-# the moment on the old XMLData
+# purpose: Demonstration how a benchmark could be set up. Works for examples
+# given directly by an INTPS XMLResource.
 
 # best to define this environment variable
 die unless defined $ENV{'SD_HOME'};
@@ -15,7 +16,7 @@ use XML::DOM; # A convenient perl DOM Parser package
 #### start main: create benchmark output for a special system.
 
 my $parser=new XML::DOM::Parser;
-my $xmldir="$ENV{'SD_HOME'}/XMLData/INTPS";
+my $xmldir="$ENV{'SD_HOME'}/OWLData/XMLResources/INTPS";
 my $zeroDimensionalExamples=
     ["Sym1_211", "Katsura_4", "Sym1_311", "Cyclic_5", "Sym1_321", 
      "Katsura_5"]; 
