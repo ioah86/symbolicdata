@@ -10,7 +10,7 @@
   <xs:element name="basis">
     <xs:complexType>
       <xs:sequence>
-	<xs:element maxOccurs="unbounded" name="poly" type="Polynomial"/>
+	<xs:element maxOccurs="unbounded" name="ncpoly" type="NonCommutativePolynomial"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -20,11 +20,10 @@
   <xs:element name="FREEALGEBRA">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="basedomain" type="xs:string"/>
-        <xs:element minOccurs="0" name="parameters" type="VarList"/>
         <xs:element minOccurs="0" name="vars" type="VarList"/>
-	<xs:element ref="basis"/>
+        <xs:element minOccurs="0" name="parameters" type="VarList"/>
         <xs:element minOccurs="0" name="uptoDeg" type="xs:unsignedInt"/>
+	<xs:element ref="basis"/>
         <xs:group ref="RootTableEntries"/>
       </xs:sequence>
       <xs:attributeGroup ref="recordAttributes"/>

@@ -1,51 +1,51 @@
 <?xml version="1.0"?>
-<FREEALGEBRA createdAt="2011" createdBy="" id="FREEALGEBRA/">
-  <vars>x(1),x(2),x(3),x(4),x(5)</vars>
-  <basis>
- <poly> x(4)*x(5)*x(5)-x(5)*x(5)*x(4)</poly>
- <poly> x(3)*x(5)*x(5)-x(5)*x(5)*x(3)</poly>
- <poly> x(2)*x(5)*x(5)-x(5)*x(5)*x(2)</poly>
- <poly> x(1)*x(5)*x(5)-x(5)*x(5)*x(1)</poly>
- <poly> x(5)*x(4)*x(4)-x(4)*x(4)*x(5)</poly>
- <poly> x(3)*x(5)*x(4)+x(5)*x(3)*x(4)-x(4)*x(3)*x(5)-x(4)*x(5)*x(3)</poly>
- <poly> x(2)*x(5)*x(4)+x(5)*x(2)*x(4)-x(4)*x(2)*x(5)-x(4)*x(5)*x(2)</poly>
- <poly> x(1)*x(5)*x(4)+x(5)*x(1)*x(4)-x(4)*x(1)*x(5)-x(4)*x(5)*x(1)</poly>
- <poly> x(4)*x(5)*x(3)+x(5)*x(4)*x(3)-x(3)*x(4)*x(5)-x(3)*x(5)*x(4)</poly>
- <poly> x(5)*x(3)*x(3)-x(3)*x(3)*x(5)</poly>
- <poly> x(2)*x(5)*x(3)+x(5)*x(2)*x(3)-x(3)*x(2)*x(5)-x(3)*x(5)*x(2)</poly>
- <poly> x(1)*x(5)*x(3)+x(5)*x(1)*x(3)-x(3)*x(1)*x(5)-x(3)*x(5)*x(1)</poly>
- <poly> x(4)*x(5)*x(2)+x(5)*x(4)*x(2)-x(2)*x(4)*x(5)-x(2)*x(5)*x(4)</poly>
- <poly> x(3)*x(5)*x(2)+x(5)*x(3)*x(2)-x(2)*x(3)*x(5)-x(2)*x(5)*x(3)</poly>
- <poly> x(5)*x(2)*x(2)-x(2)*x(2)*x(5)</poly>
- <poly> x(1)*x(5)*x(2)+x(5)*x(1)*x(2)-x(2)*x(1)*x(5)-x(2)*x(5)*x(1)</poly>
- <poly> x(4)*x(5)*x(1)+x(5)*x(4)*x(1)-x(1)*x(4)*x(5)-x(1)*x(5)*x(4)</poly>
- <poly> x(3)*x(5)*x(1)+x(5)*x(3)*x(1)-x(1)*x(3)*x(5)-x(1)*x(5)*x(3)</poly>
- <poly> x(2)*x(5)*x(1)+x(5)*x(2)*x(1)-x(1)*x(2)*x(5)-x(1)*x(5)*x(2)</poly>
- <poly> x(5)*x(1)*x(1)-x(1)*x(1)*x(5)</poly> <poly> x(3)*x(4)*x(4)-x(4)*x(4)*x(3)</poly>
- <poly> x(2)*x(4)*x(4)-x(4)*x(4)*x(2)</poly>
- <poly> x(1)*x(4)*x(4)-x(4)*x(4)*x(1)</poly>
- <poly> x(4)*x(3)*x(3)-x(3)*x(3)*x(4)</poly>
- <poly> x(2)*x(4)*x(3)+x(4)*x(2)*x(3)-x(3)*x(2)*x(4)-x(3)*x(4)*x(2)</poly>
- <poly> x(1)*x(4)*x(3)+x(4)*x(1)*x(3)-x(3)*x(1)*x(4)-x(3)*x(4)*x(1)</poly>
- <poly> x(3)*x(4)*x(2)+x(4)*x(3)*x(2)-x(2)*x(3)*x(4)-x(2)*x(4)*x(3)</poly>
- <poly> x(4)*x(2)*x(2)-x(2)*x(2)*x(4)</poly>
- <poly> x(1)*x(4)*x(2)+x(4)*x(1)*x(2)-x(2)*x(1)*x(4)-x(2)*x(4)*x(1)</poly>
- <poly> x(3)*x(4)*x(1)+x(4)*x(3)*x(1)-x(1)*x(3)*x(4)-x(1)*x(4)*x(3)</poly>
- <poly> x(2)*x(4)*x(1)+x(4)*x(2)*x(1)-x(1)*x(2)*x(4)-x(1)*x(4)*x(2)</poly>
- <poly> x(4)*x(1)*x(1)-x(1)*x(1)*x(4)</poly>
- <poly> x(2)*x(3)*x(3)-x(3)*x(3)*x(2)</poly>
- <poly> x(1)*x(3)*x(3)-x(3)*x(3)*x(1)</poly>
- <poly> x(3)*x(2)*x(2)-x(2)*x(2)*x(3)</poly>
- <poly> x(1)*x(3)*x(2)+x(3)*x(1)*x(2)-x(2)*x(1)*x(3)-x(2)*x(3)*x(1)</poly>
- <poly> x(2)*x(3)*x(1)+x(3)*x(2)*x(1)-x(1)*x(2)*x(3)-x(1)*x(3)*x(2)</poly>
- <poly> x(3)*x(1)*x(1)-x(1)*x(1)*x(3)</poly>
- <poly> x(1)*x(2)*x(2)-x(2)*x(2)*x(1)</poly>
- <poly> x(2)*x(1)*x(1)-x(1)*x(1)*x(2)</poly>
- <poly> -x(1)*x(3)*x(2)*x(4)*x(5)+x(2)*x(3)*x(1)*x(4)*x(5)+x(1)*x(2)*x(4)*x(3)*x(5)-x(2)*x(1)*x(4)*x(3)*x(5)-x(1)*x(3)*x(4)*x(2)*x(5)+x(2)*x(3)*x(4)*x(1)*x(5)+x(3)*x(1)*x(4)*x(2)*x(5)-x(3)*x(2)*x(4)*x(1)*x(5)+x(1)*x(3)*x(2)*x(4)*x(5)-x(2)*x(3)*x(1)*x(4)*x(5)-x(1)*x(4)*x(2)*x(3)*x(5)+x(2)*x(4)*x(1)*x(3)*x(5)+x(1)*x(4)*x(3)*x(2)*x(5)-x(2)*x(4)*x(3)*x(1)*x(5)-x(3)*x(4)*x(1)*x(2)*x(5)+x(3)*x(4)*x(2)*x(1)*x(5)</poly>
-  </basis>
+<FREEALGEBRA createdAt="2011-01-01" createdBy="heinle">
+  <vars>x_1,x_2,x_3,x_4,x_5</vars>
   <uptoDeg>9</uptoDeg>
-  <Version>$Id: lascala_bsph_d9.xml,v 1.0 2011/07/25 15:21:58 studzins Exp $</Version>
+  <basis>
+    <ncpoly>x_4*x_5*x_5-x_5*x_5*x_4</ncpoly>
+    <ncpoly>x_3*x_5*x_5-x_5*x_5*x_3</ncpoly>
+    <ncpoly>x_2*x_5*x_5-x_5*x_5*x_2</ncpoly>
+    <ncpoly>x_1*x_5*x_5-x_5*x_5*x_1</ncpoly>
+    <ncpoly>x_5*x_4*x_4-x_4*x_4*x_5</ncpoly>
+    <ncpoly>x_3*x_5*x_4+x_5*x_3*x_4-x_4*x_3*x_5-x_4*x_5*x_3</ncpoly>
+    <ncpoly>x_2*x_5*x_4+x_5*x_2*x_4-x_4*x_2*x_5-x_4*x_5*x_2</ncpoly>
+    <ncpoly>x_1*x_5*x_4+x_5*x_1*x_4-x_4*x_1*x_5-x_4*x_5*x_1</ncpoly>
+    <ncpoly>x_4*x_5*x_3+x_5*x_4*x_3-x_3*x_4*x_5-x_3*x_5*x_4</ncpoly>
+    <ncpoly>x_5*x_3*x_3-x_3*x_3*x_5</ncpoly>
+    <ncpoly>x_2*x_5*x_3+x_5*x_2*x_3-x_3*x_2*x_5-x_3*x_5*x_2</ncpoly>
+    <ncpoly>x_1*x_5*x_3+x_5*x_1*x_3-x_3*x_1*x_5-x_3*x_5*x_1</ncpoly>
+    <ncpoly>x_4*x_5*x_2+x_5*x_4*x_2-x_2*x_4*x_5-x_2*x_5*x_4</ncpoly>
+    <ncpoly>x_3*x_5*x_2+x_5*x_3*x_2-x_2*x_3*x_5-x_2*x_5*x_3</ncpoly>
+    <ncpoly>x_5*x_2*x_2-x_2*x_2*x_5</ncpoly>
+    <ncpoly>x_1*x_5*x_2+x_5*x_1*x_2-x_2*x_1*x_5-x_2*x_5*x_1</ncpoly>
+    <ncpoly>x_4*x_5*x_1+x_5*x_4*x_1-x_1*x_4*x_5-x_1*x_5*x_4</ncpoly>
+    <ncpoly>x_3*x_5*x_1+x_5*x_3*x_1-x_1*x_3*x_5-x_1*x_5*x_3</ncpoly>
+    <ncpoly>x_2*x_5*x_1+x_5*x_2*x_1-x_1*x_2*x_5-x_1*x_5*x_2</ncpoly>
+    <ncpoly>x_5*x_1*x_1-x_1*x_1*x_5</ncpoly>
+    <ncpoly>x_3*x_4*x_4-x_4*x_4*x_3</ncpoly>
+    <ncpoly>x_2*x_4*x_4-x_4*x_4*x_2</ncpoly>
+    <ncpoly>x_1*x_4*x_4-x_4*x_4*x_1</ncpoly>
+    <ncpoly>x_4*x_3*x_3-x_3*x_3*x_4</ncpoly>
+    <ncpoly>x_2*x_4*x_3+x_4*x_2*x_3-x_3*x_2*x_4-x_3*x_4*x_2</ncpoly>
+    <ncpoly>x_1*x_4*x_3+x_4*x_1*x_3-x_3*x_1*x_4-x_3*x_4*x_1</ncpoly>
+    <ncpoly>x_3*x_4*x_2+x_4*x_3*x_2-x_2*x_3*x_4-x_2*x_4*x_3</ncpoly>
+    <ncpoly>x_4*x_2*x_2-x_2*x_2*x_4</ncpoly>
+    <ncpoly>x_1*x_4*x_2+x_4*x_1*x_2-x_2*x_1*x_4-x_2*x_4*x_1</ncpoly>
+    <ncpoly>x_3*x_4*x_1+x_4*x_3*x_1-x_1*x_3*x_4-x_1*x_4*x_3</ncpoly>
+    <ncpoly>x_2*x_4*x_1+x_4*x_2*x_1-x_1*x_2*x_4-x_1*x_4*x_2</ncpoly>
+    <ncpoly>x_4*x_1*x_1-x_1*x_1*x_4</ncpoly>
+    <ncpoly>x_2*x_3*x_3-x_3*x_3*x_2</ncpoly>
+    <ncpoly>x_1*x_3*x_3-x_3*x_3*x_1</ncpoly>
+    <ncpoly>x_3*x_2*x_2-x_2*x_2*x_3</ncpoly>
+    <ncpoly>x_1*x_3*x_2+x_3*x_1*x_2-x_2*x_1*x_3-x_2*x_3*x_1</ncpoly>
+    <ncpoly>x_2*x_3*x_1+x_3*x_2*x_1-x_1*x_2*x_3-x_1*x_3*x_2</ncpoly>
+    <ncpoly>x_3*x_1*x_1-x_1*x_1*x_3</ncpoly>
+    <ncpoly>x_1*x_2*x_2-x_2*x_2*x_1</ncpoly>
+    <ncpoly>x_2*x_1*x_1-x_1*x_1*x_2</ncpoly>
+    <ncpoly>-x_1*x_3*x_2*x_4*x_5+x_2*x_3*x_1*x_4*x_5+x_1*x_2*x_4*x_3*x_5-x_2*x_1*x_4*x_3*x_5-x_1*x_3*x_4*x_2*x_5+x_2*x_3*x_4*x_1*x_5+x_3*x_1*x_4*x_2*x_5-x_3*x_2*x_4*x_1*x_5+x_1*x_3*x_2*x_4*x_5-x_2*x_3*x_1*x_4*x_5-x_1*x_4*x_2*x_3*x_5+x_2*x_4*x_1*x_3*x_5+x_1*x_4*x_3*x_2*x_5-x_2*x_4*x_3*x_1*x_5-x_3*x_4*x_1*x_2*x_5+x_3*x_4*x_2*x_1*x_5</ncpoly>
+  </basis>
+  <ChangeLog>
+    <changed at="2012-12-05" by="graebe">fixed syntax</changed>
+  </ChangeLog>
 </FREEALGEBRA>
-
-
-
