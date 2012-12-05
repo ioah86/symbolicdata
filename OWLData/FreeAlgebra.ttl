@@ -511,26 +511,23 @@ sd:FreeAlgebra a owl:Class ; rdfs:label "Free Algebra" .
 <http://symbolicdata.org/Data/FreeAlgebra/lascala_bsbh_d10> a sd:FreeAlgebra ;
     sd:createdAt "2011" ;
     sd:createdBy sdp:Heinle_A;
-    sd:hasVariables "x(1),x(2),x(3),x(4),x(5)" ;
+    sd:hasVariables "x_1,x_2,x_3,x_4,x_5" ;
     sd:uptoDegree "10" ;
-    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/lascala_bsbh_d10.xml> ;
-    rdfs:comment "" .
+    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/lascala_bsbh_d10.xml>  .
 
 <http://symbolicdata.org/Data/FreeAlgebra/lascala_bsbh_d9> a sd:FreeAlgebra ;
     sd:createdAt "2011" ;
     sd:createdBy sdp:Heinle_A;
-    sd:hasVariables "x(1),x(2),x(3),x(4),x(5)" ;
+    sd:hasVariables "x_1,x_2,x_3,x_4,x_5" ;
     sd:uptoDegree "9" ;
-    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/lascala_bsbh_d9.xml> ;
-    rdfs:comment "" .
+    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/lascala_bsbh_d9.xml>  .
 
 <http://symbolicdata.org/Data/FreeAlgebra/lascala_neuh_d10> a sd:FreeAlgebra ;
     sd:createdAt "2011" ;
     sd:createdBy sdp:Heinle_A;
     sd:hasVariables "x1,x2,x3,x4,x5,x6" ;
     sd:uptoDegree "10" ;
-    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/lascala_neuh_d10.xml> ;
-    rdfs:comment "" .
+    sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/lascala_neuh_d10.xml>  .
 
 <http://symbolicdata.org/Data/FreeAlgebra/lp1-10> a sd:FreeAlgebra ;
     sd:createdAt "2010" ;
