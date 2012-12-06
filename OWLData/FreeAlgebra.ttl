@@ -565,9 +565,10 @@ sd:FreeAlgebra a owl:Class ; rdfs:label "Free Algebra" .
     sd:createdAt "2011" ;
     sd:createdBy sdp:Heinle_A;
     sd:hasVariables "x,y,z,h" ;
+    sd:hasParameters "a1,a2" ;
     sd:uptoDegree "15" ;
     sd:relatedXMLResource <http://symbolicdata.org/XMLResources/FREEALGEBRA/malle_G12h.xml> ;
-    rdfs:comment "x,y are inverses to a,b" .
+    rdfs:comment "x,y are inverses to a1,a2" .
 
 <http://symbolicdata.org/Data/FreeAlgebra/plain-braid3-6> a sd:FreeAlgebra ;
     sd:createdAt "2010" ;

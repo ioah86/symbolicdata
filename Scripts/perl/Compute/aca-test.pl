@@ -35,7 +35,7 @@ read("aca-test.mu"):
 // make a list of all examples to be processed
 theExamples:=[$theExamples]:
 
-// Run the examples using a specially defined run function that 
+// Run the examples using a specially defined run function
 // within the CAS that encapsulates all data and produces all
 // output information.
 
@@ -59,7 +59,7 @@ EOT
 sub getExample {
     my $name=shift;
     my $doc=$parser->parsefile("$xmldir/$name.xml") or die;
-    my $vars=join(",",toVars(getTagValue($doc,"vars")));
+    my $vars=join(",",getTagValue($doc,"vars"));
     my $polys=join(",\n",getPolys($doc));
     return <<EOT;
 [theExample = "$name",
@@ -89,5 +89,3 @@ sub getValue {
     s/\s*<\/[^>]*?>\s*$//s;
     return $_;
 }
-
-sub toVars { return split(/\s+/,shift); }
