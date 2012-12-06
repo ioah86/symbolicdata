@@ -43,8 +43,8 @@
   <xs:complexType name="Commutator">
     <!-- A commutator in the form snd*fst = C*fst*snd + D -->
     <xs:sequence>
-        <xs:element name="C" type="NCPoly" minOccurs="0"/>
-        <xs:element name="D" type="NCPoly" minOccurs="0"/>
+        <xs:element name="C" type="NonCommutativePolynomial" minOccurs="0"/>
+        <xs:element name="D" type="NonCommutativePolynomial" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="fst" use="required">
         <xs:simpleType>

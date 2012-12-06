@@ -21,7 +21,7 @@ my $zeroDimensionalExamples=
     ["Sym1_211", "Katsura_4", "Sym1_311", "Cyclic_5", "Sym1_321", 
      "Katsura_5"]; 
 
-print createOutputforMuPAD($zeroDimensionalExamples);
+print createOutputforMaple($zeroDimensionalExamples);
 
 # === end main ===
 
