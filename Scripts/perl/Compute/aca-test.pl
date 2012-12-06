@@ -51,7 +51,7 @@ sub createOutputforMaple {
     my $out=<<EOT;
 read("aca-test.mpl");
 theExamples:=[$theExamples];
-map(theExamples, myBenchmarkFunction);
+map(myBenchmarkFunction, theExamples);
 quit;
 EOT
 }

@@ -1,19 +1,25 @@
-resubst:=proc(sol, polys) 
-  map(sol, u -> simplify(subs(polys, u))) end proc;
+(* The try catch does not yet work as desired *)
 
-myBenchmarkFunction:=proc(u) local example,vars,polys,sol,tt;
-begin
-  example:=subs(theExample,u);
-  vars:=subs(theVars,u);
-  polys:=subs(thePolys,u);
-  print(NoNL,"\n\nSolve: ".example);print();
-  if traperror((tt:=time((sol:=solve(polys,vars)))),2)>0 then 
-    print(NoNL,"\nInterrupted"); 
-    return([example,0,FALSE]);
-  else
-    print(NoNL,"\nElapsed time: ".tt);
-    print(NoNL,"\nResult: ".sol);
-    print(NoNL,"\nResubstitution: ".resubst(sol,polys));
-  end_if;
-  return([example,tt,TRUE]);
-end:
+resubst:=proc(sol, polys) 
+  map(u -> simplify(subs(u,polys)),sol) end proc;
+
+myBenchmarkFunction:=proc(u) local exmpl,vars,polys,sol,tt;
+  exmpl:=subs(u,theExample);
+  vars:=subs(u,theVars);
+  polys:=subs(u,thePolys);
+  printf("Solve: %s\n",exmpl);
+  try 
+    tt:=time();
+    sol:=timelimit(2,solve(polys,vars));
+    tt:=time()-tt;
+  catch "FAIL": 
+    printf("Interrupted %a\n",sol); 
+    return([exmpl,0,FALSE])
+  end try;
+  printf("Elapsed time: %2.5f\n",tt);
+  printf("Result: %a\n",sol);
+  printf("Resubstitution: %a\n",resubst(sol,polys));
+  return([exmpl,tt,TRUE]);
+end proc:
+
+
