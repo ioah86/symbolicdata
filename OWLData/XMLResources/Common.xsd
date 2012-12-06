@@ -9,8 +9,8 @@
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:token">
-          <xs:attribute name="at" type="xs:date" use="required"/>
-          <xs:attribute name="by" type="xs:QName" use="required"/>
+          <xs:attribute name="at" type="xs:date"/>
+          <xs:attribute name="by" type="xs:QName"/>
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
