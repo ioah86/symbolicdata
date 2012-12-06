@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<COMP createdAt="1999-05-26" createdBy="obachman" id="COMP/Syz_Fp_dp">
-  <kind>Syzygy</kind>
-  <coeff>Fp(31991)</coeff>
-  <ordering>dp</ordering>
-  <Version>$Id: Syz_Fp_dp.xml,v 1.1 2004/10/21 13:30:26 graebe Exp $</Version>
-</COMP>

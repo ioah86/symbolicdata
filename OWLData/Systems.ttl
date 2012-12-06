@@ -1,0 +1,114 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sd:CAS
+    a owl:Class ;
+    rdfs:label "CA System"  .
+
+<http://symbolicdata.org/Data/System/>
+    a owl:Ontology ;
+    rdfs:comment "CA System Data" ;
+    rdfs:label "SD CA-Systems Data" ;
+    owl:imports <http://symbolicdata.org/Data/People/> .
+
+<http://symbolicdata.org/Data/System/Axiom>
+    sd:hasLicense "BSD like license" ;
+    sd:hasURLLiteral "http://axiom-developer.org" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS  .
+
+<http://symbolicdata.org/Data/System/CoCoa>
+    sd:hasAuthor "Research Team in Computer Algebra, Univ. Genova" ;
+    sd:hasLicense "free" ;
+    sd:hasURLLiteral "http://cocoa.dima.unige.it" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "A system for doing \"Computations in Commutative Algebra\"" .
+
+<http://symbolicdata.org/Data/System/Felix>
+    sd:hasAuthor sdp:Apel_J, sdp:Klaus_U  ;
+    sd:hasURLLiteral "http://felix.hgb-leipzig.de/" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "Special computer algebra system for the computation in commutative and non-commutative rings and modules", "no more developed" .
+
+<http://symbolicdata.org/Data/System/GB>
+    sd:hasAuthor sdp:Faugere_JC ;
+    sd:hasURLLiteral "http://www-salsa.lip6.fr/~jcf/Software/index.html" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "A package to compute Groebner basis of ideals and to solve systems of algebraic equations" .
+
+<http://symbolicdata.org/Data/System/Macaulay2>
+    sd:hasAuthor sdp:Grayson_DR, sdp:Stillman_ME ;
+    sd:hasURLLiteral "http://www.math.uiuc.edu/Macaulay2" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "A software system devoted to supporting research in algebraic geometry and commutative algebra" .
+
+<http://symbolicdata.org/Data/System/Magma>
+    sd:hasAuthor sdp:sydney ;
+    sd:hasURLLiteral "http://www.maths.usyd.edu.au:8000/u/magma" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "Computational Algebra System for Algebra, Number Theory and Geometry" .
+
+<http://symbolicdata.org/Data/System/Maple>
+    sd:hasAuthor sdp:maple ;
+    sd:hasLicense "commercial" ;
+    sd:hasURLLiteral "http://www.maplesoft.com" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "General Purpose Computer Algebra System" .
+
+<http://symbolicdata.org/Data/System/Mathematica>
+    sd:hasAuthor sdp:mathematica ;
+    sd:hasLicense "commercial" ;
+    sd:hasURLLiteral "http://www.wolfram.com" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "General Purpose Computer Algebra System" .
+
+<http://symbolicdata.org/Data/System/MuPAD>
+    sd:hasAuthor sdp:mupad ;
+    sd:hasLicense "commercial" ;
+    sd:hasURLLiteral "http://www.mathworks.com/products/symbolic" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "General Purpose Computer Algebra System, Symbolic Toolbox within Matlab, http://www.mathworks.com" .
+
+<http://symbolicdata.org/Data/System/Points>
+    sd:hasAuthor sdp:Orecchia_F, sdp:Cioffi_F, sdp:Ramella_I ;
+    sd:hasLicense "GPL" ;
+    sd:hasURLLiteral "http://wpage.unina.it/cioffifr/EPoints.html" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "Points intends to construct algorithms and to implement sofwares concerning problems in Algebraic Geometry which need the computation of the Hilbert Function or of minimal generators or of the resolution of the ideal of a finite set of points." .
+
+<http://symbolicdata.org/Data/System/QPoints>
+    sd:hasAuthor sdp:Orecchia_F, sdp:Cioffi_F, sdp:Ramella_I ;
+    sd:hasURLLiteral "http://cds.unina.it/~cioffifr/EPoints.html" ;
+    sd:lastUpdate "2001-03-28" ;
+    a sd:CAS ;
+    rdfs:comment "A software for computations related to points in projective spaces over the field Q of rational numbers." .
+
+<http://symbolicdata.org/Data/System/Reduce>
+    sd:hasAuthor sdp:Hearn_AC ;
+    sd:hasLicense "open source" ;
+    sd:hasURLLiteral "http://www.reduce-algebra.com" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "General Purpose Computer Algebra System" .
+
+<http://symbolicdata.org/Data/System/Singular>
+    sd:hasAuthor sdp:Pfister_G, sdp:Greuel_GM, sdp:Decker_W, sdp:Schoenemann_H ;
+    sd:hasLicense "GPL" ;
+    sd:hasURLLiteral "http://www.singular.uni-kl.de" ;
+    sd:lastUpdate "2010-12-29" ;
+    a sd:CAS ;
+    rdfs:comment "A Computer Algebra System for Polynomial Computations" .
+

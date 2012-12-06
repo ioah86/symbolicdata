@@ -1,0 +1,99 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix sdb: <http://symbolicdata.org/Data/BIB/> .
+
+<http://symbolicdata.org/Data/BIB/>
+    a owl:Ontology ;
+    rdfs:comment "Bibliography of the Symbolic Data Collection" ;
+    rdfs:label "SD BIB Data" ;
+    owl:imports <http://symbolicdata.org/Data/People/> .
+
+sd:Reference
+    a owl:Class ;
+    rdfs:label "References to Publications" .
+
+sdb:Albano_00a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0980.14033&format=complete> .
+
+sdb:Boege_86a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0602.65032&format=complete> .
+
+sdb:Canny_93a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0778.13023&format=complete> .
+
+sdb:Chou_84a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0578.68079&format=complete> .
+
+sdb:Chou_88a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0661.14037&format=complete> .
+
+sdb:Cioffi_00a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:1094.13517&format=complete> .
+
+sdb:Cohn_82a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0491.12009&format=complete> .
+
+sdb:Cox_97a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:1079.13017&format=complete> .
+
+sdb:Cox_97a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0920.13026&format=complete> .
+
+sdb:Czapor_87a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:1209.13002&format=complete> .
+
+sdb:Czapor_89a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0668.68033&format=complete> .
+
+sdb:Emiris_98a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0924.65045&format=complete> .
+
+sdb:Galligo_89a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0685.14001&format=complete> .
+
+sdb:Gerdt_90a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0704.68062&format=complete> .
+
+sdb:Giovini_91a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0933.68161&format=complete> .
+
+sdb:Kalkbrener_93a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0783.14039&format=complete> .
+
+sdb:Murao_93a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0796.12003&format=complete> .
+
+sdb:Sturmfels_98a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0916.13008&format=complete> .
+
+sdb:Wang_92a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0776.14014&format=complete> .
+
+sdb:Wang_93a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0803.13016&format=complete> .
+
+sdb:Wang_95a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0855.68086&format=complete> .
+
+sdb:Wang_95b
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0837.68110&format=complete> .
+
+sdb:Wang_95c
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0855.68090&format=complete> .
+
+sdb:Wang_98a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0913.12008&format=complete> .
+
+sdb:Wu_84a
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0578.68077&format=complete> .
+
+sdb:Wu_84b
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0578.68078&format=complete> .
+
+sdb:Wu_84b
+    sd:hasZBentry <http://www.zentralblatt-math.org/zmath/en/search/?q=an:0376.68057&format=complete> .
+
+

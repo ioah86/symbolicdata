@@ -1,0 +1,152 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix sdts: <http://symbolicdata.org/Data/TestSets/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sd:TestSet
+    a owl:Class ;
+    rdfs:label "" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.3x3x3>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.3x3x3.bas.xml> ;
+    sd:hasMatrixDimension "27" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.3x3x3dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.3x3x3dd.bas.xml> ;
+    sd:hasHilbertBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.3x3x3dd.hil.xml> ;
+    sd:hasMatrixDimension "27" ;
+    sd:hasRayBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.3x3x3dd.ray.xml> ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.3x3x3x3>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.3x3x3x3.bas.xml> ;
+    sd:hasMatrixDimension "81" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.3x3x3x3dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.3x3x3x3dd.bas.xml> ;
+    sd:hasMatrixDimension "81" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.4x4x4>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.4x4x4.bas.xml> ;
+    sd:hasMatrixDimension "64" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.4x4x4dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.4x4x4dd.bas.xml> ;
+    sd:hasMatrixDimension "64" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/cubes.4x4x4x4>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/cubes.4x4x4x4.bas.xml> ;
+    sd:hasMatrixDimension "256" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/dd.3x3dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.3x3dd.bas.xml> ;
+    sd:hasHilbertBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.3x3dd.hil.xml> ;
+    sd:hasMatrixDimension "9" ;
+    sd:hasRayBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.3x3dd.ray.xml> ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/dd.4x4dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.4x4dd.bas.xml> ;
+    sd:hasHilbertBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.4x4dd.hil.xml> ;
+    sd:hasMatrixDimension "16" ;
+    sd:hasRayBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.4x4dd.ray.xml> ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/dd.5x5dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.5x5dd.bas.xml> ;
+    sd:hasMatrixDimension "25" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/dd.6x6dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.6x6dd.bas.xml> ;
+    sd:hasMatrixDimension "36" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/dd.7x7dd>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/dd.7x7dd.bas.xml> ;
+    sd:hasMatrixDimension "49" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/pan.3x3pan>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.3x3pan.bas.xml> ;
+    sd:hasHilbertBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.3x3pan.hil.xml> ;
+    sd:hasMatrixDimension "9" ;
+    sd:hasRayBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.3x3pan.ray.xml> ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/pan.4x4pan>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.4x4pan.bas.xml> ;
+    sd:hasHilbertBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.4x4pan.hil.xml> ;
+    sd:hasMatrixDimension "16" ;
+    sd:hasRayBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.4x4pan.ray.xml> ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/pan.5x5pan>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.5x5pan.bas.xml> ;
+    sd:hasHilbertBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.5x5pan.hil.xml> ;
+    sd:hasMatrixDimension "25" ;
+    sd:hasRayBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.5x5pan.ray.xml> ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+
+<http://symbolicdata.org/Data/TestSets/pan.6x6pan>
+    sd:createdAt "2002-01-28" ;
+    sd:createdBy sdp:Graebe_HG ;
+    sd:hasBase <http://symbolicdata.org/XMLResources/TESTSETS/pan.6x6pan.bas.xml> ;
+    sd:hasMatrixDimension "36" ;
+    a sd:TestSet ;
+    rdfs:comment "Example from a collection of Raymond Hemmecke" .
+

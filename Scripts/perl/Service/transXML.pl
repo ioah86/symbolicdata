@@ -2,6 +2,7 @@
 #
 # Authox: graebe
 # createdAt: 2010-12-22
+# lastUpdate:
 
 # purpose: transform XMLData descriptions to XMLResource Data
 
@@ -11,7 +12,7 @@ die "Environment variable SD_HOME not set" unless $SD_HOME;
 use XML::DOM;
 use strict;
 
-my $date="2010-12-27";
+my $date="2012-12-05";
 my $parser=new XML::DOM::Parser;
 map action($_), @ARGV;
 
@@ -19,8 +20,46 @@ sub action {
   my $fn=shift;
 # get the old XML item
   my $doc=$parser->parsefile($fn) or die;
-  my $out=transformedGAlgebraData($doc->getDocumentElement);
-  print $out;
+  my $out=transformedFreeAlgebraData($doc->getDocumentElement);
+#  print $out; return;
+  open(FH,">$fn.new");
+  print FH $out;
+  close FH;
+  print "Saved to $fn.new\n";
+}
+
+sub transformedFreeAlgebraData {
+  my $doc=shift;
+  my $createdAt=$doc->getAttribute("createdAt");
+  $createdAt.="-01-01" if $createdAt=~/^\d+$/;
+  my $createdBy="heinle";
+  my $vars=fixVarname(getTagValue($doc,"vars"));
+  my $parameters=getTagValue($doc,"parameters");
+  my $deg=getTagValue($doc,"uptoDeg");
+
+  my $out=<<EOT;
+<?xml version="1.0"?>
+<FREEALGEBRA createdAt="$createdAt" createdBy="$createdBy">
+EOT
+  $out.=addValue("vars",$vars);
+  $out.=addValue("parameters",$parameters) if $parameters;
+  $out.=addValue("uptoDeg",$deg) if $deg;
+  map { 
+    $out.=fixPoly($_->toString()); 
+  } $doc->getElementsByTagName("basis");
+  map { 
+    $out.=$_->toString(); 
+  } $doc->getElementsByTagName("Comment");
+  map { 
+    $out.=$_->toString(); 
+  } $doc->getElementsByTagName("ChangeLog");
+  return <<EOT;
+$out 
+  <ChangeLog>
+    <changed at="$date" by="graebe">fixed syntax</changed>
+  </ChangeLog>
+</FREEALGEBRA>
+EOT
 }
 
 sub transformedINTPSData {
@@ -39,7 +78,6 @@ sub transformedINTPSData {
   my $out=<<EOT;
 <?xml version="1.0"?>
 <INTPS createdAt="$createdAt" createdBy="$createdBy">
-<!-- \$Id: transXML.pl,v 1.3 2010/12/31 17:42:06 graebe Exp $ -->
 EOT
   $out.=addValue("vars",$vars);
   map { 
@@ -71,20 +109,19 @@ sub transformedGAlgebraData {
 
   # GAlgebra specific
   my $vars=fixList(getTagValue($doc,"vars"));
+  my $parameters=fixList(getTagValue($doc,"parameters"));
   my $commutators=cprocess(getTagValue($doc,"commutators"));
 
   my $out=<<EOT;
 <?xml version="1.0"?>
-<INTPS createdAt="$createdAt" createdBy="$createdBy">
-<!-- \$Id: transXML.pl,v 1.3 2010/12/31 17:42:06 graebe Exp $ -->
+<GAlgebra createdAt="$createdAt" createdBy="$createdBy">
 EOT
   $out.=addValue("vars",$vars);
+  $out.=addValue("parameters",$parameters) if $parameters;
+  $out.=addValue("commutators",$commutators);
   map { 
     $out.=$_->toString(); 
   } $doc->getElementsByTagName("basis");
-  map { 
-    $_->toString(); 
-  } $doc->getElementsByTagName("Comment");
   map { 
     $out.=$_->toString(); 
   } $doc->getElementsByTagName("ChangeLog");
@@ -94,8 +131,22 @@ $out
     <changed at="$date" by="graebe">compiled from XMLData $id</changed>
   </ChangeLog>
 
-</INTPS>
+</GAlgebra>
 EOT
+}
+
+sub cprocess {
+  local $_=shift;
+  s/\[\s*//g;
+  s/\s*\]//g;
+  my $out;
+  map {
+    m/(\w)(\d):(\d)=(\S+)/;
+    $out.=<<EOT;
+<$1 first="$2" second="$3">$4</$1>
+EOT
+  } (split /\s*,\s*/);
+  return $out;
 }
 
 sub addValue { 
@@ -108,6 +159,19 @@ sub fixList { # convert it to comma separated list
   s/^\s+//g;
   s/\s+$//g;
   s/\s+/,/g;
+  return $_;
+}
+
+sub fixPoly { 
+  local $_=shift;
+  s/\s//g;
+  s/poly>/ncpoly>/g;
+  return fixVarname($_);
+}
+
+sub fixVarname { 
+  local $_=shift;
+  s/(\w+)\((\d+)\)/$1_$2/g;
   return $_;
 }
 

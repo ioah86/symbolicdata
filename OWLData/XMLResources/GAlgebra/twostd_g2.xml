@@ -1,65 +1,177 @@
 <?xml version="1.0"?>
 <GAlgebra createdAt="2003-07-03" createdBy="levandovsky">
   <vars>x1,x2,x3,x4,x5,x6,y1,y2,y3,y4,y5,y6,Ha,Hb</vars>
-  <commutators>[
-  D[1:2]=-x3,
-  D[1:3]=-2*x4,
-  D[1:4]=3*x5,
-  D[1:7]=-Ha,
-  D[1:9]=3*y2,
-  D[1:10]=2*y3,
-  D[1:11]=-y4,
-  D[1:13]=2*x1,
-  D[1:14]=-x1,
-  D[2:5]=x6,
-  D[2:8]=-Hb,
-  D[2:9]=-y1,
-  D[2:12]=-y5,
-  D[2:13]=-3*x2,
-  D[2:14]=2*x2,
-  D[3:4]=3*x6,
-  D[3:7]=3*x2,
-  D[3:8]=-x1,
-  D[3:9]=-Ha-3*Hb,
-  D[3:10]=-2*y1,
-  D[3:12]=-y4,
-  D[3:13]=-x3,
-  D[3:14]=x3,
-  D[4:7]=2*x3,
-  D[4:9]=-2*x1,
-  D[4:10]=-2*Ha-3*Hb,
-  D[4:11]=y1,
-  D[4:12]=y3,
-  D[4:13]=x4,
-  D[5:7]=-x4,
-  D[5:10]=x1,
-  D[5:11]=-Ha-Hb,
-  D[5:12]=y2,
-  D[5:13]=3*x5,
-  D[5:14]=-x5,
-  D[6:8]=-x5,
-  D[6:9]=-x4,
-  D[6:10]=x3,
-  D[6:11]=x2,
-  D[6:12]=-Ha-2*Hb,
-  D[6:14]=x6,
-  D[7:8]=y3,
-  D[7:9]=2*y4,
-  D[7:10]=-3*y5,
-  D[7:13]=-2*y1,
-  D[7:14]=y1,
-  D[8:11]=-y6,
-  D[8:13]=3*y2,
-  D[8:14]=-2*y2,
-  D[9:10]=-3*y6,
-  D[9:13]=y3,
-  D[9:14]=-y3,
-  D[10:13]=-y4,
-  D[11:13]=-3*y5,
-  D[11:14]=y5,
-  D[12:14]=-y6
-]</commutators>
+  <commutators>
+    <commutator fst="x3" snd="y3">
+      <D>-Ha-3*Hb</D>
+    </commutator>
+    <commutator fst="x1" snd="y3">
+      <D>3*y2</D>
+    </commutator>
+    <commutator fst="x6" snd="y6">
+      <D>-Ha-2*Hb</D>
+    </commutator>
+    <commutator fst="x6" snd="y4">
+      <D>x3</D>
+    </commutator>
+    <commutator fst="x3" snd="Hb">
+      <D>x3</D>
+    </commutator>
+    <commutator fst="y1" snd="Hb">
+      <D>y1</D>
+    </commutator>
+    <commutator fst="x1" snd="y4">
+      <D>2*y3</D>
+    </commutator>
+    <commutator fst="y5" snd="Hb">
+      <D>y5</D>
+    </commutator>
+    <commutator fst="x1" snd="y1">
+      <D>-Ha</D>
+    </commutator>
+    <commutator fst="x4" snd="y6">
+      <D>y3</D>
+    </commutator>
+    <commutator fst="y3" snd="Ha">
+      <D>y3</D>
+    </commutator>
+    <commutator fst="x5" snd="y6">
+      <D>y2</D>
+    </commutator>
+    <commutator fst="y2" snd="Ha">
+      <D>3*y2</D>
+    </commutator>
+    <commutator fst="x4" snd="y1">
+      <D>2*x3</D>
+    </commutator>
+    <commutator fst="x5" snd="y1">
+      <D>-x4</D>
+    </commutator>
+    <commutator fst="x1" snd="x3">
+      <D>-2*x4</D>
+    </commutator>
+    <commutator fst="x1" snd="Hb">
+      <D>-x1</D>
+    </commutator>
+    <commutator fst="y6" snd="Hb">
+      <D>-y6</D>
+    </commutator>
+    <commutator fst="x6" snd="Hb">
+      <D>x6</D>
+    </commutator>
+    <commutator fst="x4" snd="y5">
+      <D>y1</D>
+    </commutator>
+    <commutator fst="y4" snd="Ha">
+      <D>-y4</D>
+    </commutator>
+    <commutator fst="y2" snd="y5">
+      <D>-y6</D>
+    </commutator>
+    <commutator fst="y1" snd="y2">
+      <D>y3</D>
+    </commutator>
+    <commutator fst="x5" snd="Hb">
+      <D>-x5</D>
+    </commutator>
+    <commutator fst="x2" snd="x5">
+      <D>x6</D>
+    </commutator>
+    <commutator fst="x6" snd="y2">
+      <D>-x5</D>
+    </commutator>
+    <commutator fst="y2" snd="Hb">
+      <D>-2*y2</D>
+    </commutator>
+    <commutator fst="x3" snd="y6">
+      <D>-y4</D>
+    </commutator>
+    <commutator fst="x5" snd="y5">
+      <D>-Ha-Hb</D>
+    </commutator>
+    <commutator fst="y1" snd="Ha">
+      <D>-2*y1</D>
+    </commutator>
+    <commutator fst="y5" snd="Ha">
+      <D>-3*y5</D>
+    </commutator>
+    <commutator fst="x1" snd="x2">
+      <D>-x3</D>
+    </commutator>
+    <commutator fst="y1" snd="y3">
+      <D>2*y4</D>
+    </commutator>
+    <commutator fst="x6" snd="y3">
+      <D>-x4</D>
+    </commutator>
+    <commutator fst="x2" snd="Hb">
+      <D>2*x2</D>
+    </commutator>
+    <commutator fst="x3" snd="Ha">
+      <D>-x3</D>
+    </commutator>
+    <commutator fst="x3" snd="y2">
+      <D>-x1</D>
+    </commutator>
+    <commutator fst="x1" snd="Ha">
+      <D>2*x1</D>
+    </commutator>
+    <commutator fst="x4" snd="y3">
+      <D>-2*x1</D>
+    </commutator>
+    <commutator fst="x1" snd="x4">
+      <D>3*x5</D>
+    </commutator>
+    <commutator fst="x2" snd="y6">
+      <D>-y5</D>
+    </commutator>
+    <commutator fst="x5" snd="Ha">
+      <D>3*x5</D>
+    </commutator>
+    <commutator fst="y3" snd="Hb">
+      <D>-y3</D>
+    </commutator>
+    <commutator fst="x4" snd="y4">
+      <D>-2*Ha-3*Hb</D>
+    </commutator>
+    <commutator fst="x2" snd="Ha">
+      <D>-3*x2</D>
+    </commutator>
+    <commutator fst="x1" snd="y5">
+      <D>-y4</D>
+    </commutator>
+    <commutator fst="x4" snd="Ha">
+      <D>x4</D>
+    </commutator>
+    <commutator fst="x2" snd="y3">
+      <D>-y1</D>
+    </commutator>
+    <commutator fst="x2" snd="y2">
+      <D>-Hb</D>
+    </commutator>
+    <commutator fst="x3" snd="y4">
+      <D>-2*y1</D>
+    </commutator>
+    <commutator fst="x6" snd="y5">
+      <D>x2</D>
+    </commutator>
+    <commutator fst="y1" snd="y4">
+      <D>-3*y5</D>
+    </commutator>
+    <commutator fst="y3" snd="y4">
+      <D>-3*y6</D>
+    </commutator>
+    <commutator fst="x5" snd="y4">
+      <D>x1</D>
+    </commutator>
+    <commutator fst="x3" snd="y1">
+      <D>3*x2</D>
+    </commutator>
+    <commutator fst="x3" snd="x4">
+      <D>3*x6</D>
+    </commutator>
+  </commutators>
   <basis>
-    <poly>x1^3</poly>
+    <ncpoly>x1^3</ncpoly>
   </basis>
 </GAlgebra>

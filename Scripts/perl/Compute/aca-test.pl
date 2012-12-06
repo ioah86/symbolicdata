@@ -2,9 +2,10 @@
 #
 # author: graebe
 # createdAt: 2006-03-03
+# lastUpdate: 2012-11-26
 
-# purpose: Demonstration how a benchmark could be set up. Works for
-# the moment on the old XMLData
+# purpose: Demonstration how a benchmark could be set up. Works for examples
+# given directly by an INTPS XMLResource.
 
 # best to define this environment variable
 die unless defined $ENV{'SD_HOME'};
@@ -15,12 +16,12 @@ use XML::DOM; # A convenient perl DOM Parser package
 #### start main: create benchmark output for a special system.
 
 my $parser=new XML::DOM::Parser;
-my $xmldir="$ENV{'SD_HOME'}/XMLData/INTPS";
+my $xmldir="$ENV{'SD_HOME'}/OWLData/XMLResources/INTPS";
 my $zeroDimensionalExamples=
     ["Sym1_211", "Katsura_4", "Sym1_311", "Cyclic_5", "Sym1_321", 
      "Katsura_5"]; 
 
-print createOutputforMuPAD($zeroDimensionalExamples);
+print createOutputforMaple($zeroDimensionalExamples);
 
 # === end main ===
 
@@ -34,7 +35,7 @@ read("aca-test.mu"):
 // make a list of all examples to be processed
 theExamples:=[$theExamples]:
 
-// Run the examples using a specially defined run function that 
+// Run the examples using a specially defined run function
 // within the CAS that encapsulates all data and produces all
 // output information.
 
@@ -50,7 +51,7 @@ sub createOutputforMaple {
     my $out=<<EOT;
 read("aca-test.mpl");
 theExamples:=[$theExamples];
-map(theExamples, myBenchmarkFunction);
+map(myBenchmarkFunction, theExamples);
 quit;
 EOT
 }
@@ -58,7 +59,7 @@ EOT
 sub getExample {
     my $name=shift;
     my $doc=$parser->parsefile("$xmldir/$name.xml") or die;
-    my $vars=join(",",toVars(getTagValue($doc,"vars")));
+    my $vars=join(",",getTagValue($doc,"vars"));
     my $polys=join(",\n",getPolys($doc));
     return <<EOT;
 [theExample = "$name",
@@ -88,5 +89,3 @@ sub getValue {
     s/\s*<\/[^>]*?>\s*$//s;
     return $_;
 }
-
-sub toVars { return split(/\s+/,shift); }

@@ -12,12 +12,11 @@ map action($_), @ARGV;
 
 sub action {
   my $fn=shift;
-  system("cp $fn $fn.bak");
   local $/;
   open(FH,$fn);
   local $_=<FH>;
   close FH;
-  open(FH,">$fn");
+  open(FH,">$fn.new");
   print FH fix($_);
   close FH;
   print "Fixed $fn\n";

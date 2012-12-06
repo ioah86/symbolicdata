@@ -1,0 +1,331 @@
+# Exported with the Erfurt API - http://aksw.org/Projects/Erfurt
+
+@base <http://symbolicdata.org/Data/People/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://symbolicdata.org/Data/Model/> .
+@prefix sdp: <http://symbolicdata.org/Data/People/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sd:Author a owl:Class ;
+          rdfs:label "BIB-Autor" .
+
+<> a owl:Ontology ;
+   rdfs:comment "Contributors to the Symbolic Data Collection" ;
+   rdfs:label "SD Person Data" .
+
+sdp:Albano_G a sd:Author, foaf:Person ;
+             rdfs:label "Albano, G." .
+
+sdp:Apel_J a foaf:Person ;
+           rdfs:label "Apel, Joachim" .
+
+sdp:Bachmann_O sd:hasContributed "Perl tools: basic modules, Data, Record, INTPS, Html, Compute environment, Data: BIB, INTPS, Benchmark runs" ;
+               sd:hasShortName "obachman" ;
+               sd:hasStatus "joined: 3/1999, left: 12/2000" ;
+               sd:lastModified "2010-12-29" ;
+               a sd:Author, foaf:Person ;
+               rdfs:label "Bachmann, Olaf" .
+
+sdp:Bjoerk_G a sd:Author, foaf:Person ;
+             rdfs:label "Björck, G." .
+
+sdp:Boege_W a sd:Author, foaf:Person ;
+            rdfs:label "Boege, W." .
+
+sdp:Brickenstein_M sd:hasAffiliation sdp:kaiserslautern ;
+                   sd:hasContributed "INTPS satlib examples" ;
+                   sd:hasShortName "mbrickenstein" ;
+                   sd:lastModified "2008-02-27" ;
+                   a foaf:Person ;
+                   rdfs:label "Brickenstein, Michael" .
+
+sdp:Buchberger_B a sd:Author, foaf:Person ;
+                 rdfs:label "Buchberger, Benno" .
+
+sdp:Canny_JF a sd:Author, foaf:Person ;
+             rdfs:label "Canny, J.F." .
+
+sdp:Chou_SC a sd:Author, foaf:Person ;
+            rdfs:label "Chou, S.-C." .
+
+sdp:Cioffi_F sd:hasAffiliation sdp:napoli ;
+             sd:hasContributed "Data: INTPS/Curves" ;
+             sd:hasEmail "cioffifr@unina.it" ;
+             sd:hasShortName "cioffi" ;
+             sd:hasURLLiteral "http://cds.unina.it/~cioffifr" ;
+             sd:lastModified "2004-08-26" ;
+             a sd:Author, foaf:Person ;
+             rdfs:label "Cioffi, Francesca" .
+
+sdp:Cohn_H a sd:Author, foaf:Person ;
+           rdfs:label "Cohn, H." .
+
+sdp:Cox_D a sd:Author, foaf:Person ;
+          rdfs:label "Cox, D." .
+
+sdp:Czapor_SR a sd:Author, foaf:Person ;
+              rdfs:label "Czapor, S.R." .
+
+sdp:Decker_W sd:hasAffiliation sdp:kaiserslautern ;
+             a foaf:Person ;
+             rdfs:label "Decker, Wolfram" .
+
+sdp:Dengel_M sd:hasAffiliation sdp:saarbruecken ;
+             sd:hasContributed "Perl tools: Html presentation, frames and JavaScript" ;
+             sd:hasEmail "mdengel@math.uni-sb.de" ;
+             sd:hasStatus "joined: 10/1999, left: 9/2000" ;
+             sd:hasURLLiteral "http://loge.math.uni-sb.de/~dengel" ;
+             sd:lastModified "2004-08-26" ;
+             a foaf:Person ;
+             rdfs:label "Dengel, Michael" .
+
+sdp:Emiris_IZ a sd:Author, foaf:Person ;
+              rdfs:label "Emiris, I.Z." .
+
+sdp:Faugere_JC sd:hasAffiliation sdp:paris_VI ;
+               sd:hasContributed "Data: INTPS" ;
+               sd:hasEmail "jcf@posso.lip6.fr" ;
+               sd:hasShortName "jcf" ;
+               sd:hasURLLiteral "http://posso.lip6.fr/~jcf" ;
+               sd:lastModified "2004-08-26" ;
+               a foaf:Person ;
+               rdfs:label "Faugére, Jean-Charles" .
+
+sdp:Froeberg_G a sd:Author, foaf:Person ;
+               rdfs:label "Fröberg, G." .
+
+sdp:Fujiki_NM a sd:Author, foaf:Person ;
+              rdfs:label "Fujiki, N. M." .
+
+sdp:Fujise_T a sd:Author, foaf:Person ;
+             rdfs:label "Fujise, T." .
+
+sdp:Fukuda_S a sd:Author, foaf:Person ;
+             rdfs:label "Fukuda, S." .
+
+sdp:Galligo_A a sd:Author, foaf:Person ;
+              rdfs:label "Galligo, André" .
+
+sdp:Gebauer_R a sd:Author, foaf:Person ;
+              rdfs:label "Gebauer, Rüdiger" .
+
+sdp:Geddes_KO a sd:Author, foaf:Person ;
+              rdfs:label "Geddes, Keith O." .
+
+sdp:Gerdt_VP a sd:Author, foaf:Person ;
+             rdfs:label "Gerdt, Vladimir P." .
+
+sdp:Giovini_A a sd:Author, foaf:Person ;
+              rdfs:label "Giovini, A." .
+
+sdp:Graebe_HG sd:hasAffiliation sdp:leipzig ;
+              sd:hasContributed "Perl tools: basic modules, Meta, BIB, References, Syntax,, SQL, GEO, Data: BIB, INTPS, GEO" ;
+              sd:hasEmail "graebe@informatik.uni-leipzig.de" ;
+              sd:hasShortName "graebe" ;
+              sd:hasStatus "joined: 3/1999, active" ;
+              sd:hasURLLiteral "http://www.informatik.uni-leipzig.de/~graebe" ;
+              sd:lastModified "2004-08-26" ;
+              a sd:Author, foaf:Person ;
+              rdfs:label "Gräbe, Hans-Gert" .
+
+sdp:Grayson_DR a foaf:Person ;
+               rdfs:label "Grayson, Daniel R." .
+
+sdp:Greuel_GM sd:hasAffiliation sdp:kaiserslautern ;
+              a foaf:Person ;
+              rdfs:label "Greuel, Gert-Martin" .
+
+sdp:Hearn_AC a foaf:Person ;
+             rdfs:label "Hearn, Anthony C." .
+
+sdp:Heinle_A sd:hasAffiliation sdp:aachen ;
+             sd:hasContributed "Data: FreeAlgebra" ;
+             sd:hasEmail "Albert.Heinle@math.rwth-aachen.de" ;
+             sd:hasStatus "joined: 2010" ;
+             sd:hasURLLiteral "http://www.math.rwth-aachen.de/~Albert.Heinle" ;
+             sd:lastModified "2012-11-18" ;
+             a foaf:Person ;
+             rdfs:label "Heinle, Albert" .
+
+sdp:Hemmecke_Ralf a foaf:Person ;
+                  rdfs:label "Hemmecke, Ralf" .
+
+sdp:Hemmecke_Raymond sd:hasContributed "Data: TESTSETS" ;
+                     sd:hasEmail "raymond@hemmecke.de" ;
+                     sd:hasStatus "joined: 2/2002, active" ;
+                     sd:hasURLLiteral "http://www.hemmecke.de/raymond" ;
+                     sd:lastModified "2004-08-26" ;
+                     a foaf:Person ;
+                     rdfs:label "Hemmecke, Raymond" .
+
+sdp:Inawashiro_N a sd:Author, foaf:Person ;
+                 rdfs:label "Inawashiro, N." .
+
+sdp:Kahn_K a sd:Author, foaf:Person ;
+           rdfs:label "Kahn, Konstantin" .
+
+sdp:Kalkbrener_M a sd:Author, foaf:Person ;
+                 rdfs:label "Kalkbrener, Michael" .
+
+sdp:Katsura_W a sd:Author, foaf:Person ;
+              rdfs:label "Katsura, W." .
+
+sdp:Khutornoy_NV a sd:Author, foaf:Person ;
+                 rdfs:label "Khutornoy, N.V." .
+
+sdp:Klaus_U a foaf:Person ;
+            rdfs:label "Klaus, Uwe" .
+
+sdp:Kobayashi_H a sd:Author, foaf:Person ;
+                rdfs:label "Kobayashi, H." .
+
+sdp:Kredel_H a sd:Author, foaf:Person ;
+             rdfs:label "Kredel, Heinz" .
+
+sdp:Levandovskyy_V sd:hasAffiliation sdp:aachen ;
+                   sd:hasContributed "Data: GAlgebra, FreeAlgebra" ;
+                   sd:hasEmail "levandov@math.rwth-aachen.de" ;
+                   sd:hasShortName "levandovsky" ;
+                   sd:hasStatus "joined: 7/2003" ;
+                   sd:hasURLLiteral "http://www.math.rwth-aachen.de/~Viktor.Levandovskyy" ;
+                   sd:lastModified "2004-08-26" ;
+                   a foaf:Person ;
+                   rdfs:label "Levandovskyy, Viktor" .
+
+sdp:Little_J a sd:Author, foaf:Person ;
+             rdfs:label "Little, J." .
+
+sdp:Manocha_D a sd:Author, foaf:Person ;
+              rdfs:label "Manocha, D." .
+
+sdp:Mora_T a sd:Author, foaf:Person ;
+           rdfs:label "Mora, Teo" .
+
+sdp:Murao_H a sd:Author, foaf:Person ;
+            rdfs:label "Murao, H." .
+
+sdp:Niesi_G a sd:Author, foaf:Person ;
+            rdfs:label "Niesi, G." .
+
+sdp:OShea_D a sd:Author, foaf:Person ;
+            rdfs:label "O'Shea, D." .
+
+sdp:Orecchia_F sd:hasAffiliation sdp:napoli ;
+               a foaf:Person ;
+               rdfs:label "Orecchia, Ferruccio" .
+
+sdp:Pfister_G sd:hasAffiliation sdp:kaiserslautern ;
+              a foaf:Person ;
+              rdfs:label "Pfister, Gerhard" .
+
+sdp:Ramella_I sd:hasAffiliation sdp:napoli ;
+              a foaf:Person ;
+              rdfs:label "Ramella, Isabella" .
+
+sdp:Robbiano_L a sd:Author, foaf:Person ;
+               rdfs:label "Robbiano, Lorenzo" .
+
+sdp:Schoenemann_H sd:hasAffiliation sdp:kaiserslautern ;
+                  sd:hasContributed "Perl tools: Compute, Adaption of GNU time" ;
+                  sd:hasEmail "hannes@mathematik.uni-kl.de" ;
+                  sd:hasURLLiteral "http://www.mathematik.uni-kl.de/~hannes" ;
+                  sd:lastModified "2004-08-26" ;
+                  a sd:Author, foaf:Person ;
+                  rdfs:label "Schönemann, Hans" .
+
+sdp:Steidel_S sd:hasAffiliation sdp:kaiserslautern ;
+              sd:hasContributed "Some INTPS examples" ;
+              sd:hasEmail "steidel@mathematik.uni-kl.de" ;
+              sd:hasURLLiteral "http://www.mathematik.uni-kl.de/~steidel" ;
+              sd:lastModified "2010-12-29" ;
+              a foaf:Person ;
+              rdfs:label "Steidel, Stefan" .
+
+sdp:Stillman_ME a foaf:Person ;
+                rdfs:label "Stillman, Michael E." .
+
+sdp:Sturmfels_B a sd:Author, foaf:Person ;
+                rdfs:label "Sturmfels, Bernd" .
+
+sdp:Traverso_C a sd:Author, foaf:Person ;
+               rdfs:label "Traverso, Carlo" .
+
+sdp:Wallack_A a sd:Author, foaf:Person ;
+              rdfs:label "Wallack, A." .
+
+sdp:Wang_D a sd:Author, foaf:Person ;
+           rdfs:label "Wang, Dongming" .
+
+sdp:Wenk_M sd:hasAffiliation sdp:kaiserslautern ;
+           sd:hasEmail "wenk@mathematik.uni-kl.de" ;
+           sd:hasShortName "wenk" ;
+           sd:hasURLLiteral "http://www.mathematik.uni-kl.de/~wenk" ;
+           sd:lastModified "2004-08-26" ;
+           a foaf:Person ;
+           rdfs:comment "Student of Prof. Greuel" ;
+           rdfs:label "Wenk, Moritz" .
+
+sdp:Wichmann_T a sd:Author, foaf:Person ;
+               rdfs:label "Wichmann, T." .
+
+sdp:Witte_M sd:hasContributed "Data: GEO/Chou" ;
+            sd:hasStatus "joined: 3/2000, left: 3/2001" ;
+            sd:lastModified "2004-08-26" ;
+            a foaf:Person ;
+            rdfs:label "Witte, Malte" .
+
+sdp:Wu_WT a sd:Author, foaf:Person ;
+          rdfs:label "Wu, W.-T." .
+
+sdp:Zharkov_AYu a sd:Author, foaf:Person ;
+                rdfs:label "Zharkov, A.Yu." .
+
+sdp:aachen sd:hasAddress "Department of Mathematics, RWTH Aachen, Germany" ;
+           a foaf:Group ;
+           rdfs:label "RTWH Aachen, Germany" .
+
+sdp:kaiserslautern sd:hasAddress "Centre for Computer Algebra, Department of Mathematics, University of Kaiserslautern, Erwin-Schroedinger-Strasse, 67663 Kaiserslautern, Germany" ;
+                   a foaf:Group ;
+                   rdfs:label "Univ. Kaiserslautern, Germany" .
+
+sdp:leipzig sd:hasAddress "Universität Leipzig, Institut für Informatik, Augustusplatz 10, D-04109 Leipzig" ;
+            a foaf:Group ;
+            rdfs:label "Leipzig University, Germany" .
+
+sdp:maple sd:hasURLLiteral "http://www.maplesoft.com" ;
+          a foaf:Group ;
+          rdfs:label "Waterloo Maple, Inc." .
+
+sdp:mathematica sd:hasURLLiteral "http://www.wolfram.com" ;
+                a foaf:Group ;
+                rdfs:label "Wolfram Research, Inc." .
+
+sdp:mupad a foaf:Group ;
+          rdfs:label "MuPAD Research Group within Matlab" .
+
+sdp:napoli sd:hasAddress "Dip. di Matematica e Applicazioni, Univ. di Napoli \"Federico II\", Via Cintia, 80126 Napoli, Italy" ;
+           a foaf:Group ;
+           rdfs:label "Univ. di Napoli, Italy" .
+
+sdp:paris_VI sd:hasAddress "Equipe CALFOR, LIP6/CNRS Universite' Paris VI, case 168, 4 pl, Jussieu, F-75252 Paris Cedex 05, France" ;
+             a foaf:Group ;
+             rdfs:label "Univ. Paris VI, France" .
+
+sdp:posso a foaf:Group ;
+          rdfs:label "PoSSo Team" .
+
+sdp:saarbruecken sd:hasAddress "Department of Mathematics, University of Saarbruecken, 66041 Saarbruecken, Germany" ;
+                 a foaf:Group ;
+                 rdfs:label "Uinv. Saarbruecken, Germany" .
+
+sdp:sydney a foaf:Group ;
+           rdfs:label "Computational Algebra Group at the University of Sydney, Australia" .
+
+foaf:Group a owl:Class ;
+           rdfs:label "Affiliations" .
+
+foaf:Person a owl:Class ;
+            rdfs:label "People" .

@@ -11,11 +11,33 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="NonCommutativePolynomial">
+    <!-- A non commutative polynomial in distributive form without whitespaces. -->
+    <xs:restriction base="xs:token">
+      <xs:pattern value="\S+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="VarList">
     <!-- A comma separated list of variable names.-->
     <xs:restriction base="xs:token">
-      <xs:pattern value="\w+(,\w+)*"/>
+      <xs:pattern value="\w[\w_\d]*(,\w[\w_\d]*)*"/>
     </xs:restriction>
   </xs:simpleType>
+
+
+  <xs:simpleType name="Row">
+    <!-- A comma separated list of integer numbers. -->
+    <xs:restriction base="xs:token">
+      <xs:pattern value="-?\d+(,-?\d+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="IntegerMatrix">
+    <!-- A matrix of integer values. -->
+    <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="row" type="Row"/>
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>
