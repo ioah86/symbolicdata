@@ -1,10 +1,20 @@
 <?xml version="1.0"?>
 <GAlgebra createdAt="2003-07-03" createdBy="levandovsky">
   <vars>x,y,z</vars>
-  <commutators>[ D[1:2]=-z, D[1:3]=2*x, D[2:3]=-2*y ]</commutators>
+  <commutators>
+    <commutator fst="x" snd="z">
+      <D>2x</D>
+    </commutator>
+    <commutator fst="x" snd="y">
+      <D>-z</D>
+    </commutator>
+    <commutator fst="y" snd="z">
+      <D>-2y</D>
+    </commutator>
+  </commutators>
   <basis>
-    <poly>x^5</poly>
-    <poly>y^5</poly>
-    <poly>z^5-20*z^3+64*z</poly>
+    <ncpoly>x^5</ncpoly>
+    <ncpoly>y^5</ncpoly>
+    <ncpoly>z^5-20*z^3+64*z</ncpoly>
   </basis>
 </GAlgebra>
