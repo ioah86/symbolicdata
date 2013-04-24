@@ -25,7 +25,7 @@ def generateCode(vars, basis):
 with(Groebner):\n\
 Ideal := {%s}:\n\
 ordering := plex(%s):\n\
-Basis(Ideal, ordering):\n\
+B := Basis(Ideal, ordering):\n\
 print(B);\n\
 quit;\
 " % (",".join(basis),
