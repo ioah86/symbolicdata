@@ -44,21 +44,6 @@ import xml.dom.minidom as dom
 
 
 ################################################################################
-#First of all, check, if the directory with the XMLRessources of Symbolicdata
-#does exist in the expected path "../XMLResources/". If not, the
-#user will be asked later for the path.
-
-stdxmlDataPathDir = os.path.join("..","XMLResources")
-isXMLRessourcesDirectory = \
-    os.path.isdir(stdxmlDataPathDir)
-    # To make it more platform independent. What stands here would be in unix terms
-    #../../../OWLData/XMLResources.
-
-xmlDataPath = None
-if (isXMLRessourcesDirectory):
-  xmlDataPath = os.path.realpath(stdxmlDataPathDir)
-
-################################################################################
 #Lets start with the gui itself.
 
 class CreateTasksGui:
@@ -400,4 +385,20 @@ the local machine to call the following programs:")
     self.btn_CreateExportFolder = Tkinter.Button(self.mainFrame, text = "Create Export Folder", command = self.btnCreateClick)
     self.btn_CreateExportFolder.grid(row = 2*len(self.cpInstance.getPossibleComputerAlgebraSystems())+4, column = 1, sticky = Tkinter.E)
 
-CreateTasksGui()
+if __name__ == "__main__":
+    ################################################################################
+    #First of all, check, if the directory with the XMLRessources of Symbolicdata
+    #does exist in the expected path "../XMLResources/". If not, the
+    #user will be asked later for the path.
+  stdxmlDataPathDir = os.path.join("..","..","XMLResources")
+    isXMLRessourcesDirectory = \
+        os.path.isdir(stdxmlDataPathDir)
+    # To make it more platform independent. What stands here would be in unix terms
+    #../../../OWLData/XMLResources.
+
+    xmlDataPath = None
+    if (isXMLRessourcesDirectory):
+        xmlDataPath = os.path.realpath(stdxmlDataPathDir)
+    ####################
+    #Start the GUI
+    CreateTasksGui()
