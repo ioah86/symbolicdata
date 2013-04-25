@@ -19,6 +19,10 @@ class MachineSettings(object):
         algebra systems and their corresponding execution commands on the target-machine and
         the time command.
 
+        GENERAL ASSUMPTIONS:
+          - The inputs are valid, i.e. we do not check/sanitize them.
+            In particular, casDict is not empty, and the time command is not an empty string.
+
         :param     casDict: The dictionary with the computer algebra systems and their execution commands.
         :type      casDict: dictionary
         :param timeCommand: The time command on the target machine with the suitable options.

@@ -5,6 +5,14 @@ import GB_Fp_dp
 import GB_Z_lp
 
 class TestComputationProblems(unittest.TestCase):
+    """
+    Contains tests for the different computation problems classes, namely
+    - FA_Q_dp
+    - GB_Z_lp
+    - GB_Fp_dp
+
+    .. moduleauthor:: Albert Heinle <albert.heinle@uwaterloo.ca>
+    """
 
     def test_fileNameSanitizer(self):
         """
