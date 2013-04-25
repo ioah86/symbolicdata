@@ -3,7 +3,7 @@ import MachineSettings as MS
 
 class TestMachineSettings(unittest.TestCase):
     """
-    Tests for the class MachineSettings.py
+    Tests for the class MachineSettings
 
     .. moduleauthor:: Albert Heinle <albert.heinle@uwaterloo.ca>
     """
