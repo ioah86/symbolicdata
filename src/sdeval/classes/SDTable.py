@@ -1,6 +1,7 @@
 import os
 from exceptions.NoSuchSDTable import NoSuchSDTable
 from exceptions.NoSuchEntry import NoSuchEntry
+import xml.dom.minidom as dom
 
 class SDTable(object):
     """
@@ -48,6 +49,7 @@ class SDTable(object):
         :param entryName:   Name of the entry in the SD-Table the user wants to access.
         :type  entryName:   string
         :raise NoSuchEntry: If the entry is not in the SD-Table, this exception will be raised.
+        :returns:           XML string representing the entry represented by entryName
         """
         entryNameRaw = (entryName[:-4] if entryName.endswith(".xml") else entryName)
         allEntries = self.listEntries()
@@ -57,7 +59,11 @@ class SDTable(object):
             f = open(os.path.join(self.__sdTableFolder, entryNameRaw+".xml"))
             result = f.read()
             f.close()
-            return result
+            try:
+                dom.parseString(result)
+                return result
+            except:
+                raise NoSuchEntry("The entry " + str(entryName) + " in this SD-Table named "+self.__name+" does not contain valid XML")
 
     def listEntries(self):
         """
