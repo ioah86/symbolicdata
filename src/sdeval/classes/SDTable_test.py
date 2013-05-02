@@ -42,7 +42,8 @@ class TestSDTable(unittest.TestCase):
         3) Constructed via an XMLRessources instance and a table name
            3.1) non existing table name
            3.2) existing table name
-
+        4) Correct name saved
+        5) Empiric tests of entries.
         Note:
         - If there is no path to the XMLRessources provided in the setUp,
           some tests will be ignored.
@@ -77,6 +78,19 @@ class TestSDTable(unittest.TestCase):
                 SDTable.SDTable(None, (self.xr,"IntPS"))
             except:
                 self.fail("There should be at least the table IntPS in the XMLResources")
+        #4)
+        if self.xr != None:
+            sdt = SDTable.SDTable(None, (self.xr,"IntPS"))
+            self.assertEqual(sdt.getName(), "IntPS")
+            #5)
+            tempList = sdt.listEntries()
+            if "Amrhein" not in tempList or\
+                "Becker-Niermann" not in tempList or\
+                "Fee_1" not in tempList or\
+                "FourBodyProblem" not in tempList or\
+                "Wu-90" not in tempList:
+                self.fail("Some expected entries were not to be found in IntPS.")
+
 
     def testLoadEntry(self):
         """
@@ -103,6 +117,7 @@ class TestSDTable(unittest.TestCase):
                 self.fail("Could load an entry that clearly did not exist.")
             except:
                 pass
+            #2)
             try:
                 sdt.loadEntry("Becker-Niermann")
             except:
@@ -130,7 +145,7 @@ class TestSDTable(unittest.TestCase):
   </Comment>\n\
 </INTPS>"
             if bn.strip() != expectedString.strip():
-                print bn.strip()
-                print "-------"
-                print expectedString.strip()
+                # print bn.strip()
+                # print "-------"
+                # print expectedString.strip()
                 self.fail("Not the correct entry loaded")
