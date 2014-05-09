@@ -26,14 +26,22 @@ class FreeAlgebra(ProblemInstance):
         :type       uptoDeg: unsigned int
         """
         super(FreeAlgebra,self).__init__(name,sdTable)
+        if (vars==None or basis==None):
+            from FreeAlgebraFromXMLBuilder import FreeAlgebraFromXMLBuilder
+            builder = FreeAlgebraFromXMLBuilder(sdTable)
+            tempInst = builder.build(name,self.getXMLRaw())
+            self.__vars              = tempInst.getVars()
+            self.__basis             = tempInst.getBasis()
+            self.__uptoDeg           = tempInst.getUpToDeg()
+        else:
+            self.__vars              = vars
+            self.__basis             = basis
+            self.__uptoDeg           = uptoDeg
         if (
-                len(vars) == 0 or
-                len(basis) == 0
-            ):
-            raise IOError("Either the variable list was empty, or the basis. Either way, the creation of an instance of FreeAlgebra was not possible.")
-        self.__vars              = vars
-        self.__basis             = basis
-        self.__uptoDeg           = uptoDeg
+              len(self.__vars) == 0 or
+              len(self.__basis) == 0
+           ):
+                raise IOError("Either the variable list was empty, or the basis. Either way, the creation of an instance of FreeAlgebra was not possible.")
 
     def getVars(self):
         """
