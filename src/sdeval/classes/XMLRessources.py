@@ -12,15 +12,15 @@ class XMLRessources(object):
     """
 
     __requiredTables = ["IntPS",
-                      "FreeAlgebra",
+                      "FreeAlgebras",
                       "ModPS",
-                      "GAlgebra"]
+                      "GAlgebras"]
     """
     At least one of those tables should be contained in XMLRessources for being able to work with this table.
     This will be checked when creating this instance
     """
 
-    def __init__(self, folder=os.path.join("..","..","XMLResources")):
+    def __init__(self, folder = os.path.join("..", "..", "data", "XMLResources")):
         """
         This function is the constructor of the class XMLRessources. It sets the internal
         variable folder to the given path. If the given folder is not valid, the constructor raises
@@ -31,6 +31,7 @@ class XMLRessources(object):
         :type  folder:                   A string representing a valid path
         :raise XMLRessourcesInvalidPath: If given folder is not valid, this exception is raised
         """
+        
         if not os.path.isdir(folder):
             raise XMLRessourcesInvalidPath("The given folder " + str(folder) + " is not a valid path!")
         if not self.__isValidXMLRessourcesFolder(folder):
@@ -59,7 +60,7 @@ class XMLRessources(object):
         :raise NoSuchSDTable: If the requested SD-Table does not exist, this exception is raised
         """
         if not os.path.isdir(os.path.join(self.__folder,tableName)):
-            raise NoSuchSDTable("The table "+str(tableName)+ " does not exist in the XMLRessources folder!")
+            raise NoSuchSDTable("The table "+str(tableName)+ " does not exist in the XMLRessources folder!\nXMLResources Path: " + self.__folder)
         return SDTable(os.path.join(self.__folder, tableName))
 
     def listSDTables(self):

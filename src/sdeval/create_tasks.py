@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 #.. moduleauthor:: Albert Heinle <albert.heinle@rwth-aachen.de>
 
 """
@@ -28,7 +28,7 @@ parser.add_option("-s", "--source", dest="xmldatapath", help="The complete path 
                                                         #of our XML-Data
 (opts, args) = parser.parse_args()
 
-stdxmlDataPathDir = os.path.join("..","XMLResources")
+stdxmlDataPathDir = os.path.join("..", "..", "data", "XMLResources")
 
 if (len(args) == 0): # We need at least one argument
     if not os.path.isdir(stdxmlDataPathDir):

@@ -1,7 +1,7 @@
 from FreeAlgebra import FreeAlgebra
 import xml.dom.minidom as dom
 
-class FreeAlgebraFromXMLBuilder(object):
+class FreeAlgebrasFromXMLBuilder(object):
     """
     This class serves the purpose to create an FreeAlgebra instances from  given XML-Files.
 
@@ -10,7 +10,7 @@ class FreeAlgebraFromXMLBuilder(object):
 
     def __init__(self, sdTable):
         """
-        This is the constructor of the FreeAlgebraFromXMLBuilder. One only needs to provide the SDTable where
+        This is the constructor of the FreeAlgebrasFromXMLBuilder. One only needs to provide the SDTable where
         the FreeAlgebra-instances are found.
 
         :param sdTable: The table that contains all the FreeAlgebra-instances

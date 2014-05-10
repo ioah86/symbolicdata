@@ -9,7 +9,7 @@ class FA_Q_dp(ComputationProblem):
 
     .. moduleauthor:: Albert Heinle <albert.heinle@rwth-aachen.de>
     """
-    __associatedTables = ["FreeAlgebra"]
+    __associatedTables = ["FreeAlgebras"]
     """
     The tables containing problem instances that can be used as input for this computation problem
     """

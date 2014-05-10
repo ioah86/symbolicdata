@@ -16,8 +16,10 @@ def generateCode(vars, basis, uptoDeg):
 
     :param         vars: A list of variables used in the FreeAlgebra-System
     :type          vars: list
-    :param        basis: The polynomials forming a basis of the FreeAlgebra-System. This input will not be checked whether
-                         there are polynomials using variables not in the list of variables.
+    :param        basis: The polynomials forming a basis of the
+                         FreeAlgebra-System. This input will not be
+                         checked whether there are polynomials using variables
+                         not in the list of variables.
     :type         basis: list
     :param      uptoDeg: The uptoDeg Entry.
     :type       uptoDeg: unsigned int
@@ -25,11 +27,14 @@ def generateCode(vars, basis, uptoDeg):
     result = ""
     result += "LIB \"freegb.lib\";\n"
     result += "ring r = 0,(%s),dp;\n" % ",".join(vars)
+    result += "int num_vars = nvars(r);\n"
     result += "int d = %i;\n" % uptoDeg
     result += "def R = makeLetterplaceRing(d);\n setring(R);\n"
-    result += "ideal I = %s;\n" % ",\n".join(FAPolyToSingularStyle(v,vars) for v in basis)
+    result += "ideal I = %s;\n" % \
+                     ",\n".join(FAPolyToSingularStyle(v,vars) for v in basis)
     result += "option(prot);\noption(redTail);\noption(redSB);\n"
-    result += "ideal J = letplaceGBasis(I);\n"
+    result += "option(notBuckets);\n"
+    result += "ideal J = system(\"freegbdvc\", I, d, num_vars);\n"
     result += "print (\">>Output Start\");\n"
     result += "print (J, \"%s\");\n"
     result += "print (\"<<Output End\");$"
@@ -70,3 +75,5 @@ def FAPolyToSingularStyle(poly,variables):
             result += "+"
         result = result[:-1]
         return result
+
+# vim: set tabstop=4 shiftwidth=4 expandtab :

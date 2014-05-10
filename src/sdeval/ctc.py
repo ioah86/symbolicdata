@@ -152,7 +152,7 @@ if __name__=="__main__":
         #of our XML-Data
     (opts, args) = parser.parse_args()
 
-    stdxmlDataPathDir = os.path.join("..","..","XMLResources")
+    stdxmlDataPathDir = os.path.join("..", "..", "data", "XMLResources")
 
     if (len(args) == 0): # We need at least one argument
         if not os.path.isdir(stdxmlDataPathDir):
