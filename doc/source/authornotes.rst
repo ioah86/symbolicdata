@@ -97,29 +97,32 @@ used by git to identify you, but not to send any mail to you.
 Structure of the repository and how to deal with it
 ...................................................
 
-The repository consists of 3 branches.
+The |PACKAGE_NAME| project decided to follow `"A successful Git
+branching model"
+<http://nvie.com/posts/a-successful-git-branching-model/>`_.
 
-`master <https://github.com/symbolicdata/symbolicdata>`_
-  This branch is for all the data that should go into version 3 of
-  |PACKAGE_NAME|.
+The **blessed** `repository
+<https://github.com/symbolicdata/symbolicdata>`_ consists of 3
+branches.
+
+`master <https://github.com/symbolicdata/symbolicdata>`_ This branch
+  is for all the data that should go into version 3 of |PACKAGE_NAME|
+  and marks the latest stable release.
+
+`develop <https://github.com/symbolicdata/symbolicdata/tree/develop>`_
+  This branch is for actual development. Main requirement for a commit
+  on this branch is that programs must compile and data must be in a
+  consistent state (no syntactic errors).
 
 `old-master <https://github.com/symbolicdata/symbolicdata/tree/old-master>`_
   This branch is basically a snapshot from the latest Mercurial
   repository (12-Dec-2012). It contains the full history of former
   |PACKAGE_NAME| commits.
 
-`gh-pages <https://github.com/symbolicdata/symbolicdata/tree/gh-pages>`_
+  This branch will eventually be removed.
 
-  This branch is github specific. You don't need to look at it at all,
-  because it is generated and simply serves the purpose of showing the
-  `pages at github <http://symbolicdata.github.com/symbolicdata>`_.
-
-  The ``gh-pages`` branch is generated as described in section :doc:`How
-  to create this website <website>`.
-
-In fact, there are three disconnected DAGs for ``master``,
-``old-master`` and ``gh-pages``. (Something that cannot be done with
-Mercurial.)
+In fact, there are two disconnected DAGs for ``master``, and
+``old-master``. (Something that cannot be done with Mercurial.)
 
 How to work with GIT
 --------------------
