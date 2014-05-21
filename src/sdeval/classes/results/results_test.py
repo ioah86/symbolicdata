@@ -1,5 +1,6 @@
 import unittest
 from Proceedings import Proceedings
+from ResultedTimings import ResultedTimings
 from ..Task import Task
 
 class TestProblemInstances(unittest.TestCase):
@@ -112,6 +113,91 @@ class TestProblemInstances(unittest.TestCase):
         self.assertEqual(prcdngs.getRUNNING(),[],"setERROR changed RUNNING list wrongly.")
         self.assertEqual(prcdngs.getCOMPLETED(),[["PI1","cas1"]],"setERROR changed COMPLETED list.")
         self.assertEqual(prcdngs.getERROR(),[["PI2", "cas1"]], "setERROR changed ERROR list wrongly.")
+        
+    def test_ResultedTimings(self):
+        """
+        This tests checks the correctness of the ResultedTimings class. The following tests are covered:
+        1. Creation of ResultedTimings with None in every input part (fail)
+        2. Creation of ResultedTimings with wrong Datatypes (fail)
+           2.a) Proceedings integer value
+           2.b) Task and/or timestamp integers
+        3. Correct initialization of the ResultedTimings
+           3.1. Test the initial set
+           3.2. Test the getters
+           3.3. Test setRunning with incorrect value
+           3.4. Test setRunning with correct value
+           3.5. Test setCompleted with incorrect value
+           3.6. Test setCompleted with correct value
+           3.7. Test setERROR with incorrect value
+           3.8. Test setERROR with correct value.
+        """
+        #1.
+        try:
+            rst = ResultedTimings(None,None,None)
+            self.fail("Could create instance of ResultedTimings with None in all entries")
+        except:
+            pass
+        #2.a
+        try:
+            rst = ResultedTimings(1)
+            self.fail("Could create instance of ResultedTimings with Integer as associated Proceedings")
+        except:
+            pass
+        #2.b
+        try:
+            rst = ResultedTimings(None, 1,1)
+            self.fail("Could create ResultedTimings with wrong datatypes for task and timestamp")
+        except:
+            pass
+        #3
+        rst = ResultedTimings(None,self.testTask,self.testTimeStamp)
+        #3.1
+        self.assertEqual(len(rst.getWAITING()),16,"Number of waiting processes was not correct")
+        self.assertEqual(rst.getRUNNING(),[],"Running processes initially wrong")
+        self.assertEqual(rst.getCOMPLETED(),[],"Completed processes initially wrong")
+        self.assertEqual(rst.getERROR(),[], "Erroneous processes initially wrong")
+        #3.2
+        self.assertEqual(rst.getTask(), self.testTask.getName(), "Initialization with wrong task performed")
+        self.assertEqual(rst.getTimeStamp(), self.testTimeStamp, "Initialization with wrong timeStamp")
+        self.assertEqual(rst.getResultingFileDict(),{}, "Initialization with wrong resultingFileDict")
+        rst.setRUNNING("abc")
+        self.assertEqual(len(rst.getWAITING()),16,"invalid setRunning changed WAITING list.")
+        self.assertEqual(rst.getRUNNING(),[],"invalid setRunning changed RUNNING list.")
+        self.assertEqual(rst.getCOMPLETED(),[],"invalid setRunning changed COMPLETED list.")
+        self.assertEqual(rst.getERROR(),[], "invalid setRunning changed ERROR list.")
+        #5.4
+        rst.setRUNNING(["PI1","cas1"])
+        self.assertEqual(len(rst.getWAITING()),15,"setRunning changed WAITING list wrongly.")
+        self.assertEqual(rst.getRUNNING(),[["PI1","cas1", None]],"setRunning did not affect RUNNING list.")
+        self.assertEqual(rst.getCOMPLETED(),[],"setRunning changed COMPLETED list.")
+        self.assertEqual(rst.getERROR(),[], "setRunning changed ERROR list.")
+        #5.5
+        timingTemp = {"real":1.2, "user":1.3, "sys": 1.4}
+        rst.setCOMPLETED("abc",timingTemp)
+        self.assertEqual(len(rst.getWAITING()),15,"invalid setCompleted changed WAITING list wrongly.")
+        self.assertEqual(rst.getRUNNING(),[["PI1","cas1",None]],"invalid setCompleted changed RUNNING list.")
+        self.assertEqual(rst.getCOMPLETED(),[],"invalid setCompleted changed COMPLETED list.")
+        self.assertEqual(rst.getERROR(),[], "invalid setCompleted changed ERROR list.")
+        #5.6
+        rst.setCOMPLETED(["PI1","cas1"],timingTemp)
+        self.assertEqual(len(rst.getWAITING()),15,"setCompleted changed WAITING list.")
+        self.assertEqual(rst.getRUNNING(),[],"setCompleted changed RUNNING list wrongly.")
+        self.assertEqual(rst.getCOMPLETED(),[["PI1","cas1",timingTemp]],"setCompleted did not change COMPLETED list.")
+        self.assertEqual(rst.getERROR(),[], "setCompleted changed ERROR list.")
+        #5.7
+        rst.setERROR(["PI1","cas1"], timingTemp)
+        self.assertEqual(len(rst.getWAITING()),15,"invalid setERROR changed WAITING list.")
+        self.assertEqual(rst.getRUNNING(),[],"invalid setERROR changed RUNNING list.")
+        self.assertEqual(rst.getCOMPLETED(),[["PI1","cas1",timingTemp]],"invalid setERROR changed COMPLETED list.")
+        self.assertEqual(rst.getERROR(),[], "invalid serERROR changed ERROR list.")
+        #5.8
+        rst.setRUNNING(["PI2","cas1", None])
+        rst.setERROR(["PI2", "cas1"],timingTemp)
+        self.assertEqual(len(rst.getWAITING()),14,"setERROR changed WAITING list.")
+        self.assertEqual(rst.getRUNNING(),[],"setERROR changed RUNNING list wrongly.")
+        self.assertEqual(rst.getCOMPLETED(),[["PI1","cas1",timingTemp]],"setERROR changed COMPLETED list.")
+        self.assertEqual(rst.getERROR(),[["PI2", "cas1",timingTemp]], "setERROR changed ERROR list wrongly.")
+        
 
 if __name__=="__main__":
     unittest.main()

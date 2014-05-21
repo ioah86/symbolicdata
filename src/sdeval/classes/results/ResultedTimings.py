@@ -13,6 +13,7 @@ class ResultedTimings(object):
         """
         This is the constructor of the ResultedTimings-Class. Either a proceedings instance is given and
         this will be used then, or a new Proceedings instance is generated given the task and the timeStamp.
+        If both are given, the object is created by ignoring the last two input entries.
 
         :param proceedings: The proceedings instance we want to decorate
         :type  proceedings: Proceedings
@@ -126,3 +127,15 @@ class ResultedTimings(object):
         """
         self.__proceedings.setCOMPLETED(tuple[:2])
         self.__ResultingFileDict[str(tuple[:2])] = timings
+
+    def setERROR(self, tuple, timings):
+        """
+        Adds a tuple to the list of erroneous computations. It is assumed that the tuple is
+        contained in the RUNNING list, otherwise this function does nothing.
+
+        :param tuple: A tuple of the form (problem instance, computer algebra system)
+        :type  tuple: list
+        """
+        if tuple[:2] in self.__proceedings.getRUNNING():
+            self.__proceedings.setERROR(tuple[:2])
+            self.__ResultingFileDict[str(tuple[:2])] = timings
