@@ -5,6 +5,8 @@ from ProceedingsToHTMLWriter import ProceedingsToHTMLWriter
 from ProceedingsToXMLWriter import ProceedingsToXMLWriter
 from ResultedTimingsToHTMLWriter import ResultedTimingsToHTMLWriter
 from ResultedTimingsToXMLWriter import ResultedTimingsToXMLWriter
+from ResultingFile import ResultingFile
+from ResultingFileFromOutputBuilder import ResultingFileFromOutputBuilder
 from ..Task import Task
 
 class TestProblemInstances(unittest.TestCase):
@@ -382,6 +384,83 @@ class TestProblemInstances(unittest.TestCase):
         strRepresentation = wrtr.createXMLFromResultedTimings(rsltTimings).toxml()
         expectedOutput = "<?xml version=\"1.0\" ?><proceedings><timestamp>201405161350</timestamp><task>PrettyTestTask</task><waiting><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry></waiting><running/><completed/><error/></proceedings>"
         self.assertEqual(strRepresentation, expectedOutput)
+
+    def test_ResultingFile(self):
+        """
+        This tests checks the correct initialization of ResultingFile.
+        It covers the following tests after initializing it with some dummy-input:
+        1. Test the getters
+           1.a) Invalid dicitonary for the time
+           1.b) Valid dicitonary for the time
+        2. Test the string representation
+        """
+        #1.a
+        testGuy1 = ResultingFile(None,None,None,None)
+        self.assertEqual(testGuy1.getTimes(),
+                         {"real":0.0,"user":0.0,"sys":0.0},
+                         "Times with None as input were not correctly initialized.")
+        self.assertEqual(testGuy1.getCASOutput(),None, "Casoutput was not None as expected.")
+        self.assertEqual(testGuy1.getComputerAlgebraSystem(),None, "Computeralgebrasystem was not None as expected")
+        self.assertEqual(testGuy1.getProblemInstance(),None,"Probleminstance was not None as expected")
+        #1.b
+        testGuy2 = ResultingFile("Magic", "MagicCAS", "hello", {"real":10.0,"user":5.0,"sys":5.0})
+        self.assertEqual(testGuy2.getTimes(),
+                         {"real":10.0,"user":5.0,"sys":5.0},
+                         "Times with valid entry were not correctly initialized.")
+        self.assertEqual(testGuy2.getCASOutput(),"hello", "Casoutput was not as expected.")
+        self.assertEqual(testGuy2.getComputerAlgebraSystem(),"MagicCAS", "Computeralgebrasystem was not as expected")
+        self.assertEqual(testGuy2.getProblemInstance(),"Magic","Probleminstance was not as expected")
+        #2
+        expectedOutput = "Problem instance: Magic\n\
+Computer algebra system: MagicCAS\n\
+Times:\n\
+    real: 10.0\n\
+    user: 5.0\n\
+     sys: 5.0\n\
+Output:\n\
+hello"
+        self.assertEqual(expectedOutput, str(testGuy2),"String representation of ResultingFile was not correct.")
+
+
+    def test_ResultingFileFromOutputBuilder(self):
+        """
+        This tests checks the correctness of the ResultingFileFromOutputBuilder class.
+        It covers the following cases for an instance of ResultingFileFromOutputBuilder:
+        1. None is input
+        2. Input has not the time-entries as last three lines
+        3. Input has the three time entries correctly as last three lines.
+        4. Input has the three time entries scattered as the last three lines.
+        """
+        builder = ResultingFileFromOutputBuilder()
+        #1.
+        try:
+            rf = builder.build("MagicInstance", "MagicCAS", None)
+            self.fail("Could build a ResultingFile with None as specified output.")
+        except:
+            pass
+        #2.
+        try:
+            rf =builder.build("MagicInstance", "MagicCAS", "hello")
+            self.fail("Could build a ResultingFile with no time entries in the end")
+        except:
+            pass
+        #3.
+        try:
+            rf = builder.build("MagicInstance", "MagicCAS", "hello\nreal 0.10\nuser 0.01\nsys 0.09")
+        except:
+            self.fail("Gave the ResultingfileBuilder a correct input, but it could not use it.")
+        #4.
+        try:
+            rf = builder.build("MagicInstance", "MagicCAS", "hello\n  \t  real 0.10\n\t   user 0.01\t\n\tsys 0.09")
+        except:
+            self.fail("Gave the ResultingfileBuilder a correct but scattered input, but it could not use it.")
+        print rf.getTimes()
+        self.assertEqual(rf.getTimes(),
+                         {"real":"0.10","user":"0.01","sys":"0.09"},
+                         "Times with valid entry were not correctly initialized.")
+        self.assertEqual(rf.getCASOutput(),"hello", "Casoutput was not as expected.")
+        self.assertEqual(rf.getComputerAlgebraSystem(),"MagicCAS", "Computeralgebrasystem was not as expected")
+        self.assertEqual(rf.getProblemInstance(),"MagicInstance","Probleminstance was not as expected")
 
 if __name__=="__main__":
     unittest.main()
