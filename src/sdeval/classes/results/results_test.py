@@ -1,6 +1,10 @@
 import unittest
 from Proceedings import Proceedings
 from ResultedTimings import ResultedTimings
+from ProceedingsToHTMLWriter import ProceedingsToHTMLWriter
+from ProceedingsToXMLWriter import ProceedingsToXMLWriter
+from ResultedTimingsToHTMLWriter import ResultedTimingsToHTMLWriter
+from ResultedTimingsToXMLWriter import ResultedTimingsToXMLWriter
 from ..Task import Task
 
 class TestProblemInstances(unittest.TestCase):
@@ -198,6 +202,186 @@ class TestProblemInstances(unittest.TestCase):
         self.assertEqual(rst.getCOMPLETED(),[["PI1","cas1",timingTemp]],"setERROR changed COMPLETED list.")
         self.assertEqual(rst.getERROR(),[["PI2", "cas1",timingTemp]], "setERROR changed ERROR list wrongly.")
         
+    def test_ProceedingsToHTMLWriter(self):
+        """
+        Testing the correctness of the ProceedingsToHTMLWriter class.
+        The following test cases are covered:
+        1. Calling a ProceedingsToHTMLWriter with a wrong parameter
+           1.a None
+           1.b an integer value
+        2. Calling the ProceedingsToHTMLWriter with a correct parameter
+        """
+        wrtr = ProceedingsToHTMLWriter()
+        #1.a
+        strRepresentation = wrtr.createHTMLFromProceedings(None)
+        self.assertEqual(strRepresentation, None)
+        #1.b
+        strRepresentation = wrtr.createHTMLFromProceedings(1)
+        self.assertEqual(strRepresentation, None)
+        #2
+        prcdngs = Proceedings(self.testTask, self.testTimeStamp)
+        expectedOutput = "<html>\n\
+<head>\n\
+\t<title>PrettyTestTask run at 201405161350</title>\n\
+</head>\n\
+<body>\n\
+<h1> Task: PrettyTestTask </h1>\n\
+<h2> Run at time: 201405161350 </h2>\n\
+<br><br>\n\
+<table border=1>\n\
+\t<tr>\n\
+\t\t<td> Problem Instance/Computer Algebra System</td>\n\
+\t\t<td>cas4</td>\n\
+\t\t<td>cas1</td>\n\
+\t\t<td>cas3</td>\n\
+\t\t<td>cas2</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI1</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI2</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI3</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI4</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+</table>\n\
+</body>\n\
+</html>"
+        self.assertEqual(wrtr.createHTMLFromProceedings(prcdngs), expectedOutput,"HTML representation was wrong")
+        
+
+    def test_ProceedingsToXMLWriter(self):
+        """
+        Testing the correctness of the ProceedingsToXMLWriter class.
+        The following test cases are covered:
+        1. Calling a ProceedingsToXMLWriter with a wrong parameter
+           1.a None
+           1.b an integer value
+        2. Calling the ProceedintsToXMLWriter with a correct parameter
+        """
+        wrtr = ProceedingsToXMLWriter()
+        #1.a
+        strRepresentation = wrtr.createXMLFromProceedings(None)
+        self.assertEqual(strRepresentation, None)
+        #1.b
+        strRepresentation = wrtr.createXMLFromProceedings(1)
+        self.assertEqual(strRepresentation, None)
+        #2
+        prcdngs = Proceedings(self.testTask, self.testTimeStamp)
+        strRepresentation = wrtr.createXMLFromProceedings(prcdngs).toxml()
+        expectedOutput = "<?xml version=\"1.0\" ?><proceedings><timestamp>201405161350</timestamp><task>PrettyTestTask</task><waiting><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry></waiting><running/><completed/><error/></proceedings>"
+        self.assertEqual(expectedOutput, strRepresentation,"Output of XML-file did not match what we wanted to have")
+
+
+    def test_ResultedTimingsToHTMLWriter(self):
+        """
+        Testing the correctness of the ResultedTimingsToHTMLWriter class.
+        The following test cases are covered:
+        1. Calling a ResultedTimingsToHTMLWriter with a wrong parameter
+           1.a None
+           1.b an integer value
+        2. Calling the ResultedTimingsToHTMLWriter with a correct parameter
+        """
+        wrtr = ResultedTimingsToHTMLWriter()
+        #1.a
+        strRepresentation = wrtr.createHTMLFromResultedTimings(None)
+        self.assertEqual(strRepresentation, None)
+        #1.b
+        strRepresentation = wrtr.createHTMLFromResultedTimings(1)
+        self.assertEqual(strRepresentation, None)
+        #2
+        rsltTimings = ResultedTimings(None, self.testTask, self.testTimeStamp)
+        expectedOutput = "<html>\n\
+<head>\n\
+\t<title>PrettyTestTask run at 201405161350</title>\n\
+</head>\n\
+<body>\n\
+<h1> Task: PrettyTestTask </h1>\n\
+<h2> Run at time: 201405161350 </h2>\n\
+<br><br>\n\
+<table border=1>\n\
+\t<tr>\n\
+\t\t<td> Problem Instance/Computer Algebra System</td>\n\
+\t\t<td>cas4</td>\n\
+\t\t<td>cas1</td>\n\
+\t\t<td>cas3</td>\n\
+\t\t<td>cas2</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI1</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI2</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI3</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+\t<tr>\n\
+\t\t<td>PI4</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t\t<td>WAITING</td>\n\
+\t</tr>\n\
+</table>\n\
+</body>\n\
+</html>"
+        self.assertEqual(expectedOutput,wrtr.createHTMLFromResultedTimings(rsltTimings),"HTML output of ResultedTimings was not correct.")
+
+
+    def test_ResultedTimingsToXMLWriter(self):
+        """
+        Testing the correctness of the ResultedTimingsToXMLWriter class.
+        The following test cases are covered:
+        1. Calling a ResultedTimingsToXMLWriter with a wrong parameter
+           1.a None
+           1.b an integer value
+        2. Calling the ResultedTimingsToXMLWriter with a correct parameter
+        """
+        wrtr = ResultedTimingsToXMLWriter()
+        #1.a
+        strRepresentation = wrtr.createXMLFromResultedTimings(None)
+        self.assertEqual(strRepresentation, None)
+        #1.b
+        strRepresentation = wrtr.createXMLFromResultedTimings(1)
+        self.assertEqual(strRepresentation, None)
+        #2
+        rsltTimings = ResultedTimings(None, self.testTask, self.testTimeStamp)
+        strRepresentation = wrtr.createXMLFromResultedTimings(rsltTimings).toxml()
+        expectedOutput = "<?xml version=\"1.0\" ?><proceedings><timestamp>201405161350</timestamp><task>PrettyTestTask</task><waiting><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI1</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI2</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI3</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas1</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas2</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas3</computeralgebrasystem></entry><entry><probleminstance>PI4</probleminstance><computeralgebrasystem>cas4</computeralgebrasystem></entry></waiting><running/><completed/><error/></proceedings>"
+        self.assertEqual(strRepresentation, expectedOutput)
 
 if __name__=="__main__":
     unittest.main()

@@ -1,3 +1,5 @@
+from ResultedTimings import ResultedTimings
+
 class ResultedTimingsToHTMLWriter(object):
     """
     This is a builder class that creates an html representing a given ResultedTimings instance of a task.
@@ -28,7 +30,18 @@ class ResultedTimingsToHTMLWriter(object):
                                    |  or used time               |
           _________________________|_____________________________|________________________
           ...
+
+        If the input is not an instance of ResultedTimings, or is None, then None is returned
+          
+        :param rt: The instance of ResultedTimings, for which we want to generate a HTML-Representation for
+        :type  rt: ResultedTimings
+        :returns : The HTML representation of rt
+        :rtype   : string
         """
+        if not isinstance(rt, ResultedTimings):
+            return None
+        if rt == None:
+            return None
         result = "\
 <html>\n\
 <head>\n\

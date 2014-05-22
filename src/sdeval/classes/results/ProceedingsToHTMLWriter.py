@@ -1,3 +1,5 @@
+from Proceedings import Proceedings
+
 class ProceedingsToHTMLWriter(object):
     """
     This is a builder class that creates an html representing a given proceedings of a task.
@@ -26,7 +28,18 @@ class ProceedingsToHTMLWriter(object):
                                    |  CAS1 on probleminstance 2  |
           _________________________|_____________________________|
           ...
+
+
+        If the given parameter was not an instance of Proceedings, this function will return None.
+        :param     proceedings: The Proceedings-instance that we want to convert to HTML
+        :type      proceedings: Proceedings
+        :returns : The HTML representation of proceedings
+        :rtype   : string
         """
+        if not isinstance(proceedings, Proceedings):
+            return None
+        if proceedings == None:
+            return None
         result = "\
 <html>\n\
 <head>\n\
