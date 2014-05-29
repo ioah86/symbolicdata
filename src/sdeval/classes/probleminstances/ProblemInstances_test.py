@@ -39,6 +39,14 @@ class TestProblemInstances(unittest.TestCase):
                 self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
         if self.xr ==None:
             print "WARNING: As the path to the XMLResources is not provided, some tests will be ignored"
+        #here is a variable for testing the builder for failure
+        self.fakeXMLInst1 = """<?xml version="1.0"?>
+<INTPS createdAt="2014-05-28" createdBy="heinle">
+  <vars></vars>
+  <basis>
+  </basis>
+</INTPS>"""
+        self.fakeXMLInst2 = "<?xml version=\"1.0\"?><FAKE></FAKE>"
     
     def test_FreeAlgebra(self):
         """
@@ -163,6 +171,51 @@ f^2+2*e*a+e+2*d*b+c^2\n\
 2*f*a+f+2*e*b+2*d*c","String representation was not correct")
         #1.e
         self.assertEqual(intpsinstance.getSDTable(),sdt,"SDTable got altered")
+
+    def test_Builders(self):
+        """
+        Here, we test how the XMLBuilders can handle fake XML-instances.
+        The test-cases are the following:
+        1. An xml-tree, which contains some values that make sense, but not all of them
+        2. An xml-tree, which makes no sense whatsoever.
+        """
+        sdt = SDTable.SDTable(None, (self.xr,"IntPS"))
+        intpsbuilder = IntPSFromXMLBuilder(sdt)
+        modpsBuilder = ModPSFromXMLBuilder(sdt)
+        falgBuilder = FreeAlgebraFromXMLBuilder(sdt)
+        #1.
+        try:
+            inst = intpsbuilder.build("Amrhein", self.fakeXMLInst1)
+            self.fail("Could build IntPS-instance from partly invalid XML-file")
+        except:
+            pass
+        try:
+            inst = modpsBuilder.build("Amrhein", self.fakeXMLInst1)
+            self.fail("Could build ModPS-instance from partly invalid XML-file")
+        except:
+            pass
+        try:
+            inst = falgBuilder.build("Amrhein", self.fakeXMLInst1)
+            self.fail("Could build FreeAlgebra-instance from partly invalid XML-file")
+        except:
+            pass
+        #2
+        try:
+            inst = intpsbuilder.build("Amrhein", self.fakeXMLInst2)
+            self.fail("Could build IntPS-instance from completely invalid XML-file")
+        except:
+            pass
+        try:
+            inst = modpsBuilder.build("Amrhein", self.fakeXMLInst2)
+            self.fail("Could build ModPS-instance from completely invalid XML-file")
+        except:
+            pass
+        try:
+            inst = falgBuilder.build("Amrhein", self.fakeXMLInst2)
+            self.fail("Could build FreeAlgebra-instance from completely invalid XML-file")
+        except:
+            pass
+
         
 if __name__=="__main__":
     unittest.main()

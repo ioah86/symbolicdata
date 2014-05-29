@@ -110,3 +110,7 @@ cas3\n\
 cas4"
         self.assertEqual(str(self.testTask), expectedOutput,
                     "String representation of our test instance of Task was not correct")
+
+
+if __name__=="__main__":
+    unittest.main()

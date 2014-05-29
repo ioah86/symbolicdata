@@ -1,4 +1,6 @@
 from Task import Task
+from TaskFolderTree import TaskFolderTree
+from MachineSettings import MachineSettings
 from TaskToXMLWriter import TaskToXMLWriter
 import os
 import shutil
@@ -17,6 +19,8 @@ class TaskFolder(object):
       - An executable file runTasks.py to execute the computations.
       - The machine settings for the machine, where the task shall be
         executed on.
+
+    If any one of the input parameters is not valid, the constructor raises an exception
 
     .. seealso: :mod:`Task <sdeval.classes.Task>`, :mod:`TaskFolderTree <sdeval.classes.TaskFolderTree>`
     .. moduleauthor:: Albert Heinle <albert.heinle@rwth-aachen.de>
@@ -42,7 +46,24 @@ class TaskFolder(object):
         :type     casExecFiles: TaskFolderTree
         :param machineSettings: The Machine Settings of the Machine we execute our code on
         :type  machineSettings: MachineSettings
+        :raises: IOError
         """
+        if (task==None or casExecFiles==None or machineSettings == None):
+            raise IOError("One of the input parameters to Taskfolder was None")
+        if (not isinstance(task, Task)):
+            raise IOError("The input parameter task was not of type Task")
+        if (not isinstance(casExecFiles, TaskFolderTree)):
+            raise IOError("The input parameter casExecFiles was not of type TaskFolderTree")
+        if (not isinstance(machineSettings, MachineSettings)):
+            raise IOError("The input parameter machineSettings was not of Type MachineSettings")
+        #From here on, we can assume that the Input is at least type-wise correct
+        for p in casExecFiles.getAllPaths():
+            if not p[0] in task.getAssociatedSDTables():
+                raise IOError("CasExecution was not consistent with Task")
+        for a in task.getProblemInstances():
+            for b in task.getComputerAlgebraSystems():
+                if len(filter(lambda x: x[1] == a and x[2]==b,casExecFiles.getAllPaths()))==0:
+                    raise IOError("Some of the problems from the task are not existent in the taskfoldertree")
         self.__task = task
         self.__casExecFiles = casExecFiles
         self.__machineSettings = machineSettings
