@@ -27,46 +27,61 @@ class TestTask(unittest.TestCase):
         4) An empty list of ProblemInstances, rest fine
         5) An empty list of computeralgebrasystems, rest fine
         """
+        testPassed = 1
         #1)
         try:
             Task.Task("", self.testComputationProblem, self.testSDTables, self.testPIs, self.testCASs)
-            self.fail("Could make an instance of Task with an empty name.")
+            testPassed = 0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Could make an instance of Task with an empty name.")
         try:
             Task.Task(" \t\n", self.testComputationProblem, self.testSDTables, self.testPIs, self.testCASs)
-            self.fail("Could create an instance of task whose name consists of whitespaces")
+            testPassed = 0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Could create an instance of task whose name consists of whitespaces")
         #2)
         try:
             Task.Task(self.testName, "", self.testSDTables, self.testPIs, self.testCASs)
-            self.fail("Could make an instance of Task with an empty name.")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could make an instance of Task with an empty name.")
         try:
             Task.Task(self.testName," \t\n", self.testSDTables, self.testPIs, self.testCASs)
-            self.fail("Could create an instance of task whose name consists of whitespaces")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could make an instance of Task with an empty name.")
         #3)
         try:
             Task.Task(self.testName, self.testComputationProblem, [], self.testPIs, self.testCASs)
-            self.fail("Could make an instance of Task with an empty name.")
+            testPassed = 0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Could make an instance of Task with an empty name.")
         #4)
         try:
             Task.Task(self.testName, self.testComputationProblem, self.testSDTables, [], self.testCASs)
-            self.fail("Could make an instance of Task with an empty name.")
+            testPassed =0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could make an instance of Task with an empty name.")
         #5)
         try:
             Task.Task(self.testName, self.testComputationProblem, self.testSDTables, self.testPIs, [])
-            self.fail("Could make an instance of Task with an empty name.")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could make an instance of Task with an empty name.")
 
     def testGetters(self):
         """

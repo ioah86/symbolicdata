@@ -1,4 +1,5 @@
 from Proceedings import Proceedings
+from ..Task import Task
 
 class ResultedTimings(object):
     """
@@ -23,12 +24,16 @@ class ResultedTimings(object):
         :type  timeStamp: string
         :raise   IOError: If neither a Proceedings instance nor a task or a timeStamp is given
         """
+        if (proceedings == None and (task == None and timeStamp == None)):
+            raise IOError("In ResultedTimings constructor: Neither proceedings, nor a tuple of task and a timestamp are given.")
         if proceedings:
+            if (not isinstance(proceedings,Proceedings)):
+                raise IOError("The given input was not of type Proceedings")
             self.__proceedings = proceedings
         elif task and timeStamp:
+            if ((not isinstance(task,Task)) or (not isinstance(timeStamp,str))):
+                raise IOError("The given Task was not of correct type, or the timestamp")
             self.__proceedings = Proceedings(task,timeStamp)
-        else:
-            raise IOError("In ResultedTimings constructor: Neither proceedings, nor a tuple of task and a timestamp are given.")
         self.__ResultingFileDict = {}
 
     def getTask(self):

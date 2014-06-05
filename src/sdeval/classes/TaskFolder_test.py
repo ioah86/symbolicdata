@@ -5,7 +5,7 @@ from TaskFolderTree import TaskFolderTree
 from MachineSettings import MachineSettings
 
 
-class TestTask(unittest.TestCase):
+class TestTaskFolder(unittest.TestCase):
     """
     Tests for the class TaskFolder
 

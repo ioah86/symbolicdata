@@ -46,33 +46,44 @@ class TestMachineSettingsFromXMLBuilder(unittest.TestCase):
         2) Invalid input for Machine Settings XML
         """
         #1)
+        testPassed = 1
         try:
             temp = builder.build("")
-            self.fail("Could build Machine Settings from the empty string.")
+            testPassed = 0
         except:
             pass
+        if testPassed == 0:
+            self.fail("Could build Machine Settings from the empty string.")
         try:
             temp = builder.build("<xml></xml>")
-            self.fail("Could build Machine Settings from empty xml.")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could build Machine Settings from empty xml.")
         try:
             temp = builder.build("!@#$%^&*()_+")
-            self.fail("Could build Machine Settings from completely invalid string.")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could build Machine Settings from completely invalid string.")
         try:
             temp = builder.build("123467")
-            self.fail("Could build Machine Settings from \"123467\".")
+            testPassed = 0
         except:
             pass
+        if testPassed == 0:
+            self.fail("Could build Machine Settings from \"123467\".")
         #2)
         try:
             temp = builder.build('<?xml version="1.0" ?><machinesettings><othervars>\
 <timecommand>time -p</timecommand></othervars><casdictionary></casdictionary></machinesettings>')
-            self.fail("Could build Machine Settings from string without computer algebra systems.")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could build Machine Settings from string without computer algebra systems.")
         
 if __name__=="__main__":
     unittest.main()

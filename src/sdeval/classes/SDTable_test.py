@@ -48,12 +48,15 @@ class TestSDTable(unittest.TestCase):
         - If there is no path to the XMLRessources provided in the setUp,
           some tests will be ignored.
         """
+        testPassed = 1
         #1)
         try:
             SDTable.SDTable()
-            self.fail("Initializing SDTable with no arguments should raise an exception")
+            testPassed = 0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Initializing SDTable with no arguments should raise an exception")
         #2.1)
         try:
             SDTable.SDTable(".")
@@ -62,16 +65,20 @@ class TestSDTable(unittest.TestCase):
         #2.2)
         try:
             SDTable.SDTable(os.path.join(".","SillyNameThatWouldNeverAppearInOurProgram"))
-            self.fail("Initializing SDTable with invalid path was possible")
+            testPassed =0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Initializing SDTable with invalid path was possible")
         #3.1)
         if self.xr != None:
             try:
                 SDTable.SDTable(None, (self.xr,"SillyTableNameWouldNeverEnterSData"))
-                self.fail("Could initialize SDTable that is not existent")
+                testPassed = 0
             except:
                 pass
+            if (testPassed == 0):
+                self.fail("Could initialize SDTable that is not existent")
         #3.2)
         if self.xr != None:
             try:
@@ -109,14 +116,17 @@ class TestSDTable(unittest.TestCase):
         - In the XMLResources, there is a table called IntPS
         - Inside IntPS, there is an entry called 'Becker-Niermann'
         """
+        testPassed = 1
         #1)
         if self.xr != None:
             sdt = SDTable.SDTable(None, (self.xr,"IntPS"))
             try:
                 sdt.loadEntry("SillyEntryWouldNeverBeInThereBooyah")
-                self.fail("Could load an entry that clearly did not exist.")
+                testPassed =0
             except:
                 pass
+            if (testPassed == 0):
+                self.fail("Could load an entry that clearly did not exist.")
             #2)
             try:
                 sdt.loadEntry("Becker-Niermann")

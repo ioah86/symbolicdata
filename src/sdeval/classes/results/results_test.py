@@ -49,29 +49,38 @@ class TestProblemInstances(unittest.TestCase):
            5.8. Test setERROR with correct value.
         """
         #1.
+        testPassed =1
         try:
             prcdngs = Proceedings(None, self.testTimeStamp)
-            self.fail("Could create Proceedings with no Task")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could create Proceedings with no Task")
         #2.
         try:
             prcdngs = Proceedings(1, self.testTimeStamp)
-            self.fail("Could create Proceedings with 1 as Task")
+            testPassed = 0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Could create Proceedings with 1 as Task")
         #3.
         try:
             prcdngs = Proceedings(self.testTask, None)
-            self.fail("Could create Proceedings with None as timestamp")
+            testPassed = 0
         except:
             pass
+        if (testPassed==0):
+            self.fail("Could create Proceedings with None as timestamp")
         #4.
         try:
             prcdngs = Proceedings(self.testTask, 1)
-            self.fail("Could create Proceedings with 1 as timestamp")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could create Proceedings with 1 as timestamp")
         #5.
         prcdngs = Proceedings(self.testTask, self.testTimeStamp)
         #5.1
@@ -137,24 +146,31 @@ class TestProblemInstances(unittest.TestCase):
            3.7. Test setERROR with incorrect value
            3.8. Test setERROR with correct value.
         """
+        testPassed = 1
         #1.
         try:
             rst = ResultedTimings(None,None,None)
-            self.fail("Could create instance of ResultedTimings with None in all entries")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could create instance of ResultedTimings with None in all entries")
         #2.a
         try:
             rst = ResultedTimings(1)
-            self.fail("Could create instance of ResultedTimings with Integer as associated Proceedings")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could create instance of ResultedTimings with Integer as associated Proceedings")
         #2.b
         try:
             rst = ResultedTimings(None, 1,1)
-            self.fail("Could create ResultedTimings with wrong datatypes for task and timestamp")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could create ResultedTimings with wrong datatypes for task and timestamp")
         #3
         rst = ResultedTimings(None,self.testTask,self.testTimeStamp)
         #3.1
@@ -432,18 +448,23 @@ hello"
         4. Input has the three time entries scattered as the last three lines.
         """
         builder = ResultingFileFromOutputBuilder()
+        testPassed = 1
         #1.
         try:
             rf = builder.build("MagicInstance", "MagicCAS", None)
-            self.fail("Could build a ResultingFile with None as specified output.")
+            testPassed = 0
         except:
             pass
+        if (testPassed ==0):
+            self.fail("Could build a ResultingFile with None as specified output.")
         #2.
         try:
             rf =builder.build("MagicInstance", "MagicCAS", "hello")
-            self.fail("Could build a ResultingFile with no time entries in the end")
+            testPassed = 0
         except:
             pass
+        if (testPassed == 0):
+            self.fail("Could build a ResultingFile with no time entries in the end")
         #3.
         try:
             rf = builder.build("MagicInstance", "MagicCAS", "hello\nreal 0.10\nuser 0.01\nsys 0.09")
