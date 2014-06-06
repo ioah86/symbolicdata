@@ -42,6 +42,7 @@ class TaskToXMLWriter(object):
               </sdtable>
               ...
             </sdtables>
+          </task>
 
         :param          task: The task we want to have the xml representation of
         :type           task: Task
