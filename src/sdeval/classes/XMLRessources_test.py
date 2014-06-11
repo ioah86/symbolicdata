@@ -89,3 +89,6 @@ class TestXMLRessources(unittest.TestCase):
                 self.fail("Could load an invalid SDTable.")
             except:
                 pass
+
+if __name__=="__main__":
+    unittest.main()
