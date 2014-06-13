@@ -24,7 +24,7 @@ def generateCode(vars, basis):
     """
     gbasis({x*y+z, ...},{x,y,z});
     """
-    result = "gbasis({%s},{%s});" % (",".join(basis), ",".join(vars))
+    result = "gbasis({%s},{%s});quit;" % (",".join(basis), ",".join(vars))
     return result
 
 #--------------------------------------------------

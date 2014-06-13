@@ -28,7 +28,7 @@ F := GaloisField(%i);\n\
 PR := PolynomialRing(F,[%s]);\n\
 %s\n\
 I:= Ideal(PR,[%s]);\n\
-ord := MonomialGrlexOrder(%s);\n\
+ord := MonomialGrlexOrdering(%s);\n\
 B := GroebnerBasis(I,ord);\n\
 B;\n\
 quit;\
