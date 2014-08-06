@@ -288,7 +288,10 @@ quit;"""
         from comp.GB_Z_lp.REDUCE.template import generateCode
         vars = ['x1','x2','x3','x4']
         basis=['x1+x2','x3*x4-x2*x1','x1*x2*x3*x4']
-        expectedString = """gbasis({x1+x2,x3*x4-x2*x1,x1*x2*x3*x4},{x1,x2,x3,x4});quit;"""
+        expectedString = """load_package groebner;
+torder({x1,x2,x3,x4}, lex)$
+groebner{x1+x2,x3*x4-x2*x1,x1*x2*x3*x4};
+quit;"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")
