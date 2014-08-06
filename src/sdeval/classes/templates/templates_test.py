@@ -295,6 +295,45 @@ quit;"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")
+
+    def test_GB_Z_LP_RISA_ASIR(self):
+        """
+        This test checks the template GB_Z_lp for Risa/Asir.
+
+        The covered test cases are:
+        1. Create executable string and check for correctness
+        """
+        #1
+        from comp.GB_Z_lp.Risa_Asir.template import generateCode
+        vars = ['x','y','z','t']
+        basis=['x^10-t', 'x^8-z', 'x^31-x^6-x-y']
+        expectedString = """load("gr")$
+B=[x^10-t, x^8-z, x^31-x^6-x-y]$
+gr(B,[x,y,z,t],2);"""
+        output = generateCode(vars,basis)
+        print output
+        self.assertEqual(expectedString,output,
+                         "Output string was different from what we expected.")
+
+    def test_GB_Fp_dp_RISA_ASIR(self):
+        """
+        This test checks the template GB_Fp_dp for Risa/Asir.
+
+        The covered test cases are:
+        1. Create executable string and check for correctness
+        """
+        #1
+        from comp.GB_Fp_dp.Risa_Asir.template import generateCode
+        vars = ['x','y','z','t']
+        basis=['x^10-t', 'x^8-z', 'x^31-x^6-x-y']
+        characteristic=5;
+        expectedString = """load("gr")$
+B=[x^10-t, x^8-z, x^31-x^6-x-y]$
+gr_mod(B,[x,y,z,t],1,5);"""
+        output = generateCode(vars,basis,characteristic)
+        print output
+        self.assertEqual(expectedString,output,
+                         "Output string was different from what we expected.")
         
 if __name__=="__main__":
     unittest.main()

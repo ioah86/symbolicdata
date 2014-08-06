@@ -1,0 +1,22 @@
+#+TITLE: Todo-list for SDEval project
+#+AUTHOR: Albert Heinle
+#+DATE: <2014-08-06 Wed>
+
+* TODO Analyse the output of computer algebra systems
+Up until now, we are not able to check the output of the computer
+algebra systems. There could be the following milestones defined:
+ - Check if there is an output that has at least the form of a solution to the
+   given problem (i.e. maybe track a segmentation fault and identify
+   a possible error)
+ - Check the solution of the computer algebra system for correctnes
+   (unrealistic for some tasks, as undecidable in certain cases)
+
+* TODO Run Tasks in parallel
+Right now, when running runTasks.py, there is at most one computer
+algebra system running at a time, executing exactly one task. In the
+future, we would like to provide the possibility of running several
+tasks in parallel.
+* TODO Allow executable files as parameters AND piping of their content
+By now, we pipe the content of executable files to the computer
+algebra systems. There should also be an option to just give the path
+to the executable file, and the CAS can read it.
