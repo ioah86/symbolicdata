@@ -40,3 +40,6 @@ For any questions you can contact Albert Heinle <albert.heinle@rwth-aachen.de>.
 ACKNOWLEDGEMENTS
 Special thanks to DFG (Deutsche Forschungs Gesellschaft) who funded
 the project (Schwerpunkt 1489)
+
+PAPERS
+Heinle, Albert, Viktor Levandovskyy, and Andreas Nareike. "Symbolicdata: sdeval-benchmarking for everyone." arXiv preprint arXiv:1310.5551 (2013).
