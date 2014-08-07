@@ -1,6 +1,6 @@
 #+TITLE: Todo-list for SDEval project
 #+AUTHOR: Albert Heinle
-#+DATE: <2014-08-06 Wed>
+#+DATE: <2014-08-07 Thu>
 
 * TODO Analyse the output of computer algebra systems
 Up until now, we are not able to check the output of the computer
@@ -20,3 +20,16 @@ tasks in parallel.
 By now, we pipe the content of executable files to the computer
 algebra systems. There should also be an option to just give the path
 to the executable file, and the CAS can read it.
+* TODO Provide with the resultFiles information about the machine you were running your tasks on
+Right now, we do not provide information about the machine, where a
+task was run at. Also here, a common format is needed.
+A common way to do that is using the sysctl command.
+
+In order to get information about memory, the command would be
+~sysctl -a | grep "mem"~
+
+In order to get information about the cpu, the command would be
+~sysctl -a | grep "cpu"~
+
+Operating system information
+~sysctl -a | grep "os"~
