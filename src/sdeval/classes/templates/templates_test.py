@@ -65,7 +65,9 @@ option(prot);
 option(redTail);
 option(redSB);
 ideal J = letplaceGBasis(I);
-print (J, "%s");$"""
+print("=====Solution Begin=====");
+print (J, "%s");
+print(\"=====Solution End=====\");$;"""
         output = generateCode(vars,basis,uptoDeg)
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")

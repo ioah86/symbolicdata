@@ -38,3 +38,10 @@ We give the users the freedom of excluding certain computations from
 the list if they wish for it. But still, the executable files from
 casSources will be copied to the folder results, no matter what. We
 should copy only those sources, for which there have been results calculated.
+* TODO Deal with Maples mserver sub-process
+When calling Maple and feeding it with commands, the actual
+computations will be executed by a binary called =mserver=. For
+timing purposes, this is fatal, as we will have to time a
+subprocess. A temporary fix was given after I asked the question about how
+to deal with it in StackOverflow:
+

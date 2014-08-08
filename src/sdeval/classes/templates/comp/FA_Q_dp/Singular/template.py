@@ -30,7 +30,9 @@ def generateCode(vars, basis, uptoDeg):
     result += "ideal I = %s;\n" % ",\n".join(FAPolyToSingularStyle(v,vars) for v in basis)
     result += "option(prot);\noption(redTail);\noption(redSB);\n"
     result += "ideal J = letplaceGBasis(I);\n"
-    result += "print (J, \"%s\");$"
+    result += "print(\"=====Solution Begin=====\");\n"
+    result += "print (J, \"%s\");\n"
+    result += "print(\"=====Solution End=====\");$;"
     return result
 
 #--------------------------------------------------
