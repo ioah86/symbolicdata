@@ -114,6 +114,7 @@ class TaskFolder(object):
                 + "Some ProblemInstance"
                   + "Some computer algebra system"
                     - executablefile.sdc
+                    - template_sol.py (optional)
                   + ...
                 + ...
               + ...
@@ -149,11 +150,15 @@ class TaskFolder(object):
         #Making the casSources folder
         os.mkdir(os.path.join(destPath,"casSources"))
         for t in self.__casExecFiles.getAllPaths():
-            #if not os.path.isdir(os.path.join(destPath,"casSources",t[0])):
-            #   os.mkdir(os.path.join(destPath,"casSources",t[0]))
             if not os.path.isdir(os.path.join(destPath,"casSources",t[1])):
                 os.mkdir(os.path.join(destPath,"casSources",t[1]))
             os.mkdir(os.path.join(destPath,"casSources",t[1],t[2]))
             f = open(os.path.join(destPath,"casSources",t[1],t[2],"executablefile.sdc"),"w")
             f.write(t[3])
             f.close()
+            #if template_sol does exist, it will also be copied into the folder with the executable File.
+            if os.path.isfile(os.path.join(pathOfSDEval,"classes", "templates", "comp",
+                                           self.__task.getComputationProblem(),t[2],"template_sol.py")):
+                shutil.copy(os.path.join(pathOfSDEval,"classes", "templates", "comp",
+                                           self.__task.getComputationProblem(),t[2],"template_sol.py"),
+                                           os.path.join(destPath, "casSources", t[1],t[2]))
