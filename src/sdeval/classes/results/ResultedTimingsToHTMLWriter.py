@@ -74,7 +74,7 @@ class ResultedTimingsToHTMLWriter(object):
                 elif [p,c] in map(lambda x: x[:2],rt.getCOMPLETED()):
                     result += "\t\t<td bgcolor=green>%s</td>\n" % ";".join(str(k)+":"+str(rt.getResultingFileDict()[str([p,c])][k]) for k in rt.getResultingFileDict()[str([p,c])])
                 elif [p,c] in map(lambda x: x[:2],rt.getERROR()):
-                    result += "\t\t<td bgcolor=red>%</td>\n" % ";".join(str(k)+":"+str(rt.getResultingFileDict()[str([p,c])][k]) for k in rt.getResultingFileDict()[str([p,c])])
+                    result += "\t\t<td bgcolor=red>%s</td>\n" % ";".join(str(k)+":"+str(rt.getResultingFileDict()[str([p,c])][k]) for k in rt.getResultingFileDict()[str([p,c])])
                 else:
                     result += "\t\t<td>WAITING</td>\n"
             result += "\t</tr>\n"

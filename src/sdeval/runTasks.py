@@ -131,7 +131,27 @@ while proceedings.getWAITING() != []:
         file = open(os.path.join(resultsFolder,"resultFiles",curCalc[0],curCalc[1],"outputFile.res"))
         resultingFile = rfBuilder.build(curCalc[0],curCalc[1],file.read())
         file.close()
-        rt.setCOMPLETED(curCalc,resultingFile.getTimes())
+        if os.path.isfile(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"template_sol.py")):
+            sys.path.append(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
+            import template_sol
+            solext = template_sol.extractSolution
+            try:
+                resInXML = solext(resultingFile.getCASOutput())
+                resXMLFile =\
+                    open(os.path.join(resultsFolder,
+                                      "resultFiles",
+                                      curCalc[0],
+                                      curCalc[1],
+                                      "solutionInXML.xml"),"w")
+                resXMLFile.write(resInXML)
+                resXMLFile.close()
+                rt.setCOMPLETED(curCalc, resultingFile.getTimes())
+            except:
+                rt.setERROR(curCalc,resultingFile.getTimes())
+        else:
+            #in this case, we cannot say anything about the
+            #output. Therefore we assume, that it just completed as expected.
+            rt.setCOMPLETED(curCalc,resultingFile.getTimes())
         update()
 
 update()
