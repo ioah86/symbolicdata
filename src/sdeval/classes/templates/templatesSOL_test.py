@@ -1,8 +1,5 @@
 import unittest
 
-from comp.FA_Q_dp.Singular.template_sol import extractSolution
-from comp.FA_Q_dp.Singular.template_sol import convertFromLetterplace
-
 class TestTemplatesSOL(unittest.TestCase):
     """
     Tests for the different templates to extract the solution from the
@@ -44,6 +41,8 @@ class TestTemplatesSOL(unittest.TestCase):
         2.3) Polynomial with multiple monomials
         2.4) Polynomial with alternating + and - signs.
         """
+        from comp.FA_Q_dp.Singular.template_sol import extractSolution
+        from comp.FA_Q_dp.Singular.template_sol import convertFromLetterplace
         testPassed = 1
         solBeginStr = "=====Solution Begin====="
         solEndStr   = "=====Solution End====="
@@ -219,5 +218,243 @@ multiple monomials")
 - z(1)*y(2) +x(1)*y(2) - y(1)"),
                          "Could not parse polynomial with alternating signs")
 
+
+    def test_FA_Q_dp_Magma_Sol(self):
+        """
+        Here, we are testing the template to extract the solution from
+        the Magma output on a FA_Q_dp-instance, i.e. the
+        computation of a Groebner basis over the free algebra.
+
+        We test both functions here. The covered test cases are:
+        1.1.) extractSolution on invalid inputs
+        1.1.a) Wrong datatype
+        1.1.b) String without the "=====Solution Begin=====" and
+               "=====Solution End=====" tags.
+        1.1.c) String with the "=====Solution Begin=====" tag, but not
+               with the "=====Solution End=====" tag
+        1.1.d) String with the "=====Solution End=====" tag, but not
+               with the "=====Solution Begin=====" tag
+        1.1.e) String with both the "=====Solution Begin=====" and the
+               "=====Solution End=====" tag, but with whitespace in
+               between.
+        1.2.) extractSolution on valid inputs
+        1.2.a) String with The solution right after "=====Solution
+               Begin=====" tag, and ending right at "=====Solution
+               End====="
+        1.2.b) Solution given really by Magma.
+        """
+        from comp.FA_Q_dp.Magma.template_sol import extractSolution
+        testPassed = 1
+        solBeginStr = "=====Solution Begin====="
+        solEndStr   = "=====Solution End====="
+        #1.1.a)
+        try:
+            extractSolution(1)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("I was able to try to extract a solution from an \
+int.")
+        #1.1.b)
+        try:
+            extractSolution("abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Invalid solution string did not cause \
+exception")
+        #1.1.c)
+        try:
+            extractSolution(solBeginStr + "\n\n abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with begin, but not with \
+end tag.")
+        #1.1.d)
+        try:
+            extractSolution("abc123" + solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with end, but not with \
+begin tag")
+        #1.1.e)
+        try:
+            extractSolution(solBeginStr +" " +solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with no solution in \
+between begin and end tag.")
+        #1.2.a)
+        try:
+            tempRes = extractSolution(solBeginStr + "[x1]" + solEndStr)
+        except:
+            self.fail("Could not accept a solution with no whitespace \
+between the begin and the end tag")
+        expectedOutp = """<?xml version="1.0" ?>
+<FA_Q_dp_SOL>
+  <basis>
+    <polynomial>x1</polynomial>
+  </basis>
+</FA_Q_dp_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.a)")
+        #1.2b)
+        magmaOutput ="""Magma V2.19-2     Tue Aug 12 2014 19:33:57 on emmy     [Seed = 3154493372]
+Type ? for help.  Type <Ctrl>-D to quit.
+=====Solution Begin=====
+[
+    u^3*v*u*v^2*u^3*v*u*v^2 - 1,
+    u*v^11*u*V - v*U^13,
+    u*v^12*U - v*U^12*V,
+    U*V^11*U*v - V*u^13,
+    U*V^12*u - V*u^12*v,
+    u*v^10*u*V - v*U^12,
+    u*v^11*U - v*U^11*V,
+    U*V^10*U*v - V*u^12,
+    U*V^11*u - V*u^11*v,
+    u*v^9*u*V - v*U^11,
+    u*v^10*U - v*U^10*V,
+    U*V^9*U*v - V*u^11,
+    U*V^10*u - V*u^10*v,
+    u*v^8*u*V - v*U^10,
+    u*v^9*U - v*U^9*V,
+    U*V^8*U*v - V*u^10,
+    U*V^9*u - V*u^9*v,
+    u*v^7*u*V - v*U^9,
+    u*v^8*U - v*U^8*V,
+    U*V^7*U*v - V*u^9,
+    U*V^8*u - V*u^8*v,
+    u*v^6*u*V - v*U^8,
+    u*v^7*U - v*U^7*V,
+    U*V^6*U*v - V*u^8,
+    U*V^7*u - V*u^7*v,
+    u*v^5*u*V - v*U^7,
+    u*v^6*U - v*U^6*V,
+    U*V^5*U*v - V*u^7,
+    U*V^6*u - V*u^6*v,
+    u*v^4*u*V - v*U^6,
+    u*v^5*U - v*U^5*V,
+    U*V^4*U*v - V*u^6,
+    U*V^5*u - V*u^5*v,
+    u*v^3*u*V - v*U^5,
+    u*v^4*U - v*U^4*V,
+    U*V^3*U*v - V*u^5,
+    U*V^4*u - V*u^4*v,
+    u*v^2*u*V - v*U^4,
+    u*v^3*U - v*U^3*V,
+    U*V^2*U*v - V*u^4,
+    U*V^3*u - V*u^3*v,
+    u*v*u*V - v*U^3,
+    u*v^2*U - v*U^2*V,
+    U*V*U*v - V*u^3,
+    U*V^2*u - V*u^2*v,
+    V^2*u*V - U*v,
+    u^2*V - v*U^2,
+    u*v*U - v*U*V,
+    u*V*u - V*u*V,
+    u*V*U - v*u*V,
+    u*V^2 - v^2*U,
+    v*U*v - V*u*V,
+    U*v*u - V*U*v,
+    U*v^2 - V^2*u,
+    U*v*U - V*u*V,
+    U^2*v - V*u^2,
+    U*V*u - V*u*v,
+    u*U - 1,
+    v*V - 1,
+    U*u - 1,
+    V*v - 1
+]
+=====Solution End=====
+
+Total time: 0.380 seconds, Total memory usage: 11.03MB
+real 0.41
+user 0.31
+sys 0.10"""
+        try:
+            tempRes = extractSolution(magmaOutput)
+        except:
+            self.fail("Could not parse valid Magma output string")
+        expectedOutp = """<?xml version="1.0" ?>
+<FA_Q_dp_SOL>
+  <basis>
+    <polynomial>u^3*v*u*v^2*u^3*v*u*v^2 - 1</polynomial>
+    <polynomial>u*v^11*u*V - v*U^13</polynomial>
+    <polynomial>u*v^12*U - v*U^12*V</polynomial>
+    <polynomial>U*V^11*U*v - V*u^13</polynomial>
+    <polynomial>U*V^12*u - V*u^12*v</polynomial>
+    <polynomial>u*v^10*u*V - v*U^12</polynomial>
+    <polynomial>u*v^11*U - v*U^11*V</polynomial>
+    <polynomial>U*V^10*U*v - V*u^12</polynomial>
+    <polynomial>U*V^11*u - V*u^11*v</polynomial>
+    <polynomial>u*v^9*u*V - v*U^11</polynomial>
+    <polynomial>u*v^10*U - v*U^10*V</polynomial>
+    <polynomial>U*V^9*U*v - V*u^11</polynomial>
+    <polynomial>U*V^10*u - V*u^10*v</polynomial>
+    <polynomial>u*v^8*u*V - v*U^10</polynomial>
+    <polynomial>u*v^9*U - v*U^9*V</polynomial>
+    <polynomial>U*V^8*U*v - V*u^10</polynomial>
+    <polynomial>U*V^9*u - V*u^9*v</polynomial>
+    <polynomial>u*v^7*u*V - v*U^9</polynomial>
+    <polynomial>u*v^8*U - v*U^8*V</polynomial>
+    <polynomial>U*V^7*U*v - V*u^9</polynomial>
+    <polynomial>U*V^8*u - V*u^8*v</polynomial>
+    <polynomial>u*v^6*u*V - v*U^8</polynomial>
+    <polynomial>u*v^7*U - v*U^7*V</polynomial>
+    <polynomial>U*V^6*U*v - V*u^8</polynomial>
+    <polynomial>U*V^7*u - V*u^7*v</polynomial>
+    <polynomial>u*v^5*u*V - v*U^7</polynomial>
+    <polynomial>u*v^6*U - v*U^6*V</polynomial>
+    <polynomial>U*V^5*U*v - V*u^7</polynomial>
+    <polynomial>U*V^6*u - V*u^6*v</polynomial>
+    <polynomial>u*v^4*u*V - v*U^6</polynomial>
+    <polynomial>u*v^5*U - v*U^5*V</polynomial>
+    <polynomial>U*V^4*U*v - V*u^6</polynomial>
+    <polynomial>U*V^5*u - V*u^5*v</polynomial>
+    <polynomial>u*v^3*u*V - v*U^5</polynomial>
+    <polynomial>u*v^4*U - v*U^4*V</polynomial>
+    <polynomial>U*V^3*U*v - V*u^5</polynomial>
+    <polynomial>U*V^4*u - V*u^4*v</polynomial>
+    <polynomial>u*v^2*u*V - v*U^4</polynomial>
+    <polynomial>u*v^3*U - v*U^3*V</polynomial>
+    <polynomial>U*V^2*U*v - V*u^4</polynomial>
+    <polynomial>U*V^3*u - V*u^3*v</polynomial>
+    <polynomial>u*v*u*V - v*U^3</polynomial>
+    <polynomial>u*v^2*U - v*U^2*V</polynomial>
+    <polynomial>U*V*U*v - V*u^3</polynomial>
+    <polynomial>U*V^2*u - V*u^2*v</polynomial>
+    <polynomial>V^2*u*V - U*v</polynomial>
+    <polynomial>u^2*V - v*U^2</polynomial>
+    <polynomial>u*v*U - v*U*V</polynomial>
+    <polynomial>u*V*u - V*u*V</polynomial>
+    <polynomial>u*V*U - v*u*V</polynomial>
+    <polynomial>u*V^2 - v^2*U</polynomial>
+    <polynomial>v*U*v - V*u*V</polynomial>
+    <polynomial>U*v*u - V*U*v</polynomial>
+    <polynomial>U*v^2 - V^2*u</polynomial>
+    <polynomial>U*v*U - V*u*V</polynomial>
+    <polynomial>U^2*v - V*u^2</polynomial>
+    <polynomial>U*V*u - V*u*v</polynomial>
+    <polynomial>u*U - 1</polynomial>
+    <polynomial>v*V - 1</polynomial>
+    <polynomial>U*u - 1</polynomial>
+    <polynomial>V*v - 1</polynomial>
+  </basis>
+</FA_Q_dp_SOL>
+"""
+        print tempRes
+        print expectedOutp
+        self.assertEqual(tempRes,expectedOutp, "Output strings did not \
+match for Magma output parse.")
+        
 if __name__=="__main__":
     unittest.main()

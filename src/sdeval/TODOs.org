@@ -1,14 +1,14 @@
 #+TITLE: Todo-list for SDEval project
 #+AUTHOR: Albert Heinle
-#+DATE: <2014-08-07 Thu>
+#+DATE: <2014-08-12 Tue>
 
 * TODO Analyse the output of computer algebra systems
 Up until now, we are not able to check the output of the computer
 algebra systems. There could be the following milestones defined:
- - Check if there is an output that has at least the form of a solution to the
+ - [ ] Check if there is an output that has at least the form of a solution to the
    given problem (i.e. maybe track a segmentation fault and identify
    a possible error)
- - Check the solution of the computer algebra system for correctnes
+ - [ ] Check the solution of the computer algebra system for correctness
    (unrealistic for some tasks, as undecidable in certain cases)
 
 * TODO Run Tasks in parallel
@@ -45,3 +45,18 @@ timing purposes, this is fatal, as we will have to time a
 subprocess. A temporary fix was given after I asked the question about how
 to deal with it in StackOverflow:
 
+* TODO Provide some more documentation about the interconnection of the modules in the code.
+By now, one has to deeply read the documentation of each function,
+but there is no document stating the interconnection between all the
+modules. This needs to be changed in the future.
+* TODO Code Beautification
+For Example:
+ - [ ] Put code in =runTasks.py= in an ~if __name__ = "__main__"~
+   statement
+ - [ ] =FA_Q_dp= template for solution code prettification.
+
+* TODO GUI
+ - [ ] Make it more portable (i.e. use XML-files to create GUI and
+   leave code to just being the executable part
+ - [ ] Problem instance double click preview should also work for the
+   already added problem instances.

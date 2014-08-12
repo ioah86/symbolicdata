@@ -89,7 +89,9 @@ A<x1,x2,x3,x4> := FreeAlgebra(F,4);
 B := [x1+x2,
 x3*x4-x2*x1,
 x1*x2*x3*x4];
+print "=====Solution Begin=====";
 GroebnerBasis(B,10);
+print "=====Solution End=====";
 quit;"""
         output = generateCode(vars,basis,uptoDeg)
         self.assertEqual(expectedString,output,

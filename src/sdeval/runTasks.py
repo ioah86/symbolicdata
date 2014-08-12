@@ -134,6 +134,7 @@ while proceedings.getWAITING() != []:
         if os.path.isfile(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"template_sol.py")):
             sys.path.append(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
             import template_sol
+            reload(template_sol) #(makes sure that the changes are applied)
             solext = template_sol.extractSolution
             try:
                 resInXML = solext(resultingFile.getCASOutput())
@@ -148,6 +149,7 @@ while proceedings.getWAITING() != []:
                 rt.setCOMPLETED(curCalc, resultingFile.getTimes())
             except:
                 rt.setERROR(curCalc,resultingFile.getTimes())
+            sys.path.remove(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
         else:
             #in this case, we cannot say anything about the
             #output. Therefore we assume, that it just completed as expected.

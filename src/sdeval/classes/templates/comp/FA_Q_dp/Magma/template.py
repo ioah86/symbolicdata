@@ -26,7 +26,9 @@ def generateCode(vars, basis, uptoDeg):
 F := RationalField();\n\
 A<%s> := FreeAlgebra(F,%i);\n\
 B := [%s];\n\
+print \"=====Solution Begin=====\";\n\
 GroebnerBasis(B,%i);\n\
+print \"=====Solution End=====\";\n\
 quit;" % (",".join(vars), len(vars), ",\n".join(basis), uptoDeg)
     return result
 
