@@ -5,9 +5,10 @@
 * TODO Analyse the output of computer algebra systems
 Up until now, we are not able to check the output of the computer
 algebra systems. There could be the following milestones defined:
- - [ ] Check if there is an output that has at least the form of a solution to the
+ - [X] Check if there is an output that has at least the form of a solution to the
    given problem (i.e. maybe track a segmentation fault and identify
    a possible error)
+   - Done for FA_Q_dp for Singular, GAP and Magma
  - [ ] Check the solution of the computer algebra system for correctness
    (unrealistic for some tasks, as undecidable in certain cases)
 
