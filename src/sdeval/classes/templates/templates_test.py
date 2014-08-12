@@ -34,10 +34,14 @@ KI_gp := [x1+x2,x3*x4-x2*x1,x1*x2*x3*x4];
 KI_np :=GP2NPList(KI_gp);
 GB :=SGrobnerTrunc(KI_np,10,weights);
 GBNP.ConfigPrint("x4","x3","x2","x1");
+Print("=====Solution Begin=====");
 PrintNPList(GB);
+Print("=====Solution End=====");
 Length(GB);
 quit;"""
         output = generateCode(vars,basis,uptoDeg)
+        print output
+        print expectedString
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")
 

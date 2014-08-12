@@ -38,7 +38,9 @@ KI_gp := [%s];\n\
 KI_np :=GP2NPList(KI_gp);\n\
 GB :=SGrobnerTrunc(KI_np,%i,weights);\n\
 GBNP.ConfigPrint(%s);\n\
+Print(\"=====Solution Begin=====\");\n\
 PrintNPList(GB);\n\
+Print(\"=====Solution End=====\");\n\
 Length(GB);\n\
 quit;\
 " % (",".join(str("\""+v+"\"") for v in rev),

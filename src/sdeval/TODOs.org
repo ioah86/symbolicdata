@@ -60,3 +60,8 @@ For Example:
    leave code to just being the executable part
  - [ ] Problem instance double click preview should also work for the
    already added problem instances.
+
+* TODO GAP does not print non-commutative polynomials properly
+For the Computation problem FA_GB_dp, GAP does not print the
+multiplication operator, i.e. =*= between the variables. This needs
+to get fixed.
