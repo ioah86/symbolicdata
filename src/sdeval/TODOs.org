@@ -1,6 +1,6 @@
 #+TITLE: Todo-list for SDEval project
 #+AUTHOR: Albert Heinle
-#+DATE: <2014-08-12 Tue>
+#+DATE: <2014-08-15 Fri>
 
 * TODO (partly DONE) Analyse the output of computer algebra systems
 Up until now, we are not able to check the output of the computer
@@ -55,6 +55,8 @@ For Example:
  - [ ] Put code in =runTasks.py= in an ~if __name__ = "__main__"~
    statement
  - [ ] =FA_Q_dp= template for solution code prettification.
+ - [ ] We need a constants.py of some sort, in order to handle all
+   the changes that might happen.
 
 * TODO GUI
  - [ ] Make it more portable (i.e. use XML-files to create GUI and
