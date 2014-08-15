@@ -2,7 +2,7 @@
 #+AUTHOR: Albert Heinle
 #+DATE: <2014-08-12 Tue>
 
-* TODO Analyse the output of computer algebra systems
+* TODO (partly DONE) Analyse the output of computer algebra systems
 Up until now, we are not able to check the output of the computer
 algebra systems. There could be the following milestones defined:
  - [X] Check if there is an output that has at least the form of a solution to the
@@ -21,7 +21,7 @@ tasks in parallel.
 By now, we pipe the content of executable files to the computer
 algebra systems. There should also be an option to just give the path
 to the executable file, and the CAS can read it.
-* TODO Provide with the resultFiles information about the machine you were running your tasks on
+* DONE Provide with the resultFiles information about the machine you were running your tasks on
 Right now, we do not provide information about the machine, where a
 task was run at. Also here, a common format is needed.
 A common way to do that is using the sysctl command.

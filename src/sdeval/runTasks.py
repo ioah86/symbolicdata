@@ -57,10 +57,32 @@ if (opts.maxCPUTime != None):
 else:
     maxCPU = None
 #-------------------- Done Checking user arguments --------------------
+#-------------------- Making the results here      --------------------
 
+#Creating the results-folder
 timeStamp   = time.strftime("%Y_%m_%d_%H_%M_%S",time.gmtime())
 if not os.path.isdir(os.path.join(tfPath,"results")):
     os.mkdir(os.path.join(tfPath,"results"))
+
+#posting the machine-information into the folder
+shCommandGetCPUInfo = "sysctl -a | grep \"cpu\""
+shCommandGetMemInfo = "sysctl -a | grep \"mem\""
+shCommandGetOSInfo  = "sysctl -a | grep \"os\""
+curMachineCPUInfo  = commands.getoutput(shCommandGetCPUInfo)
+curMachineMemInfo  = commands.getoutput(shCommandGetMemInfo)
+curMachineOSInfo   = commands.getoutput(shCommandGetOSInfo)
+f = open(os.path.join(tfPath,"results","cpuInfo.txt"),"w")
+f.write("The CPU-information has been acquired via the command 'sysctl -a | grep \"cpu\"'\n")
+f.write(curMachineCPUInfo)
+f.close()
+f = open(os.path.join(tfPath,"results","memInfo.txt"),"w")
+f.write("The memory-information has been acquired via the command 'sysctl -a | grep \"mem\"'\n")
+f.write(curMachineMemInfo)
+f.close()
+f = open(os.path.join(tfPath,"results","osInfo.txt"),"w")
+f.write("The OS-information has been acquired via the command 'sysctl -a | grep \"os\"'\n")
+f.write(curMachineOSInfo)
+f.close()
 
 #make the timestamp folder to save the results there
 os.mkdir(os.path.join(tfPath,"results",timeStamp))
