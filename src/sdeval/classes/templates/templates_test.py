@@ -232,7 +232,9 @@ ideal I = x1+x2,
 x3*x4-x2*x1,
 x1*x2*x3*x4;
 ideal J = std(I);
+print("=====Solution Begin=====");
 print(J);
+print("=====Solution End=====");
 $"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,
