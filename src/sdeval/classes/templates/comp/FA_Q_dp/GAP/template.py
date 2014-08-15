@@ -15,9 +15,9 @@ def generateCode(vars, basis, uptoDeg):
     the Groebner basis given the input variables.
     The input is not checked for correctness.
 
-    :param         vars: A list of variables used in the FreeAlgebra-System
+    :param         vars: A list of variables used in the FreeAlgebras-System
     :type          vars: list
-    :param        basis: The polynomials forming a basis of the FreeAlgebra-System. This input will not be checked whether
+    :param        basis: The polynomials forming a basis of the FreeAlgebras-System. This input will not be checked whether
                          there are polynomials using variables not in the list of variables.
     :type         basis: list
     :param      uptoDeg: The uptoDeg Entry.

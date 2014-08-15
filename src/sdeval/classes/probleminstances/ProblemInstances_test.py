@@ -1,18 +1,18 @@
 import unittest
 import os
-from FreeAlgebra import FreeAlgebra
+from FreeAlgebras import FreeAlgebras
 from ModPS import ModPS
 from IntPS import IntPS
 from IntPSFromXMLBuilder import IntPSFromXMLBuilder
 from ModPSFromXMLBuilder import ModPSFromXMLBuilder
-from FreeAlgebraFromXMLBuilder import FreeAlgebraFromXMLBuilder
+from FreeAlgebrasFromXMLBuilder import FreeAlgebrasFromXMLBuilder
 from .. import XMLRessources
 from .. import SDTable
 
 class TestProblemInstances(unittest.TestCase):
     """
     Contains tests for the different problem instance classes, namely
-    - FreeAlgebra
+    - FreeAlgebras
     - IntPS
     - ModPS
     In the same time, their XMLBuilder are tested, as they are constructed with the builders.
@@ -31,7 +31,7 @@ class TestProblemInstances(unittest.TestCase):
         self.xr = None
         try:
             tempPathToXMLRessources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-4]
-            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
+            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"data","XMLResources"))
         except:
             tempPathToXMLRessources = raw_input("Path to XMLRessources not at the usual location. Please enter Path\
  to it or press Enter to skip tests related to the Symbolic Data source: ")
@@ -48,9 +48,9 @@ class TestProblemInstances(unittest.TestCase):
 </INTPS>"""
         self.fakeXMLInst2 = "<?xml version=\"1.0\"?><FAKE></FAKE>"
     
-    def test_FreeAlgebra(self):
+    def test_FreeAlgebras(self):
         """
-        This test tests the class FreeAlgebra for stability.
+        This test tests the class FreeAlgebras for stability.
         The covered tests are:
          1.) Loading a valid entry, and checking if everything got parsed correctly. This includes
              1.a) The name is correct
@@ -60,11 +60,11 @@ class TestProblemInstances(unittest.TestCase):
              1.e) The correct string representation
              1.f) The correct SDTable is still there
         """
-        sdt = SDTable.SDTable(None, (self.xr,"FreeAlgebra"))
-        faBuilder = FreeAlgebraFromXMLBuilder(sdt)
+        sdt = SDTable.SDTable(None, (self.xr,"FreeAlgebras"))
+        faBuilder = FreeAlgebrasFromXMLBuilder(sdt)
         faInstance = faBuilder.build('h1')
         #1.a
-        self.assertEqual(faInstance.getName(), 'h1', "Name in FreeAlgebra instance is not correct.")
+        self.assertEqual(faInstance.getName(), 'h1', "Name in FreeAlgebras instance is not correct.")
         #1.b
         self.assertEqual(faInstance.getVars(),['u','v','U','V'], "Variables were not equal")
         #1.c
@@ -75,7 +75,7 @@ class TestProblemInstances(unittest.TestCase):
             'u*u*u*v*u*v*v*u*u*u*v*u*v*v-1'],"The basis was not correctly \
 imported")
         #1e
-        self.assertEqual(str(faInstance),"FreeAlgebra-Entry: h1\n\
+        self.assertEqual(str(faInstance),"FreeAlgebras-Entry: h1\n\
 Variables: u,v,U,V\n\
 Up to degree: 14\n\
 basis:\n\
@@ -138,7 +138,7 @@ basis was not correctly imported")
 
     def test_IntPS(self):
         """
-        This test tests the class FreeAlgebra for stability.
+        This test tests the class FreeAlgebras for stability.
         The covered tests are:
         1.) Loading a valid entry, and checking if everything got parsed correctly. This includes
             1.a) The name is correct
@@ -182,7 +182,7 @@ f^2+2*e*a+e+2*d*b+c^2\n\
         sdt = SDTable.SDTable(None, (self.xr,"IntPS"))
         intpsbuilder = IntPSFromXMLBuilder(sdt)
         modpsBuilder = ModPSFromXMLBuilder(sdt)
-        falgBuilder = FreeAlgebraFromXMLBuilder(sdt)
+        falgBuilder = FreeAlgebrasFromXMLBuilder(sdt)
         #1.
         try:
             inst = intpsbuilder.build("Amrhein", self.fakeXMLInst1)
@@ -196,7 +196,7 @@ f^2+2*e*a+e+2*d*b+c^2\n\
             pass
         try:
             inst = falgBuilder.build("Amrhein", self.fakeXMLInst1)
-            self.fail("Could build FreeAlgebra-instance from partly invalid XML-file")
+            self.fail("Could build FreeAlgebras-instance from partly invalid XML-file")
         except:
             pass
         #2
@@ -212,7 +212,7 @@ f^2+2*e*a+e+2*d*b+c^2\n\
             pass
         try:
             inst = falgBuilder.build("Amrhein", self.fakeXMLInst2)
-            self.fail("Could build FreeAlgebra-instance from completely invalid XML-file")
+            self.fail("Could build FreeAlgebras-instance from completely invalid XML-file")
         except:
             pass
 

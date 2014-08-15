@@ -21,7 +21,7 @@ class TestSDTable(unittest.TestCase):
         self.xr = None
         try:
             tempPathToXMLRessources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-3]
-            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
+            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"data","XMLResources"))
         except:
             tempPathToXMLRessources = raw_input("Path to XMLRessources not at the usual location. Please enter Path\
  to it or press Enter to skip tests related to the Symbolic Data source: ")
@@ -137,23 +137,16 @@ class TestSDTable(unittest.TestCase):
             except:
                 self.fail("Could not load existing entry (with .xml at the end of the argument)")
             bn = sdt.loadEntry("Becker-Niermann.xml")
-            expectedString = "<?xml version=\"1.0\"?>\n\
-<INTPS createdAt=\"2010-05-11\" createdBy=\"graebe\">\n\
-<!-- $Id: Becker-Niermann.xml,v 1.1 2010/05/14 09:05:07 graebe Exp $ -->\n\
-  <vars>x,y,z</vars>\n\
-  <basis>\n\
-    <poly>x^2+x*y^2*z-2*x*y+y^4+y^2+z^2</poly>\n\
-    <poly>-x^3*y^2+x*y^2*z+x*y*z^3-2*x*y+y^4</poly>\n\
-    <poly>-2*x^2*y+x*y^4+y*z^4-3</poly>\n\
-  </basis>\n\
-  <Comment>\n\
-    Contributed by Stefan Steidel (Uni KL)\n\
-\n\
-    cf. Decker, W.; Greuel, G.-M.; Pfister, G.: Primary Decomposition:\n\
-    Algorithms and Comparisons. In: Algorithmic Algebra and Number Theory,\n\
-    Springer, 187--220 (1998).\n\
-  </Comment>\n\
-</INTPS>"
+            expectedString = """<?xml version="1.0"?>
+<INTPS createdAt="2010-05-11" createdBy="graebe">
+  <vars>x,y,z</vars>
+  <basis>
+    <poly>x^2+x*y^2*z-2*x*y+y^4+y^2+z^2</poly>
+    <poly>-x^3*y^2+x*y^2*z+x*y*z^3-2*x*y+y^4</poly>
+    <poly>-2*x^2*y+x*y^4+y*z^4-3</poly>
+  </basis>
+</INTPS>
+"""
             if bn.strip() != expectedString.strip():
                 # print bn.strip()
                 # print "-------"

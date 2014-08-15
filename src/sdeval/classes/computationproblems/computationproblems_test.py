@@ -47,7 +47,7 @@ class TestComputationProblems(unittest.TestCase):
         This test tests the class FA_Q_dp for its stability.
 
         The covered tests are:
-        1) FreeAlgebra is contained in the associated table list
+        1) "FreeAlgebras" is contained in the associated table list
         2) The name is FA_Q_dp
         3) The list of possible, applicable computer algebra systems should not be empty
            In fact, it should by now contain at least
@@ -61,8 +61,8 @@ class TestComputationProblems(unittest.TestCase):
         """
         #1)
         compProblem=FA_Q_dp.FA_Q_dp()
-        self.assertTrue("FreeAlgebra" in compProblem.getAssociatedTables(),
-                        "The standard table, \"FreeAlgebra\", was not contained\
+        self.assertTrue("FreeAlgebras" in compProblem.getAssociatedTables(),
+                        "The standard table, \"FreeAlgebras\", was not contained\
  in the class FA_Q_dp")
         #2)
         self.assertEqual("FA_Q_dp", compProblem.getName(), "The class FA_Q_dp does not\

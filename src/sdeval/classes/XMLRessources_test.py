@@ -20,7 +20,7 @@ class TestXMLRessources(unittest.TestCase):
         self.xr = None
         try:
             tempPathToXMLRessources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-3]
-            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
+            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"data","XMLResources"))
         except:
             tempPathToXMLRessources = raw_input("Path to XMLRessources not at the usual location. Please enter Path\
  to it or press Enter to skip tests related to the Symbolic Data source: ")

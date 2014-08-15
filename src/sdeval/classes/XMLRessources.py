@@ -20,7 +20,7 @@ class XMLRessources(object):
     This will be checked when creating this instance
     """
 
-    def __init__(self, folder=os.path.join("..","..","XMLResources")):
+    def __init__(self, folder=os.path.join("..","..","data", "XMLResources")):
         """
         This function is the constructor of the class XMLRessources. It sets the internal
         variable folder to the given path. If the given folder is not valid, the constructor raises
