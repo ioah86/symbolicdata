@@ -338,7 +338,7 @@ who funded the project (Schwerpunkt 1489)")
     wants to deal with. Now he selects the Computer Algebra Systems on which the
     calculations should be perfomed. Additionally, he sets his machine settings
     """
-    self.mainWindow.geometry("%dx%d%+d%+d" % (375, 300 + 25*len(self.cpInstance.getPossibleComputerAlgebraSystems()), 40, 40))
+    self.mainWindow.geometry("%dx%d%+d%+d" % (375, 300 + 30*len(self.cpInstance.getPossibleComputerAlgebraSystems()), 40, 40))
     #Top Label
     self.lbl_computerAlgebraSelect = Tkinter.Label(self.mainFrame, text = "Choose the computer algebra systems\n\
 on which your calculations should be performed")
