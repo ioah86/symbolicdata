@@ -1,6 +1,6 @@
 import unittest
 from Task import Task
-from XMLRessources import XMLRessources
+from XMLResources import XMLResources
 from MachineSettings import MachineSettings
 from TaskFolderCreator import TaskFolderCreator
 
@@ -18,7 +18,7 @@ class TestTaskFolderCreator(unittest.TestCase):
         testPIs = ["Amrhein", "Becker-Niermann", "Bronstein-86"]
         testCASs = ["Singular", "Magma", "Maple"]
         self.testTask = Task(testName, testComputationProblem, testSDTables, testPIs, testCASs)
-        self.testXMLRessources = XMLRessources()
+        self.testXMLResources = XMLResources()
         casDict = {"Singular":"Singular", "Magma":"magma", "Maple":"maple"}
         timeCommand = "time -p"
         self.msTest = MachineSettings(casDict,timeCommand)
@@ -50,7 +50,7 @@ class TestTaskFolderCreator(unittest.TestCase):
         testCASs = ["Singular", "Magma", "Maple"]
         testTaskFail = Task(testName, testComputationProblem, testSDTables, testPIs, testCASs)
         try:
-            TaskFolderCreator().create(testTaskFail, self.testXMLRessources, self.msTest)
+            TaskFolderCreator().create(testTaskFail, self.testXMLResources, self.msTest)
             testPassed = 0
         except:
             pass
@@ -61,7 +61,7 @@ class TestTaskFolderCreator(unittest.TestCase):
         testComputationProblem = "GB_Z_lp"
         testTaskFail = Task(testName, testComputationProblem, testSDTables, testPIs, testCASs)
         try:
-            TaskFolderCreator().create(testTaskFail, self.testXMLRessources, self.msTest)
+            TaskFolderCreator().create(testTaskFail, self.testXMLResources, self.msTest)
             testPassed = 0
         except:
             pass
@@ -69,7 +69,7 @@ class TestTaskFolderCreator(unittest.TestCase):
             self.fail("Could create TaskFolder with non-existent computer algebra system template")
         #4.
         try:
-            successfulCreation = TaskFolderCreator().create(self.testTask, self.testXMLRessources, self.msTest)
+            successfulCreation = TaskFolderCreator().create(self.testTask, self.testXMLResources, self.msTest)
         except:
             self.fail("Could not create TaskFolder with valid entries")
         if (successfulCreation == None):

@@ -1,7 +1,7 @@
 import unittest
 import SDTable
 import os
-import XMLRessources
+import XMLResources
 
 class TestSDTable(unittest.TestCase):
     """
@@ -20,13 +20,13 @@ class TestSDTable(unittest.TestCase):
         """
         self.xr = None
         try:
-            tempPathToXMLRessources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-3]
-            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"data","XMLResources"))
+            tempPathToXMLResources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-3]
+            self.xr = XMLResources.XMLResources(os.path.join(str(os.sep).join(tempPathToXMLResources),"data","XMLResources"))
         except:
-            tempPathToXMLRessources = raw_input("Path to XMLRessources not at the usual location. Please enter Path\
+            tempPathToXMLResources = raw_input("Path to XMLResources not at the usual location. Please enter Path\
  to it or press Enter to skip tests related to the Symbolic Data source: ")
-            if tempPathToXMLRessources != '':
-                self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
+            if tempPathToXMLResources != '':
+                self.xr = XMLResources.XMLResources(os.path.join(str(os.sep).join(tempPathToXMLResources),"XMLResources"))
         if self.xr ==None:
             print "WARNING: As the path to the XMLResources is not provided, some tests will be ignored"
 
@@ -39,13 +39,13 @@ class TestSDTable(unittest.TestCase):
         2) Constructed via a full path to the SD-Table
            2.1) valid path
            2.2) invalid path
-        3) Constructed via an XMLRessources instance and a table name
+        3) Constructed via an XMLResources instance and a table name
            3.1) non existing table name
            3.2) existing table name
         4) Correct name saved
         5) Empiric tests of entries.
         Note:
-        - If there is no path to the XMLRessources provided in the setUp,
+        - If there is no path to the XMLResources provided in the setUp,
           some tests will be ignored.
         """
         testPassed = 1
@@ -109,7 +109,7 @@ class TestSDTable(unittest.TestCase):
            2.1) Check the XML-String for validity and correctness.
            2.2) With .xml ending and without
         Note:
-        - If there is no path to the XMLRessources provided in the setUp,
+        - If there is no path to the XMLResources provided in the setUp,
           this test will be completely ignored.
 
         GENERAL ASSUMPTION:

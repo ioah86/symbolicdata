@@ -1,10 +1,10 @@
 import unittest
-import XMLRessources
+import XMLResources
 import os
 
-class TestXMLRessources(unittest.TestCase):
+class TestXMLResources(unittest.TestCase):
     """
-    Tests for the class XMLRessources
+    Tests for the class XMLResources
 
     .. moduleauthor:: Albert Heinle <albert.heinle@uwaterloo.ca>
     """
@@ -19,19 +19,19 @@ class TestXMLRessources(unittest.TestCase):
         """
         self.xr = None
         try:
-            tempPathToXMLRessources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-3]
-            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"data","XMLResources"))
+            tempPathToXMLResources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-3]
+            self.xr = XMLResources.XMLResources(os.path.join(str(os.sep).join(tempPathToXMLResources),"data","XMLResources"))
         except:
-            tempPathToXMLRessources = raw_input("Path to XMLRessources not at the usual location. Please enter Path\
+            tempPathToXMLResources = raw_input("Path to XMLResources not at the usual location. Please enter Path\
  to it or press Enter to skip tests related to the Symbolic Data source: ")
-            if tempPathToXMLRessources != '':
-                self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
+            if tempPathToXMLResources != '':
+                self.xr = XMLResources.XMLResources(os.path.join(str(os.sep).join(tempPathToXMLResources),"XMLResources"))
         if self.xr ==None:
             print "WARNING: As the path to the XMLResources is not provided, all tests will be ignored"
 
     def testInitialization(self):
         """
-        Tests the initialization of the class XMLRessources.
+        Tests the initialization of the class XMLResources.
 
         In particular, we check for the following two cases:
         1) it is called with an invalid folder.
@@ -40,28 +40,28 @@ class TestXMLRessources(unittest.TestCase):
         2) It is called without any argument.
 
         ASSUMPTIONS:
-          - Test 2) needs the XMLRessources folder from the SymbolicData project
+          - Test 2) needs the XMLResources folder from the SymbolicData project
         """
         #1.1)
         try:
-            XMLRessources.XMLResources(os.path.join(".","SillyNameThatWouldNeverAppearInOurProgram"))
-            self.fail("Could instanciate XMLRessources with not existent path")
+            XMLResources.XMLResources(os.path.join(".","SillyNameThatWouldNeverAppearInOurProgram"))
+            self.fail("Could instanciate XMLResources with not existent path")
         except:
             pass
         #1.2)
         try:
-            XMLRessources.XMLRessources(".")
-            self.fail("Could instantiate XMLRessources instance with invalid path")
+            XMLResources.XMLResources(".")
+            self.fail("Could instantiate XMLResources instance with invalid path")
         except:
             pass
         #2)
         if self.xr != None:
             #This guarantees that we can call it with no arguments
-            XMLRessources.XMLRessources()
+            XMLResources.XMLResources()
         else:
             try:
-                XMLResources.XMLRessources()
-                self.fail("Could instantiate XMLRessources, even if the folder was not given correctly")
+                XMLResources.XMLResources()
+                self.fail("Could instantiate XMLResources, even if the folder was not given correctly")
             except:
                 pass
 
@@ -75,7 +75,7 @@ class TestXMLRessources(unittest.TestCase):
         2) Try to load a non-existing table
 
         GENERAL ASSUMPTIONS:
-          - XMLRessources folder from the SymbolicData project is existent on the testing machine
+          - XMLResources folder from the SymbolicData project is existent on the testing machine
         """
         if self.xr != None:
             #1)

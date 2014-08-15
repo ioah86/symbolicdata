@@ -6,7 +6,7 @@ from IntPS import IntPS
 from IntPSFromXMLBuilder import IntPSFromXMLBuilder
 from ModPSFromXMLBuilder import ModPSFromXMLBuilder
 from FreeAlgebrasFromXMLBuilder import FreeAlgebrasFromXMLBuilder
-from .. import XMLRessources
+from .. import XMLResources
 from .. import SDTable
 
 class TestProblemInstances(unittest.TestCase):
@@ -30,13 +30,13 @@ class TestProblemInstances(unittest.TestCase):
         """
         self.xr = None
         try:
-            tempPathToXMLRessources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-4]
-            self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"data","XMLResources"))
+            tempPathToXMLResources = str(os.path.realpath(os.path.dirname(__file__))).split(os.sep)[0:-4]
+            self.xr = XMLResources.XMLResources(os.path.join(str(os.sep).join(tempPathToXMLResources),"data","XMLResources"))
         except:
-            tempPathToXMLRessources = raw_input("Path to XMLRessources not at the usual location. Please enter Path\
+            tempPathToXMLResources = raw_input("Path to XMLResources not at the usual location. Please enter Path\
  to it or press Enter to skip tests related to the Symbolic Data source: ")
-            if tempPathToXMLRessources != '':
-                self.xr = XMLRessources.XMLRessources(os.path.join(str(os.sep).join(tempPathToXMLRessources),"XMLResources"))
+            if tempPathToXMLResources != '':
+                self.xr = XMLResources.XMLResources(os.path.join(str(os.sep).join(tempPathToXMLResources),"XMLResources"))
         if self.xr ==None:
             print "WARNING: As the path to the XMLResources is not provided, some tests will be ignored"
         #here is a variable for testing the builder for failure

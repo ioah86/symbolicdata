@@ -3,7 +3,7 @@ from TaskFolderTree import TaskFolderTree
 from TaskFolder import TaskFolder
 from templates import comp
 from Task import Task
-from XMLRessources import XMLRessources
+from XMLResources import XMLResources
 from MachineSettings import MachineSettings
 
 class TaskFolderCreator(object):
@@ -21,8 +21,8 @@ class TaskFolderCreator(object):
         
         :param                 task: The task associated to the taskfolder
         :type                  task: Task
-        :param        xmlRessources: The interface to the XMLRessources folder in Symbolic Data
-        :type         xmlRessources: XMLRessources
+        :param        xmlRessources: The interface to the XMLResources folder in Symbolic Data
+        :type         xmlRessources: XMLResources
         :param      machineSettings: The machine settings of the target machine
         :type       machineSettings: MachineSettings
         :raises         ImportError: If there is a template not existing.
@@ -32,7 +32,7 @@ class TaskFolderCreator(object):
         if (task == None or xmlRessources == None or machineSettings == None):
             return None
         if ((not isinstance(task, Task)) or
-            (not isinstance(xmlRessources,XMLRessources)) or (not
+            (not isinstance(xmlRessources,XMLResources)) or (not
             isinstance(machineSettings,MachineSettings))):
             return None
         #Done input check

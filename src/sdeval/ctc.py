@@ -16,7 +16,7 @@ details read the descriptions of the particular functions.
 #-------------------- Initialization Stuff --------------------
 
 from optparse import OptionParser
-from classes.XMLRessources import XMLRessources
+from classes.XMLResources import XMLResources
 from classes.Task import Task
 from classes.TaskFolderCreator import TaskFolderCreator
 from classes.MachineSettings import MachineSettings
@@ -144,7 +144,7 @@ def event_loop(choices, stdscr, yoff, xoff):
 # -------------------- Interactive user mode --------------------
 
 if __name__=="__main__":
-    #PARSING and initializing the interface to the XMLRessources folder
+    #PARSING and initializing the interface to the XMLResources folder
 
     parser = OptionParser("create_tasks.py [options] Arguments")
     parser.add_option("-s", "--source", dest="xmldatapath", help="The complete path to XML-Data")
@@ -163,7 +163,7 @@ if __name__=="__main__":
     else:
         xmlDataPath = os.path.realpath(args[0])
 
-    xmlres = XMLRessources(xmlDataPath)
+    xmlres = XMLResources(xmlDataPath)
 
     #FIND OUT SUPPORTED COMPUTATION PROBLEMS:
     #They are simply the ones taht are in classes/templates/comp

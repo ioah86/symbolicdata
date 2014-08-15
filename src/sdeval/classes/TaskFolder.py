@@ -122,7 +122,7 @@ class TaskFolder(object):
         :param          path: The path where the export-folder shall be saved to.
         :type           path: string
         :param xmlRessources: The interface to the XML Ressources folder
-        :type  xmlRessources: XMLRessources
+        :type  xmlRessources: XMLResources
         :raise       IOError: If the given path does not exist.
         """
         if not os.path.isdir(path):

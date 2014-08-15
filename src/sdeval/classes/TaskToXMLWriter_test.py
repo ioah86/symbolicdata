@@ -1,6 +1,6 @@
 import unittest
 from TaskToXMLWriter import TaskToXMLWriter
-from XMLRessources import XMLRessources
+from XMLResources import XMLResources
 
 class TestTaskToXMLWriter(unittest.TestCase):
     """
@@ -10,7 +10,7 @@ class TestTaskToXMLWriter(unittest.TestCase):
     """
 
     def setUp(self):
-        xmlres = XMLRessources()
+        xmlres = XMLResources()
         testName = "PrettyTestTask"
         testComputationProblem = "GB_Z_lp"
         testSDTables = ["IntPS"]
