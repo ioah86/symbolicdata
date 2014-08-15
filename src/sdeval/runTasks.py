@@ -107,8 +107,13 @@ proceedings = Proceedings(t,timeStamp)
 rt = ResultedTimings(proceedings)
 
 #creating all subfolders
-shutil.copytree(os.path.join(tfPath,"casSources"),os.path.join(resultsFolder,"resultFiles"))
+#shutil.copytree(os.path.join(tfPath,"casSources"),os.path.join(resultsFolder,"resultFiles")) OLD VERSION
+#We only want to copy those files, which appear in the taskInfo.xml
+os.mkdir(os.path.join(resultsFolder,"resultFiles"))
+for i in t.getProblemInstances():
+    shutil.copytree(os.path.join(tfPath,"casSources",i), os.path.join(resultsFolder,"resultFiles",i))
 
+#Creating the Proceedings Writers
 proceedingsHTMLWriter = ProceedingsToHTMLWriter()
 proceedingsXMLWriter  = ProceedingsToXMLWriter()
 rttoHTMLWriter        = ResultedTimingsToHTMLWriter()

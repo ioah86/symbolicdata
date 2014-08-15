@@ -34,7 +34,7 @@ In order to get information about the cpu, the command would be
 
 Operating system information
 ~sysctl -a | grep "os"~
-* TODO Do not copy everything from casSources
+* DONE Do not copy everything from casSources
 We give the users the freedom of excluding certain computations from
 the list if they wish for it. But still, the executable files from
 casSources will be copied to the folder results, no matter what. We
