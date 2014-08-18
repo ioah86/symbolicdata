@@ -206,11 +206,13 @@ quit;"""
         from comp.GB_Z_lp.Maple.template import generateCode
         vars = ['x1','x2','x3','x4']
         basis=['x1+x2','x3*x4-x2*x1','x1*x2*x3*x4']
-        expectedString = """with(Groebner):
+        expectedString = r"""with(Groebner):
 Ideal := {x1+x2,x3*x4-x2*x1,x1*x2*x3*x4}:
 ordering := plex(x1,x2,x3,x4):
 B := Basis(Ideal, ordering):
-print(B);
+printf("=====Solution Begin=====");
+printf("%a\n",B);
+printf("=====Solution End=====");
 quit;"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,

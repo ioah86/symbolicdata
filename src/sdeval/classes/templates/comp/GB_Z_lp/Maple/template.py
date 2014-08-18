@@ -26,7 +26,9 @@ with(Groebner):\n\
 Ideal := {%s}:\n\
 ordering := plex(%s):\n\
 B := Basis(Ideal, ordering):\n\
-print(B);\n\
+printf(\"=====Solution Begin=====\");\n\
+printf(\"%%a\\n\",B);\n\
+printf(\"=====Solution End=====\");\n\
 quit;\
 " % (",".join(basis),
      ",".join(vars))
