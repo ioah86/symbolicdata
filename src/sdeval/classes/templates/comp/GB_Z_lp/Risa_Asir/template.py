@@ -23,7 +23,9 @@ def generateCode(vars, basis):
     """
     result = """load("gr")$
 B=[%s]$
-gr(B,[%s],2);""" % (", ".join(basis), ",".join(vars))
+print("=====Solution Begin=====");
+print(gr(B,[%s],2));
+print("=====Solution End=====");""" % (", ".join(basis), ",".join(vars))
     return result
 
 #--------------------------------------------------

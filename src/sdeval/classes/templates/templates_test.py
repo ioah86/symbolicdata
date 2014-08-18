@@ -319,7 +319,9 @@ quit;"""
         basis=['x^10-t', 'x^8-z', 'x^31-x^6-x-y']
         expectedString = """load("gr")$
 B=[x^10-t, x^8-z, x^31-x^6-x-y]$
-gr(B,[x,y,z,t],2);"""
+print("=====Solution Begin=====");
+print(gr(B,[x,y,z,t],2));
+print("=====Solution End=====");"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")

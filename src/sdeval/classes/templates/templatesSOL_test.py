@@ -3018,5 +3018,126 @@ sys 0.00"""
         self.assertEqual(tempRes,expectedOutp, "Output strings did not \
 match for Singular output parse.")
 
+
+    def test_GB_Z_lp_Risa_Asir_Sol(self):
+        """
+        Here, we are testing the template to extract the solution from
+        the Risa/Asir output on a GB_Z_lp-instance, i.e. the
+        computation of a Groebner basis in a commutative polynomial ring
+
+        The covered test cases are:
+        1.1.) extractSolution on invalid inputs
+        1.1.a) Wrong datatype
+        1.1.b) String without the "=====Solution Begin=====" and
+               "=====Solution End=====" tags.
+        1.1.c) String with the "=====Solution Begin=====" tag, but not
+               with the "=====Solution End=====" tag
+        1.1.d) String with the "=====Solution End=====" tag, but not
+               with the "=====Solution Begin=====" tag
+        1.1.e) String with both the "=====Solution Begin=====" and the
+               "=====Solution End=====" tag, but with whitespace in
+               between.
+        1.2.) extractSolution on valid inputs
+        1.2.a) String with The solution right after "=====Solution
+               Begin=====" tag, and ending right at "=====Solution
+               End====="
+        1.2.b) Solution given really by Risa/Asir.
+        """
+        from comp.GB_Z_lp.Risa_Asir.template_sol import extractSolution
+        testPassed = 1
+        solBeginStr = "=====Solution Begin====="
+        solEndStr   = "=====Solution End====="
+        #1.1.a)
+        try:
+            extractSolution(1)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("I was able to try to extract a solution from an \
+int.")
+        #1.1.b)
+        try:
+            extractSolution("abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Invalid solution string did not cause \
+exception")
+        #1.1.c)
+        try:
+            extractSolution(solBeginStr + "\n\n abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with begin, but not with \
+end tag.")
+        #1.1.d)
+        try:
+            extractSolution("abc123" + solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with end, but not with \
+begin tag")
+        #1.1.e)
+        try:
+            extractSolution(solBeginStr +" " +solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with no solution in \
+between begin and end tag.")
+        #1.2.a)
+        try:
+            tempRes = extractSolution(solBeginStr + "[x]" + solEndStr)
+        except:
+            self.fail("Could not accept a solution with no whitespace \
+between the begin and the end tag")
+        expectedOutp = """<?xml version="1.0" ?>
+<GB_Z_lp_SOL>
+  <basis>
+    <polynomial>x</polynomial>
+  </basis>
+</GB_Z_lp_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.a)")
+        #1.2.b
+        risaasirOutput = """=====Solution Begin=====
+[z^5-t^4,t^3*y^2+2*t^2*z^2*y+(-t^6+2*t^3+t-1)*z^4,-t*z*y^2-2*z^3*y+t^8-2*t^5-t^3+t^2,-z^3*y^2-2*t^3*y+(t^7-2*t^4-t^2+t)*z^2,-2*t^2*y^3-z^2*y^2+(2*t^5-4*t^2+6)*z^4*y+(-4*t^8+t^7+8*t^5-2*t^4+4*t^3-5*t^2+t)*z,-z*y^3+(t^7-2*t^4+3*t^2+t)*y+(-2*t^6+4*t^3+2*t-2)*z^2,-2*t*y^5-z*y^2+(2*t^11-8*t^8+20*t^6+12*t^5-40*t^3-8*t^2+10*t+20)*z^3*y-8*t^14+32*t^11-48*t^8+t^7+32*t^5+6*t^4-9*t^2+t,y^8+8*t*y^3-16*z^2*y^2+(8*t^16-48*t^13+56*t^11+120*t^10-224*t^8-160*t^7+56*t^6+336*t^5+112*t^4-112*t^3-224*t^2-24*t+56)*z^4*y+(-t^24+8*t^21-20*t^19-28*t^18+120*t^16+56*t^15-14*t^14-300*t^13-70*t^12+56*t^11+400*t^10+84*t^9-84*t^8-268*t^7-84*t^6+56*t^5+63*t^4+36*t^3-46*t^2+12*t-1)*z,(-t^3+1)*x+y^6+(6*t^13-24*t^10+20*t^8+36*t^7-40*t^5-24*t^4+6*t^3+20*t^2+6*t+1)*y+(-t^17+6*t^14-9*t^12-15*t^11+36*t^9+20*t^8+5*t^7-54*t^6-15*t^5-10*t^4+36*t^3+11*t^2+5*t-9)*z^2,(y+t^2*z^2)*x+y^7+(20*t^2+6*t+1)*y^2+(-t^17+6*t^14-21*t^12-15*t^11+84*t^9+20*t^8-35*t^7-126*t^6-15*t^5+70*t^4+84*t^3-t^2+5*t-9)*z^2*y+(6*t^16-36*t^13+14*t^11+90*t^10-56*t^8-120*t^7-14*t^6+64*t^5+84*t^4+27*t^3-16*t^2-30*t+7)*z^4,-x^2+2*y^7+(41*t^2+13*t+1)*y^2+(-2*t^17+12*t^14-42*t^12-30*t^11+168*t^9+40*t^8-70*t^7-252*t^6-30*t^5+140*t^4+168*t^3-2*t^2+12*t-16)*z^2*y+(12*t^16-72*t^13+28*t^11+180*t^10-112*t^8-240*t^7-28*t^6+127*t^5+167*t^4+55*t^3-30*t^2-58*t+15)*z^4]
+=====Solution End=====
+0
+"""
+        try:
+            tempRes = extractSolution(risaasirOutput)
+        except:
+            self.fail("Could not parse valid Risa/Asir output string")
+        expectedOutp = """<?xml version="1.0" ?>
+<GB_Z_lp_SOL>
+  <basis>
+    <polynomial>z^5-t^4</polynomial>
+    <polynomial>t^3*y^2+2*t^2*z^2*y+(-t^6+2*t^3+t-1)*z^4</polynomial>
+    <polynomial>-t*z*y^2-2*z^3*y+t^8-2*t^5-t^3+t^2</polynomial>
+    <polynomial>-z^3*y^2-2*t^3*y+(t^7-2*t^4-t^2+t)*z^2</polynomial>
+    <polynomial>-2*t^2*y^3-z^2*y^2+(2*t^5-4*t^2+6)*z^4*y+(-4*t^8+t^7+8*t^5-2*t^4+4*t^3-5*t^2+t)*z</polynomial>
+    <polynomial>-z*y^3+(t^7-2*t^4+3*t^2+t)*y+(-2*t^6+4*t^3+2*t-2)*z^2</polynomial>
+    <polynomial>-2*t*y^5-z*y^2+(2*t^11-8*t^8+20*t^6+12*t^5-40*t^3-8*t^2+10*t+20)*z^3*y-8*t^14+32*t^11-48*t^8+t^7+32*t^5+6*t^4-9*t^2+t</polynomial>
+    <polynomial>y^8+8*t*y^3-16*z^2*y^2+(8*t^16-48*t^13+56*t^11+120*t^10-224*t^8-160*t^7+56*t^6+336*t^5+112*t^4-112*t^3-224*t^2-24*t+56)*z^4*y+(-t^24+8*t^21-20*t^19-28*t^18+120*t^16+56*t^15-14*t^14-300*t^13-70*t^12+56*t^11+400*t^10+84*t^9-84*t^8-268*t^7-84*t^6+56*t^5+63*t^4+36*t^3-46*t^2+12*t-1)*z</polynomial>
+    <polynomial>(-t^3+1)*x+y^6+(6*t^13-24*t^10+20*t^8+36*t^7-40*t^5-24*t^4+6*t^3+20*t^2+6*t+1)*y+(-t^17+6*t^14-9*t^12-15*t^11+36*t^9+20*t^8+5*t^7-54*t^6-15*t^5-10*t^4+36*t^3+11*t^2+5*t-9)*z^2</polynomial>
+    <polynomial>(y+t^2*z^2)*x+y^7+(20*t^2+6*t+1)*y^2+(-t^17+6*t^14-21*t^12-15*t^11+84*t^9+20*t^8-35*t^7-126*t^6-15*t^5+70*t^4+84*t^3-t^2+5*t-9)*z^2*y+(6*t^16-36*t^13+14*t^11+90*t^10-56*t^8-120*t^7-14*t^6+64*t^5+84*t^4+27*t^3-16*t^2-30*t+7)*z^4</polynomial>
+    <polynomial>-x^2+2*y^7+(41*t^2+13*t+1)*y^2+(-2*t^17+12*t^14-42*t^12-30*t^11+168*t^9+40*t^8-70*t^7-252*t^6-30*t^5+140*t^4+168*t^3-2*t^2+12*t-16)*z^2*y+(12*t^16-72*t^13+28*t^11+180*t^10-112*t^8-240*t^7-28*t^6+127*t^5+167*t^4+55*t^3-30*t^2-58*t+15)*z^4</polynomial>
+  </basis>
+</GB_Z_lp_SOL>
+"""
+        print expectedOutp
+        print tempRes
+        self.assertEqual(tempRes,expectedOutp, "Output strings did not \
+match for Risa/Asir output parse.")
+
 if __name__=="__main__":
     unittest.main()

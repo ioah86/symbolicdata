@@ -9,6 +9,7 @@ algebra systems. There could be the following milestones defined:
    given problem (i.e. maybe track a segmentation fault and identify
    a possible error)
    - Done for FA_Q_dp for Singular, GAP and Magma
+   - Done for GB_Z_lp for Singular
  - [ ] Check the solution of the computer algebra system for correctness
    (unrealistic for some tasks, as undecidable in certain cases)
 
@@ -68,8 +69,13 @@ For Example:
 For the Computation problem FA_GB_dp, GAP does not print the
 multiplication operator, i.e. =*= between the variables. This needs
 to get fixed.
-* TODO Indicate in the resultsFolder if the calculation has been terminated early
+* TODO Indicate in the resultsFolder if the calculation has been terminated earl
 If =runTasks.py= is terminated early, the proceedings still say
 "running" for at least one calculation. It would be cool if there is
 like a script that gets executed in the case of early termination,
 which makes sure that the info is in the HTML- or XML-files.
+* TODO Add possibility to "resume" computation
+Lets say, somebody unplugs your computer unintendedly (or indendedly
+;-))
+Then there should be a possibility to say "resume calculations", so
+that one does not have to deal with two different resulting folders.
