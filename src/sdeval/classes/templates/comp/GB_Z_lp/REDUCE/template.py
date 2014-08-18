@@ -22,8 +22,11 @@ def generateCode(vars, basis):
     :type         basis: list
     """
     result = """load_package groebner;
+off nat;
 torder({%s}, lex)$
+write "=====Solution Begin=====";
 groebner{%s};
+write "=====Solution End=====";
 quit;"""% (",".join(vars),",".join(basis))
     return result
 

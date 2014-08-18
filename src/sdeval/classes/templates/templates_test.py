@@ -299,10 +299,15 @@ quit;"""
         vars = ['x1','x2','x3','x4']
         basis=['x1+x2','x3*x4-x2*x1','x1*x2*x3*x4']
         expectedString = """load_package groebner;
+off nat;
 torder({x1,x2,x3,x4}, lex)$
+write "=====Solution Begin=====";
 groebner{x1+x2,x3*x4-x2*x1,x1*x2*x3*x4};
+write "=====Solution End=====";
 quit;"""
         output = generateCode(vars,basis)
+        print output
+        print expectedString
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")
 
