@@ -3,12 +3,14 @@ Once a Taskfolder is created, one can run this file to execute the tasks in this
 
 In a task folder, this function runs the tasks selected by the user
 step by step. The user can specify the maximum CPU-time and the maximum memory usage
-his tasks should have. This can be done as following: simply type
+his tasks should have. Furthermore, the user can specify how many programs can be run in parallel.
 
-python runTasks.py -c86400 -m1024
+This can be done as follows: simply type
+
+python runTasks.py -c86400 -m1024 -j4
 
 to ensure that every task will be killed, when it takes more than one day of calculation
-or more than 1KB memory.
+or more than 1KB memory. During the execution of runTasks, 4 computations will be run in parallel.
 
 .. moduleauthor:: Albert Heinle <albert.heinle@rwth-aachen.de>
 """
