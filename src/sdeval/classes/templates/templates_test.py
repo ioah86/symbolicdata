@@ -285,7 +285,9 @@ x4:= IndeterminatesOfPolynomialRing(PR)[4];
 I:= Ideal(PR,[x1+x2,x3*x4-x2*x1,x1*x2*x3*x4]);
 ord := MonomialLexOrdering(x1,x2,x3,x4);
 B := GroebnerBasis(I,ord);
+Print("=====Solution Begin=====");
 B;
+Print("=====Solution End=====");
 quit;"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,
