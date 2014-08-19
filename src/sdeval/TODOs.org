@@ -8,8 +8,8 @@ algebra systems. There could be the following milestones defined:
  - [X] Check if there is an output that has at least the form of a solution to the
    given problem (i.e. maybe track a segmentation fault and identify
    a possible error)
-   - Done for FA_Q_dp for Singular, GAP and Magma
-   - Done for GB_Z_lp for Singular
+   - Done for FA_Q_dp, GB_Z_lp, GB_Fp_dp for all supported computer
+     algebra systems.
  - [ ] Check the solution of the computer algebra system for correctness
    (unrealistic for some tasks, as undecidable in certain cases)
 
