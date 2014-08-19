@@ -12,34 +12,10 @@ algebra systems. There could be the following milestones defined:
      algebra systems.
  - [ ] Check the solution of the computer algebra system for correctness
    (unrealistic for some tasks, as undecidable in certain cases)
-
-* TODO Run Tasks in parallel
-Right now, when running runTasks.py, there is at most one computer
-algebra system running at a time, executing exactly one task. In the
-future, we would like to provide the possibility of running several
-tasks in parallel.
 * TODO Allow executable files as parameters AND piping of their content
 By now, we pipe the content of executable files to the computer
 algebra systems. There should also be an option to just give the path
 to the executable file, and the CAS can read it.
-* DONE Provide with the resultFiles information about the machine you were running your tasks on
-Right now, we do not provide information about the machine, where a
-task was run at. Also here, a common format is needed.
-A common way to do that is using the sysctl command.
-
-In order to get information about memory, the command would be
-~sysctl -a | grep "mem"~
-
-In order to get information about the cpu, the command would be
-~sysctl -a | grep "cpu"~
-
-Operating system information
-~sysctl -a | grep "os"~
-* DONE Do not copy everything from casSources
-We give the users the freedom of excluding certain computations from
-the list if they wish for it. But still, the executable files from
-casSources will be copied to the folder results, no matter what. We
-should copy only those sources, for which there have been results calculated.
 * TODO Deal with Maples mserver sub-process
 When calling Maple and feeding it with commands, the actual
 computations will be executed by a binary called =mserver=. For
@@ -79,3 +55,27 @@ Lets say, somebody unplugs your computer unintendedly (or indendedly
 ;-))
 Then there should be a possibility to say "resume calculations", so
 that one does not have to deal with two different resulting folders.
+* DONE Provide with the resultFiles information about the machine you were running your tasks on
+Right now, we do not provide information about the machine, where a
+task was run at. Also here, a common format is needed.
+A common way to do that is using the sysctl command.
+
+In order to get information about memory, the command would be
+~sysctl -a | grep "mem"~
+
+In order to get information about the cpu, the command would be
+~sysctl -a | grep "cpu"~
+
+Operating system information
+~sysctl -a | grep "os"~
+* DONE Do not copy everything from casSources
+We give the users the freedom of excluding certain computations from
+the list if they wish for it. But still, the executable files from
+casSources will be copied to the folder results, no matter what. We
+should copy only those sources, for which there have been results calculated.
+
+* DONE Run Tasks in parallel
+Right now, when running runTasks.py, there is at most one computer
+algebra system running at a time, executing exactly one process. In the
+future, we would like to provide the possibility of running several
+computations in parallel.
