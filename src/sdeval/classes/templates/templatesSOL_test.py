@@ -3629,5 +3629,132 @@ gap> =====Solution End=====
         self.assertEqual(tempRes,expectedOutp, "Output strings did not \
 match for GAP output parse.")
 
+    def test_GB_Fp_dp_GAP_Sol(self):
+        """
+        Here, we are testing the template to extract the solution from
+        the GAP output on a GB_Z_lp-instance, i.e. the
+        computation of a Groebner basis in a commutative polynomial ring
+
+        The covered test cases are:
+        1.1.) extractSolution on invalid inputs
+        1.1.a) Wrong datatype
+        1.1.b) String without the "=====Solution Begin=====" and
+               "=====Solution End=====" tags.
+        1.1.c) String with the "=====Solution Begin=====" tag, but not
+               with the "=====Solution End=====" tag
+        1.1.d) String with the "=====Solution End=====" tag, but not
+               with the "=====Solution Begin=====" tag
+        1.1.e) String with both the "=====Solution Begin=====" and the
+               "=====Solution End=====" tag, but with whitespace in
+               between.
+        1.2.) extractSolution on valid inputs
+        1.2.a) String with The solution right after "=====Solution
+               Begin=====" tag, and ending right at "=====Solution
+               End====="
+        1.2.b) Solution given really by GAP.
+        """
+        from comp.GB_Fp_dp.GAP.template_sol import extractSolution
+        testPassed = 1
+        solBeginStr = "=====Solution Begin====="
+        solEndStr   = "=====Solution End====="
+        #1.1.a)
+        try:
+            extractSolution(1)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("I was able to try to extract a solution from an \
+int.")
+        #1.1.b)
+        try:
+            extractSolution("abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Invalid solution string did not cause \
+exception")
+        #1.1.c)
+        try:
+            extractSolution(solBeginStr + "\n\n abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with begin, but not with \
+end tag.")
+        #1.1.d)
+        try:
+            extractSolution("abc123" + solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with end, but not with \
+begin tag")
+        #1.1.e)
+        try:
+            extractSolution(solBeginStr +" " +solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with no solution in \
+between begin and end tag.")
+        #1.2.a)
+        try:
+            tempRes = extractSolution(solBeginStr + "gap> [x]" + solEndStr)
+        except:
+            self.fail("Could not accept a solution with no whitespace \
+between the begin and the end tag")
+        expectedOutp = """<?xml version="1.0" ?>
+<GB_Fp_dp_SOL>
+  <basis>
+    <polynomial>x</polynomial>
+  </basis>
+</GB_Fp_dp_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.a)")
+        #1.2.b
+        gapOutput = """Libs used:  gmp, readline
+ Loading the library and packages ...
+ Components: trans 1.0, prim 2.1, small* 1.0, id* 1.0
+ Packages:   AClib 1.2, Alnuth 3.0.0, AtlasRep 1.5.0, AutPGrp 1.5, 
+             CRISP 1.3.7, Cryst 4.1.12, CrystCat 1.1.6, CTblLib 1.2.2, 
+             FactInt 1.5.3, FGA 1.2.0, GAPDoc 1.5.1, IO 4.2, IRREDSOL 1.2.3, 
+             LAGUNA 3.6.4, Polenta 1.3.1, Polycyclic 2.11, RadiRoot 2.6, 
+             ResClasses 3.3.2, Sophus 1.23, SpinSym 1.5, TomLib 1.2.4
+ Try '?help' for help. See also  '?copyright' and  '?authors'
+gap> GF(5)
+gap> GF(5)[x1,x2,x3,x4]
+gap> x1
+gap> x2
+gap> x3
+gap> x4
+gap> <two-sided ideal in GF(5)[x1,x2,x3,x4], (3 generators)>
+gap> MonomialGrlexOrdering()
+gap> [ x1+x2, x2^2+x3*x4, x3^2*x4^2 ]
+gap> =====Solution Begin=====
+gap> [ x1+x2, x2^2+x3*x4, x3^2*x4^2 ]
+gap> =====Solution End=====
+"""
+        try:
+            tempRes = extractSolution(gapOutput)
+        except:
+            self.fail("Could not parse valid GAP output string")
+        expectedOutp = """<?xml version="1.0" ?>
+<GB_Fp_dp_SOL>
+  <basis>
+    <polynomial>x1+x2</polynomial>
+    <polynomial>x2^2+x3*x4</polynomial>
+    <polynomial>x3^2*x4^2</polynomial>
+  </basis>
+</GB_Fp_dp_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "Output strings did not \
+match for GAP output parse.")
+
 if __name__=="__main__":
     unittest.main()
