@@ -42,9 +42,10 @@ from classes.results.ResultedTimingsToXMLWriter import ResultedTimingsToXMLWrite
 from classes.results.ResultingFileFromOutputBuilder import ResultingFileFromOutputBuilder
 
 #-------------------- Checking the user arguments ----------------------------
-parser = OptionParser("runTasks.py -cN -mM , where N and M are numbers")
-parser.add_option("-c", "--cputime", dest="maxCPUTime",help="Specify the max. time a CAS should calculate on the given problems")
-parser.add_option("-m", "--memoryusage", dest="maxMemUsage", help = "Specify the max. memory (In ) a CAS is allowed to use for the given calculations")
+parser = OptionParser("runTasks.py -cN -mM -jP, where N, M and P are positive integers")
+parser.add_option("-c", "--cputime", dest="maxCPUTime",help="Specify the max. time a CAS should calculate on the given problems in seconds")
+parser.add_option("-m", "--memoryusage", dest="maxMemUsage", help = "Specify the max. memory (in bytes) a CAS is allowed to use for the given calculations")
+parser.add_option("-j", "--jobs", dest="numberOfJobs", help = "Specify the max. number of computations that should be run in parallel")
 
 (opts, args) = parser.parse_args()
 
@@ -56,6 +57,10 @@ if (opts.maxCPUTime != None):
     maxCPU = int(opts.maxCPUTime)
 else:
     maxCPU = None
+if (opts.numberOfJobs!=None):
+    maxJobs = int(opts.numberOfJobs)
+else:
+    maxJobs = 1
 #-------------------- Done Checking user arguments --------------------
 #-------------------- Making the results here      --------------------
 
@@ -137,50 +142,61 @@ update()
 
 rfBuilder = ResultingFileFromOutputBuilder()
 
-while proceedings.getWAITING() != []:
-    curCalc = rt.getWAITING()[0]
-    rt.setRUNNING(curCalc)
-    update()
-    pid = os.fork()
-    if (pid == 0): #Process, which starts the computeralgebra system (Child)
-        if (maxCPU != None):
-            resource.setrlimit(resource.RLIMIT_CPU,(maxCPU,maxCPU))
-        if (maxMem != None):
-            resource.setrlimit(resource.RLIMIT_DATA,(maxMem,maxMem))
-        filename = os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"executablefile.sdc")
-        result = commands.getoutput(ms.getTimeCommand()+ " -p "+ms.getCASCommand(curCalc[1])+"< "+filename)
-        file = open(os.path.join(resultsFolder,"resultFiles",curCalc[0],curCalc[1],"outputFile.res"),"w")
-        file.write(result)
-        file.close()
-        os._exit(0)
-    else: #fatherprocess
-        os.wait()
-        file = open(os.path.join(resultsFolder,"resultFiles",curCalc[0],curCalc[1],"outputFile.res"))
-        resultingFile = rfBuilder.build(curCalc[0],curCalc[1],file.read())
-        file.close()
-        if os.path.isfile(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"template_sol.py")):
-            sys.path.append(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
-            import template_sol
-            reload(template_sol) #(makes sure that the changes are applied)
-            solext = template_sol.extractSolution
-            try:
-                resInXML = solext(resultingFile.getCASOutput())
-                resXMLFile =\
-                    open(os.path.join(resultsFolder,
-                                      "resultFiles",
-                                      curCalc[0],
-                                      curCalc[1],
-                                      "solutionInXML.xml"),"w")
-                resXMLFile.write(resInXML)
-                resXMLFile.close()
-                rt.setCOMPLETED(curCalc, resultingFile.getTimes())
-            except:
-                rt.setERROR(curCalc,resultingFile.getTimes())
-            sys.path.remove(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
-        else:
-            #in this case, we cannot say anything about the
-            #output. Therefore we assume, that it just completed as expected.
-            rt.setCOMPLETED(curCalc,resultingFile.getTimes())
+availProc = maxJobs
+runningDict = {}
+while proceedings.getWAITING() != [] or proceedings.getRUNNING() != []:
+    while (proceedings.getWAITING() !=[]) and (availProc >0):
+        availProc -= 1
+        curCalc = rt.getWAITING()[0]
+        rt.setRUNNING(curCalc)
         update()
+        pid = os.fork()
+        if (pid == 0): #Process, which starts the computeralgebra system (Child)
+            if (maxCPU != None):
+                resource.setrlimit(resource.RLIMIT_CPU,(maxCPU,maxCPU))
+            if (maxMem != None):
+                resource.setrlimit(resource.RLIMIT_DATA,(maxMem,maxMem))
+            filename = os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"executablefile.sdc")
+            result = commands.getoutput(ms.getTimeCommand()+ " -p "+ms.getCASCommand(curCalc[1])+"< "+filename)
+            file = open(os.path.join(resultsFolder,"resultFiles",curCalc[0],curCalc[1],"outputFile.res"),"w")
+            file.write(result)
+            file.close()
+            os._exit(0)
+        else:
+            runningDict[pid] = curCalc
+    #fatherprocess
+    pid = None
+    while not (pid in runningDict): #Certain processes can be just the CASs.
+        pid, sign = os.waitpid(0,0)
+    curCalc = runningDict[pid]
+    availProc +=1
+    del runningDict[pid]
+    file = open(os.path.join(resultsFolder,"resultFiles",curCalc[0],curCalc[1],"outputFile.res"))
+    resultingFile = rfBuilder.build(curCalc[0],curCalc[1],file.read())
+    file.close()
+    if os.path.isfile(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"template_sol.py")):
+        sys.path.append(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
+        import template_sol
+        reload(template_sol) #(makes sure that the changes are applied)
+        solext = template_sol.extractSolution
+        try:
+            resInXML = solext(resultingFile.getCASOutput())
+            resXMLFile =\
+                open(os.path.join(resultsFolder,
+                                  "resultFiles",
+                                  curCalc[0],
+                                  curCalc[1],
+                                  "solutionInXML.xml"),"w")
+            resXMLFile.write(resInXML)
+            resXMLFile.close()
+            rt.setCOMPLETED(curCalc, resultingFile.getTimes())
+        except:
+            rt.setERROR(curCalc,resultingFile.getTimes())
+        sys.path.remove(os.path.join(tfPath,"casSources",curCalc[0],curCalc[1]))
+    else:
+        #in this case, we cannot say anything about the
+        #output. Therefore we assume, that it just completed as expected.
+        rt.setCOMPLETED(curCalc,resultingFile.getTimes())
+    update()
 
 update()
