@@ -28,7 +28,9 @@ with(Groebner):\n\
 Ideal := {%s} mod %i:\n\
 ordering := grlex(%s):\n\
 B := Basis(Ideal, ordering):\n\
-print(B);\n\
+printf(\"=====Solution Begin=====\");\n\
+printf(\"%%a\\n\",B);\n\
+printf(\"=====Solution End=====\");\n\
 quit;\
 " % (",".join(basis),
      characteristic,

@@ -24,10 +24,13 @@ def generateCode(vars, basis,characteristic):
     :type  characteristic: int
     """
     result = """on modular$
+off nat;
 setmod %i$
 load_package groebner;
 torder({%s}, gradlex)$
+write "=====Solution Begin=====";
 groebner{%s};
+write "=====Solution End=====";
 quit;""" % (characteristic,
     ",".join(vars),
     ", ".join(basis))

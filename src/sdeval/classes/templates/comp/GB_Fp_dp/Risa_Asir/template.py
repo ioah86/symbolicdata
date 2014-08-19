@@ -25,7 +25,10 @@ def generateCode(vars, basis,characteristic):
     """
     result ="""load("gr")$
 B=[%s]$
-gr_mod(B,[%s],1,%i);""" % (", ".join(basis),
+print("=====Solution Begin=====");
+print(gr_mod(B,[%s],1,%i));
+print("=====Solution End=====");
+""" % (", ".join(basis),
     ",".join(vars),
     characteristic)
     return result

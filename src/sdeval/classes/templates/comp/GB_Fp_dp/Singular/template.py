@@ -27,7 +27,9 @@ def generateCode(vars, basis,characteristic):
 ring R = %i,(%s),lp;\n\
 ideal I = %s;\n\
 ideal J = std(I);\n\
+print(\"=====Solution Begin=====\");\n\
 print(J);\n\
+print(\"=====Solution End=====\");\n\
 $\
 " % (characteristic,
     ",".join(vars),

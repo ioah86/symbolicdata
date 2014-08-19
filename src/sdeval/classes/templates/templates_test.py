@@ -122,7 +122,9 @@ x4:= IndeterminatesOfPolynomialRing(PR)[4];
 I:= Ideal(PR,[x1+x2,x3*x4-x2*x1,x1*x2*x3*x4]);
 ord := MonomialGrlexOrdering(x1,x2,x3,x4);
 B := GroebnerBasis(I,ord);
+Print("=====Solution Begin=====");
 B;
+Print("=====Solution End=====");
 quit;"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
@@ -145,7 +147,9 @@ ideal I = x1+x2,
 x3*x4-x2*x1,
 x1*x2*x3*x4;
 ideal J = std(I);
+print("=====Solution Begin=====");
 print(J);
+print("=====Solution End=====");
 $"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
@@ -167,7 +171,9 @@ $"""
 P<x1,x2,x3,x4> := PolynomialRing(F,4);
 I := ideal<P | x1+x2,x3*x4-x2*x1,x1*x2*x3*x4>;
 B := GroebnerBasis(I);
+print "=====Solution Begin=====";
 B;
+print "=====Solution End=====";
 quit;"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
@@ -185,11 +191,13 @@ quit;"""
         vars = ['x1','x2','x3','x4']
         basis=['x1+x2','x3*x4-x2*x1','x1*x2*x3*x4']
         characteristic = 5
-        expectedString = """with(Groebner):
+        expectedString = r"""with(Groebner):
 Ideal := {x1+x2,x3*x4-x2*x1,x1*x2*x3*x4} mod 5:
 ordering := grlex(x1,x2,x3,x4):
 B := Basis(Ideal, ordering):
-print(B);
+printf("=====Solution Begin=====");
+printf("%a\n",B);
+printf("=====Solution End=====");
 quit;"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
@@ -351,7 +359,10 @@ print("=====Solution End=====");"""
         characteristic=5;
         expectedString = """load("gr")$
 B=[x^10-t, x^8-z, x^31-x^6-x-y]$
-gr_mod(B,[x,y,z,t],1,5);"""
+print("=====Solution Begin=====");
+print(gr_mod(B,[x,y,z,t],1,5));
+print("=====Solution End=====");
+"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")
@@ -369,10 +380,13 @@ gr_mod(B,[x,y,z,t],1,5);"""
         basis=['x^10-t', 'x^8-z', 'x^31-x^6-x-y']
         characteristic=5;
         expectedString = """on modular$
+off nat;
 setmod 5$
 load_package groebner;
 torder({x,y,z,t}, gradlex)$
+write "=====Solution Begin=====";
 groebner{x^10-t, x^8-z, x^31-x^6-x-y};
+write "=====Solution End=====";
 quit;"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
