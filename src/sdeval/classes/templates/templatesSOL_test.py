@@ -3992,5 +3992,158 @@ memory used=2.0MB, alloc=8.3MB, time=0.23
         self.assertEqual(tempRes,expectedOutp, "Output strings did not \
 match for Maple output parse.")
 
+    def test_GB_Fp_dp_REDUCE_Sol(self):
+        """
+        Here, we are testing the template to extract the solution from
+        the REDUCE output on a GB_Z_lp-instance, i.e. the
+        computation of a Groebner basis in a commutative polynomial ring
+
+        The covered test cases are:
+        1.1.) extractSolution on invalid inputs
+        1.1.a) Wrong datatype
+        1.1.b) String without the "=====Solution Begin=====" and
+               "=====Solution End=====" tags.
+        1.1.c) String with the "=====Solution Begin=====" tag, but not
+               with the "=====Solution End=====" tag
+        1.1.d) String with the "=====Solution End=====" tag, but not
+               with the "=====Solution Begin=====" tag
+        1.1.e) String with both the "=====Solution Begin=====" and the
+               "=====Solution End=====" tag, but with whitespace in
+               between.
+        1.2.) extractSolution on valid inputs
+        1.2.a) String with The solution right after "=====Solution
+               Begin=====" tag, and ending right at "=====Solution
+               End====="
+        1.2.b) Solution given really by REDUCE.
+        """
+        from comp.GB_Fp_dp.REDUCE.template_sol import extractSolution
+        testPassed = 1
+        solBeginStr = "=====Solution Begin====="
+        solEndStr   = "=====Solution End====="
+        #1.1.a)
+        try:
+            extractSolution(1)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("I was able to try to extract a solution from an \
+int.")
+        #1.1.b)
+        try:
+            extractSolution("abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Invalid solution string did not cause \
+exception")
+        #1.1.c)
+        try:
+            extractSolution(solBeginStr + "\n\n abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with begin, but not with \
+end tag.")
+        #1.1.d)
+        try:
+            extractSolution("abc123" + solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with end, but not with \
+begin tag")
+        #1.1.e)
+        try:
+            extractSolution(solBeginStr +" " +solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with no solution in \
+between begin and end tag.")
+        #1.2.a)
+        try:
+            tempRes = extractSolution(solBeginStr + "7: $ {x}$" + solEndStr)
+        except:
+            self.fail("Could not accept a solution with no whitespace \
+between the begin and the end tag")
+        expectedOutp = """<?xml version="1.0" ?>
+<GB_Fp_dp_SOL>
+  <basis>
+    <polynomial>x</polynomial>
+  </basis>
+</GB_Fp_dp_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.a)")
+        #1.2.b
+        reduceOutput = """Reduce (Free CSL version), 27-Apr-10 ...
+
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+=====Solution Begin=====$
+
+7: 
+{x**3*y**3 + x*y*z**3*t + 4*y**2*z**3*t + x*y**2*z + x*t**3 + 4*z**2*t**2 + x*t 
++ 4*y*t + 4*x + 4*y,
+x*z**2*t**3 + 4*x**2*t**2 + 4*x*z**2 + 4*y*z**2,
+z**2*t**4 + 4*x*y*z**3 + 4*x*t**3 + 4*z**2*t,
+x**3*y*t + x*z*t**3 + 4*z**3*t**2 + x*z*t + 4*x*z + 4*y*z,
+x**3*t**2 + 4*z*t**4 + x*y*z**2 + z*t,
+x**2*t**3 + 4*z**4,
+x*y*t**3 + 4*x*z**2*t**2 + z**4 + x**2*t + 4*x**2 + 3*x*y + 4*y**2,
+x*z**4 + 4*x**3 + 4*x**2*y + 4*z,
+x*t**4 + 4*x*t + 4*y*t + 4*z**2,
+y*z**4 + x**3*t + 4*z*t**3 + 4*x**2*y + 4*x*y**2 + z,
+y*t**4 + 4*z**2*t**3 + 4*x*y**2*z + x*t**2 + 4*y*t + z**2,
+z**5 + 4*t**4,
+z**4*t + 4*x**2*t + 4*x*y*t + 4*x*z**2,
+t**5 + 4*x*y*z*t + 4*x*z**3 + 4*t**2,
+x**4 + x**3*y + 4*z**3*t + x*z,
+x**2*z + 4*t}$
+
+8: 
+=====Solution End=====$
+
+9: 
+"""
+        try:
+            tempRes = extractSolution(reduceOutput)
+        except:
+            self.fail("Could not parse valid REDUCE output string")
+        expectedOutp = """<?xml version="1.0" ?>
+<GB_Fp_dp_SOL>
+  <basis>
+    <polynomial>x^3*y^3 + x*y*z^3*t + 4*y^2*z^3*t + x*y^2*z + x*t^3 + 4*z^2*t^2 + x*t 
++ 4*y*t + 4*x + 4*y</polynomial>
+    <polynomial>x*z^2*t^3 + 4*x^2*t^2 + 4*x*z^2 + 4*y*z^2</polynomial>
+    <polynomial>z^2*t^4 + 4*x*y*z^3 + 4*x*t^3 + 4*z^2*t</polynomial>
+    <polynomial>x^3*y*t + x*z*t^3 + 4*z^3*t^2 + x*z*t + 4*x*z + 4*y*z</polynomial>
+    <polynomial>x^3*t^2 + 4*z*t^4 + x*y*z^2 + z*t</polynomial>
+    <polynomial>x^2*t^3 + 4*z^4</polynomial>
+    <polynomial>x*y*t^3 + 4*x*z^2*t^2 + z^4 + x^2*t + 4*x^2 + 3*x*y + 4*y^2</polynomial>
+    <polynomial>x*z^4 + 4*x^3 + 4*x^2*y + 4*z</polynomial>
+    <polynomial>x*t^4 + 4*x*t + 4*y*t + 4*z^2</polynomial>
+    <polynomial>y*z^4 + x^3*t + 4*z*t^3 + 4*x^2*y + 4*x*y^2 + z</polynomial>
+    <polynomial>y*t^4 + 4*z^2*t^3 + 4*x*y^2*z + x*t^2 + 4*y*t + z^2</polynomial>
+    <polynomial>z^5 + 4*t^4</polynomial>
+    <polynomial>z^4*t + 4*x^2*t + 4*x*y*t + 4*x*z^2</polynomial>
+    <polynomial>t^5 + 4*x*y*z*t + 4*x*z^3 + 4*t^2</polynomial>
+    <polynomial>x^4 + x^3*y + 4*z^3*t + x*z</polynomial>
+    <polynomial>x^2*z + 4*t</polynomial>
+  </basis>
+</GB_Fp_dp_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "Output strings did not \
+match for REDUCE output parse.")
+
 if __name__=="__main__":
     unittest.main()
