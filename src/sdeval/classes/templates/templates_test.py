@@ -257,7 +257,9 @@ $"""
 P<x1,x2,x3,x4> := PolynomialRing(F,4);
 I := ideal<P | x1+x2,x3*x4-x2*x1,x1*x2*x3*x4>;
 B := GroebnerBasis(I);
+print "=====Solution Begin=====";
 B;
+print "=====Solution End=====";
 quit;"""
         output = generateCode(vars,basis)
         self.assertEqual(expectedString,output,
