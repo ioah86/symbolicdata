@@ -51,7 +51,15 @@ A
     arguments, let this method create a string with executable code
     and return it in the end. After that, nothing more needs to be
     done. Test this function, and then send it to us. Thank you in
-    advance.
+    advance. Furthermore, you can also add a file called
+    ``template_sol.py``, which should check and extract the output of
+    your computer algebra system. You can again copy and paste the
+    file from existing templates and modify it to work with your
+    computer algebra system. But this is a more complicated
+    process and therefore optional. Note though that without the
+    ``template_sol.py`` file, potential erroneous outputs or
+    preleminary termination of your computer algebra system will not
+    be detected.
   * You have no idea of Python. Then just send us an example code how
     to solve an already stated computation problem in your computer
     algebra system and we will do the work for you.
@@ -124,7 +132,7 @@ Questions on using SDEval
 Q
   I have created an task folder. Now I want to change some parameters,
   add some lines of code, etc. To what extend is that possible without
-  making the task folder not working any more when running
+  causing errors when running
   ``runTasks.py``?
 
 A
@@ -192,10 +200,10 @@ A
   * Within the folder created in the first step, add files named
     ``machinesettings.xml`` and ``taskInfo.xml``. You need to fill
     them with data. How these XML-files should look like is described
-    in the ``For Developers`` section of the documentation (in the
+    in the documention of the respective Python module (in the
     ``MachineSettings`` module resp. the ``TaskToXMLWriter`` module).
     Alternatively you can just build a random taskfolder with the
-    ``create_tasks[_gui].py`` and derive the format of those files
+    ``create_tasks_gui.py`` or ``ctc.py`` and derive the format of those files
     from the produced folder.
 
 Q
@@ -214,3 +222,29 @@ A
   while, and for the next run, they will be ignored. As you see, the
   additional file serves the purpose to make the use of the taskfolder
   more flexible to the user.
+
+Q
+  My computer algebra system that I use terminated early and/or its
+  output is useless gibberish. Why does SDEval say "COMPLETED" and not
+  "ERROR"?
+
+A
+  This can have multiple reasons. Let us divide this in different
+  cases:
+
+  * *Case 1:* You have created a Taskfolder using ``create_tasks_gui.py``
+    or ``ctc.py`` and did not change manually anything in there. Then
+    the scenario described by the question should not happen and we
+    encourage you to write a bug-report.
+  * *Case 2:* You have manually created a Taskfolder and/or modified
+    it by adding new computer algebra systems, etc.. In this case, the
+    existence of the file ``template_sol.py`` besides the
+    ``executablefile.sdc`` file in the respective subfolder of
+    ``casSources`` is essential. The script is checking the output of
+    the respective computer algebra system and extracts the result of
+    the computation. If the result cannot be found, is incomplete or
+    wrong, it should raise an exception. This exception causes SDEval
+    to mark the result of the computation as erroneous. If you are
+    convinced that you have done everything right here and do not see
+    why your computation was not marked as erroneous, please contact
+    us.

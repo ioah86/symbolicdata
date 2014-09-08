@@ -55,6 +55,11 @@ Lets say, somebody unplugs your computer unintendedly (or indendedly
 ;-))
 Then there should be a possibility to say "resume calculations", so
 that one does not have to deal with two different resulting folders.
+* TODO If certain folders with sources are not available, just error it.
+We have sometimes a Taskfolder, and it might be missing a certain
+computer algebra system for a task, or it is missing even the problem
+instance in total. We need to deal with this for the sake of the
+stability of the runTime.
 * DONE Provide with the resultFiles information about the machine you were running your tasks on
 Right now, we do not provide information about the machine, where a
 task was run at. Also here, a common format is needed.
