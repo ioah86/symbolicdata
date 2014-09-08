@@ -241,6 +241,7 @@ class TestProblemInstances(unittest.TestCase):
         expectedOutput = "<html>\n\
 <head>\n\
 \t<title>PrettyTestTask run at 201405161350</title>\n\
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"proceedings_css.css\">\n\
 </head>\n\
 <body>\n\
 <h1> Task: PrettyTestTask </h1>\n\
@@ -332,6 +333,7 @@ class TestProblemInstances(unittest.TestCase):
         expectedOutput = "<html>\n\
 <head>\n\
 \t<title>PrettyTestTask run at 201405161350</title>\n\
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"proceedings_css.css\">\n\
 </head>\n\
 <body>\n\
 <h1> Task: PrettyTestTask </h1>\n\

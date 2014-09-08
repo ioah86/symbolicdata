@@ -46,6 +46,7 @@ class ResultedTimingsToHTMLWriter(object):
 <html>\n\
 <head>\n\
 \t<title>%s run at %s</title>\n\
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"proceedings_css.css\">\n\
 </head>\n\
 <body>\n\
 <h1> Task: %s </h1>\n\

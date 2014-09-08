@@ -60,6 +60,10 @@ We have sometimes a Taskfolder, and it might be missing a certain
 computer algebra system for a task, or it is missing even the problem
 instance in total. We need to deal with this for the sake of the
 stability of the runTime.
+* DONE Add a CSS file for the proceedings resp. resultedTimings HTML files
+Right now, the resultedTimings and the proceedings are pretty
+plain. A user might want to spice the look up a bit. Therefore we
+should provide the possibility to customize some sort of css-file.
 * DONE Provide with the resultFiles information about the machine you were running your tasks on
 Right now, we do not provide information about the machine, where a
 task was run at. Also here, a common format is needed.

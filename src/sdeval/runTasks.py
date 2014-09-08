@@ -95,6 +95,9 @@ f.write("The OS-information has been acquired via the command 'sysctl -a | grep 
 f.write(curMachineOSInfo)
 f.close()
 
+#copying the default css for the proceedings and resultedTimings
+shutil.copyfile(os.path.join(tfPath,"classes","results", "proceedings_css.css"),os.path.join(tfPath,"results",timeStamp,"proceedings_css.css"))
+
 #getting the machine settings
 f = open(os.path.join(tfPath,"machinesettings.xml"))
 msc = MachineSettingsFromXMLBuilder()

@@ -248,3 +248,14 @@ A
     convinced that you have done everything right here and do not see
     why your computation was not marked as erroneous, please contact
     us.
+
+Q
+  The HTML-file produced by SDEval listing all the processes and their
+  resulted timings is not very pretty. Is there a way to alter it
+  without doing too much by hand?
+
+A
+  Indeed, there is. In the latest version, there is a CSS file copied
+  to the results-folder with your time-stamp. There, you can alter the
+  basic appearance parameters for your HTML files. Basic knowledge of
+  CSS and HTML is required though.
