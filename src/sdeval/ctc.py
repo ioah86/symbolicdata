@@ -44,6 +44,8 @@ class messenger:
     self.win.addstr(self.yoff, self.xoff, message)
 
 # event loop to let the user make choices from a list of choices
+# TODO Important: do not select every superset word of our word, this is what
+#                 wildcards are used for
 # TODO: seperate user choices for different input words for
 # better visibility
 # TODO: auto completion
