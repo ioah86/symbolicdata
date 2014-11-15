@@ -93,3 +93,15 @@ A user can right now only see the original problem through the
 CAS-Source files, which is not very good, as he or she needs to
 understand the code. A better solution would be to provide an
 input.XML from the casSources.
+* TODO Run all calculations multiple times
+Sometimes, one wants to run certain computer algebra systems multiple
+times on the same file and e.g. take the average over all
+calculations.
+Two approaches:
+1) We provide another flag to runTasks.py, which says how often you
+   want to run each example for each CAS. Then, this will internally
+   be considered and the output-files will be specifically modified to
+   stretch this fact.
+2) We provide a method to run runTasks.py automatically multiple
+   times, and extract the statistical data from the different
+   result-folders afterwards.
