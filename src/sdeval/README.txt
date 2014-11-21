@@ -15,6 +15,8 @@ MANUALS
 See folder doc for manuals.
 For some basic definitions on the terminology we are using here, see
 the definitions.rst in that folder.
+There is also a video tutorial available, describing the goals and the
+general use of SDEval. You can find it here: https://www.youtube.com/watch?v=CctmrfisZso
 
 
 REQUIREMENTS
