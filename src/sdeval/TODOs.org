@@ -88,6 +88,11 @@ Right now, when running runTasks.py, there is at most one computer
 algebra system running at a time, executing exactly one process. In the
 future, we would like to provide the possibility of running several
 computations in parallel.
+
+* DONE Add information to the result folder, which parameters it has been called with.
+=runTasks.py= can be called with different parameters. After the
+process has been run, it is not clear, which parameters it has been
+called with. This information would be handy to have and should be provided.
 * TODO Add an input-XML-file to the results
 A user can right now only see the original problem through the
 CAS-Source files, which is not very good, as he or she needs to

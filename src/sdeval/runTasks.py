@@ -43,6 +43,7 @@ from classes.results.ResultedTimingsToHTMLWriter import ResultedTimingsToHTMLWri
 from classes.results.ResultedTimingsToXMLWriter import ResultedTimingsToXMLWriter
 from classes.results.ResultingFileFromOutputBuilder import ResultingFileFromOutputBuilder
 from classes.RunTaskOptions import RunTaskOptions
+from classes.RunTaskOptionsToXMLWriter import RunTaskOptionsToXMLWriter
 
 #-------------------- Checking the user arguments ----------------------------
 parser = OptionParser("runTasks.py -cN -mM -jP, where N, M and P are positive integers")
@@ -99,7 +100,10 @@ f.write(curMachineOSInfo)
 f.close()
 
 #posting the information about the parameters in the running script into the folder
-
+f= open(os.path.join(tfPath,"results",timeStamp,"runTaskParameters.xml"),"w")
+rtoXMLWriter = RunTaskOptionsToXMLWriter()
+f.write(rtoXMLWriter.createXMLFromRunTaskOptions(runTaskOpts).toprettyxml())
+f.close()
 
 #copying the default css for the proceedings and resultedTimings
 shutil.copyfile(os.path.join(tfPath,"classes","results", "proceedings_css.css"),os.path.join(tfPath,"results",timeStamp,"proceedings_css.css"))
