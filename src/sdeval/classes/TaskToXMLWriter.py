@@ -11,7 +11,7 @@ class TaskToXMLWriter(object):
     def createXMLFromTask(self, task, xmlRessources):
         """
         Returns an XML-Representation of the Task. This representation has the following form::
-
+          <?xml version="1.0" ?>
           <task>
             <name>
               "The Taskname"

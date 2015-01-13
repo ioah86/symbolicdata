@@ -112,3 +112,7 @@ class TestRunTaskOptions(unittest.TestCase):
 * Maximum memory consumption for each computation (in Bytes): 128
 * Maximum amount of computations that can be run in parallel: 16"""
         self.assertEqual(str(t),expectedString, "Test 3. failed: The string representation did not coincide with the expected one: %s"%str(t))
+
+
+if __name__=="__main__":
+    unittest.main()
