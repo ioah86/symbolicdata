@@ -42,6 +42,7 @@ from classes.results.ProceedingsToXMLWriter import ProceedingsToXMLWriter
 from classes.results.ResultedTimingsToHTMLWriter import ResultedTimingsToHTMLWriter
 from classes.results.ResultedTimingsToXMLWriter import ResultedTimingsToXMLWriter
 from classes.results.ResultingFileFromOutputBuilder import ResultingFileFromOutputBuilder
+from classes.RunTaskOptions import RunTaskOptions
 
 #-------------------- Checking the user arguments ----------------------------
 parser = OptionParser("runTasks.py -cN -mM -jP, where N, M and P are positive integers")
@@ -63,6 +64,8 @@ if (opts.numberOfJobs!=None):
     maxJobs = int(opts.numberOfJobs)
 else:
     maxJobs = 1
+
+runTaskOpts = RunTaskOptions(maxCPU,maxMem,maxJobs)
 #-------------------- Done Checking user arguments --------------------
 #-------------------- Making the results here      --------------------
 
@@ -150,7 +153,7 @@ update()
 
 rfBuilder = ResultingFileFromOutputBuilder()
 
-availProc = maxJobs
+availProc = runTaskOpts.getMaxJobs()
 runningDict = {}
 while proceedings.getWAITING() != [] or proceedings.getRUNNING() != []:
     while (proceedings.getWAITING() !=[]) and (availProc >0):
@@ -160,10 +163,10 @@ while proceedings.getWAITING() != [] or proceedings.getRUNNING() != []:
         update()
         pid = os.fork()
         if (pid == 0): #Process, which starts the computeralgebra system (Child)
-            if (maxCPU != None):
-                resource.setrlimit(resource.RLIMIT_CPU,(maxCPU,maxCPU))
-            if (maxMem != None):
-                resource.setrlimit(resource.RLIMIT_DATA,(maxMem,maxMem))
+            if (runTaskOpts.getMaxCPU() != None):
+                resource.setrlimit(resource.RLIMIT_CPU,(runTaskOpts.getMaxCPU(),runTaskOpts.getMaxCPU()))
+            if (runTaskOpts.getMaxMem() != None):
+                resource.setrlimit(resource.RLIMIT_DATA,(runTaskOpts.getMaxMem(),runTaskOpts.getMaxMem()))
             filename = os.path.join(tfPath,"casSources",curCalc[0],curCalc[1],"executablefile.sdc")
             result = commands.getoutput(ms.getTimeCommand()+ " -p "+ms.getCASCommand(curCalc[1])+"< "+filename)
             file = open(os.path.join(resultsFolder,"resultFiles",curCalc[0],curCalc[1],"outputFile.res"),"w")
