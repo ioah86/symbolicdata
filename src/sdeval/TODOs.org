@@ -45,7 +45,7 @@ For Example:
 For the Computation problem FA_GB_dp, GAP does not print the
 multiplication operator, i.e. =*= between the variables. This needs
 to get fixed.
-* TODO Indicate in the resultsFolder if the calculation has been terminated earl
+* TODO Indicate in the resultsFolder if the calculation has been terminated early
 If =runTasks.py= is terminated early, the proceedings still say
 "running" for at least one calculation. It would be cool if there is
 like a script that gets executed in the case of early termination,

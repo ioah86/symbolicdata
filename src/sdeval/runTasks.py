@@ -95,6 +95,9 @@ f.write("The OS-information has been acquired via the command 'sysctl -a | grep 
 f.write(curMachineOSInfo)
 f.close()
 
+#posting the information about the parameters in the running script into the folder
+
+
 #copying the default css for the proceedings and resultedTimings
 shutil.copyfile(os.path.join(tfPath,"classes","results", "proceedings_css.css"),os.path.join(tfPath,"results",timeStamp,"proceedings_css.css"))
 
