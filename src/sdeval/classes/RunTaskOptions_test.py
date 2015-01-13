@@ -72,3 +72,43 @@ class TestRunTaskOptions(unittest.TestCase):
             pass
         if not testPassed:
             self.fail("Test 6.c. failed: Was able to assign -10000 to maxJobs")
+
+
+    def testStringRepresentation(self):
+        """
+        The tests in this function examine the string representation functionality
+        of the RunTaskOptionFile. The tests covered are the following:
+
+        1. Initialization without any parameters
+        2. Initialize only maxMem
+        3. Initialize only maxCPU
+        4. Initialize all the values
+        """
+        #1
+        t = RunTaskOptions()
+        expectedString = """RunTask Options:
+* Maximum CPU time for each computation (in seconds): N.A.
+* Maximum memory consumption for each computation (in Bytes): N.A.
+* Maximum amount of computations that can be run in parallel: 1"""
+        self.assertEqual(str(t),expectedString, "Test 1. failed: The string representation did not coincide with the expected one: %s"%str(t))
+        #2
+        t = RunTaskOptions(maxMem=128)
+        expectedString = """RunTask Options:
+* Maximum CPU time for each computation (in seconds): N.A.
+* Maximum memory consumption for each computation (in Bytes): 128
+* Maximum amount of computations that can be run in parallel: 1"""
+        self.assertEqual(str(t),expectedString, "Test 2. failed: The string representation did not coincide with the expected one: %s"%str(t))
+        #3
+        t = RunTaskOptions(maxCPU=120)
+        expectedString = """RunTask Options:
+* Maximum CPU time for each computation (in seconds): 120
+* Maximum memory consumption for each computation (in Bytes): N.A.
+* Maximum amount of computations that can be run in parallel: 1"""
+        self.assertEqual(str(t),expectedString, "Test 3. failed: The string representation did not coincide with the expected one: %s"%str(t))
+        #4
+        t = RunTaskOptions(maxCPU=120, maxMem=128, maxJobs = 16)
+        expectedString = """RunTask Options:
+* Maximum CPU time for each computation (in seconds): 120
+* Maximum memory consumption for each computation (in Bytes): 128
+* Maximum amount of computations that can be run in parallel: 16"""
+        self.assertEqual(str(t),expectedString, "Test 3. failed: The string representation did not coincide with the expected one: %s"%str(t))

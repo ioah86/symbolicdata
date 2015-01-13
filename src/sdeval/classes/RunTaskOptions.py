@@ -89,7 +89,8 @@ class RunTaskOptions(object):
         """
         result = """RunTask Options:
 * Maximum CPU time for each computation (in seconds): %s
-* Maximum memory consumption for each computation: %s
-* Maximum amount of computations that can be run in parallel: %i""" % ("" if self.getMaxCPU()==None else str(self.getMaxCPU()),
-                                                                       "" if self.getMaxMem()==None else str(self.getMaxMem()),
+* Maximum memory consumption for each computation (in Bytes): %s
+* Maximum amount of computations that can be run in parallel: %i""" % ("N.A." if self.getMaxCPU()==None else str(self.getMaxCPU()),
+                                                                       "N.A." if self.getMaxMem()==None else str(self.getMaxMem()),
                                                                        self.getMaxJobs())
+        return result
