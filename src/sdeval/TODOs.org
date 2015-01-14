@@ -45,7 +45,7 @@ For Example:
 For the Computation problem FA_GB_dp, GAP does not print the
 multiplication operator, i.e. =*= between the variables. This needs
 to get fixed.
-* TODO Indicate in the resultsFolder if the calculation has been terminated earl
+* TODO Indicate in the resultsFolder if the calculation has been terminated early
 If =runTasks.py= is terminated early, the proceedings still say
 "running" for at least one calculation. It would be cool if there is
 like a script that gets executed in the case of early termination,
@@ -88,6 +88,11 @@ Right now, when running runTasks.py, there is at most one computer
 algebra system running at a time, executing exactly one process. In the
 future, we would like to provide the possibility of running several
 computations in parallel.
+
+* DONE Add information to the result folder, which parameters it has been called with.
+=runTasks.py= can be called with different parameters. After the
+process has been run, it is not clear, which parameters it has been
+called with. This information would be handy to have and should be provided.
 * TODO Add an input-XML-file to the results
 A user can right now only see the original problem through the
 CAS-Source files, which is not very good, as he or she needs to
