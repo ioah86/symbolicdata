@@ -44,7 +44,7 @@ class ResultedTimingsToXMLWriter(object):
                   </user>
                   <sys>
                     "sys time"
-                  <sys>
+                  </sys>
                 </timings>
             </completed>
             <error>
