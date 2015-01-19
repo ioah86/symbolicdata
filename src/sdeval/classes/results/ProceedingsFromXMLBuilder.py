@@ -69,24 +69,32 @@ class ProceedingsFromXMLBuilder(object):
             raise IOError("Could not find entries for completed resp. erroneous computations")
         #First dealing with all the completed calculations
         tempEntry = completedCalculations.firstChild
+        while (tempEntry != None and tempEntry.nodeType == dom.Node.TEXT_NODE):
+            tempEntry = tempEntry.nextSibling
         while tempEntry != None:
             try:
                 cas = str((tempEntry.getElementsByTagName("computeralgebrasystem")[0]).firstChild.data).strip()
                 pi  = str((tempEntry.getElementsByTagName("probleminstance")[0]).firstChild.data).strip()
             except:
                 raise IOError("The entries in the list of completed calculations are not valid")
-            result.setRUNNING((pi,cas))
-            result.setCOMPLETED((pi,cas))
+            result.setRUNNING([pi,cas])
+            result.setCOMPLETED([pi,cas])
             tempEntry = tempEntry.nextSibling
+            while (tempEntry != None and tempEntry.nodeType == dom.Node.TEXT_NODE):
+                tempEntry = tempEntry.nextSibling
         #Now dealing with the erroneous calculations
         tempEntry = erroneousCalculations.firstChild
+        while (tempEntry != None and tempEntry.nodeType == dom.Node.TEXT_NODE):
+            tempEntry = tempEntry.nextSibling
         while tempEntry != None:
             try:
                 cas = str((tempEntry.getElementsByTagName("computeralgebrasystem")[0]).firstChild.data).strip()
                 pi  = str((tempEntry.getElementsByTagName("probleminstance")[0]).firstChild.data).strip()
             except:
                 raise IOError("The entries in the list of erroneous computations were not valid.")
-            result.setRUNNING((pi,cas))
-            result.setERROR((pi,cas))
+            result.setRUNNING([pi,cas])
+            result.setERROR([pi,cas])
             tempEntry = tempEntry.nextSibling
+            while (tempEntry != None and tempEntry.nodeType == dom.Node.TEXT_NODE):
+                tempEntry = tempEntry.nextSibling
         return result
