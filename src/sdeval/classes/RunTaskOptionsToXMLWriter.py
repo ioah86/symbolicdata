@@ -18,6 +18,7 @@ class RunTaskOptionsToXMLWriter(object):
             <maxCPU>`maxCPU`</maxCPU>
             <maxMem>`maxMem`</maxMem>
             <maxJobs>`maxJobs`</maxJobs>
+            <resume>`resume`</resume>
           </RunTaskOptions>
         In case any of the values maxCPU or maxMem are None, the respective entry will be empty.
 
@@ -32,10 +33,11 @@ class RunTaskOptionsToXMLWriter(object):
         tempNodeMaxCPU = tempNode.appendChild(result.createElement("maxCPU"))
         tempNodeMaxMem = tempNode.appendChild(result.createElement("maxMem"))
         tempNodeMaxJobs = tempNode.appendChild(result.createElement("maxJobs"))
+        tempNodeResume = tempNode.appendChild(result.createElement("resume"))
         if rto.getMaxCPU()!=None:
             tempNodeMaxCPU.appendChild(result.createTextNode(str(rto.getMaxCPU())))
         if rto.getMaxMem()!=None:
             tempNodeMaxMem.appendChild(result.createTextNode(str(rto.getMaxMem())))
         tempNodeMaxJobs.appendChild(result.createTextNode(str(rto.getMaxJobs())))
+        tempNodeResume.appendChild(result.createTextNode(str(int(rto.getResume()))))
         return result
-        

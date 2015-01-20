@@ -13,13 +13,13 @@ class TestRunTaskOptions(unittest.TestCase):
         #Empty XML file
         self.xml2 = ""
         #Tag is missing completely
-        self.xml3 = """<?xml version="1.0" ?><RunTaskOptions><maxMem>1024</maxMem><maxJobs>8</maxJobs></RunTaskOptions>"""
+        self.xml3 = """<?xml version="1.0" ?><RunTaskOptions><maxMem>1024</maxMem><maxJobs>8</maxJobs><resume>0</resume></RunTaskOptions>"""
         #Tags have non-valid entries
-        self.xml4 = """<?xml version="1.0" ?><RunTaskOptions><maxCPU>abc</maxCPU><maxMem>cde</maxMem><maxJobs>efg</maxJobs></RunTaskOptions>"""
+        self.xml4 = """<?xml version="1.0" ?><RunTaskOptions><maxCPU>abc</maxCPU><maxMem>cde</maxMem><maxJobs>efg</maxJobs><resume>0</resume></RunTaskOptions>"""
         #XML with some empty tags
-        self.xml5 = """<?xml version="1.0" ?><RunTaskOptions><maxCPU></maxCPU><maxMem/><maxJobs>1</maxJobs></RunTaskOptions>"""
+        self.xml5 = """<?xml version="1.0" ?><RunTaskOptions><maxCPU></maxCPU><maxMem/><maxJobs>1</maxJobs><resume>0</resume></RunTaskOptions>"""
         #XML with all tags validly set
-        self.xml6 = """<?xml version="1.0" ?><RunTaskOptions><maxCPU>7200</maxCPU><maxMem>1024</maxMem><maxJobs>8</maxJobs></RunTaskOptions>"""
+        self.xml6 = """<?xml version="1.0" ?><RunTaskOptions><maxCPU>7200</maxCPU><maxMem>1024</maxMem><maxJobs>8</maxJobs><resume>1</resume></RunTaskOptions>"""
 
     def test_XMLBuilder(self):
         """
@@ -70,11 +70,13 @@ class TestRunTaskOptions(unittest.TestCase):
         self.assertEqual(tobj.getMaxMem(),None, "Test 5. failed. Expected None as maxMem, but got: %s"%str(tobj.getMaxMem()))
         self.assertEqual(tobj.getMaxCPU(),None, "Test 5. failed. Expected None as maxCPU, but got: %s"%str(tobj.getMaxCPU()))
         self.assertEqual(tobj.getMaxJobs(),1, "Test 5. failed. Expected 1 for maxJobs, but got: %s"%str(tobj.getMaxJobs()))
+        self.assertEqual(tobj.getResume(),0,"Test 5. failed. Expeced 0 for resume, but got: %s"%str(tobj.getResume()))
         #6.
         tobj = builder.build(self.xml6)
         self.assertEqual(tobj.getMaxMem(),1024, "Test 6. failed. Expected 1024 as maxMem, but got: %s"%str(tobj.getMaxMem()))
         self.assertEqual(tobj.getMaxCPU(),7200, "Test 6. failed. Expected 7200 as maxCPU, but got: %s"%str(tobj.getMaxCPU()))
         self.assertEqual(tobj.getMaxJobs(),8, "Test 6. failed. Expected 8 for maxJobs, but got: %s"%str(tobj.getMaxJobs()))
+        self.assertEqual(tobj.getResume(),1,"Test 6. failed. Expeced 1 for resume, but got: %s"%str(tobj.getResume()))
 
 if __name__=="__main__":
     unittest.main()

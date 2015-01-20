@@ -18,6 +18,7 @@ class RunTaskOptionsFromXMLBuilder(object):
             <maxCPU>`maxCPU`</maxCPU>
             <maxMem>`maxMem`</maxMem>
             <maxJobs>`maxJobs`</maxJobs>
+            <resume>`resume`</resume>
           </RunTaskOptions>
         Then this function creates a RunTaskOptions instance given the information in this file.
 
@@ -40,12 +41,14 @@ class RunTaskOptionsFromXMLBuilder(object):
         else:
             maxMem=None
         maxJobs = str((xmlTree.getElementsByTagName("maxJobs")[0]).firstChild.data).strip()
+        resume = str((xmlTree.getElementsByTagName("resume")[0]).firstChild.data).strip()
         try:
             if (maxCPU!=None):
                 maxCPU = int(maxCPU)
             if (maxMem != None):
                 maxMem = int(maxMem)
             maxJobs = int(maxJobs)
+            resume = bool(int(resume))
         except:
-            raise IOError("Values for one of the following was not integer: maxCPU, maxMem, maxJobs.")
-        return RunTaskOptions(maxCPU, maxMem, maxJobs)
+            raise IOError("Values for one of the following was not correctly typed: maxCPU, maxMem, maxJobs, resume.")
+        return RunTaskOptions(maxCPU, maxMem, maxJobs,resume)

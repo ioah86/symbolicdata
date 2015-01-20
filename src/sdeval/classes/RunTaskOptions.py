@@ -5,16 +5,18 @@ class RunTaskOptions(object):
     - Maximum CPU Time available for each computation
     - Maximum Memory available for each computation
     - Maximum amount of computations that should be run in parallel.
+    - Indicator, if runTask.py was called to finish an uncompleted job
     
     .. moduleauthor:: Albert Heinle <albert.heinle@rwth-aachen.de>
     """
     
-    def __init__(self, maxCPU=None, maxMem=None, maxJobs=1):
+    def __init__(self, maxCPU=None, maxMem=None, maxJobs=1, resume=False):
         """
         Constructor of RunTaskOptions. It can be called without any parameters; then we have:
         - No limit on CPU time resources
         - No limit on Memory resources.
         - Exactly one computation will be run at a time.
+        - We are ot resuming any Task
 
         If any of the given numbers is less or equal to 0, a ValueError is raised.
 
@@ -24,6 +26,8 @@ class RunTaskOptions(object):
         :type       maxMem: integer (>0)
         :param     maxJobs: The maximum amount of computations that shall be run in parallel.
         :type      maxJobs: integer (>0)
+        :param      resume: Indicator if an uncompleted task is being resumed.
+        :type       resume: bool
         :raises ValueError: If any of the above parameters do not fit the required type,
                             a ValueError is raised.
         """
@@ -42,6 +46,9 @@ class RunTaskOptions(object):
         if int(maxJobs)<=0:
            raise ValueError("The maximum amount of jobs was not a positive integer")
         self.__maxJobs = int(maxJobs)
+        if type(resume)!=bool:
+            raise ValueError("The flag whether we resume a task or not should be of boolean type")
+        self.__resume = resume
 
 
     def getMaxMem(self):
@@ -71,6 +78,27 @@ class RunTaskOptions(object):
         """
         return self.__maxJobs
 
+    def getResume(self):
+        """
+        Returns the flag if the task is being resumed or not.
+
+        :returns: The flag if the task was stopped in between and is resumed.
+        :rtype:   bool
+        """
+        return self.__resume
+
+    def setResume(self, newValue):
+        """
+        Set the flag if the task has been resumed to the provided new value.
+
+        :param newValue: The new value for the `resume`-flag
+        :type  newValue: bool
+        :raises TypeError: if input parameter was not boolean
+        """
+        if type(newValue)!=bool:
+            raise TypeError("Incorrect type for newValue")
+        self.__resume = newValue
+
     def __str__(self):
         """
         Returns the string representation of the RunTaskOptions instance.
@@ -80,6 +108,7 @@ class RunTaskOptions(object):
            * Maximum CPU time for each computation (in seconds): `maxCPU`
            * Maximum memory consumption for each computation: `maxMem`
            * Maximum amount of computations that can be run in parallel: `maxJobs`
+           * Task has beein interrupted before and is now being resumed: `resume`
 
         If maxCPU or maxMem are not specified by the user, the function replaces maxCPU resp. maxMem
         above by the string "N.A."
@@ -90,7 +119,9 @@ class RunTaskOptions(object):
         result = """RunTask Options:
 * Maximum CPU time for each computation (in seconds): %s
 * Maximum memory consumption for each computation (in Bytes): %s
-* Maximum amount of computations that can be run in parallel: %i""" % ("N.A." if self.getMaxCPU()==None else str(self.getMaxCPU()),
+* Maximum amount of computations that can be run in parallel: %i
+* Task has been interrupted before and is now being resumed: %r""" % ("N.A." if self.getMaxCPU()==None else str(self.getMaxCPU()),
                                                                        "N.A." if self.getMaxMem()==None else str(self.getMaxMem()),
-                                                                       self.getMaxJobs())
+                                                                       self.getMaxJobs(),
+                                                                       self.getResume())
         return result
