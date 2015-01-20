@@ -63,6 +63,29 @@ class ResultedTimings(object):
         """
         return self.__proceedings
 
+    # def setProceedings(self,pr):
+    #     """
+    #     Updates the decorated instance of Proceedings.
+    #     In case when there is an entry in the ResultingFileDictionary,
+    #     whose key is not in this updated Proceedings instance, a ValueError
+    #     is raised. This ValueError is also raised, if the input is not an
+    #     instance of Proceedings.
+
+    #     :param pr: An instance of Proceedings
+    #     :type  pr: Proceedings
+    #     :
+    #     """
+    #     if (not type(pr)==Proceedings):
+    #         raise ValueError("Input was not of type Proceedings.")
+    #     for i in pr.getCOMPLETED()
+    #         if (not (str(i) in self.__ResultingFileDict)):
+    #             raise ValueError("Updating Proceedings impossible. Incompatible data.")
+    #     for i in pr.getERROR()
+    #         if (not (str(i) in self.__ResultingFileDict)):
+    #             raise ValueError("Updating Proceedings impossible. Incompatible data.")
+    #     self.__proceedings = pr
+            
+
     def getResultingFileDict(self):
         """
         Returns the dictionary with the saved timings.

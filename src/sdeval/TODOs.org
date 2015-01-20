@@ -50,7 +50,7 @@ If =runTasks.py= is terminated early, the proceedings still say
 "running" for at least one calculation. It would be cool if there is
 like a script that gets executed in the case of early termination,
 which makes sure that the info is in the HTML- or XML-files.
-* TODO Add possibility to "resume" computation
+* DONE Add possibility to "resume" computation
 Lets say, somebody unplugs your computer unintendedly (or indendedly
 ;-))
 Then there should be a possibility to say "resume calculations", so

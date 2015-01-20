@@ -485,5 +485,6 @@ hello"
         self.assertEqual(rf.getComputerAlgebraSystem(),"MagicCAS", "Computeralgebrasystem was not as expected")
         self.assertEqual(rf.getProblemInstance(),"MagicInstance","Probleminstance was not as expected")
 
+
 if __name__=="__main__":
     unittest.main()
