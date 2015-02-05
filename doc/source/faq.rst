@@ -58,7 +58,7 @@ A
     computer algebra system. But this is a more complicated
     process and therefore optional. Note though that without the
     ``template_sol.py`` file, potential erroneous outputs or
-    preleminary termination of your computer algebra system will not
+    preliminary termination of your computer algebra system will not
     be detected.
   * You have no idea of Python. Then just send us an example code how
     to solve an already stated computation problem in your computer
@@ -156,7 +156,7 @@ A
   be there.
 
 Q
-  I have already created an export task folder. Now, on my target
+  I have already created a task folder. Now, on my target
   machine, the commands to call a certain computer algebra system have
   changed. How can I adjust that without creating the same task
   again?
@@ -167,14 +167,19 @@ A
   task folder and change it there. It is easy to find.
 
 Q
-  I start the ``create_tasks_gui.py``, and somehow he is constantly
+  I start the ``create_tasks_gui.py``, and somehow it is constantly
   asking me to open a folder. What is going on there?
 
 A
   You might have moved ``SDEval`` out of the Symbolic-Data folders.
   Fact is, that the files of Symbolic Data must be on your machine.
-  Just search for the folder ``XMLRessources`` in the Symbolic-Data
-  folders, and select it in the popping up window.
+  Just search for the folder ``XMLResources`` in the Symbolic-Data
+  folders, and select it in the popping up window. You might have
+  further inconsistencies in this case. Try to run the testing routines
+  (i.e. run::
+    $> nosetests -v
+  inside the SDEval folder) to see if all the tests are passing before
+  continuing.
 
 Q
   I just want to run some experimental calculations without adding it
@@ -200,7 +205,7 @@ A
   * Within the folder created in the first step, add files named
     ``machinesettings.xml`` and ``taskInfo.xml``. You need to fill
     them with data. How these XML-files should look like is described
-    in the documention of the respective Python module (in the
+    in the documentation of the respective Python module (in the
     ``MachineSettings`` module resp. the ``TaskToXMLWriter`` module).
     Alternatively you can just build a random taskfolder with the
     ``create_tasks_gui.py`` or ``ctc.py`` and derive the format of those files

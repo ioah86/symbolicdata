@@ -3,7 +3,7 @@
 Quick manual for users of SDEval
 ================================
 
-Author: Albert Heinle <albert.heinle@googlemail.com>
+Author: Albert Heinle <aheinle@uwaterloo.ca>
 
 Abstract
 --------
@@ -116,4 +116,10 @@ see how long the calculation took.
           category (if a method for extracting the solution from the
           output is provided).
 
-That is it. Have fun using it!!!
+Other Resources
+----------------
+
+We have posted also a video tutorial on SDEval on Youtube. You can
+access it via the following link:
+https://www.youtube.com/watch?v=CctmrfisZso
+
