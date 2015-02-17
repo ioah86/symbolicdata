@@ -3,7 +3,7 @@
 Quick manual for users of SDEval
 ================================
 
-Author: Albert Heinle <albert.heinle@googlemail.com>
+Author: Albert Heinle <aheinle@uwaterloo.ca>
 
 Abstract
 --------
@@ -82,7 +82,7 @@ taskfolder in the specified path.
 .. note:: All those steps can also be done using the command line. For
    that, simply execute ::
 
-     $ python create_tasks.py
+     $ python ctc.py
 
 Executing a Task
 ----------------
@@ -92,12 +92,12 @@ taskfolder. There, you can execute the task by running the command ::
 
   $ python runTasks.py
 
-.. note:: You can also add time constraints and memory usage
-   constraints. You can find out how to do that by typing ::
+.. note:: You can also add time constraints, memory usage
+   constraints and parallelization options. You can find out how to do that by typing ::
 
      $ python runTasks.py --help
 
-After you do that, your computer seems to be working. But you do not
+After you execute the above command, your computer seems to be working. But you do not
 know what it is doing. The answer is: It is executing all files on the
 corresponding computer algebra systems, which might take a while.
 
@@ -105,9 +105,21 @@ To see the proceedings of the computations, go into the subfolder
 ``results``, which is created after the first running, and select
 the folder with the name representing the current timestamp. In there,
 you find a HTML-file called proceedings.html. Open it, and see which
-computations are waiting, running and which are completed.
+computations are waiting, running, completed and which ones ended with
+an error.
 
-For the completed, you can open resultedtimings.html, where you can
+For the completed ones, you can open resultedtimings.html, where you can
 see how long the calculation took.
 
-That is it. Have fun using it!!!
+.. note:: If you decide to terminate a certain process before it
+          finishes its calculation, it will be put in the ``error``
+          category (if a method for extracting the solution from the
+          output is provided).
+
+Other Resources
+----------------
+
+We have posted also a video tutorial on SDEval on Youtube. You can
+access it via the following link:
+https://www.youtube.com/watch?v=CctmrfisZso
+

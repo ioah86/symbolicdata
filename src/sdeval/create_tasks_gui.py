@@ -31,7 +31,7 @@ dictComputationProblem={"FA_Q_dp":"Groebner basis over free algebra",
 import os # This is for the check if the path does exist in the next step
 import shutil
 
-from classes.XMLRessources import XMLRessources
+from classes.XMLResources import XMLResources
 from classes.MachineSettings import MachineSettings
 from classes.TaskFolderCreator import TaskFolderCreator
 from classes.Task import Task
@@ -44,21 +44,6 @@ import xml.dom.minidom as dom
 
 
 ################################################################################
-#First of all, check, if the directory with the XMLRessources of Symbolicdata
-#does exist in the expected path "../XMLResources/". If not, the
-#user will be asked later for the path.
-
-stdxmlDataPathDir = os.path.join("..", "..", "data", "XMLResources")
-isXMLRessourcesDirectory = \
-    os.path.isdir(stdxmlDataPathDir)
-    # To make it more platform independent. What stands here would be in unix terms
-    #../../../OWLData/XMLResources.
-
-xmlDataPath = None
-if (isXMLRessourcesDirectory):
-  xmlDataPath = os.path.realpath(stdxmlDataPathDir)
-
-################################################################################
 #Lets start with the gui itself.
 
 class CreateTasksGui:
@@ -68,7 +53,7 @@ class CreateTasksGui:
     self.createMainFrame()
     self.createWindowProblemSelect()
     self.currentWindow = "ProblemSelect"# Other possibilities are TableSelect and CASSelect
-    self.checkXMLRessourcesDir()
+    self.checkXMLResourcesDir()
     self.input_operation = None
     self.input_problemClass = None
     self.input_problems = []
@@ -108,12 +93,12 @@ who funded the project (Schwerpunkt 1489)")
     self.mainFrame=Tkinter.Frame(self.mainWindow)
     self.mainFrame.grid();
 
-  def checkXMLRessourcesDir(self):
+  def checkXMLResourcesDir(self):
     global xmlDataPath
     validDir = False
     while not validDir:
       try:
-        self.__xmlres = XMLRessources(xmlDataPath)
+        self.__xmlres = XMLResources(xmlDataPath)
         validDir = True
       except:
         xmlDataPath = tkFileDialog.askdirectory(mustexist=True)
@@ -353,7 +338,7 @@ who funded the project (Schwerpunkt 1489)")
     wants to deal with. Now he selects the Computer Algebra Systems on which the
     calculations should be perfomed. Additionally, he sets his machine settings
     """
-    self.mainWindow.geometry("%dx%d%+d%+d" % (375, 300 + 25*len(self.cpInstance.getPossibleComputerAlgebraSystems()), 40, 40))
+    self.mainWindow.geometry("%dx%d%+d%+d" % (375, 300 + 30*len(self.cpInstance.getPossibleComputerAlgebraSystems()), 40, 40))
     #Top Label
     self.lbl_computerAlgebraSelect = Tkinter.Label(self.mainFrame, text = "Choose the computer algebra systems\n\
 on which your calculations should be performed")
@@ -400,4 +385,20 @@ the local machine to call the following programs:")
     self.btn_CreateExportFolder = Tkinter.Button(self.mainFrame, text = "Create Export Folder", command = self.btnCreateClick)
     self.btn_CreateExportFolder.grid(row = 2*len(self.cpInstance.getPossibleComputerAlgebraSystems())+4, column = 1, sticky = Tkinter.E)
 
-CreateTasksGui()
+if __name__ == "__main__":
+    ################################################################################
+    #First of all, check, if the directory with the XMLResources of Symbolicdata
+    #does exist in the expected path "../XMLResources/". If not, the
+    #user will be asked later for the path.
+    stdxmlDataPathDir = os.path.join("..","..","data","XMLResources")
+    isXMLResourcesDirectory = \
+        os.path.isdir(stdxmlDataPathDir)
+    # To make it more platform independent. What stands here would be in unix terms
+    #../../../OWLData/XMLResources.
+
+    xmlDataPath = None
+    if (isXMLResourcesDirectory):
+        xmlDataPath = os.path.realpath(stdxmlDataPathDir)
+    ####################
+    #Start the GUI
+    CreateTasksGui()

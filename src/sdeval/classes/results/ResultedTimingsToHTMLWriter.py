@@ -1,3 +1,5 @@
+from ResultedTimings import ResultedTimings
+
 class ResultedTimingsToHTMLWriter(object):
     """
     This is a builder class that creates an html representing a given ResultedTimings instance of a task.
@@ -28,11 +30,23 @@ class ResultedTimingsToHTMLWriter(object):
                                    |  or used time               |
           _________________________|_____________________________|________________________
           ...
+
+        If the input is not an instance of ResultedTimings, or is None, then None is returned
+          
+        :param rt: The instance of ResultedTimings, for which we want to generate a HTML-Representation for
+        :type  rt: ResultedTimings
+        :returns : The HTML representation of rt
+        :rtype   : string
         """
+        if not isinstance(rt, ResultedTimings):
+            return None
+        if rt == None:
+            return None
         result = "\
 <html>\n\
 <head>\n\
 \t<title>%s run at %s</title>\n\
+\t<link rel=\"stylesheet\" type=\"text/css\" href=\"proceedings_css.css\">\n\
 </head>\n\
 <body>\n\
 <h1> Task: %s </h1>\n\
@@ -61,7 +75,7 @@ class ResultedTimingsToHTMLWriter(object):
                 elif [p,c] in map(lambda x: x[:2],rt.getCOMPLETED()):
                     result += "\t\t<td bgcolor=green>%s</td>\n" % ";".join(str(k)+":"+str(rt.getResultingFileDict()[str([p,c])][k]) for k in rt.getResultingFileDict()[str([p,c])])
                 elif [p,c] in map(lambda x: x[:2],rt.getERROR()):
-                    result += "\t\t<td bgcolor=red>%</td>\n" % ";".join(str(k)+":"+str(rt.getResultingFileDict()[str([p,c])][k]) for k in rt.getResultingFileDict()[str([p,c])])
+                    result += "\t\t<td bgcolor=red>%s</td>\n" % ";".join(str(k)+":"+str(rt.getResultingFileDict()[str([p,c])][k]) for k in rt.getResultingFileDict()[str([p,c])])
                 else:
                     result += "\t\t<td>WAITING</td>\n"
             result += "\t</tr>\n"
