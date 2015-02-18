@@ -20,7 +20,11 @@ general use of SDEval. You can find it here: https://www.youtube.com/watch?v=Cct
 
 
 REQUIREMENTS
-- python must be installed, at least version 2.6.1
+- Python must be installed, at least version 2.6.1
+- If it does not come with the Python-installation, python-tk is also
+   required
+- For the script "runTasks.py", you need a Unix-like OS (i.e. Linux,
+   Mac OS, ...)
 - there must be a local copy of the Symbolic-Data-tables on the computer
 
 INSTALLATION
