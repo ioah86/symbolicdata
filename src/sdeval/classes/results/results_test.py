@@ -247,41 +247,41 @@ class TestProblemInstances(unittest.TestCase):
 <h1> Task: PrettyTestTask </h1>\n\
 <h2> Run at time: 201405161350 </h2>\n\
 <br><br>\n\
-<table border=1>\n\
+<table id=\"mainTable\">\n\
 \t<tr>\n\
-\t\t<td> Problem Instance/Computer Algebra System</td>\n\
-\t\t<td>cas4</td>\n\
-\t\t<td>cas1</td>\n\
-\t\t<td>cas3</td>\n\
-\t\t<td>cas2</td>\n\
+\t\t<td id=\"piAndCAS\"> Problem Instance/Computer Algebra System</td>\n\
+\t\t<td id=\"casName\">cas4</td>\n\
+\t\t<td id=\"casName\">cas1</td>\n\
+\t\t<td id=\"casName\">cas3</td>\n\
+\t\t<td id=\"casName\">cas2</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI1</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI1</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI2</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI2</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI3</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI3</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI4</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI4</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 </table>\n\
 </body>\n\
@@ -339,41 +339,41 @@ class TestProblemInstances(unittest.TestCase):
 <h1> Task: PrettyTestTask </h1>\n\
 <h2> Run at time: 201405161350 </h2>\n\
 <br><br>\n\
-<table border=1>\n\
+<table id=\"mainTable\">\n\
 \t<tr>\n\
-\t\t<td> Problem Instance/Computer Algebra System</td>\n\
-\t\t<td>cas4</td>\n\
-\t\t<td>cas1</td>\n\
-\t\t<td>cas3</td>\n\
-\t\t<td>cas2</td>\n\
+\t\t<td id=\"piAndCAS\"> Problem Instance/Computer Algebra System</td>\n\
+\t\t<td id=\"casName\">cas4</td>\n\
+\t\t<td id=\"casName\">cas1</td>\n\
+\t\t<td id=\"casName\">cas3</td>\n\
+\t\t<td id=\"casName\">cas2</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI1</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI1</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI2</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI2</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI3</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI3</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 \t<tr>\n\
-\t\t<td>PI4</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
-\t\t<td>WAITING</td>\n\
+\t\t<td id=\"piName\">PI4</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
+\t\t<td id=\"waitingCalc\">WAITING</td>\n\
 \t</tr>\n\
 </table>\n\
 </body>\n\
