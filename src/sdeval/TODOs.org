@@ -71,11 +71,6 @@ Two approaches:
 2) We provide a method to run runTasks.py automatically multiple
    times, and extract the statistical data from the different
    result-folders afterwards.   
-* TODO Make the HTML files containing the results more pretty.
-We have a CSS file -- now we can work on making things a bit more
-pretty. Particularly, we need to think about some design of the
-HTML-files, so that only changes in the CSS are necessary to do major
-design tweaks.
 * TODO Abort tasks and mark the calculations that have been aborted.
 When Ctrl-C'ing runTasks.py, it should be made visible in the
 HTML-file that the task has been aborted and that nothing is running
@@ -93,10 +88,19 @@ terminal. This is, of course, assuming that a user knows how to use
 certain Linux commands and how to find PID's of their processes. In
 the future, we should be able to communicate to runTasks via a script
 where the user has to only click a button to kill certain processes.
+Notes:
+ - pgrep -P ppid, where ppid is a parent process, could give me the
+   pid's of the respective child processes... We can use that to
+   generate a certain interface.
 * TODO updated current running time to resultedTimings
 As for now, the total running time of a process is displayed at the
 end of the calculations. Some intermediate information on how long the
 task has been approximately already running for would be useful.
+* DONE Make the HTML files containing the results more pretty.
+We have a CSS file -- now we can work on making things a bit more
+pretty. Particularly, we need to think about some design of the
+HTML-files, so that only changes in the CSS are necessary to do major
+design tweaks.
 * DONE Add possibility to "resume" computation
 Lets say, somebody unplugs your computer unintendedly (or indendedly
 ;-))
