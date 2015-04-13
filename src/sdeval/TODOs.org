@@ -75,9 +75,6 @@ Two approaches:
 When Ctrl-C'ing runTasks.py, it should be made visible in the
 HTML-file that the task has been aborted and that nothing is running
 of waiting any more.
-* TODO Make create_tasks_gui have a "memory"
-Make create_tasks remember certain paths to computer algebra systems,
-so that the user does not have to enter them again.
 * TODO Sorting the examples in the GUI
 Provide some sorting mechanism for the computation-problems when
 displayed (create_tasks_gui second window; by name, by number of
@@ -96,6 +93,12 @@ Notes:
 As for now, the total running time of a process is displayed at the
 end of the calculations. Some intermediate information on how long the
 task has been approximately already running for would be useful.
+* DONE Make create_tasks_gui have a "memory"
+Make create_tasks remember certain paths to computer algebra systems,
+so that the user does not have to enter them again.
+DONE: Now, there is a file called msHistory, coming standard with
+the SDEval distribution, and it contains some sample commands; these
+are updated once the user decides to enter different ones.
 * DONE Make the HTML files containing the results more pretty.
 We have a CSS file -- now we can work on making things a bit more
 pretty. Particularly, we need to think about some design of the

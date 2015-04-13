@@ -60,9 +60,9 @@ class CreateTasksGui:
     self.input_problems = []
     self.input_compAlgSystems = []
     if os.path.isfile("msHistory.xml"):
-      f=open("myHistory.xml","r")
+      f=open("msHistory.xml","r")
       msBuilder = MachineSettingsFromXMLBuilder()
-      self.ms = ms.build(f.read())
+      self.ms = msBuilder.build(f.read())
       f.close()
     else:
       self.ms = None
@@ -221,7 +221,12 @@ who funded the project (Schwerpunkt 1489)")
       casDict = {}
       for c in ourCASs:
         casDict[c] = self.entry_CASs[c].get().strip()
-      self.ms = MachineSettings(casDict, self.entry_Time.get().strip())
+      if self.ms == None:
+        self.ms = MachineSettings(casDict,
+                                  self.entry_Time.get().strip())
+      else:
+        self.ms.getCASDict().update(casDict)
+        self.ms.setTimeCommand(self.entry_Time.get().strip())
       #Now we create the taskfolder.
       tf = TaskFolderCreator().create(theTask,self.__xmlres,self.ms)
       tf.write(exportFolder,self.__xmlres)
@@ -376,12 +381,18 @@ the local machine to call the following programs:")
         self.lbl_CASs[key] = Tkinter.Label(self.mainFrame, text = key)
         self.lbl_CASs[key].grid(row = len(self.cpInstance.getPossibleComputerAlgebraSystems())+2+i, column = 0, sticky = Tkinter.E)
         self.entry_CASs[key] = Tkinter.Entry(self.mainFrame)
+        if (self.ms != None and key in self.ms.getCASDict()):
+          #in this case, we can insert a default value
+          self.entry_CASs[key].insert("0",self.ms.getCASDict()[key])
         self.entry_CASs[key].config(width = 10)
         self.entry_CASs[key].grid(row = len(self.cpInstance.getPossibleComputerAlgebraSystems())+2+i, column = 1, sticky = Tkinter.W)
     #The Time Command:
     self.lbl_Time = Tkinter.Label(self.mainFrame, text = "Time:")
     self.lbl_Time.grid(row = 2*len(self.cpInstance.getPossibleComputerAlgebraSystems())+2, column = 0, sticky = Tkinter.E)
     self.entry_Time = Tkinter.Entry(self.mainFrame)
+    if (self.ms != None):
+      #in this case, we can insert a default value
+      self.entry_Time.insert(0,self.ms.getTimeCommand())
     self.entry_Time.config(width = 10)
     self.entry_Time.grid(row = 2*len(self.cpInstance.getPossibleComputerAlgebraSystems())+2,column = 1, sticky = Tkinter.W)
     #Filename to be saved
