@@ -33,6 +33,7 @@ import shutil
 
 from classes.XMLResources import XMLResources
 from classes.MachineSettings import MachineSettings
+from classes.MachineSettingsFromXMLBuilder import MachineSettingsFromXMLBuilder
 from classes.TaskFolderCreator import TaskFolderCreator
 from classes.Task import Task
 
@@ -58,6 +59,13 @@ class CreateTasksGui:
     self.input_problemClass = None
     self.input_problems = []
     self.input_compAlgSystems = []
+    if os.path.isfile("msHistory.xml"):
+      f=open("myHistory.xml","r")
+      msBuilder = MachineSettingsFromXMLBuilder()
+      self.ms = ms.build(f.read())
+      f.close()
+    else:
+      self.ms = None
     #self.createTableSelect()
     #self.createCASSelect()
     Tkinter.mainloop()
@@ -213,11 +221,14 @@ who funded the project (Schwerpunkt 1489)")
       casDict = {}
       for c in ourCASs:
         casDict[c] = self.entry_CASs[c].get().strip()
-      ms = MachineSettings(casDict, self.entry_Time.get().strip())
+      self.ms = MachineSettings(casDict, self.entry_Time.get().strip())
       #Now we create the taskfolder.
-      tf = TaskFolderCreator().create(theTask,self.__xmlres,ms)
+      tf = TaskFolderCreator().create(theTask,self.__xmlres,self.ms)
       tf.write(exportFolder,self.__xmlres)
       tkMessageBox.showinfo(title="Successful", message = "The task was successfully created.")
+      msHistory = open("msHistory.xml","w")
+      msHistory.write(self.ms.toXML().toprettyxml(indent="  "))
+      msHistory.close()
       self.mainWindow.destroy()
 
   def btnAddClick(self):
