@@ -1,12 +1,14 @@
+==================================================
 Documentation on SDEval
 ==================================================
 
 :Author:
    Albert Heinle<aheinle@uwaterloo.ca>
 :UPDATED:
-   Thu Feb  5 14:34:42 EST 2015
+   Tue Apr 14 11:04:12 EDT 2015
 
 
+--------------------
 Abstract
 --------------------
 This document serves the purpose to provide a complete documentation
@@ -23,24 +25,88 @@ of the scripts written in SDEval, so that a potential developer has
 the chance to extend the functionality of these tools to his/her
 purposes.
 
+--------------------
 Table of Contents
 --------------------
 .. contents::
 
+--------------------
 User Documentation
 --------------------
 
+Scope of SDEval
+=========================
+
+SDEval aims two address two different types of users. The first type
+of user is a developer of software for problems in the field of computer algebra,
+who wishes to compare his/her implementation with already available
+ones. The second type of user is the researcher, who is interested in
+the solution to a certain problem, and seeks the assistance of
+computer algebra systems. His/her problem may be solved by one particular
+computer algebra system in a feasible
+amount of time, while another one fails to produce an output fast
+enough. Similarly, the outputs of the different systems may
+differ. Hence, s/he may be interested to run as many of the systems as
+possible.
+
+It is a fair assumption that both types of users are not familiar
+with all computer algebra systems out there. Hence, a way to translate
+a problem instance of a certain algorithmic problem into executable code is a
+desirable functionality to have. SDEval provides this functionality,
+and makes it as user-friendly as possible.
+
+But also after the executable code is available, there are more needs,
+especially for the developer. There needs to be a way to assess the
+performance of software in a fair and reproducible way. SDEval
+provides an environment, where the user can run, monitor and quit
+one's calculations. This environment is given by a folder structure
+with included scripts; we envision these folders to be shared as
+tar-balls with publications, so that other users can verify
+the results of the user in an as easy as possible way.
+
+SDEval is designed to be as flexible as possible, while maintaining
+simplicity for the user. We are extending the system on a
+regular basis
+with new supported computation problems and supported computer algebra
+systems for these problems. The running- and monitoring routines are
+even independent from the creation-part. This means that they can be
+used to run and monitor computations which may not even be related to computer
+algebra. In this way, SDEval provides tools which can be used across
+scientific communities.
+
+System Requirements
+=========================
+
+SDEval consists of a selection of scripts, which assist the user
+in **(i) creating benchmarks** and **(ii) running these benchmarks and
+monitoring the computations**. The system requirements for both parts
+are varying, as the authors assume that the user mainly does part (i)
+on his/her desktop computer, and part (ii) is mainly done on computing
+machines, where the user has ssh-access to.
+
+Hence, we distinguish system requirements for part (i) and (ii).
+
+**Ad (i): System Requirements For Creating Benchmarks**
+
+:OS Requirements:
+   Any operating system you can install Python 2.7x on.
+:Necessary Software (Packages):
+   - Python 2.7x.
+   - TKinter for Python (only if you want to use the GUI to create
+     benchmarks, i.e. ``create_tasks_gui.py``); usually included in
+     the Python-distribution.
+
+**Ad (ii): System Requirements For Running and Monitoring Benchmarks**
+
+:OS Requirements:
+   Any Unix-like operating system (Linux and Mac OS X).
+:Necessary Software (Packages):
+   - Python 2.7x.
+   - A tool to measure the consumed time of a process, which provides an output compatible with IEEE Std 1003.2-1992
+     ("POSIX.2"). Usually provided with the Unix-like operating
+     system (command: ``time``).
 ..
    General outline
-   - System requirements.
-   - Scope of SDEval
-     - Mathematicians not familiar with computer algebra systems
-     - People writing papers and running certain computations.
-     - What are currently the biggest problems with computations
-        mentioned in papers?
-     - Reproducibility
-     - Creating benchmarks easily
-     - Running benchmarks easily and providing ways to interpret data.
    - Creating a task
      - Features (i.a. the tasks and computer algebra systems which are
         currently  supported.)

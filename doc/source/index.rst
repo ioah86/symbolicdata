@@ -23,6 +23,7 @@ details see `SymbolicData.org <http://symbolicdata.org>`_.
    sdeval-quick-manual
    definitions
    faq
+   documentation
    authornotes
    website
 
