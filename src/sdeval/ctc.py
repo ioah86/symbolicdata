@@ -20,6 +20,7 @@ from classes.XMLResources import XMLResources
 from classes.Task import Task
 from classes.TaskFolderCreator import TaskFolderCreator
 from classes.MachineSettings import MachineSettings
+from classes.MachineSettingsFromXMLBuilder import MachineSettingsFromXMLBuilder
 import os
 import curses
 import string
@@ -240,11 +241,36 @@ if __name__=="__main__":
     #Now, we have all information to create the task
     theTask = Task(name, cpInstance.getName(), map(lambda x: x.getName(),piSDTables),chosenProblemInstances,CASs)
     casDict = {}
+    if os.path.isfile("msHistory.xml"):
+      msHistoryFile=open("msHistory.xml","r")
+      msBuilder = MachineSettingsFromXMLBuilder()
+      ms = msBuilder.build(msHistoryFile.read())
+      msHistoryFile.close()
+    else:
+      ms = None
     for c in CASs:
-        command = raw_input("Command for executing %s on the target-machine: "%c)
-        casDict[c] = command
-    command = raw_input("The time command name on the target machine: ")
-    ms = MachineSettings(casDict, command)
+      if (ms != None and (c in ms.getCASDict())):
+        command = raw_input("Command for executing %s on the \
+target-machine (default: %s): "%(c,ms.getCASDict()[c])) or  ms.getCASDict()[c]
+      else:
+        command = raw_input("Command for executing %s on the \
+target-machine: "%c)
+      casDict[c] = command
+    if (ms!=None):
+      command = raw_input(
+        "The time command name on the target machine (default: \
+%s):"%ms.getTimeCommand()) or ms.getTimeCommand()
+    else:
+      command = raw_input(
+        "The time command name on the target machine:")
+    if ms == None:    
+      ms = MachineSettings(casDict, command)
+    else:
+      ms.getCASDict().update(casDict)
+      ms.setTimeCommand(command)
+    msHistoryFile = open("msHistory.xml","w")
+    msHistoryFile.write(ms.toXML().toprettyxml(indent="  "))
+    msHistoryFile.close()
     #Now we create the taskfolder.
     tf = TaskFolderCreator().create(theTask,xmlres,ms)
     pathToSaveInp = raw_input("Now choose to which folder the taskfolder shall be exported: ")

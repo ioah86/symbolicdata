@@ -50,6 +50,15 @@ class MachineSettings(object):
         """
         return self.__timeCommand
 
+    def setTimeCommand(self,inp):
+        """
+        Sets the time command for the target machine to a new value.
+
+        :param inp: The command to get timings on the target machine
+        :type  inp: string
+        """
+        self.__timeCommand=inp
+
     def getCASCommand(self, cas):
         """
         Returns the execution command of the computer algebra system given by cas. If cas does not
