@@ -13,6 +13,10 @@
       <value>Singular</value>
     </entry>
     <entry>
+      <key>Z3</key>
+      <value>z3</value>
+    </entry>
+    <entry>
       <key>REDUCE</key>
       <value>reduce</value>
     </entry>

@@ -26,7 +26,8 @@ computer algebra systems.
 #For the readability:
 dictComputationProblem={"FA_Q_dp":"Groebner basis over free algebra",
                         "GB_Z_lp":"Groebner basis commutative",
-                        "GB_Fp_dp":"Groebner basis commutative (finite field)"}
+                        "GB_Fp_dp":"Groebner basis commutative (finite field)",
+                        "SOL_R_poly_sys":"Finding real solutions for polynomial systems of equations"}
 
 import os # This is for the check if the path does exist in the next step
 import shutil
@@ -301,7 +302,7 @@ who funded the project (Schwerpunkt 1489)")
     sdEvalPath = os.path.realpath(os.path.dirname(__file__))
     suppComputationProblems = filter(lambda x: os.path.isdir(os.path.join(sdEvalPath,"classes","templates","comp",x)),
                                      os.listdir(os.path.join(sdEvalPath,"classes","templates","comp")))
-    self.mainWindow.geometry("%dx%d%+d%+d" % (300, 200, 40, 40))
+    self.mainWindow.geometry("%dx%d%+d%+d" % (500, 200, 40, 40))
     #top left corner there is the text labeled by "problem"
     self.lbl_Problem = Tkinter.Label(self.mainFrame, text="Problem:")
     self.lbl_Problem.grid(row=0,columnspan = 2,sticky=Tkinter.W)
