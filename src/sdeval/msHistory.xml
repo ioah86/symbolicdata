@@ -5,24 +5,28 @@
   </othervars>
   <casdictionary>
     <entry>
+      <key>Magma</key>
+      <value>magma</value>
+    </entry>
+    <entry>
       <key>Singular</key>
       <value>Singular</value>
+    </entry>
+    <entry>
+      <key>Z3</key>
+      <value>/Users/a3heinle/Desktop/z3/build/z3</value>
     </entry>
     <entry>
       <key>REDUCE</key>
       <value>reduce</value>
     </entry>
     <entry>
-      <key>GAP</key>
-      <value>gap</value>
-    </entry>
-    <entry>
-      <key>Magma</key>
-      <value>magma</value>
-    </entry>
-    <entry>
       <key>Maple</key>
       <value>maple</value>
+    </entry>
+    <entry>
+      <key>GAP</key>
+      <value>gap</value>
     </entry>
   </casdictionary>
 </machinesettings>

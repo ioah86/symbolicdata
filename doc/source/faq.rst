@@ -81,7 +81,7 @@ A
   needed and what computer algebra systems you know are available out
   there. Furthermore, you need to send us some test code.
 
-  If you are familiar with python, you can even make it test-wise
+  If you are familiar with Python, you can even make it test-wise
   yourself. Afterwards, we would only love to have the code you
   produced in order to may add it to the project.
 
@@ -89,7 +89,7 @@ A
   the inputs for your computation problems can be derived from. If
   that is not given, see next question.
 
-  How you do it: in the folder ``classes/comp/``, add a folder
+  How you do it: in the folder ``classes/templates/comp/``, add a folder
   (with an ``__init__.py``). The name shall represent in some
   way your computation problem. Then, like in the other computation
   problems, make subfolders with possible computer algebra systems,
@@ -110,7 +110,12 @@ A
   method create, you find a case differentiation on different existing
   computation problems. Choose one that is using the same SD-Table as
   your computation problem, and copy the line to the case of your
-  computation problem, that you add. That is it. But of course, it
+  computation problem, that you add.
+  Another place, where you need to ``register`` your new computation
+  problem is in the file ``create_tasks_gui.py``, in the dictionary
+  ``dictComputationProblem``. There, a short description of your
+  computation problem is required to be entered.
+  That is it. But of course, it
   takes a bit to read through it. The fastest way is just to contact
   us.
 

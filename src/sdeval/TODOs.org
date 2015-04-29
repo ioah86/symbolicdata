@@ -93,6 +93,11 @@ Notes:
 As for now, the total running time of a process is displayed at the
 end of the calculations. Some intermediate information on how long the
 task has been approximately already running for would be useful.
+* TODO Make short info about computation problem part of the __init__.py
+Right now, everytime one wants to add a new computation problem, a
+short description will be added inside create_tasks_gui.py. This is
+not optimal, as this should be part of the description of the problem
+itself. Include it somewhere else, like in the __init__.py or so.
 * DONE Make create_tasks_gui have a "memory"
 Make create_tasks remember certain paths to computer algebra systems,
 so that the user does not have to enter them again.

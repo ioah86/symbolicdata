@@ -3,6 +3,7 @@ import copy
 import FA_Q_dp
 import GB_Fp_dp
 import GB_Z_lp
+import SOL_R_poly_sys
 
 class TestComputationProblems(unittest.TestCase):
     """
@@ -10,6 +11,7 @@ class TestComputationProblems(unittest.TestCase):
     - FA_Q_dp
     - GB_Z_lp
     - GB_Fp_dp
+    - SOL_R_poly_sys
 
     .. moduleauthor:: Albert Heinle <albert.heinle@uwaterloo.ca>
     """
@@ -218,6 +220,48 @@ class TestComputationProblems(unittest.TestCase):
         self.assertFalse(set(temp)==set(compProblem.getPossibleComputerAlgebraSystems()),
                             "Adding of computer algebra system to GB_Fp_dp failed.")
         
+
+    def test_SOL_R_poly_sys(self):
+        """
+        This test tests the class SOL_R_poly_sys for its stability.
+
+        The covered tests are:
+        1) IntPS is contained in the associated table list
+        2) The name is SOL_R_poly_sys
+        3) adding of an existing associated table does not change the table
+        4) adding a non existing associated table works fine
+        5) adding a non existing computer algebra system works fine
+        6) adding an existing computer algebra system does not change the table
+        """
+        #1)
+        compProblem=SOL_R_poly_sys.SOL_R_poly_sys()
+        self.assertTrue("IntPS" in compProblem.getAssociatedTables(),
+                        "The standard table, \"IntPS\", was not contained \
+in the class SOL_R_poly_sys")
+        #2)
+        self.assertEqual("SOL_R_poly_sys", compProblem.getName(), "The class SOL_R_poly_sys does not\
+ return a correct name")
+        #3)
+        temp = copy.deepcopy(compProblem.getAssociatedTables())
+        compProblem.addToAssociatedTables(temp[0])
+        self.assertTrue(set(temp)==set(compProblem.getAssociatedTables()),
+                    "Adding of an existing table to the associated tables of SOL_R_poly_sys\
+ caused the list of associated tables to change.")
+        #4)
+        compProblem.addToAssociatedTables("RandomTableNeverWouldExistsBecauseOfSillyName")
+        self.assertFalse(set(temp)==set(compProblem.getAssociatedTables()),
+                            "Adding of associated table to SOL_R_poly_sys failed.")
+        #5)
+        temp = copy.deepcopy(compProblem.getPossibleComputerAlgebraSystems())
+        compProblem.addToComputerAlgebraSystems("RandomCASNeverWouldExistsBecauseOfSillyName")
+        self.assertFalse(set(temp)==set(compProblem.getPossibleComputerAlgebraSystems()),
+                            "Adding of computer algebra system to GB_Fp_dp failed.")
+        #6)
+        temp = copy.deepcopy(compProblem.getPossibleComputerAlgebraSystems())
+        compProblem.addToComputerAlgebraSystems(temp[0])
+        self.assertTrue(set(temp)==set(compProblem.getPossibleComputerAlgebraSystems()),
+                    "Adding of an existing table to the possible computer algebra systems of GB_Fp_dp\
+ caused the list of associated tables to change.")
 
 if __name__=="__main__":
     unittest.main()
