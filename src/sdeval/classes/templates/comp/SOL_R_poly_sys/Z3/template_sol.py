@@ -52,7 +52,7 @@ def extractSolution(outpString):
     result.appendChild(result.createElement("SOL_R_poly_sys_SOL"))
     tempNode = result.firstChild
     #Adding the basis
-    tempNodeSolutions = tempNode.appendChild(result.createElement("satisfyable"))
+    tempNodeSolutions = tempNode.appendChild(result.createElement("satisfiable"))
     if solStr == "sat":
         tempNodeSolutions.appendChild(result.createTextNode("1"))
     else:

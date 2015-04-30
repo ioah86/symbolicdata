@@ -4386,5 +4386,572 @@ $Bye.
         self.assertEqual(tempRes,expectedOutp, "Output strings did not \
 match for Singular output parse.")
 
+    def test_SOL_R_poly_sys_Singular_Sol(self):
+        """
+        Here, we are testing the template to extract the solution from
+        the Singular output on a SOL_R_poly_sys-instance, i.e. finding
+        real solutions to a given polynomial system of equations
+
+        The covered test cases are:
+        1.1.) extractSolution on invalid inputs
+        1.1.a) Wrong datatype
+        1.1.b) String without the "=====Solution Begin=====" and
+               "=====Solution End=====" tags.
+        1.1.c) String with the "=====Solution Begin=====" tag, but not
+               with the "=====Solution End=====" tag
+        1.1.d) String with the "=====Solution End=====" tag, but not
+               with the "=====Solution Begin=====" tag
+        1.2.) extractSolution on valid inputs
+        1.2.a) String with both the "=====Solution Begin=====" and the
+               "=====Solution End=====" tag, but with whitespace in
+               between.
+        1.2.b) String with The solution right after "=====Solution
+               Begin=====" tag, and ending right at "=====Solution
+               End====="
+        1.2.c) Solution given really by Singular.
+        """
+        from comp.SOL_R_poly_sys.Singular.template_sol import extractSolution
+        testPassed = 1
+        solBeginStr = "=====Solution Begin====="
+        solEndStr   = "=====Solution End====="
+        #1.1.a)
+        try:
+            extractSolution(1)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("I was able to try to extract a solution from an \
+int.")
+        #1.1.b)
+        try:
+            extractSolution("abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Invalid solution string did not cause \
+exception")
+        #1.1.c)
+        try:
+            extractSolution(solBeginStr + "\n\n blabliblup")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with begin, but not with \
+end tag.")
+        #1.1.d)
+        try:
+            extractSolution("woahahaha\n" + solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with end, but not with \
+begin tag")
+        #1.2.a)
+        try:
+            tempRes = extractSolution(solBeginStr +" " +solEndStr)
+        except:
+            self.fail("1.2.a: Could parse a string with no solution in \
+between begin and end tag, which is valid if no real solutions \
+exist.")
+        expectedOutp = """<?xml version="1.0" ?>
+<SOL_R_poly_sys_SOL>
+  <solutions/>
+</SOL_R_poly_sys_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.a)")
+        #1.2.b)
+        try:
+            tempRes = extractSolution(solBeginStr + "x1=0" + solEndStr)
+        except:
+            self.fail("Could not accept a solution with no whitespace \
+between the begin and the end tag")
+        expectedOutp = """<?xml version="1.0" ?>
+<SOL_R_poly_sys_SOL>
+  <solutions>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0</value>
+      </equal>
+    </solution>
+  </solutions>
+</SOL_R_poly_sys_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.b)")
+        #1.2.c)
+        singularOutput = """                     SINGULAR                                 /
+ A Computer Algebra System for Polynomial Computations       /   version 4.0.1
+                                                           0<
+ by: W. Decker, G.-M. Greuel, G. Pfister, H. Schoenemann     \   Sep 2014
+FB Mathematik der Universitaet, D-67653 Kaiserslautern        \
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/solve.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/triang.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/elim.lib (4.0.0.1,Jan_2014)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/ring.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/primdec.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/absfact.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/matrix.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/nctools.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/random.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/poly.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/inout.lib (4.0.0.0,Jun_2013)
+// ** loaded /Applications/Singular/4-0-1/bin/../share/singular/LIB/general.lib (4.0.0.1,Jan_2014)
+
+// 'solve' created a ring, in which a list SOL of numbers (the complex solutions)
+// is stored.
+// To access the list of complex solutions, type (if the name R was assigned
+// to the return value):
+        setring R; SOL; 
+=====Solution Begin=====
+x1=0, x2=0, x3=1, x4=0
+x1=0, x2=1, x3=0, x4=0
+x1=0.68043737, x2=-0.33314102, x3=0.68043737, x4=-0.33314102
+x1=-0.33314102, x2=0.68043737, x3=0.68043737, x4=-0.33314102
+x1=0.58740105, x2=-0.32748, x3=0.58740105, x4=0.58740105
+x1=-0.32748, x2=0.58740105, x3=0.58740105, x4=0.58740105
+x1=0.68043737, x2=-0.33314102, x3=-0.33314102, x4=0.68043737
+x1=-0.33314102, x2=0.68043737, x3=-0.33314102, x4=0.68043737
+x1=-2.87938524, x2=-2.87938524, x3=-2.87938524, x4=-2.87938524
+x1=-0.65270364, x2=-0.65270364, x3=-0.65270364, x4=-0.65270364
+x1=0.58740105, x2=0.58740105, x3=0.58740105, x4=-0.32748
+x1=0.53208889, x2=0.53208889, x3=0.53208889, x4=0.53208889
+x1=0.68043737, x2=0.68043737, x3=-0.33314102, x4=-0.33314102
+x1=0.58740105, x2=0.58740105, x3=-0.32748, x4=0.58740105
+x1=-0.33314102, x2=-0.33314102, x3=0.68043737, x4=0.68043737
+x1=1, x2=0, x3=0, x4=0
+x1=0, x2=0, x3=0, x4=1
+=====Solution End=====
+$Bye.
+real 0.10
+user 0.10
+sys 0.00"""
+        try:
+            tempRes = extractSolution(singularOutput)
+        except:
+            self.fail("Could not accept a regular Singular output (1.2.c)")
+        expectedOutp = """<?xml version="1.0" ?>
+<SOL_R_poly_sys_SOL>
+  <solutions>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>1</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>1</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>-0.33314102</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>-0.33314102</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>-0.32748</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.58740105</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>-0.32748</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.58740105</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.68043737</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.68043737</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>-2.87938524</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>-2.87938524</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>-2.87938524</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>-2.87938524</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>-0.65270364</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>-0.65270364</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>-0.65270364</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>-0.65270364</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>-0.32748</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.53208889</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.53208889</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.53208889</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.53208889</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>-0.33314102</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0.58740105</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>-0.32748</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.58740105</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>-0.33314102</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0.68043737</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0.68043737</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>1</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>0</value>
+      </equal>
+    </solution>
+    <solution>
+      <equal>
+        <varName>x1</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x2</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x3</varName>
+        <value>0</value>
+      </equal>
+      <equal>
+        <varName>x4</varName>
+        <value>1</value>
+      </equal>
+    </solution>
+  </solutions>
+</SOL_R_poly_sys_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.c)")
+
+    def test_SOL_R_poly_sys_Z3_Sol(self):
+        """
+        Here, we are testing the template to extract the solution from
+        the Z3 output on a SOL_R_poly_sys-instance, i.e. finding
+        real solutions to a given polynomial system of equations
+
+        The covered test cases are:
+        1.1.) extractSolution on invalid inputs
+        1.1.a) Wrong datatype
+        1.1.b) String without the "=====Solution Begin=====" and
+               "=====Solution End=====" tags.
+        1.1.c) String with the "=====Solution Begin=====" tag, but not
+               with the "=====Solution End=====" tag
+        1.1.d) String with the "=====Solution End=====" tag, but not
+               with the "=====Solution Begin=====" tag
+        1.1.e) String with both the "=====Solution Begin=====" and the
+               "=====Solution End=====" tag, but with whitespace in
+               between.
+        1.2.) extractSolution on valid inputs
+        1.2.a) String with The solution right after "=====Solution
+               Begin=====" tag, and ending right at "=====Solution
+               End====="
+        1.2.b) Solution given really by Z3.
+        """
+        from comp.SOL_R_poly_sys.Z3.template_sol import extractSolution
+        testPassed = 1
+        solBeginStr = "=====Solution Begin====="
+        solEndStr   = "=====Solution End====="
+        #1.1.a)
+        try:
+            extractSolution(1)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("I was able to try to extract a solution from an \
+int.")
+        #1.1.b)
+        try:
+            extractSolution("abc123")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Invalid solution string did not cause \
+exception")
+        #1.1.c)
+        try:
+            extractSolution(solBeginStr + "\n\n blabliblup")
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with begin, but not with \
+end tag.")
+        #1.1.d)
+        try:
+            extractSolution("woahahaha\n" + solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("Could parse a string with end, but not with \
+begin tag")
+        #1.1.e)
+        try:
+            tempRes = extractSolution(solBeginStr +" " +solEndStr)
+            testPassed = 0
+        except:
+            pass
+        if not testPassed:
+            self.fail("1.2.a: Could parse a string with no solution in \
+between begin and end tag, which is valid if no real solutions \
+exist.")
+        #1.2.a)
+        try:
+            tempRes = extractSolution(solBeginStr + "sat" + solEndStr)
+        except:
+            self.fail("Could not accept a solution with no whitespace \
+between the begin and the end tag (1.2a)")
+        expectedOutp = """<?xml version="1.0" ?>
+<SOL_R_poly_sys_SOL>
+  <satisfiable>1</satisfiable>
+</SOL_R_poly_sys_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.a)")
+        #1.2.c)
+        z3Output = """=====Solution Begin=====
+sat
+=====Solution End====="""
+        try:
+            tempRes = extractSolution(z3Output)
+        except:
+            self.fail("Could not accept a regular Singular output (1.2.b)")
+        expectedOutp = """<?xml version="1.0" ?>
+<SOL_R_poly_sys_SOL>
+  <satisfiable>1</satisfiable>
+</SOL_R_poly_sys_SOL>
+"""
+        self.assertEqual(tempRes,expectedOutp, "XML string did not \
+match for 1.2.b)")
+    
 if __name__=="__main__":
     unittest.main()

@@ -391,6 +391,99 @@ quit;"""
         output = generateCode(vars,basis,characteristic)
         self.assertEqual(expectedString,output,
                          "Output string was different from what we expected.")
+
+    def test_SOL_R_poly_sys_Singular(self):
+        """
+        This test checks the template SOL_R_poly_sys for Singular.
+
+        The covered test cases are:
+        1. Create executable string and check for correctness
+        """
+        #1
+        from comp.SOL_R_poly_sys.Singular.template import generateCode
+        vars = ['x1','x2','x3','x4']
+        basis=['x1^3+x2^2+x3^2+x4^2-1',
+               'x2^3+x1^2+x3^2+x4^2-1',
+               'x3^3+x1^2+x2^2+x4^2-1',
+               'x4^3+x1^2+x2^2+x3^2-1']
+        expectedString = """LIB "solve.lib";
+ring R = 0,(x1,x2,x3,x4),lp;
+ideal I = x1^3+x2^2+x3^2+x4^2-1,
+x2^3+x1^2+x3^2+x4^2-1,
+x3^3+x1^2+x2^2+x4^2-1,
+x4^3+x1^2+x2^2+x3^2-1;
+int i; int j;
+int isRealSolution;
+string tempString;
+def AC = solve(I,"nodisplay");
+setring(AC);
+print("=====Solution Begin=====");
+if (defined(SOL))
+{
+  for (i = 1; i<= size(SOL); i++)
+  {
+    isRealSolution = 1;
+    for (j=1; j<= size(SOL[i]);j++)
+    {
+      if (impart(SOL[i][j])!=0)
+      {
+        isRealSolution = 0;
+        break;
+      }
+    }
+    if (isRealSolution)
+    {
+      tempString = "";
+      for (j=1; j<= size(SOL[i]);j++)
+      {
+        tempString =tempString+ string(var(j)) + "=" + string(SOL[i][j]);
+        if (j!= size(SOL[i])){tempString = tempString + ", ";}
+      }
+      print(tempString);
+    }
+  }
+  print("=====Solution End=====");
+}
+else
+{
+  print("An error occurred. Maybe the ideal was not zero-dimensional.");
+}
+$"""
+        output = generateCode(vars,basis)
+        self.assertEqual(expectedString,output,
+                         "Output string was different from what we expected.")
+
+    def test_SOL_R_poly_sys_Z3(self):
+        """
+        This test checks the template SOL_R_poly_sys for Z3.
+
+        The covered test cases are:
+        1. Create executable string and check for correctness
+        """
+        #1
+        from comp.SOL_R_poly_sys.Z3.template import generateCode
+        vars = ['x1','x2','x3','x4']
+        basis=['x1^3+x2^2+x3^2+x4^2-1',
+               'x2^3+x1^2+x3^2+x4^2-1',
+               'x3^3+x1^2+x2^2+x4^2-1',
+               'x4^3+x1^2+x2^2+x3^2-1']
+        expectedString = """(declare-const x1 Real)
+(declare-const x2 Real)
+(declare-const x3 Real)
+(declare-const x4 Real)
+(assert (= (+ (* x1 x1 x1) (* x2 x2) (* x3 x3) (- (* x4 x4) 1 ) ) 0))
+(assert (= (+ (* x2 x2 x2) (* x1 x1) (* x3 x3) (- (* x4 x4) 1 ) ) 0))
+(assert (= (+ (* x3 x3 x3) (* x1 x1) (* x2 x2) (- (* x4 x4) 1 ) ) 0))
+(assert (= (+ (* x4 x4 x4) (* x1 x1) (* x2 x2) (- (* x3 x3) 1 ) ) 0))
+
+(echo "=====Solution Begin=====")
+(check-sat)
+(echo "=====Solution End=====")
+(exit)
+"""
+        output = generateCode(vars,basis)
+        self.assertEqual(expectedString,output,
+                         "Output string was different from what we expected.")
         
 if __name__=="__main__":
     unittest.main()

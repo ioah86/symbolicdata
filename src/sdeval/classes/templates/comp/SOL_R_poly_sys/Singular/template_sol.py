@@ -28,7 +28,7 @@ def extractSolution(outpString):
           <solution>
             <equal>
               <varName>variable name</varName>
-              <value>solution value<value>
+              <value>solution value</value>
             </equal>
             ...
           </solution>
